@@ -1,0 +1,1 @@
+[01-Jan-2017 15:41:40 Asia/Bangkok] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in /home/cp363952/public_html/biotecitalia-thailand.com/manage/clearSession.php on line 2

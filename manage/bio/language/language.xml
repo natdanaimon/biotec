@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+    
+    <!--  Check Sessions -->
+    <detail>
+        <variable>checkSession</variable>
+        <th>TRUE</th>
+        <en>TRUE</en>
+    </detail>
+    <!--  Check Sessions -->
+    
+	
+	
+	
+	
+	
+    <!--  Title -->
+    <detail>
+        <variable>title</variable>
+        <th>Biotec Thailand produces and distributes medical and aesthetic devices, cosmetic and medical lasers and cosmeceuticals.</th>
+        <en>Biotec Thailand produces and distributes medical and aesthetic devices, cosmetic and medical lasers and cosmeceuticals.</en>
+    </detail>
+    <!--  Title -->
+    
+
+    <!--  Other -->
+    <detail>
+        <variable>info</variable>
+        <th>ข้อมูล </th>
+        <en>Info </en>
+    </detail>	
+    <detail>
+        <variable>close</variable>
+        <th>ปิด</th>
+        <en>Close</en>
+    </detail>
+    <!--  Other -->
+	
+	
+	
+	
+	
+	
+	
+    <!--  Menu Biotec -->
+    <detail>
+        <variable>home</variable>
+        <th>หน้าหลัก</th>
+        <en>Home</en>
+    </detail>
+    <detail>
+        <variable>about</variable>
+        <th>เกี่ยวกับเรา</th>
+        <en>ABOUT</en>
+    </detail>
+    <detail>
+        <variable>renlive</variable>
+        <th>Renlive</th>
+        <en>Renlive</en>
+    </detail>
+    <detail>
+        <variable>devices</variable>
+        <th>อุปกรณ์</th>
+        <en>Devices</en>
+    </detail>
+    <detail>
+        <variable>cosmeceuticals</variable>
+        <th>เวชสำอาง</th>
+        <en>Cosmeceuticals</en>
+    </detail>
+    <detail>
+        <variable>news</variable>
+        <th>ข่าว</th>
+        <en>News</en>
+    </detail>
+    <detail>
+        <variable>magazine</variable>
+        <th>นิตยสาร</th>
+        <en>magazine</en>
+    </detail>
+    <detail>
+        <variable>events</variable>
+        <th>เหตุการณ์</th>
+        <en>events</en>
+    </detail>
+    <detail>
+        <variable>products</variable>
+        <th>สินค้า</th>
+        <en>products</en>
+    </detail>
+    <detail>
+        <variable>press</variable>
+        <th>Press</th>
+        <en>Press</en>
+    </detail>
+    <detail>
+        <variable>contacts</variable>
+        <th>ติดต่อเรา</th>
+        <en>Contacts</en>
+    </detail>
+    <detail>
+        <variable>rigenera</variable>
+        <th>Rigenera</th>
+        <en>Rigenera</en>
+    </detail>
+    <detail>
+        <variable>dry_sensitive</variable>
+        <th>Dry Sensitive</th>
+        <en>Dry Sensitive</en>
+    </detail>
+    <detail>
+        <variable>combination_oily</variable>
+        <th>Combination Oily</th>
+        <en>Combination Oily</en>
+    </detail>
+    <detail>
+        <variable>flexi</variable>
+        <th>Flexi</th>
+        <en>Flexi</en>
+    </detail>
+    <detail>
+        <variable>bodyline</variable>
+        <th>Bodyline</th>
+        <en>Bodyline</en>
+    </detail>
+    <detail>
+        <variable>sun_care</variable>
+        <th>Sun Care</th>
+        <en>Sun Care</en>
+    </detail>
+    <detail>
+        <variable>herbs</variable>
+        <th>Herbs Tea and Supplements</th>
+        <en>Herbs Tea and Supplements</en>
+    </detail>
+    <detail>
+        <variable>medical</variable>
+        <th>Medical</th>
+        <en>Medical</en>
+    </detail>
+    <detail>
+        <variable>aesthetic</variable>
+        <th>Aesthetic</th>
+        <en>Aesthetic</en>
+    </detail>
+    <detail>
+        <variable>welcom</variable>
+        <th>ยินดีต้อนรับ</th>
+        <en>Welcom</en>
+    </detail>
+    <detail>
+        <variable>biothailand</variable>
+        <th>Biotech Thailand</th>
+        <en>ไบโอเทค ไทยแลนด์</en>
+    </detail>
+    <detail>
+        <variable>logout</variable>
+        <th>ออกจากระบบ</th>
+        <en>Log out</en>
+    </detail>
+    <detail>
+        <variable>profile</variable>
+        <th>ข้อมูลส่วนตัว</th>
+        <en>Profile</en>
+    </detail>
+    <detail>
+        <variable>help</variable>
+        <th>ช่วยเหลือ</th>
+        <en>Help</en>
+    </detail>
+    <!--  Menu Biotec -->
+    
+    <!--  footer  -->
+    <detail>
+        <variable>foot_tel</variable>
+        <th>เบอรโทรศัพท์</th>
+        <en>Tel</en>
+    </detail>
+    <detail>
+        <variable>foot_email</variable>
+        <th>อีเมล</th>
+        <en>Email</en>
+    </detail>
+    <detail>
+        <variable>foot_fax</variable>
+        <th>แฟ๊กซ์</th>
+        <en>Fax</en>
+    </detail>
+    
+    
+    <detail>
+        <variable>foot_content</variable>
+        <th>© Biotec Thailand 2016 | Biotec Thailand srl Viale della Repubblica 20, Dueville (VI), Thailand </th>
+        <en>© Biotec Thailand 2016 | Biotec Thailand srl Viale della Repubblica 20, Dueville (VI), Thailand </en>
+    </detail>
+    <!--  footer  -->
+	
+	
+    <!--  Page About  -->
+    <detail>
+        <variable>page_about_H1</variable>
+        <th>วิสัยทัศน์</th>
+        <en>Our Values</en>
+    </detail>
+    <detail>
+        <variable>page_about_D1_01</variable>
+        <th>Biotec Italia strives to achieve unsurpassed excellence and reliability in manufacturing and supplying high quality industrial products and services to its customers, clients and partners. To reach this goal and assure “total customer satisfaction”, all Biotec Italia employees are challenged to achieve the highest quality level in their daily tasks. Our company is never satisfied with existing quality standards.</th>
+        <en>Biotec Italia strives to achieve unsurpassed excellence and reliability in manufacturing and supplying high quality industrial products and services to its customers, clients and partners. To reach this goal and assure “total customer satisfaction”, all Biotec Italia employees are challenged to achieve the highest quality level in their daily tasks. Our company is never satisfied with existing quality standards.</en>
+    </detail>
+    <detail>
+        <variable>page_about_D1_02</variable>
+        <th>The concepts of nonstop improvement, accountability and clear measurability are constantly implemented to assure ongoing quality enhancement. In addition, we require all our partners and vendors to fully participate with us in supporting this Quality Mission. All aspects of our business, from initial product development until the final delivery of goods and customer service, will be examined to assure compliance with our Quality Mission and Medical ISO 9001:2008 and ISO 13485:2012 standards.</th>
+        <en>The concepts of nonstop improvement, accountability and clear measurability are constantly implemented to assure ongoing quality enhancement. In addition, we require all our partners and vendors to fully participate with us in supporting this Quality Mission. All aspects of our business, from initial product development until the final delivery of goods and customer service, will be examined to assure compliance with our Quality Mission and Medical ISO 9001:2008 and ISO 13485:2012 standards.</en>
+    </detail>
+    <detail>
+        <variable>page_about_D1_03</variable>
+        <th>Being in a competitive marketplace involves the responsibility to pursue vigorously this Quality Mission and to achieve continuous improvement, in order to deliver unsurpassed value to our customers, profit for our shareholders, a stable and pleasant work environment for our employees.</th>
+        <en>Being in a competitive marketplace involves the responsibility to pursue vigorously this Quality Mission and to achieve continuous improvement, in order to deliver unsurpassed value to our customers, profit for our shareholders, a stable and pleasant work environment for our employees.</en>
+    </detail>
+
+    <detail>
+        <variable>page_about_H2</variable>
+        <th>เกี่ยวกับเรา</th>
+        <en>About Us</en>
+    </detail>
+    <detail>
+        <variable>page_about_D2_01</variable>
+        <th>Biotec Italia is a diversified Aesthetic and Well-being company, focused on improving people’s lives through aesthetic innovations. Headquartered in Italy with a staff of about 50 employees, Biotec Italia operates in more than 50 countries worldwide.</th>
+        <en>Biotec Italia is a diversified Aesthetic and Well-being company, focused on improving people’s lives through aesthetic innovations. Headquartered in Italy with a staff of about 50 employees, Biotec Italia operates in more than 50 countries worldwide.</en>
+    </detail>
+    <detail>
+        <variable>page_about_D2_02</variable>
+        <th>The company has continued to grow every year and is a market leader in clinically-proven aesthetic technology and skin health products. Over the years, the company has developed primarily for the aesthetics, dermatology, plastic surgery and the related beauty and health markets. Through combining strong know-how and clinical expertise, Biotec Italia aims to create advanced aesthetic solutions for common and visible skin conditions in adult skin, including premature ageing, photodamage, hyperpigmentation (irregular or patchy discoloration of the skin), acne, sun damage, rosacea and soft tissue deficits, such as fine lines and wrinkles.</th>
+        <en>The company has continued to grow every year and is a market leader in clinically-proven aesthetic technology and skin health products. Over the years, the company has developed primarily for the aesthetics, dermatology, plastic surgery and the related beauty and health markets. Through combining strong know-how and clinical expertise, Biotec Italia aims to create advanced aesthetic solutions for common and visible skin conditions in adult skin, including premature ageing, photodamage, hyperpigmentation (irregular or patchy discoloration of the skin), acne, sun damage, rosacea and soft tissue deficits, such as fine lines and wrinkles.</en>
+    </detail>
+    <detail>
+        <variable>page_about_D2_03</variable>
+        <th>Our broad portfolio of innovative products includes a variety of aesthetic solutions: laser and light systems, radiofrequency, low and high frequency ultrasounds, skin peeling technology, needle free meso-therapy, bio-stimulating currents and advanced skin care formulations.</th>
+        <en>Our broad portfolio of innovative products includes a variety of aesthetic solutions: laser and light systems, radiofrequency, low and high frequency ultrasounds, skin peeling technology, needle free meso-therapy, bio-stimulating currents and advanced skin care formulations.</en>
+    </detail>
+	
+    <!--  Page About  -->
+    
+    
+    <!-- Page admin press -->
+    <detail>
+        <variable>press_tb_tr_subject_th</variable>
+        <th>หัวข้อภาษาไทย</th>
+        <en>Subject TH</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_subject_en</variable>
+        <th>หัวข้อภาษาอังกฤษ</th>
+        <en>Subject EN</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_date</variable>
+        <th>วันที่</th>
+        <en>Date</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_img</variable>
+        <th>รูปภาพหน้าปก</th>
+        <en>Cover picture</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_file</variable>
+        <th>ไฟล์</th>
+        <en>File</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_status</variable>
+        <th>สถานะ</th>
+        <en>Status</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_edit</variable>
+        <th>แก้ไข</th>
+        <en>Edit</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>
+    <detail>
+        <variable>press_tb_tr_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>
+    <detail>
+        <variable>press_active</variable>
+        <th>ใช้งาน</th>
+        <en>Active</en> 
+    </detail>
+    <detail>
+        <variable>press_inactive</variable>
+        <th>ไม่ใช้งาน</th>
+        <en>Inactive</en> 
+    </detail>
+    <detail>
+        <variable>press_ok</variable>
+        <th>ตกลง</th>
+        <en>Ok</en> 
+    </detail>
+    <detail>
+    <variable>press_cancel</variable>
+        <th>ยกเลิก</th>
+        <en>Cancel</en> 
+    </detail>
+    <detail>
+    <variable>press_pic</variable>
+        <th>รูป</th>
+        <en>Picture</en> 
+    </detail>
+    <detail>
+    <variable>press_file</variable>
+        <th>ไฟล์</th>
+        <en>File</en> 
+    </detail>
+   <detail>
+    <variable>press_file_edit</variable>
+        <th>ไฟล์ปัจจุบัน</th>
+        <en>Current File</en> 
+    </detail>
+    
+    
+    
+    <!-- Page admin press -->
+    
+    
+    <!-- Page press -->
+    <detail>
+   <variable>press_add</variable>
+        <th>เพิ่มข้อมูล</th>
+        <en>Add Data</en> 
+    </detail>
+  
+    <detail>
+        <variable>press_h1_msg</variable>
+        <th>PRESS</th>
+        <en>PRESS</en> 
+    </detail>
+    <detail>
+        <variable>download</variable>
+        <th>ดาวน์โหลด PDF</th>
+        <en>Download PDF</en> 
+    </detail>
+    
+    <!-- Page press -->
+
+
+    <!-- Page contact -->
+    <detail>
+        <variable>cont_name</variable>
+        <th>ชื่อ</th>
+        <en>Name</en> 
+    </detail>
+    <detail>
+        <variable>cont_lastname</variable>
+        <th>นามสกุล</th>
+        <en>Last Name</en> 
+    </detail>
+    <detail>
+        <variable>cont_email</variable>
+        <th>อีเมล</th>
+        <en>E-mail Address</en> 
+    </detail>
+    <detail>
+        <variable>cont_phone</variable>
+        <th>เบอร์โทรศัพท์</th>
+        <en>Phone Number</en> 
+    </detail>
+    <detail>
+        <variable>cont_city</variable>
+        <th>เมือง</th>
+        <en>City</en> 
+    </detail>
+    <detail>
+        <variable>cont_country</variable>
+        <th>ประเทศ</th>
+        <en>Country</en> 
+    </detail>
+    <detail>
+        <variable>cont_subject</variable>
+        <th>หัวข้อ</th>
+        <en>Subject</en> 
+    </detail>
+    <detail>
+        <variable>cont_message</variable>
+        <th>ข้อความ</th>
+        <en>Message</en> 
+    </detail>
+    <detail>
+        <variable>cont_send</variable>
+        <th>ส่งข้อความ</th>
+        <en>Send Message</en> 
+    </detail>
+    <detail>
+        <variable>cont_call</variable>
+        <th>โทร</th>
+        <en>Call</en> 
+    </detail>
+    <detail>
+        <variable>cont_tel</variable>
+        <th>เบอรโทรศัพท์</th>
+        <en>Tel</en>
+    </detail>
+    <detail>
+        <variable>cont_email</variable>
+        <th>อีเมล</th>
+        <en>Email</en>
+    </detail>
+    <detail>
+        <variable>cont_fax</variable>
+        <th>แฟ๊กซ์</th>
+        <en>Fax</en>
+    </detail>
+    
+    <detail>
+        <variable>cont_add_l1</variable>
+        <th>ตึก ไบโอเทคอิตาเลีย ไทยแลนด์</th>
+        <en>Biotec Italia Thailand srl </en>
+    </detail>
+    <detail>
+        <variable>cont_add_l2</variable>
+        <th>ถนน สีลม แขวงสีลม </th>
+        <en>Viale della Repubblica 20 </en>
+    </detail>
+    <detail>
+        <variable>cont_add_l3</variable>
+        <th>กรุงเทพมหานคร</th>
+        <en>bangkok</en>
+    </detail>
+    <detail>
+        <variable>cont_add_l4</variable>
+        <th>ไทย</th>
+        <en>Thailand</en>
+    </detail>
+    <!-- /Page contact -->
+
+    <!-- Page admin contact -->
+    <detail>
+        <variable>tb_col_date</variable>
+        <th>วันที่</th>
+        <en>Date</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_subject</variable>
+        <th>เรื่องที่ติดต่อ</th>
+        <en>Subject</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_name</variable>
+        <th>ชื่อ</th>
+        <en>Name</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_phone</variable>
+        <th>เบอร์โทร</th>
+        <en>Number</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_email</variable>
+        <th>อีเมล์</th>
+        <en>Email</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_status</variable>
+        <th>สถานะ</th>
+        <en>status</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_detail</variable>
+        <th>รายละเอียด</th>
+        <en>Detail</en> 
+    </detail>
+    <detail>
+        <variable>tb_col_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>
+    
+    <detail>
+        <variable>contacts_fullname</variable>
+        <th>ชื่อ-นามสกุล</th>
+        <en>Fullname</en> 
+    </detail>
+    <detail>
+        <variable>contacts_city</variable>
+        <th>เมือง</th>
+        <en>City</en> 
+    </detail>
+    <detail>
+        <variable>contacts_country</variable>
+        <th>ประเทศ</th>
+        <en>Country</en> 
+    </detail>
+    <detail>
+        <variable>contacts_info</variable>
+        <th>ข้อมูลผู้ติดต่อ</th>
+        <en>Contacts Info</en> 
+    </detail>
+    <detail>
+        <variable>contacts_time</variable>
+        <th>วันเวลาที่ทำการติดต่อ</th>
+        <en>Data Time</en> 
+    </detail>
+    <!-- /Page admin contact -->
+	
+	
+    <!-- sendMail -->
+    <detail>
+        <variable>sendmail_dear</variable>
+        <th>เรียนคุณ</th>
+        <en>Dear</en> 
+    </detail>
+    
+    <detail>
+        <variable>sendmail_end</variable>
+        <th>ด้วยความเคารพ.</th>
+        <en>Best regards.</en> 
+    </detail>
+    
+    <detail>
+        <variable>sendmail_recieve_auto_customer</variable>
+        <th>เราได้รับข้อความจากคุณเรียบร้อยแล้ว เราจะตอบคุณโดยเร็วที่สุดเท่าที่เป็นไปได้ ขอบคุณค่ะ</th>
+        <en>Thank you. Your message has been successfully sent. We will reply you as soon as possible.</en> 
+    </detail>
+    
+    <detail>
+        <variable>sendmail_recieve_auto_customer_subject</variable>
+        <th>Biotecitalia-thailand.com: ข้อความตอบกลับอัตโนมัติ ทางเราได้รับข้อความติดต่อจากคุณแล้ว</th>
+        <en>Biotecitalia-thailand.com: Automatic notice of we have received from you.</en> 
+    </detail>
+    
+    <!-- sendMail -->
+	
+	
+    <!-- Response Code -->
+    <detail>
+        <variable>cd_0000</variable>
+        <th>0000,ทำรายการสำเร็จ</th>
+        <en>0000,Transaction Success</en> 
+    </detail>
+    <detail>
+        <variable>cd_2001</variable>
+        <th>2001,ทำรายการไม่สำเร็จ</th>
+        <en>2001,Transaction Not Success</en> 
+    </detail>
+    <detail>
+        <variable>cd_2200</variable>
+        <th>2200,ไม่มีข้อมูลใดๆ</th>
+        <en>2200,No information</en> 
+    </detail>
+    <detail>
+        <variable>cd_2201</variable>
+        <th>2201,ข้อมูลไม่สมบูรณ์</th>
+        <en>2201,Data Incomplete</en> 
+    </detail>
+    <detail>
+        <variable>cd_2203</variable>
+        <th>2202,กรุณาใส่วันที่</th>
+        <en>2202,Please Enter Date Time</en> 
+    </detail>
+    <detail>
+        <variable>cd_2203</variable>
+        <th>2203,ใส่ได้เฉาะไฟล์ PDF เท่านั้น</th>
+        <en>2203,Insert Only PDF</en> 
+    </detail>
+    <detail>
+        <variable>cd_2204</variable>
+        <th>2204,ใส่ได้เฉพาะไฟล์ JPG หรือ PNG เท่านั้น</th>
+        <en>2204,Insert Only JPG or PNG</en> 
+    </detail>
+    <detail>
+        <variable>cd_2205</variable>
+        <th>2205,กรุณากรอก หัวข้อภาษาไทยและภาษาอังกฤษ</th>
+        <en>2205,Please enter Thai Language and English.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2206</variable>
+        <th>2206,กรุณา เลือกวันที่</th>
+        <en>2206,Please Select Date</en> 
+    </detail>
+    <detail>
+        <variable>cd_4001</variable>
+        <th>4001,ชื่อผู้เข้าใช้งานสามารถใส่ได้เฉพาะ [a-zA-z0-9] เท่านั้น</th>
+        <en>4001,Username Identify [a-zA-z0-9] only.</en> 
+    </detail>
+    <detail>
+        <variable>cd_4002</variable>
+        <th>4002,รหัสผ่านสำหรับเข้าใช้งานสามารถใส่ได้เฉพาะ [a-zA-z0-9] เท่านั้น</th>
+        <en>4002,Password Identify [a-zA-z0-9] only.</en> 
+    </detail>
+    <detail>
+        <variable>cd_4003</variable>
+        <th>4003,ชื่อผู้เข้าใช้งาน หรือ รหัสผ่านสำหรับเข้าใช้งานไม่ถูกต้อง</th>
+        <en>4003,Username and Password Invalid.</en> 
+    </detail>
+	
+    <detail>
+        <variable>con_0000</variable>
+        <th>CON0000,ข้อความของคุณถูกส่งไปเรียบร้อย เราจะตอบคุณโดยเร็วที่สุดเท่าที่เป็นไปได้ ขอบคุณค่ะ</th>
+        <en>CON0000,Thank you. Your message has been successfully sent. We will reply you as soon as possible.</en> 
+    </detail>
+    <detail>
+        <variable>con_3001</variable>
+        <th>CON3001,คุณทำรายการไม่สำเร็จ กรุณารองทำใหม่อีกครั้งค่ะ</th>
+        <en>CON3001,Transaction not succeed Please make a new bargain again.</en> 
+    </detail>
+    
+    <detail>
+        <variable>con_3002</variable>
+        <th>CON3002,กรุณาระบุข้อมูล field ด้วยค่ะ</th>
+        <en>CON3002,Please write your field required.</en> 
+    </detail>
+    <detail>
+        <variable>con_3003</variable>
+        <th>CON3003,กรุณาระบุข้อมูลอีเมลให้ถูกต้องค่ะ</th>
+        <en>CON3003,Please write a valid email address.</en> 
+    </detail>
+    <detail>
+        <variable>con_3004</variable>
+        <th>CON3004,กรุณาระบุข้อมูล field ให้ถูกต้อง โดยห้ามใช้อักขระพิเศษด้วยค่ะ</th>
+        <en>CON3004,Please write your field by prohibiting the use of special characters.</en> 
+    </detail>
+    <!-- Response Code -->
+    
+    
+	
+	
+</language>
