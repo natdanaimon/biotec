@@ -32,7 +32,7 @@ include './service/pressService.php';
 
                   height = this.height;
                   width = this.width;
-                  alert(width + 'x' + height);
+                  //alert(width + 'x' + height);
                   //alert(height+" - - "+width);
                  if(height>900){
 
