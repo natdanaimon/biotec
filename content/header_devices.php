@@ -220,6 +220,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
                             <li class="<?= $_SESSION["ACTIVE_PRESS"] ?>">
                                 <a href="press.php"><?= $_SESSION["press"] ?></a>
                             </li>
+                            <li class="<?= $_SESSION["ACTIVE_CUSTOMER"] ?>">
+                                <a href="customers.php"><?= $_SESSION["our_customers"] ?></a>
+                            </li>
                             <li class="<?= $_SESSION["ACTIVE_CONTACTS"] ?>">
                                 <a href="contacts.php"><?= $_SESSION["contacts"] ?></a>
                             </li>

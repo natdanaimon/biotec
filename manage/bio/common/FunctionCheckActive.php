@@ -55,6 +55,7 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "";
         $_SESSION["ACTIVE_PRESS"] = "";
         $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
     } else if ($page == 2) {
         $_SESSION["ACTIVE_HOME"] = "";
         $_SESSION["ACTIVE_ABOUT"] = "uk-active";
@@ -63,6 +64,7 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "";
         $_SESSION["ACTIVE_PRESS"] = "";
         $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
     } else if ($page == 3) {
         $_SESSION["ACTIVE_HOME"] = "";
         $_SESSION["ACTIVE_ABOUT"] = "";
@@ -71,6 +73,7 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "";
         $_SESSION["ACTIVE_PRESS"] = "";
         $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
     } else if ($page == 4) {
         $_SESSION["ACTIVE_HOME"] = "";
         $_SESSION["ACTIVE_ABOUT"] = "";
@@ -79,6 +82,7 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "";
         $_SESSION["ACTIVE_PRESS"] = "";
         $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
     } else if ($page == 5) {
         $_SESSION["ACTIVE_HOME"] = "";
         $_SESSION["ACTIVE_ABOUT"] = "";
@@ -87,6 +91,7 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "uk-active";
         $_SESSION["ACTIVE_PRESS"] = "";
         $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
     } else if ($page == 6) {
         $_SESSION["ACTIVE_HOME"] = "";
         $_SESSION["ACTIVE_ABOUT"] = "";
@@ -95,6 +100,7 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "";
         $_SESSION["ACTIVE_PRESS"] = "uk-active";
         $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
     } else if ($page == 7) {
         $_SESSION["ACTIVE_HOME"] = "";
         $_SESSION["ACTIVE_ABOUT"] = "";
@@ -103,6 +109,16 @@ function ACTIVEPAGE_SHOW($page) {
         $_SESSION["ACTIVE_NEW"] = "";
         $_SESSION["ACTIVE_PRESS"] = "";
         $_SESSION["ACTIVE_CONTACTS"] = "uk-active";
+        $_SESSION["ACTIVE_CUSTOMER"] = "";
+    } else if ($page == 8) {
+        $_SESSION["ACTIVE_HOME"] = "";
+        $_SESSION["ACTIVE_ABOUT"] = "";
+        $_SESSION["ACTIVE_DEVICES"] = "";
+        $_SESSION["ACTIVE_COSM"] = "";
+        $_SESSION["ACTIVE_NEW"] = "";
+        $_SESSION["ACTIVE_PRESS"] = "";
+        $_SESSION["ACTIVE_CONTACTS"] = "";
+        $_SESSION["ACTIVE_CUSTOMER"] = "uk-active";
     }
 }
 

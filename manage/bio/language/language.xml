@@ -98,6 +98,11 @@
         <th>ติดต่อเรา</th>
         <en>Contacts</en>
     </detail>
+     <detail>
+        <variable>our_customers</variable>
+        <th>ลูกค้าของเรา</th>
+        <en>Our Customers</en>
+    </detail>
     <detail>
         <variable>rigenera</variable>
         <th>Rigenera</th>

@@ -66,12 +66,12 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 
                                 <ul class="lang-inline">
                                     <li class="" dir="ltr">
-                                        <a href="./controller/changelanguageController.php?lan=th&url=<?= $actual_link ?>">
+                                        <a href="../../controller/changelanguageController.php?lan=th&url=<?= $actual_link ?>">
                                             TH						
                                         </a>
                                     </li>
                                     <li class="lang-active" dir="ltr">
-                                        <a href="./controller/changelanguageController.php?lan=en&url=<?= $actual_link ?>">
+                                        <a href="../../controller/changelanguageController.php?lan=en&url=<?= $actual_link ?>">
                                             EN						
                                         </a>
                                     </li>
@@ -206,6 +206,9 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_PRESS"] ?>">
                                 <a href="../../press.php"><?= $_SESSION["press"] ?></a>
+                            </li>
+                            <li class="<?= $_SESSION["ACTIVE_CUSTOMER"] ?>">
+                                <a href="../../customers.php"><?= $_SESSION["our_customers"] ?></a>
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_CONTACTS"] ?>">
                                 <a href="../../contacts.php"><?= $_SESSION["contacts"] ?></a>
