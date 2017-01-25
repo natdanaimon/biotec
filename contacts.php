@@ -14,15 +14,16 @@ slidePage("contacts");
         <section class="elemento-absolute-content" data-uk="grid-match {target:'> div > .uk-panel'}"><div class="">
                 <span class="uk-icon-envelope"><?= $_SESSION["cont_email"] ?>: <a href="mailto:info@biotecitalia-thailand.com">info@biotecitalia-thailand.com </a> 
                     <a href="mailto:info@biotecitalia.com"></a></span> <br />
-                <span class="uk-icon-phone"><?= $_SESSION["cont_tel"] ?>: <a href="tel:+390444591683">+66 0999 99999</a></span> <br />
-                <span class="uk-icon-print"><?= $_SESSION["cont_fax"] ?>: +66 0999 99999</span> <br /><br /> 
+                <span class="uk-icon-phone"><?= $_SESSION["cont_tel"] ?>: <a href="tel:+66854825565">+66 085-4825565</a></span> <br />
+<!--                <span class="uk-icon-print"><?= $_SESSION["cont_fax"] ?>: +66 0999 99999</span> <br /><br /> -->
                 <span class="uk-icon-map-marker"><?= $_SESSION["cont_add_l1"] ?></span> 
                 <br /><span class="spazio"><?= $_SESSION["cont_add_l2"] ?> </span>
                 <br /><span class="spazio"><?= $_SESSION["cont_add_l3"] ?> </span>
                 <br /><span class="spazio"><?= $_SESSION["cont_add_l4"] ?></span>
+                <br /><span class="spazio"><?= $_SESSION["cont_add_l5"] ?></span>
 
                 <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
-                <div id="SkypeButton_Call_biotecitalia_1">
+<!--                <div id="SkypeButton_Call_biotecitalia_1">
                     <script type="text/javascript">
                         Skype.ui({
                             "name": "dropdown",
@@ -32,7 +33,9 @@ slidePage("contacts");
                             "imageSize": 32
                         });
                     </script>
-                </div></div></section>
+                </div>-->
+            </div>
+        </section>
     </div>
 
 </div>
@@ -159,9 +162,9 @@ slidePage("contacts");
 
 <script>
     function initMap() {
-        var uluru = {lat: 13.7281969, lng: 100.5350746};
+        var uluru = {lat: 13.7466075, lng: 100.5318353};
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 16,
+            zoom: 19,
             center: uluru
         });
         var marker = new google.maps.Marker({

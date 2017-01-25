@@ -190,8 +190,9 @@
     
     <detail>
         <variable>foot_content</variable>
-        <th>© Biotec Thailand 2016 | Biotec Thailand srl Viale della Repubblica 20, Dueville (VI), Thailand </th>
-        <en>© Biotec Thailand 2016 | Biotec Thailand srl Viale della Repubblica 20, Dueville (VI), Thailand </en>
+        <th>© Biotec Italia (Thailand) 2017 | บริษัท ไบโอเทคอิตาเลีย (ประเทศไทย) จำกัด , ชั้น 12A , อาคารสยามทาวเวอร์, 989 ถนนพระราม 1, ปทุมวัน กรุงเทพมหานคร 10330 ประเทศไทย </th>
+        <en>© Biotec Italia (Thailand) 2017 | Biotec Italia (Thailand) Co.,Ltd. , 12A Floor, Siam Tower, 989 Rama I Road, Pathumwan, Bangkok 10330 Thailand. </en>
+       
     </detail>
     <!--  footer  -->
 	
@@ -304,22 +305,22 @@
         <en>Ok</en> 
     </detail>
     <detail>
-    <variable>press_cancel</variable>
+        <variable>press_cancel</variable>
         <th>ยกเลิก</th>
         <en>Cancel</en> 
     </detail>
     <detail>
-    <variable>press_pic</variable>
+        <variable>press_pic</variable>
         <th>รูป</th>
         <en>Picture</en> 
     </detail>
     <detail>
-    <variable>press_file</variable>
+        <variable>press_file</variable>
         <th>ไฟล์</th>
         <en>File</en> 
     </detail>
-   <detail>
-    <variable>press_file_edit</variable>
+    <detail>
+        <variable>press_file_edit</variable>
         <th>ไฟล์ปัจจุบัน</th>
         <en>Current File</en> 
     </detail>
@@ -331,7 +332,7 @@
     
     <!-- Page press -->
     <detail>
-   <variable>press_add</variable>
+        <variable>press_add</variable>
         <th>เพิ่มข้อมูล</th>
         <en>Add Data</en> 
     </detail>
@@ -419,22 +420,27 @@
     
     <detail>
         <variable>cont_add_l1</variable>
-        <th>ตึก ไบโอเทคอิตาเลีย ไทยแลนด์</th>
-        <en>Biotec Italia Thailand srl </en>
+        <th>บริษัท ไบโอเทคอิตาเลีย (ประเทศไทย) จำกัด</th>
+        <en>Biotec Italia (Thailand) Co.,Ltd.</en>
     </detail>
     <detail>
         <variable>cont_add_l2</variable>
-        <th>ถนน สีลม แขวงสีลม </th>
-        <en>Viale della Repubblica 20 </en>
+        <th>ชั้น 12A , อาคารสยามทาวเวอร์ </th>
+        <en>12A Floor, Siam Tower</en>
     </detail>
     <detail>
         <variable>cont_add_l3</variable>
-        <th>กรุงเทพมหานคร</th>
-        <en>bangkok</en>
+        <th>989 ถนนพระราม 1, ปทุมวัน</th>
+        <en>989 Rama I Road, Pathumwan</en>
     </detail>
     <detail>
         <variable>cont_add_l4</variable>
-        <th>ไทย</th>
+        <th>กรุงเทพมหานคร 10330</th>
+        <en>Bangkok 10330</en>
+    </detail>
+    <detail>
+        <variable>cont_add_l5</variable>
+        <th>ประเทศไทย</th>
         <en>Thailand</en>
     </detail>
     <!-- /Page contact -->

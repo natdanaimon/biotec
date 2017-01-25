@@ -47,7 +47,8 @@
                              alt="tuv-rheinland-biotecthailand" style="float: right;" />
                         <?= $_SESSION["foot_content"] ?> <br />
                          <?= $_SESSION["foot_email"] ?> : <a href="mailto:info@biotecthailand.com">info@biotecitalia.com</a> | 
-                         <?= $_SESSION["foot_tel"] ?> :<a href="tel:+390444591683">+66 0999 999999</a> | Fax: +66 0999 999999
+                         <?= $_SESSION["foot_tel"] ?> :<a href="tel:+66854825565">+66 085-4825565</a> 
+<!--                         | Fax: +66 0999 999999-->
 
                     </div>
 
