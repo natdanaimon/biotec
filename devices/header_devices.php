@@ -61,7 +61,7 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 
 
                     <div class="uk-float-right"><div class="uk-panel toolbar-sopra-tel">
-                            Tel: <a href="tel:+390444591683">+66 0999 999999</a></div>
+                            Tel: <a href="tel:+66854825565">+66 085-4825565</a></div>
                         <div class="uk-panel toolbar-sopra-lingue"><div class="mod-languagestoolbar-sopra-lingue">
 
                                 <ul class="lang-inline">
