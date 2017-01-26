@@ -447,7 +447,7 @@ ACTIVEPAGES(5);
                                 $('#imagePreview').removeAttr('style');
                             } else  if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
                                     ||  (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                    ||  (res[0] == "2206")) {
+                                    ||  (res[0] == "2206") || (res[0] == "2207")) {
                                 var errCode = res[1] + " (" + res[0] + ")  ";
                                 $('#err-code').text(errCode);
                                 $('#err-dialog').modal('show');

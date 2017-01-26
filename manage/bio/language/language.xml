@@ -595,6 +595,11 @@
         <en>2206,Please Select Date</en> 
     </detail>
     <detail>
+        <variable>cd_2207</variable>
+        <th>2207,กรุณา อัพโหลดรูปภาพ และ ไฟล์ PDF</th>
+        <en>2207,Upload images and PDF files</en> 
+    </detail>
+    <detail>
         <variable>cd_4001</variable>
         <th>4001,ชื่อผู้เข้าใช้งานสามารถใส่ได้เฉพาะ [a-zA-z0-9] เท่านั้น</th>
         <en>4001,Username Identify [a-zA-z0-9] only.</en> 
