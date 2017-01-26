@@ -11,7 +11,7 @@ include './service/cosmeService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 
-ACTIVEPAGES(2);
+ACTIVEPAGES(3);
 if($_GET[id] == NULL){
 	header('Location: cosme.php');
 }
@@ -289,6 +289,7 @@ if($_GET[id] == NULL){
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#success-code').text(errCode);
                             $('#success-dialog').modal('show');
+                            window.location.reload();
                         } else {
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#err-code').text(errCode);

@@ -221,7 +221,7 @@ if($_GET[id] == NULL){
                             col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
                             col_edit += '</a>';
                             debugger;
-                            col_delete = '<a href="javascript:pressDelete(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
+                            col_delete = '<a href="javascript:Delete(' + item.id + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
@@ -268,14 +268,14 @@ if($_GET[id] == NULL){
 
 
 
-            function pressDelete(seq, img, pdf) {
+            function Delete(seq, img, pdf) {
                 var act = confirm("Delete ?");
                 if (act != true) {
                     return false;
                 }
                 $.ajax({
                     type: 'GET',
-                    url: 'controller/pressController.php?func=delete&seq=' + seq + '&file=' + img + '&pdf=' + pdf,
+                    url: 'controller/devicesController.php?func=delete&seq=' + seq + '&file=' + img + '&pdf=' + pdf,
                     //data: Jsdata,
                     beforeSend: function ()
                     {
@@ -289,6 +289,7 @@ if($_GET[id] == NULL){
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#success-code').text(errCode);
                             $('#success-dialog').modal('show');
+                            window.location.reload();
                         } else {
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#err-code').text(errCode);
