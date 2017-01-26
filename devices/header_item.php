@@ -23,7 +23,10 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <meta name="generator" content="MYOB" />
         <title><?= $_SESSION['title'] ?></title>
         <link href="http://www.biotecitalia.com/templates/yoo_square/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <!--
         <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+        -->
+        
         <link rel="stylesheet" href="http://www.biotecitalia.com/media/mod_languages/css/template.css" type="text/css" />
         <script src="http://www.biotecitalia.com/media/jui/js/jquery.min.js" type="text/javascript"></script>
         <script src="http://www.biotecitalia.com/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
@@ -47,7 +50,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
 
         <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
         <style data-file="bootstrap.css"></style>
-        <style data-file="theme.css"></style>
+        <!--<style data-file="theme.css"></style>-->
+<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/template.css">
+<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
