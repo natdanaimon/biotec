@@ -190,12 +190,12 @@ if($_GET[id] == NULL){
 
                             col_subject_th = item.s_devices_th;
                             col_subject_en = item.s_devices_en;
-                            col_logo = '<a href="devices_item.php?id='+item.s_devices_type+'" class="btn btn-primary">'+item.s_devices_logo+'</a>';
+                             
 
 
-                            col_img_preview += '<a href="javascript:previewImage(\'./controller/file/press/' + item.s_img + '\');">';
-                            col_img_preview += '<img  src="images/icon_img.png"  width="30px" height="30px" />';
-                            col_img_preview += '</a>';
+                            col_logo += '<a href="javascript:previewImage(\'./uploads/devices_item/' + item.s_devices_icon + '\');">';
+                            col_logo += '<img  src="uploads/devices_item/'+item.s_devices_icon+'"  width="60px"   />';
+                            col_logo += '</a>';
 
                             col_file += '<a href="controller/pressController.php?func=preview&filename=' + item.s_pathfile + '" target="_bank">';
                             col_file += '<img  src="images/doc.png"  width="30px" height="30px" />';
@@ -217,7 +217,7 @@ if($_GET[id] == NULL){
 
 
 
-                            col_edit = '<a href="./devices_item_form.php?type=1&seq_i=' + item.id + '" >';
+                            col_edit = '<a href="./devices_item_form.php?type='+item.s_devices_type+'&seq_i=' + item.id + '" >';
                             col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
                             col_edit += '</a>';
                             debugger;
@@ -354,6 +354,15 @@ $.ajax({
         </script>
 
 </i>
+
+<!--  Fix Custom Alert Image-->
+        <div id="image-dialog" class="w3-modal" onclick="this.style.display = 'none'">
+            <span class="w3-closebtn w3-hover-red w3-container w3-padding-16 w3-display-topright">&times;</span>
+            <div class="w3-modal-content w3-animate-zoom" align="center">
+                <img id="src-image"  >
+            </div>
+        </div>
+        <!--  Fix Custom Alert Image-->
   <!-- Modal -->
   <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">

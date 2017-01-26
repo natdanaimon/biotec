@@ -6,12 +6,12 @@
 
 include './common/FunctionCheckActive.php';
 include './common/Permission.php';
-include './controller/devicesController.php';
-include './service/devicesService.php';
+include './controller/cosmeController.php';
+include './service/cosmeService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 
-ACTIVEPAGES(2);
+ACTIVEPAGES(3);
 
 ?>
 
@@ -64,7 +64,7 @@ ACTIVEPAGES(2);
  
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2><?= $_SESSION["devices"] ?> </h2>
+                                            <h2><?= $_SESSION["cosmeceuticals"] ?> </h2>
                                             <ul class="nav navbar-right panel_toolbox" style="display: none">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>
@@ -75,23 +75,23 @@ ACTIVEPAGES(2);
                                         </div>
                                         <div class="x_content">
 <!--                                        
-                                            <button type="button"  class="btn btn-primary open_form" data_id="0" data_title="Add new devices" data-toggle="modal" data-target="#modal_form"><i class="fa fa-push"></i> <?= $_SESSION["press_add"] ?></button>
+                                            <button type="button"  class="btn btn-primary open_form" data_id="0" data_title="Add new cosme" data-toggle="modal" data-target="#modal_form"><i class="fa fa-push"></i> <?= $_SESSION["press_add"] ?></button>
                                          -->   
-<!--<a href="devices_form.php" class="btn btn-primary"><?= $_SESSION["press_add"] ?></a> 
--->
-                                           
+<!--
+<a href="cosme_form.php" class="btn btn-primary"><?= $_SESSION["press_add"] ?></a>  
+-->                                          
                                             
                                             <table id="datatable-checkbox" class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
+                                                        <th>Image</th>
                                                         <th><?= $_SESSION["press_tb_tr_subject_th"] ?></th>
                                                         <th><?= $_SESSION["press_tb_tr_subject_en"] ?></th>
 
                                                         <th style="width: 40px;">Item</th>
                                                         <th style="width: 40px;"><?= $_SESSION["press_tb_tr_edit"] ?></th>
-                                                       <!--
-                                                        <th style="width: 40px;" style="display: none"><?= $_SESSION["press_tb_tr_delete"] ?></th>
-                                                        -->
+                                                        
+                                                        <!--<th style="width: 40px;"><?= $_SESSION["press_tb_tr_delete"] ?></th>-->
                                                     </tr>
 
                                                 </thead>
@@ -170,7 +170,7 @@ ACTIVEPAGES(2);
                 debugger;
                 $.ajax({
                     type: 'GET',
-                    url: 'controller/devicesController.php?func=dataTable',
+                    url: 'controller/cosmeController.php?func=dataTable',
                     //data: Jsdata,
                     beforeSend: function ()
                     {
@@ -190,10 +190,17 @@ ACTIVEPAGES(2);
                             var col_status = "";
                             var col_edit = "";
                             var col_delete = "";
+                            var col_img = "";
 
-                            col_subject_th = item.s_detail_th;
-                            col_subject_en = item.s_detail_en;
-                            col_item = '<a href="devices_item.php?id='+item.s_device_type+'" class="btn btn-primary"><i class="fa fa-plus-circle"></i> </a>';
+                            col_subject_th = item.cosme_th;
+                            col_subject_en = item.cosme_en;
+                            
+ 
+                            col_img += '<a href="javascript:previewImage(\'./uploads/cosme_type/' + item.main_img + '\');">';
+                            col_img += '<img  src="uploads/cosme_type/'+item.main_img+'"  width="60px"   />';
+                            col_img += '</a>';
+                            
+                            col_item = '<a href="cosme_item.php?id='+item.id+'" class="btn btn-primary"><i class="fa fa-plus-circle"></i> </a>';
 
 
  
@@ -205,15 +212,16 @@ ACTIVEPAGES(2);
 
 
 
-                            col_edit = '<a href="./devices_form.php?func=edit&seq_i=' + item.s_device_type + '" >';
+                            col_edit = '<a href="./cosme_form.php?func=edit&id=' + item.id + '" >';
                             col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
                             col_edit += '</a>';
                             debugger;
-                            col_delete = '<a href="javascript:pressDelete(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
+                            col_delete = '<a href="javascript:Delete(' + item.id + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
                             var addRow = [
+                                col_img,
                                 col_subject_th,
                                 col_subject_en,
                                 col_item,
@@ -255,14 +263,14 @@ ACTIVEPAGES(2);
 
 
 
-            function pressDelete(seq, img, pdf) {
+            function Delete(seq, img, pdf) {
                 var act = confirm("Delete ?");
                 if (act != true) {
                     return false;
                 }
                 $.ajax({
                     type: 'GET',
-                    url: 'controller/pressController.php?func=delete&seq=' + seq + '&file=' + img + '&pdf=' + pdf,
+                    url: 'controller/cosmeController.php?func=delete&id=' + seq + '&file=' + img + '&pdf=' + pdf,
                     //data: Jsdata,
                     beforeSend: function ()
                     {
@@ -304,6 +312,14 @@ ACTIVEPAGES(2);
         </script>
 
 </i>
+<!--  Fix Custom Alert Image-->
+        <div id="image-dialog" class="w3-modal" onclick="this.style.display = 'none'">
+            <span class="w3-closebtn w3-hover-red w3-container w3-padding-16 w3-display-topright">&times;</span>
+            <div  align="center">
+                <img id="src-image" width="300" >
+            </div>
+        </div>
+        <!--  Fix Custom Alert Image-->
   <!-- Modal -->
   <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">
@@ -332,7 +348,7 @@ ACTIVEPAGES(2);
 		var id = $(this).attr('data_id');
 		var data_title = $(this).attr('data_title');
 		$('#modal_title').html(data_title);
-		var url = "module/devices/form.php?id="+id;
+		var url = "module/cosme/form.php?id="+id;
 		$('#modal_body').load(url);
 	});
 	
