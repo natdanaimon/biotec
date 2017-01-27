@@ -158,6 +158,7 @@ ACTIVEPAGES(6);
                 $('#err-dialog').modal('hide');
                 $('#success-dialog').modal('hide');
                 $('#image-dialog').modal('hide');
+                $('#confirm-dialog').modal('hide');
             }
 
 
@@ -217,7 +218,7 @@ ACTIVEPAGES(6);
                             col_view += '<img src="images/search.png" width="30px" height="30px" />';
                             col_view += '</a>';
 
-                            col_delete = '<a href="javascript:contactsDelete(' + item.i_seq + ');">';
+                            col_delete = '<a href="javascript:contactsConfirm(' + item.i_seq + ');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
@@ -295,7 +296,7 @@ ACTIVEPAGES(6);
                             col_view += '<img src="images/search.png" width="30px" height="30px" />';
                             col_view += '</a>';
 
-                            col_delete = '<a href="javascript:contactsDelete(' + item.i_seq + ');">';
+                            col_delete = '<a href="javascript:contactsConfirm(' + item.i_seq + ');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
@@ -335,13 +336,15 @@ ACTIVEPAGES(6);
             }
 
 
+            function contactsConfirm(seq) {
+                $('#tmp_seq').val(seq);
+                $('#confirm-dialog').modal('show');
+            }
 
 
-            function contactsDelete(seq) {
-                var act = confirm("Delete ?");
-                if (act != true) {
-                    return false;
-                }
+            function contactsDelete() {
+                $('#confirm-dialog').modal('hide');
+                var seq = $('#tmp_seq').val();
                 $.ajax({
                     type: 'GET',
                     url: 'controller/contactsController.php?func=delete&seq=' + seq,
@@ -502,6 +505,28 @@ ACTIVEPAGES(6);
                 text-align: left;
                 align-content: center;
             }
+            .boxConfirmDelete {
+                /*                width: 40%;*/
+                margin: 5% auto;
+                overflow:hidden;
+                background: rgba(75, 209, 248, 0.8);
+                padding: 15px;
+                border-radius: 1px/60px;
+                text-align: left;
+                align-content: center;
+
+            }
+            /*            .btnClose{
+                            background-color: red;
+                            color: white;
+                        }*/
+            .btnConfirm{
+                background-color: #ff8000;
+                border-color: #ff8000;
+                color: white;
+
+            }
+
             .f-white{
                 color: rgb(255, 0, 0);
                 color: white;
@@ -519,6 +544,14 @@ ACTIVEPAGES(6);
             <span class="close" onclick="closeAlert();">x</span>
             <p id="err-code" class="f-white"></p>   
 
+        </div>
+        <div class="modal fade boxConfirmDelete" id="confirm-dialog"  Style="width: 330px;height: 135px">
+            <span class="close" onclick="closeAlert();">x</span>
+            <input type="hidden" name="tmp_seq" id="tmp_seq"/>
+            <p id="confirm-code" class="f-white"><?= $_SESSION["confirmDelete"] ?></p>  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btnConfirm" onclick="contactsDelete()"><?= $_SESSION["btn_confirm"] ?></button>
+            </div>
         </div>
         <!--  Fix Custom Alert POPUP-->
         <!--  Fix Custom Alert Image-->

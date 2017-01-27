@@ -160,6 +160,7 @@ ACTIVEPAGES(5);
                 $('#err-dialog').modal('hide');
                 $('#success-dialog').modal('hide');
                 $('#image-dialog').modal('hide');
+                $('#confirm-dialog').modal('hide');
             }
 
 
@@ -224,7 +225,7 @@ ACTIVEPAGES(5);
                             col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
                             col_edit += '</a>';
                             debugger;
-                            col_delete = '<a href="javascript:pressDelete(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
+                            col_delete = '<a href="javascript:pressConfirm(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
@@ -258,9 +259,9 @@ ACTIVEPAGES(5);
                         }
                         $('#se-pre-con').delay(100).fadeOut();
                     },
-                    error: function(data){
-                     //debug mode ========================================================================================================================
-                     var language = '<?= $_SESSION["lan"] ?>';
+                    error: function (data) {
+                        //debug mode ========================================================================================================================
+                        var language = '<?= $_SESSION["lan"] ?>';
                         var res = JSON.parse(data.responseText);
                         var JsonData = [];
                         $.each(res, function (i, item) {
@@ -306,7 +307,7 @@ ACTIVEPAGES(5);
                             col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
                             col_edit += '</a>';
                             debugger;
-                            col_delete = '<a href="javascript:pressDelete(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
+                            col_delete = '<a href="javascript:pressConfirm(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
@@ -339,8 +340,8 @@ ACTIVEPAGES(5);
                             datatable.draw();
                         }
                         $('#se-pre-con').delay(100).fadeOut();
-                     
-                      //debug mode ========================================================================================================================
+
+                        //debug mode ========================================================================================================================
                     }
 
                 });
@@ -348,15 +349,21 @@ ACTIVEPAGES(5);
 
 
 
+            function pressConfirm(seq, img, pdf) {
+                $('#tmp_seq').val(seq);
+                $('#tmp_img').val(img);
+                $('#tmp_pdf').val(pdf);
+                $('#confirm-dialog').modal('show');
+            }
 
 
 
 
-            function pressDelete(seq, img, pdf) {
-                var act = confirm("Delete ?");
-                if (act != true) {
-                    return false;
-                }
+            function pressDelete() {
+                $('#confirm-dialog').modal('hide');
+                var seq = $('#tmp_seq').val();
+                var img = $('#tmp_img').val();
+                var pdf = $('#tmp_pdf').val();
                 $.ajax({
                     type: 'GET',
                     url: 'controller/pressController.php?func=delete&seq=' + seq + '&file=' + img + '&pdf=' + pdf,
@@ -381,7 +388,7 @@ ACTIVEPAGES(5);
                         $('#se-pre-con').delay(100).fadeOut();
                         initialDataTable("FALSE");
                     },
-                    error:function(data) {
+                    error: function (data) {
                         //debug mode ========================================================================================================================
                         var res = data.responseText.split(",");
                         if (res[0] == "0000") {
@@ -396,7 +403,7 @@ ACTIVEPAGES(5);
                         $('#se-pre-con').delay(100).fadeOut();
                         initialDataTable("FALSE");
                         //debug mode ========================================================================================================================
-                        
+
                     }
 
                 });
@@ -406,33 +413,25 @@ ACTIVEPAGES(5);
             }
 
             function previewImage(source) {
-               // alert(source);
-               var img = new Image();
-               var height;
-               var width;
+                // alert(source);
+                var img = new Image();
+                var height;
+                var width;
                 img.src = source;
-                img.onload = function() {
-                  //alert(this.width + 'x' + this.height);
+                img.onload = function () {
+                    //alert(this.width + 'x' + this.height);
 
-                  height = this.height;
-                  width = this.width;
-                 document.getElementById('image-dialog').style.display = 'block';
-                $("#src-image").attr("src", source);
-                 if(height>900){
-                    $("#src-image").css("width",(width/=1.8)+ "px");
-                    $("#src-image").css("height",(height/=1.8) + "px");
+                    height = this.height;
+                    width = this.width;
+                    document.getElementById('image-dialog').style.display = 'block';
+                    $("#src-image").attr("src", source);
+                    if (height > 900) {
+                        $("#src-image").css("width", (width /= 1.8) + "px");
+                        $("#src-image").css("height", (height /= 1.8) + "px");
                     }
                 }
-                //document.getElementById('image-dialog').style.display = 'block';
-                //$("#src-image").attr("src", source);
-                 //var height = $("#src-image").offsetParent().height();
-                 //var width = $("#src-image").offsetParent().width();
-                //alert($("#src-image").width()+" -*- "+(width/=1.5));
-                //  $(".w3-modal-content w3-animate-zoom").css("width",(width/=1.5)+ "px");
-                //  $(".w3-modal-content w3-animate-zoom").css("height",(height/=1.5) + "px");
-                 //$("#src-image").css("width",(width/=2)+ "px");
-                 //$("#src-image").css("height",(height/=2) + "px");
-                
+
+
             }
 
 
@@ -475,6 +474,27 @@ ACTIVEPAGES(5);
                 text-align: left;
                 align-content: center;
             }
+            .boxConfirmDelete {
+                /*                width: 40%;*/
+                margin: 5% auto;
+                overflow:hidden;
+                background: rgba(75, 209, 248, 0.8);
+                padding: 15px;
+                border-radius: 1px/60px;
+                text-align: left;
+                align-content: center;
+
+            }
+            /*            .btnClose{
+                            background-color: red;
+                            color: white;
+                        }*/
+            .btnConfirm{
+                background-color: #ff8000;
+                border-color: #ff8000;
+                color: white;
+
+            }
             .f-white{
                 color: rgb(255, 0, 0);
                 color: white;
@@ -492,6 +512,16 @@ ACTIVEPAGES(5);
             <span class="close" onclick="closeAlert();">x</span>
             <p id="err-code" class="f-white"></p>   
 
+        </div>
+        <div class="modal fade boxConfirmDelete" id="confirm-dialog"  Style="width: 330px;height: 135px">
+            <span class="close" onclick="closeAlert();">x</span>
+            <input type="hidden" name="tmp_seq" id="tmp_seq"/>
+            <input type="hidden" name="tmp_img" id="tmp_img"/>
+            <input type="hidden" name="tmp_pdf" id="tmp_pdf"/>
+            <p id="confirm-code" class="f-white"><?= $_SESSION["confirmDelete"] ?></p>  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btnConfirm" onclick="pressDelete()"><?= $_SESSION["btn_confirm"] ?></button>
+            </div>
         </div>
         <!--  Fix Custom Alert POPUP-->
         <!--  Fix Custom Alert Image-->

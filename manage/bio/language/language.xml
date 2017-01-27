@@ -9,7 +9,7 @@
     </detail>
     <!--  Check Sessions -->
     
-     <!--  Renlive -->
+    <!--  Renlive -->
     <detail>
         <variable>Renlive</variable>
         <th>Renlive</th>
@@ -38,9 +38,19 @@
         <en>Info </en>
     </detail>	
     <detail>
+        <variable>btn_confirm</variable>
+        <th>ยืนยัน</th>
+        <en>Confirm</en>
+    </detail>
+    <detail>
         <variable>close</variable>
         <th>ปิด</th>
         <en>Close</en>
+    </detail>
+    <detail>
+        <variable>confirmDelete</variable>
+        <th>คุณต้องการลบข้อมูลใช่หรือไม่ ?</th>
+        <en>Do you want to delete Information ?</en>
     </detail>
     <!--  Other -->
 	
@@ -106,7 +116,7 @@
         <th>ติดต่อเรา</th>
         <en>Contacts</en>
     </detail>
-     <detail>
+    <detail>
         <variable>our_customers</variable>
         <th>ลูกค้าของเรา</th>
         <en>Our Customers</en>
