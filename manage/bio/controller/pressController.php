@@ -114,7 +114,7 @@ class pressController {
         $flg = $doc->AddFile();
         $cout = 0;
         $cout_data = array();
-
+        if($this->check_input()==1){
         if ($flg) {
             foreach ($doc->get_FilenameResult() as $value) {
                 $cout_data[$cout] = $value;
@@ -122,31 +122,31 @@ class pressController {
                 //echo $value;
                 // เก็บใส่ตัวแปล
             }
-           if (( $_POST["subject_th"] == NULL)|| ($_POST["subject_en"]== NULL)) {
-                 $doc->clearFileAddFail();
-                echo $_SESSION['cd_2205'];
-            } else if ($_POST["date"] == NULL) {
-                 $doc->clearFileAddFail();
-                echo $_SESSION['cd_2206'];
-            }else if ($arraytype[1] != "pdf") {
+             if ($arraytype[1] != "pdf") {
                  $doc->clearFileAddFail();
                 echo $_SESSION['cd_2203'];
             } else if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
                  $doc->clearFileAddFail();
                 echo $_SESSION['cd_2204'];
-            } else if ($_POST["date"] == NULL) {
-                 $doc->clearFileAddFail();
-                echo $_SESSION['cd_2202'];
-            } else  if ($service->add_press($_POST["subject_th"], $_POST["subject_en"], $_POST["date"], $cout_data[0], $cout_data[1], $_POST["date"], $_POST["status"])) {
+            } else if ($service->add_press($_POST["subject_th"], $_POST["subject_en"], $_POST["date"], $cout_data[0], $cout_data[1], $_POST["date"], $_POST["status"])) {
                 echo $_SESSION['cd_0000'];
-            } else {
-                $doc->clearFileAddFail();
-                echo $_SESSION['cd_2001'];
-            }
+            } 
         } else {
             $doc->clearFileAddFail();
             echo $_SESSION['cd_2001'];
         }
+        }
+    }
+    public function check_input(){
+           if (( $_POST["subject_th"] == NULL)|| ($_POST["subject_en"]== NULL)) {
+                echo $_SESSION['cd_2205'];
+            } else if ($_POST["date"] == NULL) {
+                echo $_SESSION['cd_2206'];
+            }else if ($_POST["date"] == NULL) {
+                echo $_SESSION['cd_2202'];
+            }else if (($_FILES["uploadPic"]["error"] == 4) || ($_FILES["uploadFile"]["error"] == 4)){
+                echo $_SESSION['cd_2207'];
+            } else{return 1;}    
     }
 
     public function update_press() {
