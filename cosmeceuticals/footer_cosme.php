@@ -42,8 +42,8 @@
             <a class="tm-totop-scroller" data-uk-smooth-scroll href="#"></a>
 
             <div class="uk-panel">
-                <img src="../../images/logo/biotec_th.png" width="64" height="70" alt="biotecLOGO" style="float: left;" />
-                <img src="../../images/grafica/tuv-rheinland.png" width="227" height="64" 
+                <img src="../../../images/logo/biotec_th.png" width="64" height="70" alt="biotecLOGO" style="float: left;" />
+                <img src="../../../images/grafica/tuv-rheinland.png" width="227" height="64" 
                      alt="tuv-rheinland-biotecthailand" style="float: right;" />
                 <?= $_SESSION["foot_content"] ?> <br />
                 <?= $_SESSION["foot_email"] ?> : <a href="mailto:info@biotecthailand.com">info@biotecitalia.com</a> | 

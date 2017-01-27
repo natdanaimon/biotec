@@ -83,7 +83,7 @@ $_GET['id'] = 1;
 
 		
 <div class="contorno-titolo"><h1 class="uk-text-left">
-<?= $_SESSION["Renlive"] ?>Renlive</h1></div>
+<?= $_SESSION["Renlive"] ?></h1></div>
 			
 
 
