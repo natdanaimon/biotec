@@ -92,180 +92,192 @@ class pressController {
     }
 
     public function add_press() {
+        if ($this->isValid("ADD") == 1) {
+            include '../service/pressService.php';
+            include '../common/upload.php';
+            require_once('../common/ConnectDB.php');
+            $service = new pressService();
+            $doc = new upload();
+            $doc->set_path("./file/press/");
+            $doc->add_FileName($_FILES["uploadPic"]);
+            $doc->add_FileName($_FILES["uploadFile"]);
+//----------------------------------//
+            $check_type_file = $_FILES["uploadFile"]['name'];
+            $check_type_pic = $_FILES["uploadPic"]['name'];
+            $arraypic = explode(".", $check_type_pic); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
+            $lastname = strtolower($arraypic);
+            $filetype_pic = $arraypic[1];
+            $arraytype = explode(".", $check_type_file); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
+            $lastname2 = strtolower($arraytype);
+            $filetype_type = $arraytype[1];
+//----------------------------------//
+            $flg = $doc->AddFile();
+            $cout = 0;
+            $cout_data = array();
 
-        include '../service/pressService.php';
-        include '../common/upload.php';
-        require_once('../common/ConnectDB.php');
-        $service = new pressService();
-        $doc = new upload(); 
-        $doc->set_path("./file/press/");
-        $doc->add_FileName($_FILES["uploadPic"]);
-        $doc->add_FileName($_FILES["uploadFile"]);
-        //----------------------------------//
-        $check_type_file = $_FILES["uploadFile"]['name'];
-        $check_type_pic = $_FILES["uploadPic"]['name'];
-        $arraypic = explode(".", $check_type_pic); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
-        $lastname = strtolower($arraypic);
-        $filetype_pic = $arraypic[1];
-        $arraytype = explode(".", $check_type_file); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
-        $lastname2 = strtolower($arraytype);
-        $filetype_type = $arraytype[1];
-        //----------------------------------//
-        $flg = $doc->AddFile();
-        $cout = 0;
-        $cout_data = array();
-        if($this->check_input()==1){
-        if ($flg) {
-            foreach ($doc->get_FilenameResult() as $value) {
-                $cout_data[$cout] = $value;
-                $cout++;
-                //echo $value;
-                // เก็บใส่ตัวแปล
+            if ($flg) {
+                foreach ($doc->get_FilenameResult() as $value) {
+                    $cout_data[$cout] = $value;
+                    $cout++;
+//echo $value;
+// เก็บใส่ตัวแปล
+                }
+                if ($arraytype[1] != "pdf") {
+                    $doc->clearFileAddFail();
+                    echo $_SESSION['cd_2203'];
+                } else if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
+                    $doc->clearFileAddFail();
+                    echo $_SESSION['cd_2204'];
+                } else if ($service->add_press($_POST["subject_th"], $_POST["subject_en"], $_POST["date"], $cout_data[0], $cout_data[1], $_POST["date"], $_POST["status"])) {
+                    echo $_SESSION['cd_0000'];
+                }
+            } else {
+                $doc->clearFileAddFail();
+                echo $_SESSION['cd_2001'];
             }
-             if ($arraytype[1] != "pdf") {
-                 $doc->clearFileAddFail();
-                echo $_SESSION['cd_2203'];
-            } else if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
-                 $doc->clearFileAddFail();
-                echo $_SESSION['cd_2204'];
-            } else if ($service->add_press($_POST["subject_th"], $_POST["subject_en"], $_POST["date"], $cout_data[0], $cout_data[1], $_POST["date"], $_POST["status"])) {
-                echo $_SESSION['cd_0000'];
-            } 
-        } else {
-            $doc->clearFileAddFail();
-            echo $_SESSION['cd_2001'];
-        }
         }
     }
-    public function check_input(){
-           if (( $_POST["subject_th"] == NULL)|| ($_POST["subject_en"]== NULL)) {
-                echo $_SESSION['cd_2205'];
-            } else if ($_POST["date"] == NULL) {
-                echo $_SESSION['cd_2206'];
-            }else if ($_POST["date"] == NULL) {
-                echo $_SESSION['cd_2202'];
-            }else if (($_FILES["uploadPic"]["error"] == 4) || ($_FILES["uploadFile"]["error"] == 4)){
-                echo $_SESSION['cd_2207'];
-            } else{return 1;}    
+
+    public function isValid($condition) {
+        $intReturn = 0;
+        if ($this->isEmpty($_POST["subject_th"])) {
+            echo $_SESSION['cd_2205'];
+        } else if ($this->isEmpty($_POST["subject_en"])) {
+            echo $_SESSION['cd_2206'];
+        } else if ($this->isEmpty($_POST["date"])) {
+            echo $_SESSION['cd_2208'];
+        } else if ($_FILES["uploadPic"]["error"] == 4 && $condition == "ADD") {
+            echo $_SESSION['cd_2207'];
+        } else if ($_FILES["uploadFile"]["error"] == 4 && $condition == "ADD") {
+            echo $_SESSION['cd_2209'];
+        } else {
+            $intReturn = 1;
+        }
+        return $intReturn;
+    }
+
+    private function isEmpty($tmp) {
+        if ($tmp == NULL || trim($tmp) == '') {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
 
     public function update_press() {
-
-        include '../service/pressService.php';
-        include '../common/upload.php';
-        $doc = new upload();
-        $service = new pressService();
-        $doc->set_path("./file/press/");
-        
-        //----------------------------------//
-        $check_type_file = $_FILES["uploadFile"]['name'];
-        $check_type_pic = $_FILES["uploadPic"]['name'];
-        $arraypic = explode(".", $check_type_pic); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
-        $lastname = strtolower($arraypic);
-        $filetype_pic = $arraypic[1];
-        $arraytype = explode(".", $check_type_file); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
-        $lastname2 = strtolower($arraytype);
-        $filetype_type = $arraytype[1];
-        //----------------------------------//
-        if ($_FILES["uploadPic"]["error"] != 0 && $_FILES["uploadFile"]["error"] != 0) {
-
-            if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $_POST["curent_pic"], $_POST["curent_file"])) {
-                echo $_SESSION['cd_0000'];
-            } else if ($arraytype[1] != "pdf") {
-                echo $_SESSION['cd_2203'];
-            } else if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
-                echo $_SESSION['cd_2204'];
-            } else {
-                echo $_SESSION['cd_2001'];
-            }
-        } else if ($_FILES["uploadPic"]["error"] == 0 && $_FILES["uploadFile"]["error"] != 0) {
-            $doc->add_FileName($_FILES["uploadPic"]);
+        if ($this->isValid("EDIT") == 1) {
+            include '../service/pressService.php';
+            include '../common/upload.php';
+            $doc = new upload();
+            $service = new pressService();
             $doc->set_path("./file/press/");
-            $flg = $doc->AddFile();
 
-            $cout = 0;
-            $cout_data = array();
-            if ($flg) {
-                foreach ($doc->get_FilenameResult() as $value) {
-                    $cout_data[$cout] = $value;
-                    $cout++;
-                }
-                if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
-                    echo $_SESSION['cd_2204'];
-                } else if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $cout_data[0], $_POST["curent_file"])) {
-                    $doc->Initial_and_Clear();
-                    $doc->set_path("./file/press/");
-                    $doc->add_FileName($_POST["curent_pic"]);
-                    if ($doc->deleteFile()) {
-                        echo $_SESSION['cd_0000'];
-                    }
+//----------------------------------//
+            $check_type_file = $_FILES["uploadFile"]['name'];
+            $check_type_pic = $_FILES["uploadPic"]['name'];
+            $arraypic = explode(".", $check_type_pic); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
+            $lastname = strtolower($arraypic);
+            $filetype_pic = $arraypic[1];
+            $arraytype = explode(".", $check_type_file); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
+            $lastname2 = strtolower($arraytype);
+            $filetype_type = $arraytype[1];
+//----------------------------------//
+            if ($_FILES["uploadPic"]["error"] != 0 && $_FILES["uploadFile"]["error"] != 0) {
+
+                if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $_POST["curent_pic"], $_POST["curent_file"])) {
+                    echo $_SESSION['cd_0000'];
                 } else {
                     echo $_SESSION['cd_2001'];
                 }
-            } else {
-                $doc->clearFileAddFail();
-                echo $_SESSION['cd_2001'];
-            }
-        } else if ($_FILES["uploadFile"]["error"] == 0 && $_FILES["uploadPic"]["error"] != 0) {
-            $doc->add_FileName($_FILES["uploadFile"]);
-            $doc->set_path("./file/press/");
-            $flg = $doc->AddFile();
-            $cout = 0;
-            $cout_data = array();
-            if ($flg) {
-                foreach ($doc->get_FilenameResult() as $value) {
-                    $cout_data[$cout] = $value;
-                    $cout++;
-                }
-                if ($filetype_type != "pdf") {
-                    echo $_SESSION['cd_2203'];
-                } else if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $_POST["curent_pic"], $cout_data[0])) {
-                    $doc->Initial_and_Clear();
-                    $doc->set_path("./file/press/");
-                    $doc->add_FileName($_POST["curent_file"]);
-                    if ($doc->deleteFile()) {
-                        echo $_SESSION['cd_0000'];
-                    }
-                } else {
-                    echo $_SESSION['cd_2001'];
-                }
-            } else {
-                $doc->clearFileAddFail();
-                echo $_SESSION['cd_2001'];
-            }
-        } else if ($_FILES["uploadPic"]["error"] == 0 && $_FILES["uploadFile"]["error"] == 0) {
+            } else if ($_FILES["uploadPic"]["error"] == 0 && $_FILES["uploadFile"]["error"] != 0) {
+                $doc->add_FileName($_FILES["uploadPic"]);
+                $doc->set_path("./file/press/");
+                $flg = $doc->AddFile();
 
-            $doc->add_FileName($_FILES["uploadPic"]);
-            $doc->add_FileName($_FILES["uploadFile"]);
-            $flg = $doc->AddFile();
-            $cout = 0;
-            $cout_data = array();
-            if ($flg) {
-                foreach ($doc->get_FilenameResult() as $value) {
-                    $cout_data[$cout] = $value;
-                    $cout++;
-                }
-                if ($arraytype[1] != "pdf") {
-                    echo $_SESSION['cd_2203'];
-                } else if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
-                    echo $_SESSION['cd_2204'];
-                } else if ($_POST["date"] == NULL) {
-                    echo $_SESSION['cd_2202'];
-                } else if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $cout_data[0], $cout_data[1])) {
-                    $doc->Initial_and_Clear();
-                    $doc->set_path("./file/press/");
-                    $doc->add_FileName($_POST["curent_pic"]);
-                    $doc->add_FileName($_POST["curent_file"]);
-                    if ($doc->deleteFile()) {
-                        echo $_SESSION['cd_0000'];
+                $cout = 0;
+                $cout_data = array();
+                if ($flg) {
+                    foreach ($doc->get_FilenameResult() as $value) {
+                        $cout_data[$cout] = $value;
+                        $cout++;
+                    }
+                    if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
+                        echo $_SESSION['cd_2204'];
+                    } else if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $cout_data[0], $_POST["curent_file"])) {
+                        $doc->Initial_and_Clear();
+                        $doc->set_path("./file/press/");
+                        $doc->add_FileName($_POST["curent_pic"]);
+                        if ($doc->deleteFile()) {
+                            echo $_SESSION['cd_0000'];
+                        }
+                    } else {
+                        echo $_SESSION['cd_2001'];
                     }
                 } else {
                     $doc->clearFileAddFail();
                     echo $_SESSION['cd_2001'];
                 }
-            } else {
-                $doc->clearFileAddFail();
-                echo $_SESSION['cd_2001'];
+            } else if ($_FILES["uploadFile"]["error"] == 0 && $_FILES["uploadPic"]["error"] != 0) {
+                $doc->add_FileName($_FILES["uploadFile"]);
+                $doc->set_path("./file/press/");
+                $flg = $doc->AddFile();
+                $cout = 0;
+                $cout_data = array();
+                if ($flg) {
+                    foreach ($doc->get_FilenameResult() as $value) {
+                        $cout_data[$cout] = $value;
+                        $cout++;
+                    }
+                    if ($filetype_type != "pdf") {
+                        echo $_SESSION['cd_2203'];
+                    } else if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $_POST["curent_pic"], $cout_data[0])) {
+                        $doc->Initial_and_Clear();
+                        $doc->set_path("./file/press/");
+                        $doc->add_FileName($_POST["curent_file"]);
+                        if ($doc->deleteFile()) {
+                            echo $_SESSION['cd_0000'];
+                        }
+                    } else {
+                        echo $_SESSION['cd_2001'];
+                    }
+                } else {
+                    $doc->clearFileAddFail();
+                    echo $_SESSION['cd_2001'];
+                }
+            } else if ($_FILES["uploadPic"]["error"] == 0 && $_FILES["uploadFile"]["error"] == 0) {
+
+                $doc->add_FileName($_FILES["uploadPic"]);
+                $doc->add_FileName($_FILES["uploadFile"]);
+                $flg = $doc->AddFile();
+                $cout = 0;
+                $cout_data = array();
+                if ($flg) {
+                    foreach ($doc->get_FilenameResult() as $value) {
+                        $cout_data[$cout] = $value;
+                        $cout++;
+                    }
+                    if ($arraytype[1] != "pdf") {
+                        echo $_SESSION['cd_2203'];
+                    } else if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
+                        echo $_SESSION['cd_2204'];
+                    } else if ($_POST["date"] == NULL) {
+                        echo $_SESSION['cd_2202'];
+                    } else if ($service->update_press($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["status"], $_POST["date"], $cout_data[0], $cout_data[1])) {
+                        $doc->Initial_and_Clear();
+                        $doc->set_path("./file/press/");
+                        $doc->add_FileName($_POST["curent_pic"]);
+                        $doc->add_FileName($_POST["curent_file"]);
+                        if ($doc->deleteFile()) {
+                            echo $_SESSION['cd_0000'];
+                        }
+                    } else {
+                        $doc->clearFileAddFail();
+                        echo $_SESSION['cd_2001'];
+                    }
+                } else {
+                    $doc->clearFileAddFail();
+                    echo $_SESSION['cd_2001'];
+                }
             }
         }
     }

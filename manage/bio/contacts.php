@@ -94,8 +94,8 @@ ACTIVEPAGES(6);
                                                 <tbody id="tbody_contacts">
                                                 </tbody>
                                             </table>
-                                            
-                                            
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -188,14 +188,14 @@ ACTIVEPAGES(6);
                             var col_view = "";
                             var col_delete = "";
                             if (item.s_status == 'W') {
-                                col_status = '<span id="reload_'+item.i_seq+'"><a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\''+item.i_seq+'\');"   >';
+                                col_status = '<span id="reload_' + item.i_seq + '"><a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\'' + item.i_seq + '\');"   >';
                                 col_status += '<img  src="images/mail_W.png"  width="30px" height="30px"/> ';
                                 col_status += '<span class="label label-info">';
                                 col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
                                 col_status += '</span>';
                                 col_status += '</a></span>';
                             } else {
-                                col_status = '<span id="reload_'+item.i_seq+'"><a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\');" >';
+                                col_status = '<span id="reload_' + item.i_seq + '"><a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\');" >';
                                 col_status += '<img  src="images/mail_R.png"  width="30px" height="30px"/> ';
                                 col_status += '<span class="label label-warning">';
                                 col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
@@ -213,7 +213,7 @@ ACTIVEPAGES(6);
 
                             col_email = item.s_email;
 
-                            col_view = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\''+item.i_seq+'\');" >';
+                            col_view = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\'' + item.i_seq + '\');" >';
                             col_view += '<img src="images/search.png" width="30px" height="30px" />';
                             col_view += '</a>';
 
@@ -251,7 +251,84 @@ ACTIVEPAGES(6);
                         }
                         $('#se-pre-con').delay(100).fadeOut();
                     },
-                    error: {
+                    error: function (data) {
+                        //debug mode ========================================================================================================================
+                        var language = '<?= $_SESSION["lan"] ?>';
+                        var res = JSON.parse(data.responseText);
+                        var JsonData = [];
+                        $.each(res, function (i, item) {
+                            var col_status = "";
+                            var col_date = "";
+                            var col_subject = "";
+                            var col_name = "";
+                            var col_tel = "";
+                            var col_email = "";
+                            var col_view = "";
+                            var col_delete = "";
+                            if (item.s_status == 'W') {
+                                col_status = '<span id="reload_' + item.i_seq + '"><a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\'' + item.i_seq + '\');"   >';
+                                col_status += '<img  src="images/mail_W.png"  width="30px" height="30px"/> ';
+                                col_status += '<span class="label label-info">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+                                col_status += '</a></span>';
+                            } else {
+                                col_status = '<span id="reload_' + item.i_seq + '"><a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\');" >';
+                                col_status += '<img  src="images/mail_R.png"  width="30px" height="30px"/> ';
+                                col_status += '<span class="label label-warning">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+                                col_status += '</a></span>';
+                            }
+
+                            col_date = item.d_date;
+
+                            col_subject = item.s_subject;
+
+                            col_name = item.s_name + " " + item.s_lastname;
+
+                            col_tel = item.s_number;
+
+                            col_email = item.s_email;
+
+                            col_view = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\'' + item.i_seq + '\');" >';
+                            col_view += '<img src="images/search.png" width="30px" height="30px" />';
+                            col_view += '</a>';
+
+                            col_delete = '<a href="javascript:contactsDelete(' + item.i_seq + ');">';
+                            col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
+                            col_delete += '</a>';
+
+                            var addRow = [
+                                col_status,
+                                col_date,
+                                col_subject,
+                                col_name,
+                                col_tel,
+                                col_email,
+                                col_view,
+                                col_delete
+                            ]
+
+                            JsonData.push(addRow);
+                        });
+                        if (first == "TRUE") {
+                            $datatable.dataTable({
+                                data: JsonData,
+                                order: [[1, 'desc']],
+                                columnDefs: [
+                                    {orderable: false, targets: [0]}
+                                ]
+                            });
+                        } else {
+                            var datatable = $datatable.dataTable().api();
+                            $('.dataTables_empty').remove();
+                            datatable.clear();
+                            datatable.rows.add(JsonData);
+                            datatable.draw();
+                        }
+                        $('#se-pre-con').delay(100).fadeOut();
+                        //debug mode ========================================================================================================================
                     }
 
                 });
@@ -286,7 +363,21 @@ ACTIVEPAGES(6);
                         $('#se-pre-con').delay(100).fadeOut();
                         initialDataTable("FALSE");
                     },
-                    error: {
+                    error: function (data) {
+                        //debug mode ========================================================================================================================
+                        var res = data.responseText.split(",");
+                        if (res[0] == "0000") {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#success-code').text(errCode);
+                            $('#success-dialog').modal('show');
+                        } else {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#err-code').text(errCode);
+                            $('#err-dialog').modal('show');
+                        }
+                        $('#se-pre-con').delay(100).fadeOut();
+                        initialDataTable("FALSE");
+                        //debug mode ========================================================================================================================
                     }
                 });
             }
@@ -298,10 +389,10 @@ ACTIVEPAGES(6);
 
 
 
-        	function update_icon_text(seq){
-				$.ajax({
+            function update_icon_text(seq) {
+                $.ajax({
                     type: 'GET',
-                    url: 'controller/contactsController.php?func=dataTableGet&i_seq='+seq,
+                    url: 'controller/contactsController.php?func=dataTableGet&i_seq=' + seq,
                     //data: Jsdata,
                     beforeSend: function ()
                     {
@@ -310,11 +401,11 @@ ACTIVEPAGES(6);
                     success: function (data) {
                         var language = '<?= $_SESSION["lan"] ?>';
                         var res = JSON.parse(data);
-       
+
                         $.each(res, function (i, item) {
                             var col_status = "";
                             if (item.s_status == 'W') {
-                                col_status = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\''+item.i_seq+'\');"   >';
+                                col_status = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\'' + item.i_seq + '\');"   >';
                                 col_status += '<img  src="images/mail_W.png"  width="30px" height="30px"/> ';
                                 col_status += '<span class="label label-info">';
                                 col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
@@ -329,20 +420,53 @@ ACTIVEPAGES(6);
                                 col_status += '</a>';
                             }
                             //alert(col_status);
-                            $('#reload_'+seq).html(col_status);
+                            $('#reload_' + seq).html(col_status);
 
-                             
 
-                             
+
+
                         });
-    
+
                     },
-                    error: {
+                    error: function (data) {
+
+                        //debug mode ========================================================================================================================
+                        var language = '<?= $_SESSION["lan"] ?>';
+                        var res = JSON.parse(data.responseText);
+
+                        $.each(res, function (i, item) {
+                            var col_status = "";
+                            if (item.s_status == 'W') {
+                                col_status = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\',\'' + item.i_seq + '\');"   >';
+                                col_status += '<img  src="images/mail_W.png"  width="30px" height="30px"/> ';
+                                col_status += '<span class="label label-info">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+                                col_status += '</a>';
+                            } else {
+                                col_status = '<a href="javascript:contactsViewEmail(\'func=view&i_seq=' + item.i_seq + '\');" >';
+                                col_status += '<img  src="images/mail_R.png"  width="30px" height="30px"/> ';
+                                col_status += '<span class="label label-warning">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+                                col_status += '</a>';
+                            }
+                            //alert(col_status);
+                            $('#reload_' + seq).html(col_status);
+                            //debug mode ========================================================================================================================
+
+
+
+                        });
+
+
+
+
                     }
 
                 });
-			}
-        
+            }
+
         </script>
 
         <!--  Fix Custom Alert POPUP-->
@@ -452,15 +576,15 @@ ACTIVEPAGES(6);
                     <input id="i_seq" name="i_seq" type="hidden" />
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                         <br>
-                        <h4><?=$_SESSION["tb_col_detail"]?> : </h4>
-                        
+                        <h4><?= $_SESSION["tb_col_detail"] ?> : </h4>
+
                         <h5 id="message" name="message"></h5>
                     </div>
 
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
 
                         <br>
-                        <h4><?=$_SESSION["contacts_info"]?></h4>
+                        <h4><?= $_SESSION["contacts_info"] ?></h4>
                         <hr>
                         <h6 id="fullname" name="fullname"/>
                         <br/>
@@ -475,12 +599,12 @@ ACTIVEPAGES(6);
                         <h6 id="dateTime" name="dateTime"/>
                         <hr/>
                     </div>
-                   
+
 
                     <div class="modal-footer">
-                        
-                        <button type="button" class="btn btn-danger" data-dismiss="modal"><?=$_SESSION["close"]?></button>
-<!--                        <button type="button" class="btn btn-primary">Save changes</button>-->
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $_SESSION["close"] ?></button>
+                        <!--                        <button type="button" class="btn btn-primary">Save changes</button>-->
                     </div>
 
                 </div>

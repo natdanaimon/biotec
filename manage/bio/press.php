@@ -258,7 +258,89 @@ ACTIVEPAGES(5);
                         }
                         $('#se-pre-con').delay(100).fadeOut();
                     },
-                    error: {
+                    error: function(data){
+                     //debug mode ========================================================================================================================
+                     var language = '<?= $_SESSION["lan"] ?>';
+                        var res = JSON.parse(data.responseText);
+                        var JsonData = [];
+                        $.each(res, function (i, item) {
+                            var col_subject_th = "";
+                            var col_subject_en = "";
+                            var col_date = "";
+                            var col_img_preview = "";
+                            var col_file = "";
+                            var col_status = "";
+                            var col_edit = "";
+                            var col_delete = "";
+
+                            col_subject_th = item.s_subject_th;
+                            col_subject_en = item.s_subject_en;
+                            col_date = item.d_date;
+
+
+                            col_img_preview += '<a href="javascript:previewImage(\'./controller/file/press/' + item.s_img + '\');">';
+                            col_img_preview += '<img  src="images/icon_img.png"  width="30px" height="30px" />';
+                            col_img_preview += '</a>';
+
+                            col_file += '<a href="controller/pressController.php?func=preview&filename=' + item.s_pathfile + '" target="_bank">';
+                            col_file += '<img  src="images/doc.png"  width="30px" height="30px" />';
+                            col_file += '</a>';
+
+
+                            if (item.s_status == 'A') {
+                                col_status += '<span class="label label-success">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+
+                            } else {
+
+                                col_status += '<span class="label label-warning">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+
+                            }
+
+
+
+                            col_edit = '<a href="./press_manage.php?func=edit&seq_i=' + item.i_seq + '" >';
+                            col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
+                            col_edit += '</a>';
+                            debugger;
+                            col_delete = '<a href="javascript:pressDelete(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
+                            col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
+                            col_delete += '</a>';
+
+                            var addRow = [
+                                col_subject_th,
+                                col_subject_en,
+                                col_date,
+                                col_img_preview,
+                                col_file,
+                                col_status,
+                                col_edit,
+                                col_delete
+                            ]
+
+                            JsonData.push(addRow);
+                        });
+                        if (first == "TRUE") {
+                            $datatable.dataTable({
+                                data: JsonData,
+                                order: [[2, 'desc']],
+                                columnDefs: [
+                                    {orderable: false, targets: [0]}
+                                ]
+                            });
+                        } else {
+                            var datatable = $datatable.dataTable().api();
+                            $('.dataTables_empty').remove();
+                            datatable.clear();
+                            datatable.rows.add(JsonData);
+                            datatable.draw();
+                        }
+                        $('#se-pre-con').delay(100).fadeOut();
+                     
+                      //debug mode ========================================================================================================================
                     }
 
                 });
@@ -299,7 +381,22 @@ ACTIVEPAGES(5);
                         $('#se-pre-con').delay(100).fadeOut();
                         initialDataTable("FALSE");
                     },
-                    error: {
+                    error:function(data) {
+                        //debug mode ========================================================================================================================
+                        var res = data.responseText.split(",");
+                        if (res[0] == "0000") {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#success-code').text(errCode);
+                            $('#success-dialog').modal('show');
+                        } else {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#err-code').text(errCode);
+                            $('#err-dialog').modal('show');
+                        }
+                        $('#se-pre-con').delay(100).fadeOut();
+                        initialDataTable("FALSE");
+                        //debug mode ========================================================================================================================
+                        
                     }
 
                 });

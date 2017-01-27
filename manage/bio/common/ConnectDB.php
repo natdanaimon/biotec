@@ -3,6 +3,9 @@
 class ConnectDB {
 
     protected $_host = "localhost";
+//    protected $_user = "root";
+//    protected $_pass = "";
+//    protected $_dbname = "biotech";
     protected $_user = "cp363952_root";
     protected $_pass = "2hxaf9EU}W&O";
     protected $_dbname = "cp363952_biotec";
@@ -87,17 +90,17 @@ class ConnectDB {
     function insert_for_upadte($sql) {
         $retval = 1;
         $this->begin();
-        
+
         foreach ($sql as $qa) {
             $result = mysql_query($qa['query'], $this->_conn);
-            if (mysql_affected_rows() == 0) {
+            if ((mysql_affected_rows() == 0 && !$result) || !$result) {
                 $retval = 0;
             }
         }
-        
-        
+
+
         return ($retval == 0 ? FALSE : TRUE);
-       // return mysql_query($sql) or die(mysql_error());
+        // return mysql_query($sql) or die(mysql_error());
     }
 
     function close_conn() {
@@ -111,125 +114,129 @@ class ConnectDB {
     function rollback() {
         return mysql_query("ROLLBACK", $this->_conn);
     }
-   
+
     /**
-   * ******************************
-   * @param undefined $table
-   * @param undefined $data
-   * 
-   * @return
-   */
-   //$db->add_db("table",array("field"=>"value")); 
-	function add_db($table="table", $data="data"){
-		global $insert_last_id;
-		$key = array_keys($data); 
-        $value = array_values($data); 
-		$sumdata = count($key); 
-		for ($i=0;$i<$sumdata;$i++) 
-        { 
-            if (empty($add)){ 
-                $add="("; 
-            }else{ 
-                $add=$add.","; 
-            } 
-            if (empty($val)){ 
-                $val="("; 
-            }else{ 
-                $val=$val.","; 
-            } 
-            $add=$add.$key[$i]; 
-            $val=$val."'".$value[$i]."'"; 
-        } 
-        $add=$add.")"; 
-        $val=$val.")"; 
-        $sql="INSERT INTO ".$table." ".$add." VALUES ".$val; 
-        if (mysql_query($sql)){ 
+     * ******************************
+     * @param undefined $table
+     * @param undefined $data
+     * 
+     * @return
+     */
+    //$db->add_db("table",array("field"=>"value")); 
+    function add_db($table = "table", $data = "data") {
+        global $insert_last_id;
+        $key = array_keys($data);
+        $value = array_values($data);
+        $sumdata = count($key);
+        for ($i = 0; $i < $sumdata; $i++) {
+            if (empty($add)) {
+                $add = "(";
+            } else {
+                $add = $add . ",";
+            }
+            if (empty($val)) {
+                $val = "(";
+            } else {
+                $val = $val . ",";
+            }
+            $add = $add . $key[$i];
+            $val = $val . "'" . $value[$i] . "'";
+        }
+        $add = $add . ")";
+        $val = $val . ")";
+        $sql = "INSERT INTO " . $table . " " . $add . " VALUES " . $val;
+        if (mysql_query($sql)) {
             $insert_last_id = mysql_insert_id();
-			return true; 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-	}
-	//$db->update_db("tabel",array("field"=>"value"),"where"); 
-    function update_db($table="table",$data="data",$where="where"){ 
-        $key = array_keys($data); 
-        $value = array_values($data); 
-        $sumdata = count($key); 
-        $set=""; 
-        for ($i=0;$i<$sumdata;$i++) 
-        { 
-            if (!empty($set)){ 
-                $set=$set.","; 
-            } 
-            $set=$set.$key[$i]."='".$value[$i]."'"; 
-        } 
-        $sql="UPDATE ".$table." SET ".$set." WHERE ".$where; 
-        if (mysql_query($sql)){ 
-            return true; 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-    } 
-    
-	//$db->del("table","where"); 
-    function del($table="table",$where="where"){ 
-        $sql="DELETE FROM ".$table." WHERE ".$where; 
-        if (mysql_query($sql)){ 
-            return true; 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-    } 
-	//$db->num_rows("table","field","where"); 
-    function num_rows($table="table",$field="field",$where="where") { 
-        if ($where=="") { 
-            $where = ""; 
-        } else { 
-            $where = " WHERE ".$where; 
-        } 
-        $sql = "SELECT ".$field." FROM ".$table.$where; 
-        if($res = mysql_query($sql)){ 
-            return mysql_num_rows($res); 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-    } 
-	//Query 
-	//$res = $db->select_query('SELECT field FROM table WHERE where'); 
-    function select_query($sql="sql"){ 
-        if ($res = mysql_query($sql)){ 
-            return $res; 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-    } 
-	//$res = $db->select_query('SELECT field FROM table WHERE where'); 
-	//$rows = $db->rows($res); 
-    function rows($sql="sql"){ 
-      if ($res = mysql_num_rows($sql)){ 
-            return $res; 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-    } 
-	//? array
-    function fetch($sql="sql"){ 
-      if ($res = mysql_fetch_assoc($sql)){ 
-            return $res; 
-        }else{ 
-            $this->_error(); 
-            return false; 
-        } 
-    } 
-	//????
-    function _error(){ 
-        $this->error[]=mysql_errno(); 
+            return true;
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //$db->update_db("tabel",array("field"=>"value"),"where"); 
+    function update_db($table = "table", $data = "data", $where = "where") {
+        $key = array_keys($data);
+        $value = array_values($data);
+        $sumdata = count($key);
+        $set = "";
+        for ($i = 0; $i < $sumdata; $i++) {
+            if (!empty($set)) {
+                $set = $set . ",";
+            }
+            $set = $set . $key[$i] . "='" . $value[$i] . "'";
+        }
+        $sql = "UPDATE " . $table . " SET " . $set . " WHERE " . $where;
+        if (mysql_query($sql)) {
+            return true;
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //$db->del("table","where"); 
+    function del($table = "table", $where = "where") {
+        $sql = "DELETE FROM " . $table . " WHERE " . $where;
+        if (mysql_query($sql)) {
+            return true;
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //$db->num_rows("table","field","where"); 
+    function num_rows($table = "table", $field = "field", $where = "where") {
+        if ($where == "") {
+            $where = "";
+        } else {
+            $where = " WHERE " . $where;
+        }
+        $sql = "SELECT " . $field . " FROM " . $table . $where;
+        if ($res = mysql_query($sql)) {
+            return mysql_num_rows($res);
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //Query 
+    //$res = $db->select_query('SELECT field FROM table WHERE where'); 
+    function select_query($sql = "sql") {
+        if ($res = mysql_query($sql)) {
+            return $res;
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //$res = $db->select_query('SELECT field FROM table WHERE where'); 
+    //$rows = $db->rows($res); 
+    function rows($sql = "sql") {
+        if ($res = mysql_num_rows($sql)) {
+            return $res;
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //? array
+    function fetch($sql = "sql") {
+        if ($res = mysql_fetch_assoc($sql)) {
+            return $res;
+        } else {
+            $this->_error();
+            return false;
+        }
+    }
+
+    //????
+    function _error() {
+        $this->error[] = mysql_errno();
     }
 
 }

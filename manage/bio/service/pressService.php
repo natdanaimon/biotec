@@ -24,7 +24,7 @@ class pressService {
         return $_data;
     }
         function delete($seq,$db) {
-        $strSQL = "DELETE FROM `tb_press` WHERE i_seq = " . $seq;
+        $strSQL = "DELETE FROM tb_press WHERE i_seq = " . $seq;
         $arr = array(
             array("query" => "$strSQL")
         );
@@ -40,8 +40,8 @@ class pressService {
         $db = new ConnectDB();
          $db->conn();
          $sql = "INSERT INTO tb_press " 
-                . "(`i_seq`, `s_subject_th`, `s_subject_en`, `s_date`, "
-                . "`s_img`, `s_pathfile`, `d_date`, `s_status`) "
+                . "(i_seq, s_subject_th, s_subject_en, s_date, "
+                . "s_img, s_pathfile, d_date, s_status) "
                 . "VALUES "
                 . "(NULL, '".$subject_th."', '".$subject_en."',"
                 . " '".$date."', '".$img."', "
@@ -58,13 +58,13 @@ class pressService {
         $db = new ConnectDB();
          $db->conn();//	s_pathfile --	s_img
          $sql = "UPDATE tb_press SET "
-                 . "`s_subject_th` = '".$subject_th."', " 
-                 . "`s_subject_en` = '".$subject_en."', "
-                 . "`s_pathfile` ='".$file."',"
-                 . "`s_img` ='".$pic."',"
-                 . "`s_status` ='".$status."',"
-                 . "`s_date` = '".$date."' "
-                 . "WHERE `i_seq` = ".$seq." ";
+                 . "s_subject_th = '".$subject_th."', " 
+                 . "s_subject_en = '".$subject_en."', "
+                 . "s_pathfile ='".$file."',"
+                 . "s_img ='".$pic."',"
+                 . "s_status ='".$status."',"
+                 . "s_date = '".$date."' "
+                 . "WHERE i_seq = ".$seq." ";
         $arr = array(
             array("query" => "$sql")
         );

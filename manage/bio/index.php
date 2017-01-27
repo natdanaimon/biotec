@@ -111,6 +111,7 @@ session_start();
             });
 
             function login() {
+
                 $("#btn-login").click(function () {
                     var Jsdata = $("#form-login").serialize();
                     $.ajax({
@@ -135,7 +136,20 @@ session_start();
                             }
                             $('#se-pre-con').delay(100).fadeOut();
                         },
-                        error: {
+                        error: function (data) {
+                            
+                            //debug mode ========================================================================================================================
+                            var res = data.responseText.split(",");
+                            if (res[0] == "0000") {
+                                window.location = "dashboard.php";
+                            } else {
+                                var errCode = res[1] + " (" + res[0] + ")  ";
+                                $('#err-code').text(errCode);
+                                $('#err-dialog').modal('show');
+                            }
+                            $('#se-pre-con').delay(100).fadeOut();
+                            //debug mode ========================================================================================================================
+
                         }
 
                     });

@@ -163,8 +163,8 @@
     </detail>
     <detail>
         <variable>biothailand</variable>
-        <th>Biotech Thailand</th>
-        <en>ไบโอเทค ไทยแลนด์</en>
+        <th>BiotecItalia Thailand</th>
+        <en>ไบโอเทคอิตาเลีย (ประเทศไทย)</en>
     </detail>
     <detail>
         <variable>logout</variable>
@@ -594,18 +594,29 @@
     </detail>
     <detail>
         <variable>cd_2205</variable>
-        <th>2205,กรุณากรอก หัวข้อภาษาไทยและภาษาอังกฤษ</th>
-        <en>2205,Please enter Thai Language and English.</en> 
+        <th>2205,กรุณากรอก หัวข้อภาษาไทย</th>
+        <en>2205,Please enter Subject TH.</en> 
     </detail>
     <detail>
         <variable>cd_2206</variable>
-        <th>2206,กรุณา เลือกวันที่</th>
-        <en>2206,Please Select Date</en> 
+        <th>2206,กรุณากรอก หัวข้อภาษาอังกฤษ</th>
+        <en>2206,Please enter Subject EN.</en> 
+    </detail>
+    
+    <detail>
+        <variable>cd_2208</variable>
+        <th>2208,กรุณา เลือกวันที่</th>
+        <en>2208,Please Select Date</en> 
     </detail>
     <detail>
         <variable>cd_2207</variable>
-        <th>2207,กรุณา อัพโหลดรูปภาพ และ ไฟล์ PDF</th>
-        <en>2207,Upload images and PDF files</en> 
+        <th>2207,กรุณา อัพโหลดไฟล์รูปภาพ </th>
+        <en>2207,Please Upload images file.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2209</variable>
+        <th>2209,กรุณา อัพโหลดไฟล์ PDF</th>
+        <en>2209,Please Upload PDF file.</en> 
     </detail>
     <detail>
         <variable>cd_4001</variable>
