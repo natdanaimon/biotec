@@ -25,7 +25,7 @@
         <div> 
             <table>
                 <tr>
-                    <td> <img src="../images/logo/biotec_th.png" ></td>
+                    <td> <img src="../images/logo/biotec_th.png" style="width: 50px;height:50px;" ></td>
                     <td style="vertical-align: center;"> 
                         © Biotec Italia (Thailand) 2017 | Biotec Italia (Thailand) Co.,Ltd. , 12A Floor, Siam Tower, 989 Rama I Road, Pathumwan, Bangkok 10330 Thailand.
                         <br/>
