@@ -147,7 +147,7 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
                                             <ul class="uk-nav uk-nav-navbar">
                                                 <li class="uk-parent">
                                                     <a href="#">
-                                                        <a href="cosmeceuticals/renlive.php">
+                                                        <a href="../../renlive">
                                                             <?= $_SESSION["renlive"] ?>
                                                         </a>
                                                         <ul class="uk-nav-sub">
