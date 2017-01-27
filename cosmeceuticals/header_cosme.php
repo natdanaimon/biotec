@@ -1,11 +1,11 @@
 <?php
 @session_start();
-include '../../manage/bio/common/Utility.php';
+include '../../../manage/bio/common/Utility.php';
 $actual_link = "$_SERVER[REQUEST_URI]";
 //echo $actual_link;
 if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SESSION["main_lan"] == '') {
     $util = new Utility();
-    $util->setPathXML("../../manage/bio/language/language.xml");
+    $util->setPathXML("../../../manage/bio/language/language.xml");
     $util->LanguageConfig("en");
     $_SESSION["main_lan"] = "en";
 }
@@ -24,7 +24,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
   <title><?= $_SESSION['title'] ?></title>
  
   <link href="http://www.biotecitalia.com/templates/yoo_square/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-  <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+  <!--
+        <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+        -->
   <link rel="stylesheet" href="http://www.biotecitalia.com/media/mod_languages/css/template.css" type="text/css" />
   <script src="http://www.biotecitalia.com/media/jui/js/jquery.min.js" type="text/javascript"></script>
   <script src="http://www.biotecitalia.com/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
@@ -38,7 +40,10 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 
 <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
 <style data-file="bootstrap.css"></style>
-<style data-file="theme.css"></style>
+<!--<style data-file="theme.css"></style>-->
+<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/template.css?v=1">
+<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">
+
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
@@ -66,12 +71,12 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 
                                 <ul class="lang-inline">
                                     <li class="" dir="ltr">
-                                        <a href="../../controller/changelanguageController.php?lan=th&url=<?= $actual_link ?>">
+                                        <a href="../../../controller/changelanguageController.php?lan=th&url=<?= $actual_link ?>">
                                             TH						
                                         </a>
                                     </li>
                                     <li class="lang-active" dir="ltr">
-                                        <a href="../../controller/changelanguageController.php?lan=en&url=<?= $actual_link ?>">
+                                        <a href="../../../controller/changelanguageController.php?lan=en&url=<?= $actual_link ?>">
                                             EN						
                                         </a>
                                     </li>
@@ -97,12 +102,12 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
                         <ul class="uk-navbar-nav uk-hidden-small">
 
                             <li class="<?= $_SESSION["ACTIVE_HOME"] ?>" >
-                                <a href="../../index.php">
+                                <a href="../../../index.php">
                                     <?= $_SESSION["home"] ?> 
                                 </a>
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_ABOUT"] ?>">
-                                <a href="../../about.php">
+                                <a href="../../../about.php">
                                     <?= $_SESSION["about"] ?>
                                 </a>
                             </li>
@@ -115,14 +120,14 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
                                         <div class="uk-width-1-1"><ul class="uk-nav uk-nav-navbar">
                                                 <li>
  
-                                                        <a href="../../devices/medical">
+                                                        <a href="../../../devices/medical">
                                                             <img src="http://www.biotecitalia.com/images/macchine/menu/menu-medicali.png" alt="<?= $_SESSION["medical"] ?>"/>
                                                             <span class="image-title"><?= $_SESSION["medical"] ?></span> 
                                                         </a>
                                                 </li>
                                                 <li>
                                                      
-                                                        <a href="../../devices/aesthetic">
+                                                        <a href="../../../devices/aesthetic">
                                                             <img src="http://www.biotecitalia.com/images/macchine/menu/menu-estetiche.png" alt="<?= $_SESSION["aesthetic"] ?>"/>
                                                             <span class="image-title"><?= $_SESSION["aesthetic"] ?></span> 
                                                         </a>
@@ -142,55 +147,55 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
                                             <ul class="uk-nav uk-nav-navbar">
                                                 <li class="uk-parent">
                                                     <a href="#">
-                                                        <a href="cosmeceuticals/renlive.php">
+                                                        <a href="../../renlive">
                                                             <?= $_SESSION["renlive"] ?>
                                                         </a>
                                                         <ul class="uk-nav-sub">
                                                             <li>
                                                                 
-                                                                    <a href="cosmeceuticals/renlive/rigenera.php">
+                                                                    <a href="../rigenera">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-rigenera.png" alt="Rigenera"/>
                                                                         <span class="image-title"><?= $_SESSION["rigenera"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
-                                                                    <a href="cosmeceuticals/renlive/dry-sensitive.php">
+                                                                    <a href="../dry-sensitive">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-dry-sensitive.png" alt="Dry Sensitive"/>
                                                                         <span class="image-title"><?= $_SESSION["dry_sensitive"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                             
-                                                                    <a href="cosmeceuticals/renlive/combination-oily.php">
+                                                                    <a href="../combination-oily">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-combination-oily.png" alt="Combination Oily"/>
                                                                         <span class="image-title"><?= $_SESSION["combination_oily"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
-                                                                    <a href="cosmeceuticals/renlive/flexi.php">
+                                                                    <a href="../flexi">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-flexi.png" alt="Flexi"/>
                                                                         <span class="image-title"><?= $_SESSION["flexi"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
-                                                                    <a href="cosmeceuticals/renlive/bodyline.php">
+                                                                    <a href="../bodyline">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-bodyline.png" alt="Bodyline"/>
                                                                         <span class="image-title"><?= $_SESSION["bodyline"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                               
-                                                                    <a href="cosmeceuticals/renlive/sun-care.php">
+                                                                    <a href="../sun-care">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-solari.png" alt="Sun Care"/>
                                                                         <span class="image-title"><?= $_SESSION["sun_care"] ?></span>
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
-                                                                    <a href="cosmeceuticals/renlive/herbs-tea-and-supplements.php">
+                                                                    <a href="../herbs-tea-and-supplements">
                                                                         <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-tisane.png" alt="Herbs Tea and Supplements"/>
                                                                         <span class="image-title"><?= $_SESSION["herbs"] ?></span> </a>
                                                             </li>
@@ -202,16 +207,16 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
                                 </div>
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_NEWS"] ?>">
-                                <a href="../../news.php"><?= $_SESSION["news"] ?></a>
+                                <a href="../../../news.php"><?= $_SESSION["news"] ?></a>
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_PRESS"] ?>">
-                                <a href="../../press.php"><?= $_SESSION["press"] ?></a>
+                                <a href="../../../press.php"><?= $_SESSION["press"] ?></a>
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_CUSTOMER"] ?>">
-                                <a href="../../customers.php"><?= $_SESSION["our_customers"] ?></a>
+                                <a href="../../../customers.php"><?= $_SESSION["our_customers"] ?></a>
                             </li>
                             <li class="<?= $_SESSION["ACTIVE_CONTACTS"] ?>">
-                                <a href="../../contacts.php"><?= $_SESSION["contacts"] ?></a>
+                                <a href="../../../contacts.php"><?= $_SESSION["contacts"] ?></a>
                             </li>
                         </ul>
 
@@ -219,12 +224,12 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 
 
                     <a class="tm-logo uk-navbar-brand uk-hidden-small" href="index.php">
-                        <img alt="logo-biotec" src="../../images/logo/biotec_th.png" height="104" width="96" />
+                        <img alt="logo-biotec" src="../../../images/logo/biotec_th.png" height="104" width="96" />
                     </a>
 
                     <div class="uk-navbar-content uk-navbar-center uk-visible-small">
                         <a class="tm-logo-small" href="index.php">
-                            <img alt="logo-biotec" src="../../images/logo/biotec_th.png" height="43" width="40" />
+                            <img alt="logo-biotec" src="../../../images/logo/biotec_th.png" height="43" width="40" />
                         </a>
                     </div>
 

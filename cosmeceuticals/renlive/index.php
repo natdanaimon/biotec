@@ -83,7 +83,7 @@ $_GET['id'] = 1;
 
 		
 <div class="contorno-titolo"><h1 class="uk-text-left">
-<?= $_SESSION["Renlive"] ?>Renlive</h1></div>
+<?= $_SESSION["renlive"] ?></h1></div>
 			
 
 
@@ -129,18 +129,18 @@ $_GET['id'] = 1;
 	
 	
 		<div class="uk-margin">
-		<a href="rigenera" title="Rigenera">
-			<img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_logo']; ?>" title="Rigenera" alt="Rigenera" width="480" height="113"/>
+		<a href="<?= $_data[$key]['cosme_folder']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>">
+			<img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_logo']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" alt="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" width="480" height="113"/>
 		</a>
 	</div>
 	
 		<div class="uk-margin">
-		<a href="rigenera" title="Rigenera">
-			<img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_img']; ?>" title="Rigenera" alt="Rigenera" width="1152" height="768"/>
+		<a href="<?= $_data[$key]['cosme_folder']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>">
+			<img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_img']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" alt="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" width="1152" height="768"/>
 		</a>
 	</div>
 	
-	<div class="element-itemlink"><a href="rigenera">Show Products</a></div>
+	<div class="element-itemlink"><a href="<?= $_data[$key]['cosme_folder']; ?>">Show Products</a></div>
 
 	</div>
 
