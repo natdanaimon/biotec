@@ -6,7 +6,7 @@ class devicesService {
         require_once('../common/ConnectDB.php');
         $db = new ConnectDB();
         $db->conn();
-        $strSQL = "DELETE FROM tb_contacts WHERE i_seq = " . $seq;
+        $strSQL = "DELETE FROM tb_devices WHERE id = " . $seq;
         $arr = array(
             array("query" => "$strSQL")
         );

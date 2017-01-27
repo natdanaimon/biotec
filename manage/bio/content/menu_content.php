@@ -39,12 +39,14 @@
                         </a>
                     </li>
                     <li class="<?= $_SESSION["m2"] ?>">
-                        <a href="devices.php">
-                            <i class="fa fa-suitcase"></i> <?= $_SESSION["devices"] ?> <span class="fa fa-chevron-down" style="display: none"></span>
-                        </a>
-                        <ul class="nav child_menu " style="display: none" >
-                            <li><a href="medical.php"><?= $_SESSION["medical"] ?></a></li>
-                            <li><a href="aesthetic.php"><?= $_SESSION["aesthetic"] ?></a></li>
+                        <a>
+                            <i class="fa fa-suitcase"></i> <?= $_SESSION["devices"] ?>  <span class="fa fa-chevron-down" style="display: nones"></span>
+                            </a>
+                        
+                        <ul class="nav child_menu " style="display: nones" >
+                            <li><a href="devices.php"><?= $_SESSION["devices"] ?></a></li>
+                            <li><a href="devices_item.php?id=1"><?= $_SESSION["medical"] ?></a></li>
+                            <li><a href="devices_item.php?id=2"><?= $_SESSION["aesthetic"] ?></a></li>
                         </ul>
                     </li> 
                     <li class="<?= $_SESSION["m3"] ?>">
@@ -52,13 +54,16 @@
                             <i class="fa fa-flask"></i> <?= $_SESSION["cosmeceuticals"] ?> <span class="fa fa-chevron-down"></span>
                         </a>
                         <ul class="nav child_menu " >
-                            <li><a href="rigenera.php"><?= $_SESSION["rigenera"] ?></a></li>
-                            <li><a href="drySensitive.php"><?= $_SESSION["dry_sensitive"] ?></a></li>
-                            <li><a href="combination.php"><?= $_SESSION["combination_oily"] ?></a></li>
-                            <li><a href="flexi.php"><?= $_SESSION["flexi"] ?></a></li>
-                            <li><a href="bodyline.php"><?= $_SESSION["bodyline"] ?></a></li>
-                            <li><a href="sunCare.php"><?= $_SESSION["sun_care"] ?></a></li>
-                            <li><a href="herbs.php"><?= $_SESSION["herbs"] ?></a></li>
+                            <li><a href="cosme.php"><?= $_SESSION["cosmeceuticals"] ?></a></li>
+                            <li><a href="cosme_item.php?id=1"><?= $_SESSION["rigenera"] ?></a></li>
+                            <li><a href="cosme_item.php?id=2"><?= $_SESSION["dry_sensitive"] ?></a></li>
+                            <li><a href="cosme_item.php?id=3"><?= $_SESSION["combination_oily"] ?></a></li>
+                            <li><a href="cosme_item.php?id=4"><?= $_SESSION["flexi"] ?></a></li>
+                            <li><a href="cosme_item.php?id=5"><?= $_SESSION["bodyline"] ?></a></li>
+                            <li><a href="cosme_item.php?id=6"><?= $_SESSION["sun_care"] ?></a></li>
+                            <li><a href="cosme_item.php?id=7"><?= $_SESSION["herbs"] ?></a></li>
+ 
+ 
                         </ul>
                     </li> 
                     <li class="<?= $_SESSION["m4"] ?>">

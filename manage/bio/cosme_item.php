@@ -6,13 +6,15 @@
 
 include './common/FunctionCheckActive.php';
 include './common/Permission.php';
-include './controller/devicesController.php';
-include './service/devicesService.php';
+include './controller/cosmeController.php';
+include './service/cosmeService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 
-ACTIVEPAGES(2);
-
+ACTIVEPAGES(3);
+if($_GET[id] == NULL){
+	header('Location: cosme.php');
+}
 ?>
 
 <html lang="en">
@@ -64,7 +66,9 @@ ACTIVEPAGES(2);
  
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2><?= $_SESSION["devices"] ?> </h2>
+                                            <h2 >
+                                            <a href="cosme.php">
+                                            <?= $_SESSION["cosmeceuticals"] ?></a> <i class="fa fa-backward"></i> <small id="title_cosme"></small></h2>
                                             <ul class="nav navbar-right panel_toolbox" style="display: none">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>
@@ -74,24 +78,17 @@ ACTIVEPAGES(2);
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
-<!--                                        
-                                            <button type="button"  class="btn btn-primary open_form" data_id="0" data_title="Add new devices" data-toggle="modal" data-target="#modal_form"><i class="fa fa-push"></i> <?= $_SESSION["press_add"] ?></button>
-                                         -->   
-<!--<a href="devices_form.php" class="btn btn-primary"><?= $_SESSION["press_add"] ?></a> 
--->
-                                           
-                                            
+                                            <a href="cosme_item_form.php?type=<?=$_GET['id'];?>" class="btn btn-primary"><?= $_SESSION["press_add"] ?></a> 
                                             <table id="datatable-checkbox" class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
+                                                        <th style="width: 40px;">Logo</th>
                                                         <th><?= $_SESSION["press_tb_tr_subject_th"] ?></th>
                                                         <th><?= $_SESSION["press_tb_tr_subject_en"] ?></th>
 
-                                                        <th style="width: 40px;">Item</th>
+                                                        
                                                         <th style="width: 40px;"><?= $_SESSION["press_tb_tr_edit"] ?></th>
-                                                       <!--
-                                                        <th style="width: 40px;" style="display: none"><?= $_SESSION["press_tb_tr_delete"] ?></th>
-                                                        -->
+                                                        <th style="width: 40px;"><?= $_SESSION["press_tb_tr_delete"] ?></th>
                                                     </tr>
 
                                                 </thead>
@@ -170,7 +167,7 @@ ACTIVEPAGES(2);
                 debugger;
                 $.ajax({
                     type: 'GET',
-                    url: 'controller/devicesController.php?func=dataTable',
+                    url: 'controller/cosmeController.php?func=dataTable_item&id=<?=$_GET[id];?>',
                     //data: Jsdata,
                     beforeSend: function ()
                     {
@@ -184,44 +181,60 @@ ACTIVEPAGES(2);
                         $.each(res, function (i, item) {
                             var col_subject_th = "";
                             var col_subject_en = "";
-                            var col_item = "";
+                            var col_logo = "";
                             var col_img_preview = "";
                             var col_file = "";
                             var col_status = "";
                             var col_edit = "";
                             var col_delete = "";
 
-                            col_subject_th = item.s_detail_th;
-                            col_subject_en = item.s_detail_en;
-                            col_item = '<a href="devices_item.php?id='+item.s_device_type+'" class="btn btn-primary"><i class="fa fa-plus-circle"></i> </a>';
+                            col_subject_th = item.title_th;
+                            col_subject_en = item.title_en;
+                            
 
 
- 
+                            col_logo += '<a href="javascript:previewImage(\''+ item.img +'\');">';
+                            col_logo += '<img src="uploads/cosme_item/'+item.img+'" width="50" />';
+                            col_logo += '</a>';
 
- 
+                            col_file += '<a href="controller/pressController.php?func=preview&filename=' + item.s_pathfile + '" target="_bank">';
+                            col_file += '<img  src="images/doc.png"  width="30px" height="30px" />';
+                            col_file += '</a>';
 
 
- 
+                            if (item.s_status == 'A') {
+                                col_status += '<span class="label label-success">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+
+                            } else {
+
+                                col_status += '<span class="label label-warning">';
+                                col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                col_status += '</span>';
+
+                            }
 
 
 
-                            col_edit = '<a href="./devices_form.php?func=edit&seq_i=' + item.s_device_type + '" >';
+                            col_edit = '<a href="./cosme_item_form.php?type='+item.cosme_type+'&id=' + item.id + '" >';
                             col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
                             col_edit += '</a>';
                             debugger;
-                            col_delete = '<a href="javascript:pressDelete(' + item.i_seq + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
+                            col_delete = '<a href="javascript:Delete(' + item.id + ',\'' + item.s_img + '\',\'' + item.s_pathfile + '\');">';
                             col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
                             col_delete += '</a>';
 
                             var addRow = [
+                                col_logo,
                                 col_subject_th,
                                 col_subject_en,
-                                col_item,
+                                
                                 //col_img_preview,
                                // col_file,
                                // col_status,
                                 col_edit,
-                                //col_delete
+                                col_delete
                             ]
 
                             JsonData.push(addRow);
@@ -255,14 +268,14 @@ ACTIVEPAGES(2);
 
 
 
-            function pressDelete(seq, img, pdf) {
+            function Delete(seq, img, pdf) {
                 var act = confirm("Delete ?");
                 if (act != true) {
                     return false;
                 }
                 $.ajax({
                     type: 'GET',
-                    url: 'controller/pressController.php?func=delete&seq=' + seq + '&file=' + img + '&pdf=' + pdf,
+                    url: 'controller/cosmeController.php?func=delete&id=' + seq + '&file=' + img + '&pdf=' + pdf,
                     //data: Jsdata,
                     beforeSend: function ()
                     {
@@ -276,6 +289,7 @@ ACTIVEPAGES(2);
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#success-code').text(errCode);
                             $('#success-dialog').modal('show');
+                            window.location.reload();
                         } else {
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#err-code').text(errCode);
@@ -295,15 +309,63 @@ ACTIVEPAGES(2);
 
             function previewImage(source) {
                 document.getElementById('image-dialog').style.display = 'block'
-                $("#src-image").attr("src", source);
+                $("#src-image").attr("src", "uploads/cosme_item/"+source);
 
             }
 
 
 
+
+/**
+* Start load title
+*/
+$.ajax({
+                    type: 'GET',
+                    url: 'controller/cosmeController.php?func=dataTable_title&id=<?=$_GET[id];?>',
+                    //data: Jsdata,
+                    beforeSend: function ()
+                    {
+//                        $('#se-pre-con').fadeIn(100);
+                    },
+                    success: function (data) {
+                        debugger;
+                        var language = '<?= $_SESSION["lan"] ?>';
+                        var res = JSON.parse(data);
+                        var JsonData = [];
+                        $.each(res, function (i, item) {
+                            var col_subject_th = "";
+                            if(language == 'th'){
+								$('#title_cosme').html(item.cosme_th);
+							}else{
+								$('#title_cosme').html(item.cosme_en);
+							}
+                            //alert(language);
+
+                        });
+
+                        
+                    },
+                    error: {
+                    }
+
+                });    
+/**
+* End load title
+*/        
         </script>
 
 </i>
+
+<!--  Fix Custom Alert Image-->
+        <div id="image-dialog" class="w3-modal"  onclick="this.style.display = 'none'">
+            <span class="w3-closebtn w3-hover-red w3-container w3-padding-16 w3-display-topright">&times;</span>
+            <div class="w3-modal-content w3-animate-zoom"  align="center">
+                <img id="src-image">
+            </div>
+        </div>
+        <!--  Fix Custom Alert Image-->
+
+
   <!-- Modal -->
   <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">
@@ -332,7 +394,7 @@ ACTIVEPAGES(2);
 		var id = $(this).attr('data_id');
 		var data_title = $(this).attr('data_title');
 		$('#modal_title').html(data_title);
-		var url = "module/devices/form.php?id="+id;
+		var url = "module/cosme/form.php?id="+id;
 		$('#modal_body').load(url);
 	});
 	
