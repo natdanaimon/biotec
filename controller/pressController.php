@@ -28,10 +28,21 @@ class pressController {
         $service = new pressService();
         $_dataTable = $service->dataTable();
         if ($_dataTable != NULL) {
+            foreach ($_dataTable as $key => $value) {
+                $_dataTable[$key]['s_date'] = $this->ConvertDate($_dataTable[$key]['s_date']);
+            }
+
             return $_dataTable;
         } else {
             return NULL;
         }
+    }
+
+    private function ConvertDate($date) {
+        $dd = substr($date, 3, 2);
+        $mm = substr($date, 0, 2);
+        $yyyy = substr($date, 6, 4);
+        return $dd . " " . $_SESSION["m_$mm"] . " " . $yyyy;
     }
 
 }

@@ -52,11 +52,73 @@
         <th>คุณต้องการลบข้อมูลใช่หรือไม่ ?</th>
         <en>Do you want to delete Information ?</en>
     </detail>
+    
+    
     <!--  Other -->
 	
+    <!--  month -->
+    <detail>
+        <variable>m_01</variable>
+        <th>มกราคม</th>
+        <en>January</en>
+    </detail>
+    <detail>
+        <variable>m_02</variable>
+        <th>กุมภาพันธ์</th>
+        <en>February</en>
+    </detail>
+    <detail>
+        <variable>m_03</variable>
+        <th>มีนาคม</th>
+        <en>March</en>
+    </detail>
+    <detail>
+        <variable>m_04</variable>
+        <th>เมษายน</th>
+        <en>April</en>
+    </detail>
+    <detail>
+        <variable>m_05</variable>
+        <th>พฤษภาคม</th>
+        <en>May</en>
+    </detail>
+    <detail>
+        <variable>m_06</variable>
+        <th>มิถุนายน</th>
+        <en>June</en>
+    </detail>
+    <detail>
+        <variable>m_07</variable>
+        <th>กรกฎาคม</th>
+        <en>July</en>
+    </detail>
+    <detail>
+        <variable>m_08</variable>
+        <th>สิงหาคม</th>
+        <en>August</en>
+    </detail>
+    <detail>
+        <variable>m_09</variable>
+        <th>กันยายน</th>
+        <en>September</en>
+    </detail>
+    <detail>
+        <variable>m_10</variable>
+        <th>ตุลาคม</th>
+        <en>October</en>
+    </detail>
+    <detail>
+        <variable>m_11</variable>
+        <th>พฤศจิกายน</th>
+        <en>November</en>
+    </detail>
+    <detail>
+        <variable>m_12</variable>
+        <th>ธันวาคม</th>
+        <en>December</en>
+    </detail>
 	
-	
-	
+    <!--  month -->
 	
 	
 	
