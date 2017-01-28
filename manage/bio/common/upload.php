@@ -18,9 +18,9 @@ class upload {
     private $_Filename = array();
     private $_FilenameResult = array();
     private $_minSizeImg = 50;
-    private $_maxSizeImg = 1024000;
+    private $_maxSizeImg = 10240000;
     private $_minSizeDoc = 50;
-    private $_maxSizeDoc = 2048000;
+    private $_maxSizeDoc = 20480000;
     private $_imgType = array("png", "PNG", "jpg", "JPG");
     private $_docType = array("pdf", "PDF");
     private $_errorMessage = "";

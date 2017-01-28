@@ -20,60 +20,33 @@ include './service/pressService.php';
 <script>
     function ck(source) {
         //alert(1);
-          //alert(img);
-          
-               var img = new Image();
-               var height;
-               var width;
-               //var height_warp = $("body").width();lightbox-img
-                img.src = source;
-                img.onload = function() {
-                  
+        //alert(img);
 
-                  height = this.height;
-                  width = this.width;
-                  //alert(width + 'x' + height);
-                  //alert(height+" - - "+width);
-                 if(height>900){
-
-                    }
-        var warp = document.getElementById("lightbox-wrap");
-        var att = document.createAttribute("id");
-        att.value = 'lightbox-wrap2';
-        warp.setAttributeNode(att); //        background-color: red;
-        $("#lightbox-img").css({"width": "100px", "height": "100px"});
-                }
-//        var warp = document.getElementById("lightbox-wrap");
-//        var att = document.createAttribute("id");
-//        att.value = 'lightbox-wrap2';
-//        warp.setAttributeNode(att);
+        var img = new Image();
+        var height;
+        var width;
+        //var height_warp = $("body").width();lightbox-img
+        img.src = source;
+        img.onload = function () {
 
 
-//        var content = document.getElementById("lightbox-content");
-//        var attStyle = document.createAttribute("style");
-//        content.setAttributeNode(attStyle);
+            height = this.height;
+            width = this.width;
+            //alert(width + 'x' + height);
+            //alert(height+" - - "+width);
+            if (height > 900) {
 
+            }
+            var warp = document.getElementById("lightbox-wrap");
+            var att = document.createAttribute("id");
+            att.value = 'lightbox-wrap2';
+            warp.setAttributeNode(att); //        background-color: red;
+            $("#lightbox-img").css({"width": "100px", "height": "100px"});
+        }
 
-    }
-
-//    function setAttr() {
-//        var warp = document.getElementById("lightbox-wrap");
-//        var att = document.createAttribute("onclick");
-//        att.value = "abc();";
-//        warp.setAttributeNode(att);
-//    }
-//    document.getElementsByTagName("lightbox-wrap")[0].removeAttribute("style"); 
-
-//    document.getElementById("lightbox-right").style.display.none;
-//            .{
-//        display: none;
-//    }
-//    .lightbox-right{
-//        display: none;
-//    }
 </script>
 <style>
-        #lightbox-wrap2 {
+    #lightbox-wrap2 {
         display: none;
         position: fixed;
         top: 5% !important; 
@@ -84,31 +57,7 @@ include './service/pressService.php';
         outline: none;
         max-height: 50% !important; 
     }
-    /*
-    #lightbox-wrap {
-        display: none;
-        position: fixed;
-        top: 5% !important; 
-        left: 0;
-        padding: 20px;
-        z-index: 1101;
-        outline: none;
-        height:  75% !important;
-    }
 
-    #lightbox-content{
-        height:  100% !important;
-    }
-
-    @media (max-width: 1000px) {
-        .center{}
-        .lightbox-wrap{left:25%;top:25%;position:absolute;width:50%;height:300px;background:#f0f;text-align:center;max-width:500px;max-height:500px;}
-    }
-    @media (min-width: 1000px) {
-        .center{left:50%;top:25%;position:absolute;}
-        .lightbox-wrap{width:500px;height:100%;margin-left:-250px;height:300px;background:#f0f;text-align:center;max-width:500px;max-height:500px;}
-    }
-    */
 </style>
 
 
@@ -160,7 +109,7 @@ include './service/pressService.php';
                                     if ($util->ContinueObject($page, $key + 1)) {
                                         continue;
                                     }
-                                    $abc = "a";
+
                                     ?>
                                     <div class="uk-width-medium-1-4">
                                         <article class="uk-article">

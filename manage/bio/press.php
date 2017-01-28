@@ -194,7 +194,7 @@ ACTIVEPAGES(5);
 
                             col_subject_th = item.s_subject_th;
                             col_subject_en = item.s_subject_en;
-                            col_date = item.d_date;
+                            col_date = item.s_date;
 
 
                             col_img_preview += '<a href="javascript:previewImage(\'./controller/file/press/' + item.s_img + '\');">';
@@ -251,6 +251,7 @@ ACTIVEPAGES(5);
                                 ]
                             });
                         } else {
+                            debugger;
                             var datatable = $datatable.dataTable().api();
                             $('.dataTables_empty').remove();
                             datatable.clear();
@@ -276,7 +277,7 @@ ACTIVEPAGES(5);
 
                             col_subject_th = item.s_subject_th;
                             col_subject_en = item.s_subject_en;
-                            col_date = item.d_date;
+                            col_date = item.s_date;
 
 
                             col_img_preview += '<a href="javascript:previewImage(\'./controller/file/press/' + item.s_img + '\');">';
