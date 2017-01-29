@@ -269,11 +269,19 @@ if($_GET[id] == NULL){
 
 
             function Delete(seq, img, pdf) {
-                var act = confirm("Delete ?");
-                if (act != true) {
-                    return false;
-                }
-                $.ajax({
+                //////////// popup alert for Delete
+                swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#DD6B55",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+  swal("Deleted!", "Your imaginary file has been deleted.", "success");
+  $.ajax({
                     type: 'GET',
                     url: 'controller/cosmeController.php?func=delete&id=' + seq + '&file=' + img + '&pdf=' + pdf,
                     //data: Jsdata,
@@ -289,7 +297,8 @@ if($_GET[id] == NULL){
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#success-code').text(errCode);
                             $('#success-dialog').modal('show');
-                            window.location.reload();
+                            //window.location.reload();
+                            initialDataTable();
                         } else {
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#err-code').text(errCode);
@@ -302,6 +311,15 @@ if($_GET[id] == NULL){
                     }
 
                 });
+});
+                
+                /*
+                var act = confirm("Delete ?");
+                if (act != true) {
+                    return false;
+                }
+                //*/
+                
 
 
 
