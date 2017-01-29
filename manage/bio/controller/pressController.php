@@ -67,12 +67,12 @@ class pressController {
             return NULL;
         }
     }
-    
-     private function ConvertDate($date) {
+
+    private function ConvertDate($date) {
         $dd = substr($date, 3, 2);
         $mm = substr($date, 0, 2);
         $yyyy = substr($date, 6, 4);
-        return $yyyy . "/" . $mm . "/" .$dd ;
+        return $yyyy . "/" . $mm . "/" . $dd;
     }
 
     public function delete($seq, $file, $pdf) {
@@ -140,6 +140,9 @@ class pressController {
                     echo $_SESSION['cd_2204'];
                 } else if ($service->add_press($_POST["subject_th"], $_POST["subject_en"], $_POST["date"], $cout_data[0], $cout_data[1], $_POST["date"], $_POST["status"])) {
                     echo $_SESSION['cd_0000'];
+                } else {
+                    $doc->clearFileAddFail();
+                    echo $_SESSION['cd_2001'];
                 }
             } else {
                 $doc->clearFileAddFail();

@@ -82,11 +82,20 @@
                             <i class="fa fa-eyedropper"></i> <?= $_SESSION["press"] ?> 
                         </a>
                     </li>
+                    
+                    <li class="<?= $_SESSION["m7"] ?>">
+                        <a href="javascript:void(0)" onclick="page('customers');" >
+                            <i class="fa fa-user"></i> <?= $_SESSION["our_customers"] ?> 
+                        </a>
+                    </li>
+                    
                     <li class="<?= $_SESSION["m6"] ?>">
                         <a href="javascript:void(0)" onclick="page('contacts');" >
                             <i class="fa fa-comments"></i> <?= $_SESSION["contacts"] ?> 
                         </a>
                     </li>
+                    
+                    
 
                 </ul>
             </div>

@@ -3,11 +3,11 @@
 @session_start();
 include './common/FunctionCheckActive.php';
 include './common/Permission.php';
-include './controller/pressController.php';
-include './service/pressService.php';
+include './controller/customersController.php';
+include './service/customersService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
-ACTIVEPAGES(5);
+ACTIVEPAGES(7);
 ?>
 <html lang="en">
     <head>
@@ -61,7 +61,7 @@ ACTIVEPAGES(5);
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3><?= $_SESSION["press"] ?> </h3>
+                                <h3><?= $_SESSION["our_customers"] ?> </h3>
                             </div>
                         </div>
                     </div>
@@ -74,9 +74,9 @@ ACTIVEPAGES(5);
                                     <div class="x_panel">
                                         <div class="x_title">
                                             <?php if ($_GET["func"] == "edit") { ?>
-                                                <h2><?= $_SESSION["press_tb_tr_edit"] ?> <?= $_SESSION["info"] ?><?= $_SESSION["press"] ?></small></h2>
+                                                <h2><?= $_SESSION["edit_info"] ?> <?= $_SESSION["our_customers"] ?></small></h2>
                                             <?php } else { ?>
-                                                <h2><?= $_SESSION["press_add"] ?> <?= $_SESSION["press"] ?></small></h2>
+                                                <h2><?= $_SESSION["add"] ?> <?= $_SESSION["our_customers"] ?></small></h2>
                                             <?php } ?>
                                             <ul class="nav navbar-right panel_toolbox">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -93,7 +93,7 @@ ACTIVEPAGES(5);
                                             if ($_GET["func"] == "edit") {
                                                 //$_GET["seq_i"];
                                                 $comm = new commonController();
-                                                $controller = new pressController();
+                                                $controller = new customersController();
                                                 $_data = $controller->dataTable_sel($_GET["seq_i"]);
                                                 foreach ($_data as $key => $value) {
                                                     ?>
@@ -101,58 +101,56 @@ ACTIVEPAGES(5);
                                                         <div style="visibility:hidden;">
                                                             <input type="text"name="seq_i" id="seq_i" value="<?= $_GET["seq_i"] ?>">
                                                             <input type="text"name="curent_pic" id="curent_pic" value="<?= $_data[$key]["s_img"] ?>">
-                                                            <input type="text"name="curent_file" id="curent_file" value="<?= $_data[$key]["s_pathfile"] ?>">
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                                <?= $_SESSION["press_tb_tr_subject_th"] ?>
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                                                <?= $_SESSION["tb_customer_col_name_th"] ?>
                                                                 <span class="required">*</span>
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="subject_th" name="subject_th"
-                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_subject_th'] ?>">
+                                                                <input type="text" id="name_th" name="name_th"
+                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_name_th'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                                                <?= $_SESSION["press_tb_tr_subject_en"] ?>
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                                                <?= $_SESSION["tb_customer_col_name_en"] ?>
                                                                 <span class="required">*</span>
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="subject_en" name="subject_en"
-                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_subject_en'] ?>">
+                                                                <input type="text" id="name_en" name="name_en"
+                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_name_en'] ?>">
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">
-                                                                <?= $_SESSION["press_tb_tr_date"] ?>  
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                                                <?= $_SESSION["tb_customer_col_url"] ?>
+                                                                <span class="required">*</span>
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" class="form-control has-feedback-left" id="single_cal1" 
-                                                                       readonly name="date"placeholder="date" aria-describedby="inputSuccess2Status"
-                                                                       value="<?= $_data[$key]['s_date'] ?>">
-                                                                <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
-                                                                <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                                                                <input type="text" id="link" name="link"  
+                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_url'] ?>">
                                                             </div>
+                                                        </div>
 
-                                                        </div>
+
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["press_tb_tr_status"] ?></label>
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["label_status"] ?></label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                                 <div id="status" class="btn-group" data-toggle="buttons">
                                                                     <?php if ($_data[$key]['s_status'] == "A") { ?>
                                                                         <label id="active_status" class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                            <input type="radio" name="status" value="A" checked="checked" onchange="radioActive('A');"> &nbsp; <?= $_SESSION["press_active"] ?>   &nbsp;
+                                                                            <input type="radio" name="status" value="A" checked="checked" onchange="radioActive('A');"> &nbsp; <?= $_SESSION["active"] ?>   &nbsp;
                                                                         </label>
                                                                         <label id="cancel_status" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                            <input type="radio" name="status" value="C" onchange="radioActive('C');"> <?= $_SESSION["press_inactive"] ?> 
+                                                                            <input type="radio" name="status" value="C" onchange="radioActive('C');"> <?= $_SESSION["inactive"] ?> 
                                                                         </label>
                                                                     <?php } else { ?>
                                                                         <label id="active_status" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                            <input type="radio" name="status" value="A" onchange="radioActive('A');"> &nbsp; <?= $_SESSION["press_active"] ?>   &nbsp;
+                                                                            <input type="radio" name="status" value="A" onchange="radioActive('A');"> &nbsp; <?= $_SESSION["active"] ?>   &nbsp;
                                                                         </label>
                                                                         <label id="cancel_status" class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                            <input type="radio" name="status" value="C" checked="checked" onchange="radioActive('C');"> <?= $_SESSION["press_inactive"] ?> 
+                                                                            <input type="radio" name="status" value="C" checked="checked" onchange="radioActive('C');"> <?= $_SESSION["inactive"] ?> 
                                                                         </label>
                                                                     <?php } ?>
                                                                 </div>
@@ -162,46 +160,21 @@ ACTIVEPAGES(5);
                                                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Picture 
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <div id="imagePreview" style="background-image: url(controller/file/press/<?= $_data[$key]['s_img'] ?>) !important;"></div>
+                                                                <div id="imagePreview" style="background-image: url(controller/file/customers/<?= $_data[$key]['s_img'] ?>) !important;"></div>
                                                                 <input type="file" id="uploadPic" name="uploadPic"  class="img" />
 
                                                             </div>
                                                         </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">File 
-                                                            </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <table class="table table-striped table-bordered">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th style="width: 20px;"><?= $_SESSION["press_tb_tr_file"] ?></th>
-                                                                            <th style="width: 100px;"><?= $_SESSION["press_file_edit"] ?></th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <input type="file" name="uploadFile" id="uploadFile" >
-                                                                            </td>
-                                                                            <td>
-                                                                                <a href="controller/pressController.php?func=preview&filename=<?= $_data[$key]['s_pathfile'] ?>" target="_bank" >
-                                                                                    <img src="images/doc.png" width="30px" height="30px" />
-                                                                                </a>
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
+                                                        
                                                         <div class="ln_solid"></div>
                                                         <div class="form-group">
                                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                                <a href="press.php">
-                                                                    <button type="button" class="btn btn-primary"><?= $_SESSION["press_cancel"] ?>
+                                                                <a href="customers.php">
+                                                                    <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
                                                                     </button>
                                                                 </a>
 
-                                                                <button type="submit" class="btn btn-success"><?= $_SESSION["press_ok"] ?></button>
+                                                                <button type="submit" class="btn btn-success"><?= $_SESSION["btn_ok"] ?></button>
                                                             </div>
                                                         </div>
 
@@ -211,76 +184,67 @@ ACTIVEPAGES(5);
                                             } else {
                                                 ?>
 
-                                                <!--------------------------------Add Press--------------------------------->
+                                                <!--------------------------------Add customer--------------------------------->
                                                 <form data-parsley-validate class="form-horizontal form-label-left" 
                                                       enctype="multipart/form-data" name="form_add" id="form_add" method="post" action="">
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">
-                                                            <?= $_SESSION["press_tb_tr_subject_th"] ?>
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                                            <?= $_SESSION["tb_customer_col_name_th"] ?>
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="subject_th" name="subject_th"  class="form-control col-md-7 col-xs-12">
+                                                            <input type="text" id="name_th" name="name_th"  class="form-control col-md-7 col-xs-12">
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                                            <?= $_SESSION["press_tb_tr_subject_en"] ?>
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                                            <?= $_SESSION["tb_customer_col_name_en"] ?>
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="subject_en" name="subject_en"  class="form-control col-md-7 col-xs-12">
+                                                            <input type="text" id="name_en" name="name_en"  class="form-control col-md-7 col-xs-12">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >
+                                                            <?= $_SESSION["tb_customer_col_url"] ?>
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <input type="text" id="link" name="link"  class="form-control col-md-7 col-xs-12">
                                                         </div>
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                                            <?= $_SESSION["press_tb_tr_date"] ?>  
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="datetime" class="form-control has-feedback-left" id="single_cal1" 
-                                                                   readonly name="date"placeholder="date" aria-describedby="inputSuccess2Status">
-                                                            <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                            <span id="inputSuccess2Status" class="sr-only">(success)</span>
-                                                        </div>
-                                                    </div>                     
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["press_tb_tr_status"] ?></label>
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["label_status"] ?></label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                                             <div id="status" class="btn-group" data-toggle="buttons" >
                                                                 <label id="active_status" class="btn btn-primary active" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                    <input type="radio" name="status"  value="A" onchange="radioActive('A');" checked="checked" > &nbsp; <?= $_SESSION["press_active"] ?>   &nbsp;
+                                                                    <input type="radio" name="status"  value="A" onchange="radioActive('A');" checked="checked" > &nbsp; <?= $_SESSION["active"] ?>   &nbsp;
                                                                 </label>
                                                                 <label id="cancel_status" class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                    <input type="radio" name="status"  value="C" onchange="radioActive('C');"> <?= $_SESSION["press_inactive"] ?> 
+                                                                    <input type="radio" name="status"  value="C" onchange="radioActive('C');"> <?= $_SESSION["inactive"] ?> 
                                                                 </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["press_pic"] ?><span class="required">*</span>
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["tb_customer_col_img"] ?><span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                                             <div id="imagePreview" ></div>
                                                             <input type="file" id="uploadPic" name="uploadPic"  class="img"/>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["press_file"] ?><span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="file" name="uploadFile" id="uploadFile">
-                                                        </div>
-                                                    </div>                      
+
                                                     <div class="ln_solid"></div>
 
                                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                        <a href="press.php">
-                                                            <button type="button" class="btn btn-primary"><?= $_SESSION["press_cancel"] ?>
+                                                        <a href="customers.php">
+                                                            <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
                                                             </button>
                                                         </a>
-                                                        <button type="submit" class="btn btn-success"><?= $_SESSION["press_ok"] ?></button>
+                                                        <button type="submit" class="btn btn-success"><?= $_SESSION["btn_ok"] ?></button>
                                                     </div>
                                             </div>
 
@@ -359,11 +323,11 @@ ACTIVEPAGES(5);
                                                                             $("#form_edit").submit(function (e) {
                                                                                 e.preventDefault();
                                                                                 var formData = new FormData($(this)[0]);
-                                                                                formData.append("func", "update_press");//seq
+                                                                                formData.append("func", "update_customers");//seq
                                                                                 console.log($(this).serialize());
                                                                                 $.ajax({
                                                                                     type: 'POST',
-                                                                                    url: 'controller/pressController.php',
+                                                                                    url: 'controller/customersController.php',
                                                                                     data: formData,
                                                                                     beforeSend: function ()
                                                                                     {
@@ -400,21 +364,13 @@ ACTIVEPAGES(5);
 
                                                                             });
                                                                             $("#form_add").submit(function (e) {
-
-                                                                                //pressAdd();
                                                                                 e.preventDefault();
                                                                                 var formData = new FormData($(this)[0]);
-                                                                                formData.append("func", "add_press");//seq
-                                                                                //formData.append("seq", "99999");
+                                                                                formData.append("func", "add_customers");//seq 
                                                                                 console.log($(this).serialize());
-                                                                                //var formData = $(this).serialize();
-                                                                                /*  $.post("controller/contactsController.php",formData,function(data){
-                                                                                 console.log(data); 
-                                                                                 
-                                                                                 });*/
                                                                                 $.ajax({
                                                                                     type: 'POST',
-                                                                                    url: 'controller/pressController.php',
+                                                                                    url: 'controller/customersController.php',
                                                                                     data: formData,
                                                                                     beforeSend: function ()
                                                                                     {
@@ -432,12 +388,6 @@ ACTIVEPAGES(5);
                                                                                             $('#success-dialog').modal('show');
                                                                                             $('#form_add').trigger("reset");
                                                                                             $('#imagePreview').removeAttr('style');
-                                                                                        } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
-                                                                                                || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                                                                                || (res[0] == "2206") || (res[0] == "2207")) {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
                                                                                         } else {
                                                                                             var errCode = res[1] + " (" + res[0] + ")  ";
                                                                                             $('#err-code').text(errCode);
@@ -457,13 +407,7 @@ ACTIVEPAGES(5);
                                                                                             $('#success-dialog').modal('show');
                                                                                             $('#form_add').trigger("reset");
                                                                                             $('#imagePreview').removeAttr('style');
-                                                                                        } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
-                                                                                                || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                                                                                || (res[0] == "2206") || (res[0] == "2207")) {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
-                                                                                        } else {
+                                                                                         } else {
                                                                                             var errCode = res[1] + " (" + res[0] + ")  ";
                                                                                             $('#err-code').text(errCode);
                                                                                             $('#err-dialog').modal('show');
@@ -625,9 +569,9 @@ ACTIVEPAGES(5);
             $('#err-dialog').modal('hide');
             $('#success-dialog').modal('hide');
             $('#image-dialog').modal('hide');
-    
+
         }
-        
+
         function closeAlertReload() {
             $('#err-dialog').modal('hide');
             $('#success-dialog').modal('hide');
@@ -640,62 +584,9 @@ ACTIVEPAGES(5);
             $('#se-pre-con').delay(1000).fadeOut();
         });
 
-        function pressDelete(seq) {
-            var act = confirm("Delete ?");
-            if (act != true) {
-                return false;
-            }
-            $.ajax({
-                type: 'GET',
-                url: 'controller/pressController.php?func=delete&seq=' + seq,
-                //data: Jsdata,
-                beforeSend: function ()
-                {
-                    $('#se-pre-con').fadeIn(100);
-                },
-                success: function (data) {
+        
 
-
-                    var res = data.split(",");
-                    if (res[0] == "0000") {
-                        var errCode = res[1] + " (" + res[0] + ")  ";
-                        $('#success-code').text(errCode);
-                        $('#success-dialog').modal('show');
-                    } else {
-                        var errCode = res[1] + " (" + res[0] + ")  ";
-                        $('#err-code').text(errCode);
-                        $('#err-dialog').modal('show');
-                    }
-                    $('#se-pre-con').delay(100).fadeOut();
-                },
-                error: function (data) {
-                    debugger;
-                    //debug mode ========================================================================================================================
-                    var res = data.responseText.split(",");
-                    if (res[0] == "0000") {
-                        var errCode = res[1] + " (" + res[0] + ")  ";
-                        $('#success-code').text(errCode);
-                        $('#success-dialog').modal('show');
-                    } else {
-                        var errCode = res[1] + " (" + res[0] + ")  ";
-                        $('#err-code').text(errCode);
-                        $('#err-dialog').modal('show');
-                    }
-                    $('#se-pre-con').delay(100).fadeOut();
-                    //debug mode ========================================================================================================================
-                }
-
-            });
-
-
-
-        }
-
-        function previewImage(source) {
-            document.getElementById('image-dialog').style.display = 'block'
-            $("#src-image").attr("src", "controller/file/press/" + source);
-
-        }
+       
 
 
 

@@ -8,6 +8,7 @@ function ACTIVEPAGES($page) {
         $_SESSION["m4"] = "";
         $_SESSION["m5"] = "";
         $_SESSION["m6"] = "";
+        $_SESSION["m7"] = "";
     } else if ($page == 2) {
         $_SESSION["m1"] = "";
         $_SESSION["m2"] = "active";
@@ -15,6 +16,7 @@ function ACTIVEPAGES($page) {
         $_SESSION["m4"] = "";
         $_SESSION["m5"] = "";
         $_SESSION["m6"] = "";
+        $_SESSION["m7"] = "";
     } else if ($page == 3) {
         $_SESSION["m1"] = "";
         $_SESSION["m2"] = "";
@@ -22,6 +24,7 @@ function ACTIVEPAGES($page) {
         $_SESSION["m4"] = "";
         $_SESSION["m5"] = "";
         $_SESSION["m6"] = "";
+        $_SESSION["m7"] = "";
     } else if ($page == 4) {
         $_SESSION["m1"] = "";
         $_SESSION["m2"] = "";
@@ -29,6 +32,7 @@ function ACTIVEPAGES($page) {
         $_SESSION["m4"] = "active";
         $_SESSION["m5"] = "";
         $_SESSION["m6"] = "";
+        $_SESSION["m7"] = "";
     } else if ($page == 5) {
         $_SESSION["m1"] = "";
         $_SESSION["m2"] = "";
@@ -36,6 +40,7 @@ function ACTIVEPAGES($page) {
         $_SESSION["m4"] = "";
         $_SESSION["m5"] = "active";
         $_SESSION["m6"] = "";
+        $_SESSION["m7"] = "";
     } else if ($page == 6) {
         $_SESSION["m1"] = "";
         $_SESSION["m2"] = "";
@@ -43,6 +48,15 @@ function ACTIVEPAGES($page) {
         $_SESSION["m4"] = "";
         $_SESSION["m5"] = "";
         $_SESSION["m6"] = "active";
+        $_SESSION["m7"] = "";
+    } else if ($page == 7) {
+        $_SESSION["m1"] = "";
+        $_SESSION["m2"] = "";
+        $_SESSION["m3"] = "";
+        $_SESSION["m4"] = "";
+        $_SESSION["m5"] = "";
+        $_SESSION["m6"] = "";
+        $_SESSION["m7"] = "active";
     }
 }
 

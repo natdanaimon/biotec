@@ -43,6 +43,11 @@
         <en>Confirm</en>
     </detail>
     <detail>
+        <variable>add</variable>
+        <th>เพิ่มข้อมูล</th>
+        <en>Add Data</en> 
+    </detail>
+    <detail>
         <variable>close</variable>
         <th>ปิด</th>
         <en>Close</en>
@@ -51,6 +56,36 @@
         <variable>confirmDelete</variable>
         <th>คุณต้องการลบข้อมูลใช่หรือไม่ ?</th>
         <en>Do you want to delete Information ?</en>
+    </detail>
+    <detail>
+        <variable>active</variable>
+        <th>ใช้งาน</th>
+        <en>Active</en> 
+    </detail>
+    <detail>
+        <variable>inactive</variable>
+        <th>ไม่ใช้งาน</th>
+        <en>Inactive</en> 
+    </detail>
+    <detail>
+        <variable>btn_ok</variable>
+        <th>ตกลง</th>
+        <en>OK</en> 
+    </detail>
+    <detail>
+        <variable>btn_cancel</variable>
+        <th>ยกเลิก</th>
+        <en>Cancel</en> 
+    </detail>
+    <detail>
+        <variable>label_status</variable>
+        <th>สถานะ</th>
+        <en>Status</en> 
+    </detail>
+     <detail>
+        <variable>edit_info</variable>
+        <th>แก้ไขข้อมูล</th>
+        <en>Edit Info</en> 
     </detail>
     
     
@@ -436,11 +471,7 @@
     <!-- Page press -->
     
     <!-- Page Our Customers -->
-    <detail>
-        <variable>press_add</variable>
-        <th>เพิ่มข้อมูล</th>
-        <en>Add Data</en> 
-    </detail>
+
   
     <detail>
         <variable>customers_h1_msg</variable>
@@ -619,7 +650,53 @@
     </detail>
     <!-- /Page admin contact -->
 	
-	
+    <!-- Page admin our customers -->
+    <detail>
+        <variable>tb_customer_col_name_th</variable>
+        <th>ชื่อภาษาไทย</th>
+        <en>Name TH</en> 
+    </detail>
+    <detail>
+        <variable>tb_customer_col_name_en</variable>
+        <th>ชื่อภาษาอังกฤษ</th>
+        <en>Name EN</en> 
+    </detail>
+    <detail>
+        <variable>tb_customer_col_url</variable>
+        <th>ลิงค์</th>
+        <en>Link URL</en> 
+    </detail>
+    
+    <detail>
+        <variable>tb_customer_col_img</variable>
+        <th>โลโก้</th>
+        <en>Logo</en> 
+    </detail>
+    <detail>
+        <variable>tb_customer_col_status</variable>
+        <th>สถานะ</th>
+        <en>status</en> 
+    </detail>
+    
+    <detail>
+        <variable>tb_customer_col_edit</variable>
+        <th>แก้ไข</th>
+        <en>Edit</en> 
+    </detail>
+    <detail>
+        <variable>tb_customer_col_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>
+    
+   
+    <!-- /Page admin our customers -->
+        
+        
+        
+        
+        
+        
     <!-- sendMail -->
     <detail>
         <variable>sendmail_dear</variable>
@@ -710,6 +787,31 @@
         <th>2209,กรุณา อัพโหลดไฟล์ PDF</th>
         <en>2209,Please Upload PDF file.</en> 
     </detail>
+    
+    <detail>
+        <variable>cd_2301</variable>
+          <th>2301,กรุณาระบุชื่อภาษาไทย </th>
+        <en>2301,Please enter Name TH.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2302</variable>
+          <th>2302,กรุณาระบุชื่อภาษาอังกฤษ </th>
+        <en>2302,Please enter Name EN.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2303</variable>
+          <th>2303,กรุณาระบุลิงค์เว็บไซต์ </th>
+        <en>2303,Please enter URL Website.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2304</variable>
+          <th>2304,กรุณา อัพโหลดไฟล์โลโก้ </th>
+        <en>2304,Please Upload logo image.</en> 
+    </detail>
+    
+    
+    
+    
     <detail>
         <variable>cd_4001</variable>
         <th>4001,ชื่อผู้เข้าใช้งานสามารถใส่ได้เฉพาะ [a-zA-z0-9] เท่านั้น</th>
