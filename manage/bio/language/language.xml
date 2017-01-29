@@ -434,6 +434,26 @@
     </detail>
     
     <!-- Page press -->
+    
+    <!-- Page Our Customers -->
+    <detail>
+        <variable>press_add</variable>
+        <th>เพิ่มข้อมูล</th>
+        <en>Add Data</en> 
+    </detail>
+  
+    <detail>
+        <variable>customers_h1_msg</variable>
+        <th>ลูกค้าของเรา</th>
+        <en>Our Customers</en> 
+    </detail>
+    <detail>
+        <variable>go_website</variable>
+        <th>เว็บไซต์ลูกค้า </th>
+        <en>Website Customers</en> 
+    </detail>
+    
+    <!-- Page Our Customers -->
 
 
     <!-- Page contact -->

@@ -1,14 +1,14 @@
 <?php
 @session_start();
 include './manage/bio/common/FunctionCheckActive.php';
-ACTIVEPAGE_SHOW(6);
-$fixheader = "press";
+ACTIVEPAGE_SHOW(8);
+$fixheader = "fix"; 
 include './content/header.php';
 //include './content/slide.php';
 //slidePage("press");
 //อันนี้ที่ใช้ controller ของ admin เพราะมันสามารถใช้งานร่วมกันได้
-include './controller/pressController.php';
-include './service/pressService.php';
+include './controller/customersController.php';
+include './service/customersService.php';
 ?>
 
 
@@ -78,14 +78,14 @@ include './service/pressService.php';
                         <div class="uk-container uk-container-center">
 
                             <div class="contorno-titolo">
-                                <h1 class="uk-text-left"><?= $_SESSION['press_h1_msg'] ?></h1>
+                                <h1 class="uk-text-left"><?= $_SESSION['customers_h1_msg'] ?></h1>
                             </div>
 
 
                             <div class="uk-grid" data-uk-grid-margin>
                                 <?php
                                 $util = new Utility();
-                                $controller = new pressController();
+                                $controller = new customersController();
                                 $_data = $controller->dataTable();
                                 $limitPaging = $util->getLimitPaging();
 
@@ -115,36 +115,32 @@ include './service/pressService.php';
                                         <article class="uk-article">
 
 
-                                            <h1 class="uk-article-title"> 
+                                          <h1 class="uk-article-title"> 
 
-                                                <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> 
+                                                <?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?> 
                                             </h1>
 
-                                            <p class="uk-article-lead">
-                                                <?= $_data[$key]['s_date'] ?>
-                                            </p>
+                                         
 
 
-                                            <div class="uk-align-medium-left">
+                                            <div class="uk-align-medium-left" style="background-color: white;">
 
-                                                <a href="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>"  
+                                                <a href="<?= $_data[$key]['s_url'] ?>"  
                                                    data-lightbox="group:8e1879b8-9aee-4822-9c22-30821ddee807-580af4fe046b6<?= $_data[$key]['i_seq'] ?>;" 
-                                                   title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" data-spotlight="on"
-                                                   onclick="ck('./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>')"
-                                                   >
-                                                    <img src="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>" 
+                                                   title="<?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?>" data-spotlight="on" target="_bank" >
+                                                    <img src="./manage/bio/controller/file/customers/<?= $_data[$key]['s_img'] ?>" 
                                                          Style="width: 220px;height: 280px;" 
-                                                         alt="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" />
+                                                         alt="<?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?>" />
                                                 </a>	
                                             </div>
-                                            <div style="height: 5px;">
+                                            <div style="height: 13px">
 
                                             </div>
                                             <div class="download-pdf">
 
-                                                <a href="manage/bio/controller/pressController.php?func=preview&filename=<?= $_data[$key]['s_pathfile'] ?>" target="_bank" 
-                                                   title="<?= $_SESSION['download'] ?>">
-                                                       <?= $_SESSION['download'] ?>
+                                                <a href="<?= $_data[$key]['s_url'] ?>" target="_bank" 
+                                                   title="<?= $_SESSION['go_website'] ?>">
+                                                       <?= $_SESSION['go_website'] ?>
                                                 </a>
                                             </div> 
 
@@ -171,10 +167,10 @@ include './service/pressService.php';
                                 if (!$first) {
                                     $minus = $page - 1;
                                     echo "<li>";
-                                    echo " <a href='press.php?page=1'>First</a>";
+                                    echo " <a href='customers.php?page=1'>First</a>";
                                     echo "</li>";
                                     echo "<li>";
-                                    echo "<a href='press.php?page=$minus'><<</a>";
+                                    echo "<a href='customers.php?page=$minus'><<</a>";
                                     echo "</li>";
                                 }
 
@@ -187,7 +183,7 @@ include './service/pressService.php';
 
                                     if ($active == '') {
                                         echo "<li>";
-                                        echo "<a href='press.php?page=$i'>$i</a>";
+                                        echo "<a href='customers.php?page=$i'>$i</a>";
                                         echo "</li>";
                                     } else {
                                         echo "<li class='$active '>";
@@ -205,10 +201,10 @@ include './service/pressService.php';
                                 if (!$last) {
                                     $plus = $page + 1;
                                     echo "<li>";
-                                    echo "<a href='press.php?page=$plus'>>></a>";
+                                    echo "<a href='customers.php?page=$plus'>>></a>";
                                     echo "</li>";
                                     echo "<li>";
-                                    echo " <a href='press.php?page=$rel'>Last</a>";
+                                    echo " <a href='customers.php?page=$rel'>Last</a>";
                                     echo "</li>";
                                 }
                                 }
