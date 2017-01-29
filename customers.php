@@ -126,8 +126,8 @@ include './service/customersService.php';
                                             <div class="uk-align-medium-left" style="background-color: white;">
 
                                                 <a href="<?= $_data[$key]['s_url'] ?>"  
-                                                   data-lightbox="group:8e1879b8-9aee-4822-9c22-30821ddee807-580af4fe046b6<?= $_data[$key]['i_seq'] ?>;" 
-                                                   title="<?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?>" data-spotlight="on" target="_bank" >
+                                                 
+                                                   title="<?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?>"  target="_bank" >
                                                     <img src="./manage/bio/controller/file/customers/<?= $_data[$key]['s_img'] ?>" 
                                                          Style="width: 220px;height: 280px;" 
                                                          alt="<?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?>" />
