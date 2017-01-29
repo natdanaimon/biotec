@@ -139,7 +139,7 @@ include './service/customersService.php';
                                             <div class="download-pdf">
 
                                                 <a href="<?= $_data[$key]['s_url'] ?>" target="_bank" 
-                                                   title="<?= $_SESSION['go_website'] ?>">
+                                                   title="<?= $_SESSION['go_website'] ?>  <?= $_data[$key]['s_name_' . $_SESSION["main_lan"]] ?> ">
                                                        <?= $_SESSION['go_website'] ?>
                                                 </a>
                                             </div> 
