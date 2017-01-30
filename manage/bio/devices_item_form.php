@@ -610,7 +610,7 @@ $.ajax({
 
         <div class="modal fade boxSuccess" id="success-dialog"  Style="width: 370px;height: 64px">
             <span class="close" onclick="closeAlert();">x</span>
-            <p id="success-code" >   
+            <p id="success-code" class="f-white" >  </p> 
 
         </div>
         <div class="modal fade boxError" id="err-dialog"  Style="width: 370px;height: 64px">
