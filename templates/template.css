@@ -1030,7 +1030,7 @@ body{background:#ffffff;}
 @media (max-width:767px){}.wk-slideshow-square .next{background-image:url("/templates/yoo_square/images/widgetkit/lightgrey/button_next.png");}
 .wk-slideshow-square .prev{background-image:url("/templates/yoo_square/images/widgetkit/lightgrey/button_prev.png");}
 .wk-slideshow-square .nav span{background-image:url("/templates/yoo_square/images/widgetkit/lightgrey/nav.png");}
-.uk-float-right [class*='uk-icon-']:before{font-size:26px !important;top:4px !important;}
+.uk-float-right [class*='uk-icon-']:before{font-size:18px !important;top:8px !important;}
 body [class*='uk-icon-']{font-family:'Raleway';}
 .spazio-alto{margin-top:130px;}
 .contorno-titolo{margin-top:15px;margin-bottom:35px;background-color:#fff;color:#ccb26f;border:1px solid #eeeeee;overflow:hidden;z-index:100;position:relative;top:30px;}

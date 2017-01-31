@@ -33,17 +33,7 @@ if ($_GET['id'] == '') {
 
 
 </script>
-<style>
-    #lightbox-wrap2 {
-        display: none;
-        position: fixed;
-        top: 5% !important; 
-        left: 0;
-        padding: 20px;
-        z-index: 1101;
-        outline: none;
-    }
-</style>
+ 
 
 
 
@@ -82,8 +72,7 @@ if ($_GET['id'] == '') {
                                             </li>
 
 
-
-                                            <li><div class="gallery-item"><img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['s_devices_logo']; ?>" data-src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['s_devices_logo']; ?>" width="530" height="336" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" /></div></li>
+ 
 
 
                                         </ul>

@@ -23,29 +23,7 @@ if($_GET['id'] == ''){
 
 
 </div>
-<script>
-    function ck() {
-        //alert(1);
-
-        var warp = document.getElementById("lightbox-wrap");
-        var att = document.createAttribute("id");
-        att.value = 'lightbox-wrap2';
-        warp.setAttributeNode(att);
-    }
-
  
-</script>
-<style>
-    #lightbox-wrap2 {
-       display: none;
-        position: fixed;
-        top: 5% !important; 
-        left: 0;
-        padding: 20px;
-        z-index: 1101;
-        outline: none;
-    }
-</style>
 
 
 
@@ -85,9 +63,7 @@ $_data = $controller->dataTable_get($_GET['id']);
                                             <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['s_devices_logo']; ?>" width="530" height="336" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" /></div>
                                             </li>
 
-
-
-                                            <li><div class="gallery-item"><img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['s_devices_logo']; ?>" data-src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['s_devices_logo']; ?>" width="530" height="336" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" /></div></li>
+ 
 				
 										
 		</ul>
@@ -165,39 +141,47 @@ $_data = $controller->dataTable_get($_GET['id']);
 
 
                                <?php if($_data[0]['01_before'] != ''){  ?>
-                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_before']; ?>" data-lightbox="group:1d9b8cff-7d25-40d1-8c89-0e8ce0638bfc-580af5056a2ca;" title="Before" data-spotlight="on">
-                                    <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_before']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_before']; ?>" class="example-image-link"  data-lightbox="example-set" title="Before" >
+                                    <img class="example-image" src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_before']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
                                 </a>
                                 <?php } ?>
                                 <?php if($_data[0]['01_after'] != ''){  ?>
-                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_after']; ?>" data-lightbox="group:1d9b8cff-7d25-40d1-8c89-0e8ce0638bfc-580af5056a2ca;" title="After" data-spotlight="on">
-                                    <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_after']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_after']; ?>" class="example-image-link"  data-lightbox="example-set" title="After" data-spotlight="on">
+                                    <img class="example-image" src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['01_after']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
                                 </a>
                                 <?php } ?>
                                 <?php if($_data[0]['02_before'] != ''){  ?>
-                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_before']; ?>" data-lightbox="group:1d9b8cff-7d25-40d1-8c89-0e8ce0638bfc-580af5056a2ca;" title="Before" data-spotlight="on">
-                                    <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_before']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_before']; ?>" class="example-image-link"  data-lightbox="example-set" title="Before" data-spotlight="on">
+                                    <img class="example-image" src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_before']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
                                 </a>
                                 <?php } ?> 
                                 <?php if($_data[0]['02_after'] != ''){  ?>
-                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_after']; ?>" data-lightbox="group:1d9b8cff-7d25-40d1-8c89-0e8ce0638bfc-580af5056a2ca;" title="After" data-spotlight="on">
-                                    <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_after']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_after']; ?>" class="example-image-link"  data-lightbox="example-set" title="After" data-spotlight="on" >
+                                    <img class="example-image" src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['02_after']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
                                 </a>
                                 <?php } ?> 
                                 <?php if($_data[0]['03_before'] != ''){  ?>
-                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_before']; ?>" data-lightbox="group:1d9b8cff-7d25-40d1-8c89-0e8ce0638bfc-580af5056a2ca;" title="Before" data-spotlight="on">
-                                    <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_before']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_before']; ?>" class="example-image-link"  data-lightbox="example-set" title="Before" data-spotlight="on">
+                                    <img class="example-image" src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_before']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
                                 </a>
                                 <?php } ?> 
                                 <?php if($_data[0]['03_after'] != ''){  ?>
-                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_after']; ?>" data-lightbox="group:1d9b8cff-7d25-40d1-8c89-0e8ce0638bfc-580af5056a2ca;" title="After" data-spotlight="on">
-                                    <img src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_after']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                <a href="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_after']; ?>" class="example-image-link"  data-lightbox="example-set" title="After" data-spotlight="on">
+                                    <img class="example-image" src="../../../manage/bio/uploads/devices_item/<?= $_data[0]['03_after']; ?>" width="148" height="148" alt="<?= $_data[0]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
                                 </a>
                                 <?php } ?> 
                                 
+ 
+  <link rel="stylesheet" href="../../../bower_components/lightbox2/dist/css/lightbox.min.css">
+ 
 
+ 
+ 
 
-                                 
+  <script src="../../../bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+
+ 
+   
                                  
                             </div>
 </div>

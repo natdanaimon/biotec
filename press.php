@@ -127,6 +127,7 @@ include './service/pressService.php';
 
                                             <div class="uk-align-medium-left">
 
+                                                <!--
                                                 <a href="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>"  
                                                    data-lightbox="group:8e1879b8-9aee-4822-9c22-30821ddee807-580af4fe046b6<?= $_data[$key]['i_seq'] ?>;" 
                                                    title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" data-spotlight="on"
@@ -135,7 +136,23 @@ include './service/pressService.php';
                                                     <img src="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>" 
                                                          Style="width: 220px;height: 280px;" 
                                                          alt="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" />
-                                                </a>	
+                                                </a>
+                                                -->
+                                                
+                                                <a href="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>"  
+                                                   class="example-image-link"  data-lightbox="example-<?= $_data[$key]['i_seq'] ?>"
+                                                   title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" data-spotlight="on"
+                                                    
+                                                   >
+                                                    <img src="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>" 
+                                                         Style="width: 220px;height: 280px;" 
+                                                         alt="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" />
+                                                </a>
+                                                
+                                                
+                                                
+                                                
+                                                	
                                             </div>
                                             <div style="height: 5px;">
 
@@ -230,6 +247,18 @@ include './service/pressService.php';
 
     </div>	
 </div>
+  <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css">
+  <script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+  <script src="media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
+  <script>
+  	jQuery(function($) {
+        $('[data-spotlight]').spotlight({
+            "duration": 300
+        });
+    });
+  </script>
+  
+ 
 <?php
 include './content/footer.php';
 ?>
