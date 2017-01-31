@@ -68,7 +68,7 @@ if($_GET[id] == NULL){
                                         <div class="x_title">
                                             <h2 >
                                             <a href="devices.php">
-                                            <?= $_SESSION["devices"] ?></a> <i class="fa fa-backward"></i> <small id="title_devices"></small></h2>
+                                            <?= $_SESSION["devices"] ?></a> <i class="fa fa-caret-right"></i> <small id="title_devices"></small></h2>
                                             <ul class="nav navbar-right panel_toolbox" style="display: none">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>

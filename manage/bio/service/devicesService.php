@@ -40,8 +40,9 @@ class devicesService {
     function dataTable_item_row($i_seq) {
         require_once('../common/ConnectDB.php');
         $db = new ConnectDB();
-        $sql = " SELECT c.* FROM  tb_devices c   "
-                . " WHERE c.id = '".$i_seq."'   "
+        $sql = " SELECT d.*,c.* FROM  tb_devices d , tb_devices_content c   "
+                . " WHERE d.id = '".$i_seq."'   "
+                . " AND c.i_seq = d.id "
                 . "  ";
         $_data = $db->Search_Data_FormatJson($sql);
         $db->close_conn();
@@ -97,6 +98,7 @@ class devicesService {
         
         $data_arr['s_devices_th'] = $_POST["subject_th"];
         $data_arr['s_devices_en'] = $_POST["subject_en"];
+        $data_arr['s_devices_video'] = $_POST["s_devices_video"];
         $data_arr['s_device_detail_th'] = $_POST["s_device_detail_th"];
         $data_arr['s_device_detail_en'] = $_POST["s_device_detail_en"];
         
@@ -155,26 +157,28 @@ class devicesService {
 		
 		////////// update images
 		$part_image = "../uploads/devices_item/";
-		if($_FILES["icon"]){
+		if($_FILES["icon"]["name"] != NULL){
 			$value = $_FILES["icon"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . 'icon.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_img['s_devices_icon'] = $tmpFileName;
+			$data_icon['s_devices_icon'] = $tmpFileName;
+			$db->update_db("tb_devices",$data_icon,"id = '".$id."' ");
 		}
 		
-		if($_FILES["logo"]){
+		if($_FILES["logo"]["name"] != NULL){
 			$value = $_FILES["logo"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . 'logo.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
 			$data_img['s_devices_logo'] = $tmpFileName;
+			$db->update_db("tb_devices",$data_img,"id = '".$id."' ");
 		}
 		
 		////////// 01
-		if($_FILES["01_before"]){
+		if($_FILES["01_before"]["name"]){
 			$value = $_FILES["01_before"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . '01b.' . end($temp);
@@ -182,7 +186,7 @@ class devicesService {
 			move_uploaded_file($value["tmp_name"], $newfilename);
 			$data_ba['01_before'] = $tmpFileName;
 		}
-		if($_FILES["01_after"]){
+		if($_FILES["01_after"]["name"]){
 			$value = $_FILES["01_after"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . '01a.' . end($temp);
@@ -192,7 +196,7 @@ class devicesService {
 		}
 		
 		////////// 02
-		if($_FILES["02_before"]){
+		if($_FILES["02_before"]["name"]){
 			$value = $_FILES["02_before"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . '02b.' . end($temp);
@@ -200,7 +204,7 @@ class devicesService {
 			move_uploaded_file($value["tmp_name"], $newfilename);
 			$data_ba['02_before'] = $tmpFileName;
 		}
-		if($_FILES["02_after"]){
+		if($_FILES["02_after"]["name"]){
 			$value = $_FILES["02_after"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . '02a.' . end($temp);
@@ -210,7 +214,7 @@ class devicesService {
 		}
 		
 		////////// 03
-		if($_FILES["03_before"]){
+		if($_FILES["03_before"]["name"]){
 			$value = $_FILES["03_before"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . '03b.' . end($temp);
@@ -218,13 +222,15 @@ class devicesService {
 			move_uploaded_file($value["tmp_name"], $newfilename);
 			$data_ba['03_before'] = $tmpFileName;
 		}
-		if($_FILES["03_after"]){
+		if($_FILES["03_after"]["name"]){
 			$value = $_FILES["03_after"];
 			$temp = explode(".", $value["name"]);
 	        $tmpFileName = $id . '03a.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
 			$data_ba['03_after'] = $tmpFileName;
+		
+		
 		}
  		
  		if($_POST["seq_i"] == NULL){
@@ -234,7 +240,7 @@ class devicesService {
 			$db->update_db("tb_devices_img",$data_ba,"i_seq = '".$id."' ");
 		}
  		
- 		$db->update_db("tb_devices",$data_img,"id = '".$id."' ");
+ 		
 
 		
 		

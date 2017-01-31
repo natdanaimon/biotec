@@ -77,7 +77,7 @@ if($_GET[seq_i]){
                                         <div class="x_title">
                                             <h2 >
                                             <a href="devices.php">
-                                            <?= $_SESSION["devices"] ?></a> <i class="fa fa-backward"></i> <a href="devices_item.php?id=<?=$_GET['type'];?>"><i id="title_devices"></i></a> <i class="fa fa-backward"></i> <small><?=$txt_title_form;?></small> </h2>
+                                            <?= $_SESSION["devices"] ?></a> <i class="fa fa-caret-right"></i> <a href="devices_item.php?id=<?=$_GET['type'];?>"><i id="title_devices"></i></a> <i class="fa fa-caret-right"></i> <small><?=$txt_title_form;?></small> </h2>
                                             <ul class="nav navbar-right panel_toolbox" style="display: none">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>
@@ -139,6 +139,18 @@ if($_GET[seq_i]){
                                                         </div>
                                                     </div>
                                                     
+<div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subject_en">
+    Video
+                                                             
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <input type="text" id="s_devices_video" name="s_devices_video"  class="form-control col-md-7 col-xs-12">
+                                                        </div>
+                                                    </div>                                                    
+                                                    
+                                                    
+                                                    
                                                     
                                                     
                                                     <div class="form-group">
@@ -169,6 +181,14 @@ if($_GET[seq_i]){
     logo
                                                             <span class="required">*</span>
                                                         </label>
+<table align="left" id="tb_logo" style="display: none">
+	<tr>
+		<td align="left">
+		<br />
+			<span id="show_logo"></span>
+		</td>
+	</tr>
+</table>                                                        
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                                             <input type="file" id="logo" name="logo"   class="form-control col-md-7 col-xs-12">
                                                         </div>
@@ -179,6 +199,14 @@ if($_GET[seq_i]){
     Icon
                                                             <span class="required">*</span>
                                                         </label>
+<table align="left" id="tb_icon" style="display: none">
+	<tr>
+		<td align="left">
+		<br />
+			<span id="show_icon"></span>
+		</td>
+	</tr>
+</table>                                                         
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
                                                             <input type="file" id="icon" name="icon"   class="form-control col-md-7 col-xs-12">
                                                         </div>
@@ -536,13 +564,39 @@ $.ajax({
                         debugger;
                         var res = JSON.parse(data);
                         var JsonData = [];
+                        var show_image = "";
                         $.each(res, function (i, item) {
 							$('#subject_th').val(item.s_devices_th);
 							$('#subject_en').val(item.s_devices_en);
+							$('#s_devices_video').val(item.s_devices_video);
 							$('#s_device_detail_th').val(item.s_device_detail_th);
 							$('#s_device_detail_en').val(item.s_device_detail_en);
+							$('#s_device_detail_th').val(item.s_device_detail_th);
+							$('#s_device_detail_en').val(item.s_device_detail_en);
+							$('#s_technology_th').val(item.s_technology_th);
+							$('#s_technology_en').val(item.s_technology_en);
+							$('#s_procedures_th').val(item.s_procedures_th);
+							$('#s_procedures_en').val(item.s_procedures_en);
+							$('#s_techmocal_th').val(item.s_techmocal_th);
+							$('#s_techmocal_en').val(item.s_techmocal_en);
+							$('#s_pubblications_th').val(item.s_pubblications_th);
+							$('#s_pubblications_en').val(item.s_pubblications_en);
+                       
+                       
+                       		show_logo =  item.s_devices_logo;
+							if(show_logo){
+								$('#show_logo').html('<img src="uploads/devices_item/'+show_logo+'" width="200" />');
+								$('#tb_logo').show();
+							}
+							
+							show_icon =  item.s_devices_icon;
+							if(show_icon){
+								$('#show_icon').html('<img src="uploads/devices_item/'+show_icon+'" width="200" />');
+								$('#tb_icon').show();
+							}
+                       
                         });
-
+ 
                         
                     },
                     error: {
