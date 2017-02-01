@@ -2,7 +2,7 @@
 @session_start();
 include './manage/bio/common/FunctionCheckActive.php';
 ACTIVEPAGE_SHOW(5);
-$fixheader = "news";
+$fixheader = "press";
 include './content/header.php';
 //include './content/slide.php';
 //slidePage("press");
@@ -57,6 +57,18 @@ include './service/pressService.php';
         outline: none;
         max-height: 50% !important; 
     }
+.text-left {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    display: inline;
+    padding: 14px 60px 14px 20px;
+    color: #fff;
+    font-size: 18px;
+}
+.text-left {
+    text-align: left !important;
+}
+@media (max-width: 767px)
 
 </style>
 
@@ -72,163 +84,137 @@ include './service/pressService.php';
 
 
 
-                <div class="yoo-zoo press-uikit press-uikit-frontpage">
-
+                <div class="yoo-zoo news-uikit news-uikit-news">
                     <div class="sfondo-grigio">
                         <div class="uk-container uk-container-center">
 
-                            <div class="contorno-titolo">
-                                <h1 class="uk-text-left"><?= $_SESSION['press_h1_msg'] ?></h1>
-                            </div>
-
-
-                            <div class="uk-grid" data-uk-grid-margin>
-                                <?php
-                                $util = new Utility();
-                                $controller = new pressController();
-                                $_data = $controller->dataTable();
-                                $limitPaging = $util->getLimitPaging();
-
-                                $resultCount = $util->countObject($_data);
-                                // for test 
-                                // $resultCount = 50;
-                                $rel = $resultCount / $limitPaging;
-                                if (($rel - floor($rel)) != 0) {
-                                    $rel = floor($rel) + 1;
-                                } else {
-                                    $rel = floor($rel);
-                                }
-                                if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
-                                    $page = 1;
-                                } else {
-                                    $page = $_GET["page"];
-                                }
-
-
-                                foreach ($_data as $key => $value) {
-                                    if ($util->ContinueObject($page, $key + 1)) {
-                                        continue;
-                                    }
-
-                                    ?>
-                                    <div class="uk-width-medium-1-4">
-                                        <article class="uk-article">
-
-
-                                            <h1 class="uk-article-title"> 
-
-                                                <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> 
-                                            </h1>
-
-                                            <p class="uk-article-lead">
-                                                <?= $_data[$key]['s_date'] ?>
-                                            </p>
-
-
-                                            <div class="uk-align-medium-left">
-
-                                                <a href="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>"  
-                                                   data-lightbox="group:8e1879b8-9aee-4822-9c22-30821ddee807-580af4fe046b6<?= $_data[$key]['i_seq'] ?>;" 
-                                                   title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" data-spotlight="on"
-                                                   onclick="ck('./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>')"
-                                                   >
-                                                    <img src="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>" 
-                                                         Style="width: 220px;height: 280px;" 
-                                                         alt="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" />
-                                                </a>	
-                                            </div>
-                                            <div style="height: 5px;">
-
-                                            </div>
-                                            <div class="download-pdf">
-
-                                                <a href="manage/bio/controller/pressController.php?func=preview&filename=<?= $_data[$key]['s_pathfile'] ?>" target="_bank" 
-                                                   title="<?= $_SESSION['download'] ?>">
-                                                       <?= $_SESSION['download'] ?>
-                                                </a>
-                                            </div> 
-
-
-                                        </article>
-
-                                    </div>
-                                    <?php
-                                }
-                                ?>
+                            <div class="contorno-titolo"><h2>News</h2></div>
 
 
 
-                            </div>
+                            <div class="uk-grid" data-uk-grid-margin><div class="uk-width-medium-1-2">
 
 
+                                    <article class="uk-article">
+
+
+                                        <h1 class="uk-article-title">
+                                            <a title="Biotec Italia awarded at World of Beauty in Prague" href="/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague">Biotec Italia awarded at World of Beauty in Prague</a> </h1>
+
+                                        <p class="uk-article-lead">
+                                            Thursday, 10 September 2015 </p>
+
+
+                                        <div class="uk-align-medium-left">
+                                            <a href="/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" title="Biotec Italia awarded at World of Beauty in Prague"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Biotec Italia awarded at World of Beauty in Prague" width="150" height="120" title="Biotec Italia awarded at World of Beauty in Prague" /></a> </div>
+
+                                        Mesotherm got the BEPPA at the 20th World of Beauty in Prague 
+                                        <div class="yoo-zoo socialbuttons clearfix">
+                                            <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
+                                            <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
+                                            <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                        </div> 
+
+
+                                        <ul class="uk-subnav uk-subnav-line">
+
+                                            <li class="element element-itemlink">
+                                                <a href="/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague">Read More >></a></li></ul>
+                                    </article>
+                                    <article class="uk-article">
+
+
+                                        <h1 class="uk-article-title">
+                                            <a title="Hyaluronic Acid" href="/en/news/item/hyaluronic-acid?category_id=29">Hyaluronic Acid</a> </h1>
+
+                                        <p class="uk-article-lead">
+                                            Monday, 28 July 2014 </p>
+
+
+                                        <div class="uk-align-medium-left">
+                                            <a href="/en/news/item/hyaluronic-acid?category_id=29" title="Hyaluronic Acid"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Hyaluronic Acid" width="150" height="120" title="Hyaluronic Acid" /></a> </div>
+
+                                        An help for skin health. 
+                                        <div class="yoo-zoo socialbuttons clearfix">
+                                            <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/hyaluronic-acid?category_id=29" data-count="none" data-lang="en_GB">Tweet</a></div>
+                                            <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/hyaluronic-acid?category_id=29" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
+                                            <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/hyaluronic-acid?category_id=29" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                        </div> 
+
+
+                                        <ul class="uk-subnav uk-subnav-line">
+
+                                            <li class="element element-itemlink">
+                                                <a href="/en/news/item/hyaluronic-acid?category_id=29">Read More >></a></li></ul>
+                                    </article>
+
+                                </div><div class="uk-width-medium-1-2">
+                                    <article class="uk-article">
+
+
+                                        <h1 class="uk-article-title">
+                                            <a title="Renlive Presents Liposnell" href="/en/news/item/liposnell-renlive-treatment-slimming">Renlive Presents Liposnell</a> </h1>
+
+                                        <p class="uk-article-lead">
+                                            Monday, 14 December 2015 </p>
+
+
+                                        <div class="uk-align-medium-left">
+                                            <a href="/en/news/item/liposnell-renlive-treatment-slimming" title="Renlive Presents Liposnell"><img src="./manage/bio/controller/file/press/201701281550041.jpg" alt="Renlive Presents Liposnell" width="150" height="120" title="Renlive Presents Liposnell" /></a> </div>
+
+                                        Remove 1 size in less than a month with LipoSnell 
+                                        <div class="yoo-zoo socialbuttons clearfix">
+                                            <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/liposnell-renlive-treatment-slimming" data-count="none" data-lang="en_GB">Tweet</a></div>
+                                            <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/liposnell-renlive-treatment-slimming" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
+                                            <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/liposnell-renlive-treatment-slimming" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                        </div> 
+
+
+                                        <ul class="uk-subnav uk-subnav-line">
+
+                                            <li class="element element-itemlink">
+                                                <a href="/en/news/item/liposnell-renlive-treatment-slimming">Read More >></a></li></ul>
+                                    </article>
+                                    <article class="uk-article">
+
+
+                                        <h1 class="uk-article-title">
+                                            <a title="Biotec Italia at Medica 2015 in  Düsseldorf" href="/en/news/item/biotec-italia-at-medica-2015-in-duesseldorf">Biotec Italia at Medica 2015 in  Düsseldorf</a> </h1>
+
+                                        <p class="uk-article-lead">
+                                            Monday, 19 October 2015 </p>
+
+
+                                        <div class="uk-align-medium-left">
+                                            <a href="/en/news/item/biotec-italia-at-medica-2015-in-duesseldorf" title="Biotec Italia at Medica 2015 in  Düsseldorf"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Biotec Italia at Medica 2015 in  Düsseldorf" width="150" height="120" title="Biotec Italia at Medica 2015 in  Düsseldorf" /></a> </div>
+
+                                        Biotec Italia will be present at Medica in Duesseldorf from 16  to 19 November 2015, hall 11, stand G69 
+                                        <div class="yoo-zoo socialbuttons clearfix">
+                                            <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-at-medica-2015-in-duesseldorf" data-count="none" data-lang="en_GB">Tweet</a></div>
+                                            <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-at-medica-2015-in-duesseldorf" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
+                                            <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-at-medica-2015-in-duesseldorf" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                        </div> 
+
+
+                                        <ul class="uk-subnav uk-subnav-line">
+
+                                            <li class="element element-itemlink">
+                                                <a href="/en/news/item/biotec-italia-at-medica-2015-in-duesseldorf">Read More >></a></li></ul>
+                                    </article>
+                                </div></div>
                             <ul class="uk-pagination">
 
-                                <?php
-                                if($_data!=NULL){
-                                // << FIRST
-                                $first = ($page == 1 ? TRUE : FALSE);
-                                $last = FALSE;
-                                if (!$first) {
-                                    $minus = $page - 1;
-                                    echo "<li>";
-                                    echo " <a href='press.php?page=1'>First</a>";
-                                    echo "</li>";
-                                    echo "<li>";
-                                    echo "<a href='press.php?page=$minus'><<</a>";
-                                    echo "</li>";
-                                }
-
-                                //for start
-                                for ($i = 1; $i <= $rel; $i++) {
-                                    $active = ($page == $i ? "uk-active" : '');
-                                    if ($rel != 1) {
-                                        
-                                    }
-
-                                    if ($active == '') {
-                                        echo "<li>";
-                                        echo "<a href='press.php?page=$i'>$i</a>";
-                                        echo "</li>";
-                                    } else {
-                                        echo "<li class='$active '>";
-                                        echo " <span>$i</span>";
-                                        echo "</li>";
-                                    }
-                                    if ($rel == $page) {
-                                        $last = TRUE;
-                                    }
-                                }
-                                //for end
-                                //
-                                 //
-                                //  >>  LAST
-                                if (!$last) {
-                                    $plus = $page + 1;
-                                    echo "<li>";
-                                    echo "<a href='press.php?page=$plus'>>></a>";
-                                    echo "</li>";
-                                    echo "<li>";
-                                    echo " <a href='press.php?page=$rel'>Last</a>";
-                                    echo "</li>";
-                                }
-                                }
-                                ?>
-
-                            </ul>
+                                <li class="uk-active"><span>1</span><li><a href="/en/news/2">2</a></li><li><a href="/en/news/3">3</a></li><li><a href="/en/news/4">4</a></li><li><a href="/en/news/5">5</a></li><li><a href="/en/news/2">»</a></li><li><a href="/en/news/5">Last</a></li></ul>
 
                         </div>
 
-                    </div>
+                    </div>	
+
                 </div>
             </main>
 
-
-
-
         </div>
-
-
-    </div>	
+    </div>
 </div>
 <?php
 include './content/footer.php';
