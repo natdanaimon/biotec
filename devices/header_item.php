@@ -33,7 +33,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="http://www.biotecitalia.com/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
         <script src="http://www.biotecitalia.com/media/zoo/assets/js/responsive.js?ver=20150120" type="text/javascript"></script>
         <script src="http://www.biotecitalia.com/components/com_zoo/assets/js/default.js?ver=20150120" type="text/javascript"></script>
-        <script src="http://www.biotecitalia.com/cache/widgetkit/widgetkit-78853296.js" type="text/javascript"></script>
+ 
         <script type="text/javascript">
             window.setInterval(function () {
                 var r;
@@ -51,13 +51,14 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
         <style data-file="bootstrap.css"></style>
         <!--<style data-file="theme.css"></style>-->
-<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/template.css">
-<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">
+<link   rel="stylesheet" href="../../../templates/template.css">
+<script src="scripts.js"></script>
+
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>
-        <script src="scripts.js"></script>
+        
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>

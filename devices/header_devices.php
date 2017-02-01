@@ -41,14 +41,15 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
 <style data-file="bootstrap.css"></style>
 <!--<style data-file="theme.css"></style>-->
-<link id="data-uikit-theme" rel="stylesheet" href="../../templates/template.css">
-<link id="data-uikit-theme" rel="stylesheet" href="../../templates/widgetkit.css">
+<link rel="stylesheet" href="../../templates/template.css">
+<script src="scripts.js"></script>
+<link rel="stylesheet" href="../../templates/widgetkit.css">
 
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>
-<script src="scripts.js"></script>
+
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
