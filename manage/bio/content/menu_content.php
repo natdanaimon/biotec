@@ -42,7 +42,7 @@
                         <a>
                             <i class="fa fa-suitcase"></i> <?= $_SESSION["devices"] ?>  <span class="fa fa-chevron-down" ></span>
                         </a>
-                        
+
                         <ul class="nav child_menu" style="<?= $_SESSION["style2"] ?>">
                             <li  class="<?= $_SESSION["sm1"] ?>"><a href="devices.php"><?= $_SESSION["devices"] ?></a></li>
                             <li  class="<?= $_SESSION["s1"] ?>"><a href="devices_item.php?id=1"><?= $_SESSION["medical"] ?></a></li>
@@ -62,13 +62,13 @@
                             <li class="<?= $_SESSION["s7"] ?>"><a href="cosme_item.php?id=5"><?= $_SESSION["bodyline"] ?></a></li>
                             <li class="<?= $_SESSION["s8"] ?>"><a href="cosme_item.php?id=6"><?= $_SESSION["sun_care"] ?></a></li>
                             <li class="<?= $_SESSION["s9"] ?>" ><a href="cosme_item.php?id=7"><?= $_SESSION["herbs"] ?></a></li>
- 
- 
+
+
                         </ul>
                     </li> 
                     <li class="<?= $_SESSION["m4"] ?>">
                         <a>
-                           <i class="fa fa-newspaper-o"></i> <?= $_SESSION["news"] ?> <span class="fa fa-chevron-down"></span>
+                            <i class="fa fa-newspaper-o"></i> <?= $_SESSION["news"] ?> <span class="fa fa-chevron-down"></span>
                         </a>
                         <ul class="nav child_menu " >
                             <li><a href="news.php"><?= $_SESSION["news"] ?></a></li>
@@ -82,20 +82,25 @@
                             <i class="fa fa-eyedropper"></i> <?= $_SESSION["press"] ?> 
                         </a>
                     </li>
-                    
+
                     <li class="<?= $_SESSION["m7"] ?>">
                         <a href="javascript:void(0)" onclick="page('customers');" >
                             <i class="fa fa-user"></i> <?= $_SESSION["our_customers"] ?> 
                         </a>
                     </li>
-                    
+
                     <li class="<?= $_SESSION["m6"] ?>">
                         <a href="javascript:void(0)" onclick="page('contacts');" >
                             <i class="fa fa-comments"></i> <?= $_SESSION["contacts"] ?> 
                         </a>
                     </li>
-                    
-                    
+                    <li class="<?= $_SESSION["m8"] ?>">
+                        <a href="javascript:void(0)" onclick="page('webmail');" >
+                            <i class="fa fa-envelope"></i> <?= $_SESSION["webmail"] ?> 
+                        </a>
+                    </li>
+
+
 
                 </ul>
             </div>
@@ -127,7 +132,7 @@
                     Source Example
                 </h3>
                 <ul class="nav side-menu">
-                  
+
                     <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="form.html">General Form</a></li>

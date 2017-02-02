@@ -82,7 +82,7 @@
         <th>สถานะ</th>
         <en>Status</en> 
     </detail>
-     <detail>
+    <detail>
         <variable>edit_info</variable>
         <th>แก้ไขข้อมูล</th>
         <en>Edit Info</en> 
@@ -287,6 +287,11 @@
         <variable>help</variable>
         <th>ช่วยเหลือ</th>
         <en>Help</en>
+    </detail>
+    <detail>
+        <variable>webmail</variable>
+        <th>เว็บเมล์</th>
+        <en>Web Mail</en>
     </detail>
     <!--  Menu Biotec -->
     
@@ -724,6 +729,23 @@
     
     <!-- sendMail -->
 	
+    <!-- webmail -->
+    <detail>
+        <variable>txt_email</variable>
+        <th>อีเมล์</th>
+        <en>Email</en> 
+    </detail>
+    <detail>
+        <variable>txt_pass</variable>
+        <th>รหัสผ่าน</th>
+        <en>password</en> 
+    </detail>
+    <detail>
+        <variable>btn_loginmail</variable>
+        <th>เข้าใช้งานเว็บเมล์ z.com </th>
+        <en>Access Webmail to z.com</en> 
+    </detail>
+    <!-- webmail -->
 	
     <!-- Response Code -->
     <detail>
@@ -790,22 +812,22 @@
     
     <detail>
         <variable>cd_2301</variable>
-          <th>2301,กรุณาระบุชื่อภาษาไทย </th>
+        <th>2301,กรุณาระบุชื่อภาษาไทย </th>
         <en>2301,Please enter Name TH.</en> 
     </detail>
     <detail>
         <variable>cd_2302</variable>
-          <th>2302,กรุณาระบุชื่อภาษาอังกฤษ </th>
+        <th>2302,กรุณาระบุชื่อภาษาอังกฤษ </th>
         <en>2302,Please enter Name EN.</en> 
     </detail>
     <detail>
         <variable>cd_2303</variable>
-          <th>2303,กรุณาระบุลิงค์เว็บไซต์ </th>
+        <th>2303,กรุณาระบุลิงค์เว็บไซต์ </th>
         <en>2303,Please enter URL Website.</en> 
     </detail>
     <detail>
         <variable>cd_2304</variable>
-          <th>2304,กรุณา อัพโหลดไฟล์โลโก้ </th>
+        <th>2304,กรุณา อัพโหลดไฟล์โลโก้ </th>
         <en>2304,Please Upload logo image.</en> 
     </detail>
     
