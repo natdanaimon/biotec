@@ -11,10 +11,12 @@ include './service/cosmeService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 
-ACTIVEPAGES(3);
 if($_GET[id] == NULL){
 	header('Location: cosme.php');
 }
+ACTIVEPAGES(3);
+ACTIVEPAGES_SUB(3, $_GET[id]);
+
 ?>
 
 <html lang="en">

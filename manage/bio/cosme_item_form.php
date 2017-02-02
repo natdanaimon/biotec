@@ -11,10 +11,12 @@ include './service/cosmeService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 
-ACTIVEPAGES(2);
+
 if($_GET[type] == NULL){
 	header('Location: cosme.php');
 }
+ACTIVEPAGES(3);
+ACTIVEPAGES_SUB(3, $_GET[type]);
 
 if($_GET[seq_i]){
 	$txt_title_form = "Edit";

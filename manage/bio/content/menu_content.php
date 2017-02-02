@@ -40,28 +40,28 @@
                     </li>
                     <li class="<?= $_SESSION["m2"] ?>">
                         <a>
-                            <i class="fa fa-suitcase"></i> <?= $_SESSION["devices"] ?>  <span class="fa fa-chevron-down" style="display: nones"></span>
-                            </a>
+                            <i class="fa fa-suitcase"></i> <?= $_SESSION["devices"] ?>  <span class="fa fa-chevron-down" ></span>
+                        </a>
                         
-                        <ul class="nav child_menu " style="display: nones" >
-                            <li><a href="devices.php"><?= $_SESSION["devices"] ?></a></li>
-                            <li><a href="devices_item.php?id=1"><?= $_SESSION["medical"] ?></a></li>
-                            <li><a href="devices_item.php?id=2"><?= $_SESSION["aesthetic"] ?></a></li>
+                        <ul class="nav child_menu" style="<?= $_SESSION["style2"] ?>">
+                            <li  class="<?= $_SESSION["sm1"] ?>"><a href="devices.php"><?= $_SESSION["devices"] ?></a></li>
+                            <li  class="<?= $_SESSION["s1"] ?>"><a href="devices_item.php?id=1"><?= $_SESSION["medical"] ?></a></li>
+                            <li  class="<?= $_SESSION["s2"] ?>"><a href="devices_item.php?id=2"><?= $_SESSION["aesthetic"] ?></a></li>
                         </ul>
                     </li> 
                     <li class="<?= $_SESSION["m3"] ?>">
                         <a>
                             <i class="fa fa-flask"></i> <?= $_SESSION["cosmeceuticals"] ?> <span class="fa fa-chevron-down"></span>
                         </a>
-                        <ul class="nav child_menu " >
-                            <li><a href="cosme.php"><?= $_SESSION["cosmeceuticals"] ?></a></li>
-                            <li><a href="cosme_item.php?id=1"><?= $_SESSION["rigenera"] ?></a></li>
-                            <li><a href="cosme_item.php?id=2"><?= $_SESSION["dry_sensitive"] ?></a></li>
-                            <li><a href="cosme_item.php?id=3"><?= $_SESSION["combination_oily"] ?></a></li>
-                            <li><a href="cosme_item.php?id=4"><?= $_SESSION["flexi"] ?></a></li>
-                            <li><a href="cosme_item.php?id=5"><?= $_SESSION["bodyline"] ?></a></li>
-                            <li><a href="cosme_item.php?id=6"><?= $_SESSION["sun_care"] ?></a></li>
-                            <li><a href="cosme_item.php?id=7"><?= $_SESSION["herbs"] ?></a></li>
+                        <ul class="nav child_menu" style="<?= $_SESSION["style3"] ?>">
+                            <li class="<?= $_SESSION["sm2"] ?>"><a href="cosme.php"><?= $_SESSION["cosmeceuticals"] ?></a></li>
+                            <li class="<?= $_SESSION["s3"] ?>"><a href="cosme_item.php?id=1"><?= $_SESSION["rigenera"] ?></a></li>
+                            <li class="<?= $_SESSION["s4"] ?>"><a href="cosme_item.php?id=2"><?= $_SESSION["dry_sensitive"] ?></a></li>
+                            <li class="<?= $_SESSION["s5"] ?>"><a href="cosme_item.php?id=3"><?= $_SESSION["combination_oily"] ?></a></li>
+                            <li class="<?= $_SESSION["s6"] ?>"><a href="cosme_item.php?id=4"><?= $_SESSION["flexi"] ?></a></li>
+                            <li class="<?= $_SESSION["s7"] ?>"><a href="cosme_item.php?id=5"><?= $_SESSION["bodyline"] ?></a></li>
+                            <li class="<?= $_SESSION["s8"] ?>"><a href="cosme_item.php?id=6"><?= $_SESSION["sun_care"] ?></a></li>
+                            <li class="<?= $_SESSION["s9"] ?>" ><a href="cosme_item.php?id=7"><?= $_SESSION["herbs"] ?></a></li>
  
  
                         </ul>

@@ -11,11 +11,12 @@ include './service/devicesService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 
-ACTIVEPAGES(2);
+
 if($_GET[type] == NULL){
 	header('Location: devices.php');
 }
-
+ACTIVEPAGES(2);
+ACTIVEPAGES_SUB(2, $_GET[type]);
 if($_GET[seq_i]){
 	$txt_title_form = "Edit";
 }else{
