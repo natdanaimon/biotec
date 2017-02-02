@@ -73,7 +73,7 @@ ACTIVEPAGES(8);
                                                 <input type="password"  name="pass"  value="p@ssw0rd" class="form-control col-md-7 col-xs-12">
                                             </div>
                                         </div>
-                                        
+
                                         <div class="ln_solid"></div>
                                         <div class="form-group" align="center">
                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -82,6 +82,13 @@ ACTIVEPAGES(8);
                                         </div>
 
                                     </form>
+                                </div>
+                              
+                                <div class="x_content">
+                                    <div align="center">
+                                          <br/>
+                                          <a  Style="background-color: red;font-size: 18px " class="badge" href="http://www.netdesignhost.com/help.php" target="_bank"> <span style="color: yellow">*</span> <span><?= $_SESSION["txt_webmail_support"] ?></span> </a >
+                                    </div>
                                 </div>
 
                             </div>

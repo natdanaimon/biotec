@@ -745,6 +745,11 @@
         <th>เข้าใช้งานเว็บเมล์ z.com </th>
         <en>Access Webmail to z.com</en> 
     </detail>
+    <detail>
+        <variable>txt_webmail_support</variable>
+        <th>คู่มือสำหรับการติดตั้งและใช้งานบนอุปกรณ์ต่างๆ</th>
+        <en>Guide for installation and use on device.</en> 
+    </detail>
     <!-- webmail -->
 	
     <!-- Response Code -->
