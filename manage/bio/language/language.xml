@@ -754,6 +754,11 @@
 	
     <!-- newsletter -->
     <detail>
+        <variable>lb_newsletter</variable>
+        <th>จดหมายข่าว</th>
+        <en>Newsletter</en> 
+    </detail>
+    <detail>
         <variable>lb_newsletter_name</variable>
         <th>ชื่อ</th>
         <en>Name</en> 
@@ -823,7 +828,12 @@
     <detail>
         <variable>lb_newsletter_category_4</variable>
         <th>นายแพทย์</th>
-        <en>Doctor  </en> 
+        <en>Doctor</en> 
+    </detail>
+    <detail>
+        <variable>btn_newsletter</variable>
+        <th>ตกลง</th>
+        <en>OK</en> 
     </detail>
     
     <!-- newsletter -->    
