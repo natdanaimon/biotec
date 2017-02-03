@@ -804,6 +804,7 @@
         <th>ทุกหมวดหมู่</th>
         <en>All Category</en> 
     </detail>
+    
     <detail>
         <variable>lb_newsletter_category_1</variable>
         <th>ส่วนตัวบุคคล</th>
@@ -827,12 +828,7 @@
     
     <!-- newsletter -->    
         
-        
-        
-        
-        
-        
-        
+
     <!-- Response Code -->
     <detail>
         <variable>cd_0000</variable>
