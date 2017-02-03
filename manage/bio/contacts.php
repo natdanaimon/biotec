@@ -77,8 +77,8 @@ ACTIVEPAGES(6);
                                             <table id="datatable-checkbox" class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th style="width: 160px;"> <?= $_SESSION["tb_col_status"] ?> </th>
-                                                        <th style="width: 140px;"><?= $_SESSION["tb_col_date"] ?></th>
+                                                        <th style="width: 170px;"> <?= $_SESSION["tb_col_status"] ?> </th>
+                                                        <th style="width: 160px;"><?= $_SESSION["tb_col_date"] ?></th>
                                                         <th style="width: 300px;"><?= $_SESSION["tb_col_subject"] ?></th>
                                                         <th><?= $_SESSION["tb_col_name"] ?></th>
                                                         <th style="width: 120px;"><?= $_SESSION["tb_col_phone"] ?></th>
