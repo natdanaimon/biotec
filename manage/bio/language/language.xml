@@ -752,6 +752,87 @@
     </detail>
     <!-- webmail -->
 	
+    <!-- newsletter -->
+    <detail>
+        <variable>lb_newsletter_name</variable>
+        <th>ชื่อ</th>
+        <en>Name</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_email</variable>
+        <th>อีเมล์</th>
+        <en>Email address</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_email_confirm</variable>
+        <th>ยืนยันอีเมล์</th>
+        <en>confirm your email address</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_category</variable>
+        <th>หมวดหมู่</th>
+        <en>Category</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_city</variable>
+        <th>เมือง</th>
+        <en>City</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_town</variable>
+        <th>ตัวเมือง</th>
+        <en>Town</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_country</variable>
+        <th>ประเทศ</th>
+        <en>Country</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_tel</variable>
+        <th>โทรศัพท์</th>
+        <en>Phone</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_website</variable>
+        <th>เว็บไซต์</th>
+        <en>Website</en> 
+    </detail>
+    
+    <detail>
+        <variable>lb_newsletter_category_all</variable>
+        <th>ทุกหมวดหมู่</th>
+        <en>All Category</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_category_1</variable>
+        <th>ส่วนตัวบุคคล</th>
+        <en>Private-person</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_category_2</variable>
+        <th>ความงาม</th>
+        <en>Beautician</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_category_3</variable>
+        <th>ตัวแทนจัดจำหน่าย</th>
+        <en>Distributor</en> 
+    </detail>
+    <detail>
+        <variable>lb_newsletter_category_4</variable>
+        <th>นายแพทย์</th>
+        <en>Doctor  </en> 
+    </detail>
+    
+    <!-- newsletter -->    
+        
+        
+        
+        
+        
+        
+        
     <!-- Response Code -->
     <detail>
         <variable>cd_0000</variable>
