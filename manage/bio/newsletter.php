@@ -73,7 +73,7 @@ ACTIVEPAGES(4);
 
                                             <div class="clearfix"></div>
 <!--                                            <input type="checkbox" class="js-switch"   />-->
-                                         
+
                                         </div>
                                         <div class="x_content">
 
@@ -146,9 +146,9 @@ ACTIVEPAGES(4);
         <script src="../build/js/custom.min.js"></script>
 
         <script>
-                                                    $(document).ready(function () {
-                                                        unloading();
-                                                    });
+            $(document).ready(function () {
+                unloading();
+            });
         </script>
 
 
@@ -241,6 +241,12 @@ ACTIVEPAGES(4);
                     },
                     success: function (data) {
                         var language = '<?= $_SESSION["lan"] ?>';
+                        if (data == '') {
+                            var datatable = $datatable.dataTable().api();
+                            $('.dataTables_empty').remove();
+                            datatable.clear();
+                            datatable.draw();
+                        }
                         var res = JSON.parse(data);
                         var JsonData = [];
                         $.each(res, function (i, item) {

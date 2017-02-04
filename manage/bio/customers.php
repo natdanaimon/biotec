@@ -179,6 +179,12 @@ ACTIVEPAGES(7);
                     success: function (data) {
                         debugger;
                         var language = '<?= $_SESSION["lan"] ?>';
+                        if (data == '') {
+                            var datatable = $datatable.dataTable().api();
+                            $('.dataTables_empty').remove();
+                            datatable.clear();
+                            datatable.draw();
+                        }
                         var res = JSON.parse(data);
                         var JsonData = [];
                         $.each(res, function (i, item) {
