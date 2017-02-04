@@ -58,7 +58,7 @@ slidePage("home");
         <div class="tm-block ">
             <section class="tm-top-b uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin>
                 <div class="uk-width-1-1 uk-width-medium-1-3"><div class="uk-panel uk-panel-box home-top-b newsletter"><h3 class="uk-panel-title"><i class=""></i> Newsletter</h3>
-                        <img alt="newsletter" src="images/banner/newsletter.jpg" height="175" width="262" /><a href="newsletter.html">Subscribe to our newsletter!</a> <div class="description">Keep in touch with Biotec Italia and receive news and updates.<br><br> </div><span class="element-itemlink"><a href="newsletter.html">Subscribe &raquo;</a></span></div></div>
+                        <img alt="newsletter" src="images/banner/newsletter.jpg" height="175" width="262" /><a href="newsletter.php">Subscribe to our newsletter!</a> <div class="description">Keep in touch with Biotec Italia and receive news and updates.<br><br> </div><span class="element-itemlink"><a href="newsletter.php">Subscribe &raquo;</a></span></div></div>
 
                 <div class="uk-width-1-1 uk-width-medium-1-3"><div class="uk-panel uk-panel-box home-top-b"><h3 class="uk-panel-title"><i class=""></i> Focus On</h3>
 

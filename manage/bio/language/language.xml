@@ -771,7 +771,7 @@
     <detail>
         <variable>lb_newsletter_email_confirm</variable>
         <th>ยืนยันอีเมล์</th>
-        <en>confirm your email address</en> 
+        <en>Confirm your email address</en> 
     </detail>
     <detail>
         <variable>lb_newsletter_category</variable>
@@ -967,6 +967,43 @@
         <variable>con_3004</variable>
         <th>CON3004,กรุณาระบุข้อมูล field ให้ถูกต้อง โดยห้ามใช้อักขระพิเศษด้วยค่ะ</th>
         <en>CON3004,Please write your field by prohibiting the use of special characters.</en> 
+    </detail>
+    
+     <detail>
+        <variable>newsletter_3102</variable>
+        <th>NEWS3102,กรุณาระบุข้อมูล field ด้วยค่ะ</th>
+        <en>NEWS3102,Please write your field required.</en> 
+    </detail>
+    <detail>
+        <variable>newsletter_3103</variable>
+        <th>NEWS3103,กรุณาระบุข้อมูลอีเมลให้ถูกต้องค่ะ</th>
+        <en>NEWS3103,Please write a valid email address.</en> 
+    </detail>
+    <detail>
+        <variable>newsletter_3105</variable>
+        <th>NEWS3105,กรุณาระบุข้อมูลอีเมล และ อีเมล์ยืนยันให้เหมือนกันค่ะ</th>
+        <en>NEWS3105,Email address not match email confirm.</en> 
+    </detail>
+    <detail>
+        <variable>newsletter_3104</variable>
+        <th>NEWS3104,กรุณาระบุข้อมูล field ให้ถูกต้อง โดยห้ามใช้อักขระพิเศษด้วยค่ะ</th>
+        <en>NEWS3104,Please write your field by prohibiting the use of special characters.</en> 
+    </detail>
+    <detail>
+        <variable>news_3106</variable>
+        <th>NEWS3106,คุณได้เคยทำการสมัครับข้อมูลข่าวสารจากทางเราแล้วค่ะ หากต้องการเปลี่ยนหมวดหมู่รับข่าวสารกรุณาติดต่อเจ้าหน้าที่ค่ะ</th>
+        <en>NEWS3106,You've had your subscription to our newsletter here. To change the category for news, please contact me.</en> 
+    </detail>
+    
+    <detail>
+        <variable>news_0000</variable>
+        <th>NEWS0000,ข้อมูลของคุณถูกส่งไปเป็นที่เรียบร้อย ขอขอบคุณที่ให้ความสนใจในบริการของเรา ขอบคุณค่ะ</th>
+        <en>NEWS0000,Your information has been successfully sent. Thank you for your interest in our service.</en> 
+    </detail>
+    <detail>
+        <variable>news_3101</variable>
+        <th>NEWS3101,คุณทำรายการไม่สำเร็จ กรุณารองทำใหม่อีกครั้งค่ะ</th>
+        <en>NEWS3101,Transaction not succeed Please make a new bargain again.</en> 
     </detail>
     <!-- Response Code -->
     
