@@ -71,6 +71,7 @@
                             <i class="fa fa-newspaper-o"></i> <?= $_SESSION["news"] ?> <span class="fa fa-chevron-down"></span>
                         </a>
                         <ul class="nav child_menu " >
+                            <li><a href="newsletter.php"><?= $_SESSION["newsletter"] ?></a></li>
                             <li><a href="news.php"><?= $_SESSION["news"] ?></a></li>
                             <li><a href="magazine.php"><?= $_SESSION["magazine"] ?></a></li>
                             <li><a href="events.php"><?= $_SESSION["events"] ?></a></li>

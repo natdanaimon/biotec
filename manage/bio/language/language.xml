@@ -184,6 +184,11 @@
         <en>Cosmeceuticals</en>
     </detail>
     <detail>
+        <variable>newsletter</variable>
+        <th>จดหมายข่าว</th>
+        <en>Newsletter</en>
+    </detail>
+    <detail>
         <variable>news</variable>
         <th>ข่าว</th>
         <en>News</en>
@@ -969,7 +974,7 @@
         <en>CON3004,Please write your field by prohibiting the use of special characters.</en> 
     </detail>
     
-     <detail>
+    <detail>
         <variable>newsletter_3102</variable>
         <th>NEWS3102,กรุณาระบุข้อมูล field ด้วยค่ะ</th>
         <en>NEWS3102,Please write your field required.</en> 
