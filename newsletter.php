@@ -181,7 +181,7 @@ include './content/header.php';
 
 
 
-<!--                        <div class="uk-alert">Fields marked with an asterisk (*) are required.</div>-->
+                        <!--                        <div class="uk-alert">Fields marked with an asterisk (*) are required.</div>-->
 
                         <div class="uk-margin">
                             <button type="submit" id="submit-button" class="uk-button"><?= $_SESSION["btn_newsletter"] ?></button>
@@ -242,14 +242,15 @@ include './content/header.php';
             return false;
         });
         function clearData() {
-            $("#dogousername").val("");
-            $("#dogolastname").val("");
-            $("#dogoemail").val("");
-            $("#dogophone").val("");
-            $("#dogocity").val("");
-            $("#dogocountry").val("");
-            $("#dogosubject").val("");
-            $("#dogomessage").val("");
+            $("#name").val("");
+            $("#email").val("");
+            $("#email_confirm").val("");
+            $("#category").val("0");
+            $("#city").val("");
+            $("#town").val("");
+            $("#country").val("");
+            $("#tel").val("");
+            $("#website").val("");
         }
     }
 </script>

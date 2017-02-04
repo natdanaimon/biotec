@@ -33,7 +33,7 @@ class newsletterController {
             include_once '../service/newsletterService.php';
             $service = new newsletterService();
 
-            if ($service->check_dupplicate($email)) {
+            if (!$service->check_dupplicate($email)) {
                 $result = $service->sendletter($name, $email, $category, $city, $town, $country, $tel, $website);
                 if ($result) {
                     echo $_SESSION["news_0000"];

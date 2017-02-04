@@ -6,9 +6,10 @@ class newsletterService {
         require_once('../manage/bio/common/ConnectDB.php');
         $db = new ConnectDB();
         $db->conn();
-        $strSQL = " INSERT INTO  tb_newsletter ( s_name ,  s_email ,  s_category ,  s_city ,   s_town , s_country ,  s_phone ,  s_website ,  s_status ) ";
+        $running = date('YmdHis');
+        $strSQL = " INSERT INTO  tb_newsletter ( s_running , s_name ,  s_email ,  s_category ,  s_city ,   s_town , s_country ,  s_phone ,  s_website ,  s_status  ) ";
         $strSQL .= " VALUES ";
-        $strSQL .= "('$name','$email','$category','$city','$town','$country','$tel','$website','A')";
+        $strSQL .= "('$running','$name','$email','$category','$city','$town','$country','$tel','$website','A')";
         $arr = array(
             array("query" => "$strSQL")
         );
@@ -26,7 +27,7 @@ class newsletterService {
         $db->close_conn();
 
 
-        return ($_data != NULL ? TRUE : FALSE);
+        return ($_data != NULL && count($_data) > 0 ? TRUE : FALSE);
     }
 
 }
