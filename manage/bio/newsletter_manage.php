@@ -18,7 +18,7 @@ ACTIVEPAGES_SUB(2, 0);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <title> <?= $_SESSION["title"] ?></title>
-        
+
         <!-- Bootstrap -->
         <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Font Awesome -->
@@ -114,7 +114,7 @@ ACTIVEPAGES_SUB(2, 0);
                                                         <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
                                                         </button>
                                                     </a>
-                                                    <button type="submit" class="btn btn-success"><?= $_SESSION["btn_ok"] ?></button>
+                                                    <button type="button" id="btn-send" class="btn btn-success"><?= $_SESSION["btn_ok"] ?></button>
 
                                                 </div>
                                             </form>        
@@ -172,8 +172,8 @@ ACTIVEPAGES_SUB(2, 0);
 
         $(document).ready(function () {
             $('#se-pre-con').delay(1000).fadeOut();
- 
-            $("#form_email").submit(function () {
+
+            $("#btn-send").click(function () {
                 for (instance in CKEDITOR.instances)
                 {
                     CKEDITOR.instances[instance].updateElement();
