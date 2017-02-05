@@ -42,9 +42,9 @@ class newsletterController {
         $_dataTable = $service->getAccountEmail($category);
         if ($_dataTable != NULL) {
             foreach ($_dataTable as $key => $value) {
-                $mail = new PHPMailer();
+                $mail = new PHPMailer(TRUE);
                 $body = $mail->getFile('../templatedEmail/Email.html');
-                $body = eregi_replace("&detail;", $txt, $body);
+//                $body = eregi_replace("&txt;", $txt, $body);
                 $mail->Host = "cpanel01wh.bkk1.cloud.z.com";
                 $mail->Hostname = "biotecitalia-thailand.com";
                 $mail->Port = 25;
@@ -52,7 +52,7 @@ class newsletterController {
                 $mail->From = "noreply@biotecitalia-thailand.com";
                 $mail->FromName = "BiotecItalia Thailand";
                 $mail->Subject = $subject;
-                $mail->MsgHTML($txt);
+                $mail->MsgHTML($body);
                 $mail->AddAddress($_dataTable[$key]['s_email']);
                 $mailcommit = $mail->Send();
             }
