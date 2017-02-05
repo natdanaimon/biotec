@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 @session_start();
 include './common/FunctionCheckActive.php';
@@ -19,25 +18,11 @@ ACTIVEPAGES_SUB(2, 0);
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <title> <?= $_SESSION["title"] ?></title>
-
+        
         <!-- Bootstrap -->
         <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- bootstrap-daterangepicker -->
-        <script src="js/moment/moment.min.js"></script>
-        <script src="js/datepicker/daterangepicker.js"></script>
         <!-- Font Awesome -->
         <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- NProgress -->
-        <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
-        <!-- iCheck -->
-        <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-        <!-- Datatables -->
-        <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-        <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-        <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-        <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-        <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-
         <!-- Custom Theme Style -->
         <link href="../build/css/custom.min.css" rel="stylesheet">
     </head>
@@ -89,8 +74,8 @@ ACTIVEPAGES_SUB(2, 0);
 
 
                                             <form data-parsley-validate class="form-horizontal form-label-left" 
-                                                  enctype="multipart/form-data" name="form_email" id="form_email" method="post" action="">
-
+                                                  name="form_email" id="form_email" method="post" action="">
+                                                <input type="hidden" name="func" id="func" value="sendMail" />
                                                 <div class="form-group">
                                                     <label class="control-label col-md-2 col-sm-3 col-xs-12"><?= $_SESSION["lb_newsletter_category"] ?></label>
                                                     <div class="col-md-3 col-sm-6 col-xs-12">
@@ -158,38 +143,17 @@ ACTIVEPAGES_SUB(2, 0);
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
     <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- iCheck -->
-    <script src="../vendors/iCheck/icheck.min.js"></script>
-    <!-- Datatables -->
-
-    <script src="../vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-    <!----------------- DATE TIME -------------->
-    <!-- jQuery -->
-    <script src="../vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="../vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="../vendors/nprogress/nprogress.js"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="js/moment/moment.min.js"></script>
-    <script src="js/datepicker/daterangepicker.js"></script>
-    <!-- bootstrap-daterangepicker -->
 
     <!-- CKEDITOR -->
     <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace('txt_email');
+//        CKEDITOR.replace('txt_email');
+        CKEDITOR.replace('txt_email', {
+            "filebrowserImageUploadUrl": "iaupload.php"
+        });
     </script>
 
     <script  type="text/javascript">
@@ -208,30 +172,22 @@ ACTIVEPAGES_SUB(2, 0);
 
         $(document).ready(function () {
             $('#se-pre-con').delay(1000).fadeOut();
-
-            $.ajaxSetup({
-                cache: false,
-                contentType: false,
-                processData: false
-            });
-
-            $("#form_email").submit(function (e) {
-                e.preventDefault();
-                var formData = new FormData($(this)[0]);
-                formData.append("func", "sendMail");
-                console.log($(this).serialize());
-
+ 
+            $("#form_email").submit(function () {
+                for (instance in CKEDITOR.instances)
+                {
+                    CKEDITOR.instances[instance].updateElement();
+                }
+                var Jsdata = $("#form_email").serialize();
                 $.ajax({
                     type: 'POST',
                     url: 'controller/newsletterController.php',
-                    data: formData,
+                    data: Jsdata,
                     beforeSend: function ()
                     {
                         $('#se-pre-con').fadeIn(100);
                     },
                     success: function (data) {
-
-
                         var res = data.split(",");
                         //debugger;
                         if (res[0] == "0000") {
@@ -253,22 +209,29 @@ ACTIVEPAGES_SUB(2, 0);
                         $('#se-pre-con').delay(100).fadeOut();
                     },
                     error: function (data) {
-
+                        debugger;
                         //debug mode ========================================================================================================================
-                        var res = data.responseText.split(",");
-                        //debugger;
-                        if (res[0] == "0000") {
-                            var errCode = res[1] + " (" + res[0] + ")  ";
-                            //alert(errCode);
-                            $('#success-code').text(errCode);
-                            $('#success-dialog').modal('show');
-                            $('#form_email').trigger("reset");
-                        } else {
-                            var errCode = res[1] + " (" + res[0] + ")  ";
-                            $('#err-code').text(errCode);
-                            $('#err-dialog').modal('show');
-                        }
-                        $('#se-pre-con').delay(100).fadeOut();
+//                        console.log(data);
+//
+//                        var res = data.split(",");
+//                        //debugger;
+//                        if (res[0] == "0000") {
+//                            var errCode = res[1] + " (" + res[0] + ")  ";
+//                            //alert(errCode);
+//                            $('#success-code').text(errCode);
+//                            $('#success-dialog').modal('show');
+//                            $('#category').val("0");
+//                            $('#subject').val("");
+//                            $('#txt_email').val("");
+//
+//
+//
+//                        } else {
+//                            var errCode = res[1] + " (" + res[0] + ")  ";
+//                            $('#err-code').text(errCode);
+//                            $('#err-dialog').modal('show');
+//                        }
+//                        $('#se-pre-con').delay(100).fadeOut();
                         //debug mode ========================================================================================================================
 
 
