@@ -336,243 +336,243 @@ ACTIVEPAGES(5);
     <!-- bootstrap-daterangepicker -->
     <script>
 
-                                                                        //alert($('input[name=status]:checked', '#form_add').val());
+                                                                    //alert($('input[name=status]:checked', '#form_add').val());
 
-                                                                        function radioActive(val) {
-                                                                            $(this).attr("class", "btn btn-primary");
-                                                                            if (val == 'A') {
-                                                                                $("#active_status").attr("class", "btn btn-primary");
-                                                                                $("#cancel_status").attr("class", "btn btn-default");
-                                                                            } else {
-                                                                                $("#cancel_status").attr("class", "btn btn-primary");
-                                                                                $("#active_status").attr("class", "btn btn-default");
-                                                                            }
+                                                                    function radioActive(val) {
+                                                                        $(this).attr("class", "btn btn-primary");
+                                                                        if (val == 'A') {
+                                                                            $("#active_status").attr("class", "btn btn-primary");
+                                                                            $("#cancel_status").attr("class", "btn btn-default");
+                                                                        } else {
+                                                                            $("#cancel_status").attr("class", "btn btn-primary");
+                                                                            $("#active_status").attr("class", "btn btn-default");
                                                                         }
+                                                                    }
 
 
-                                                                        $(document).ready(function () {
-                                                                            $.ajaxSetup({
-                                                                                cache: false,
-                                                                                contentType: false,
-                                                                                processData: false
-                                                                            });
-                                                                            $("#form_edit").submit(function (e) {
-                                                                                e.preventDefault();
-                                                                                var formData = new FormData($(this)[0]);
-                                                                                formData.append("func", "update_press");//seq
-                                                                                console.log($(this).serialize());
-                                                                                $.ajax({
-                                                                                    type: 'POST',
-                                                                                    url: 'controller/pressController.php',
-                                                                                    data: formData,
-                                                                                    beforeSend: function ()
-                                                                                    {
-                                                                                        $('#se-pre-con').fadeIn(100);
-                                                                                    },
-                                                                                    success: function (data) {
-
-
-                                                                                        var res = data.split(",");
-                                                                                        //debugger;
-
-                                                                                        if (res[0] == "0000") {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            //alert(errCode);
-                                                                                            $('#success-code').text(errCode);
-                                                                                            $('#success-dialog').modal('show');
-                                                                                            // location.reload();
-
-                                                                                            //           location.reload();
-
-                                                                                        } else {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
-
-                                                                                        }
-                                                                                        $('#se-pre-con').delay(100).fadeOut();
-                                                                                    },
-                                                                                    error: function (data) {
-
-                                                                                    }
-
-                                                                                });
-
-                                                                            });
-                                                                            $("#form_add").submit(function (e) {
-
-                                                                                //pressAdd();
-                                                                                e.preventDefault();
-                                                                                var formData = new FormData($(this)[0]);
-                                                                                formData.append("func", "add_press");//seq
-                                                                                //formData.append("seq", "99999");
-                                                                                console.log($(this).serialize());
-                                                                                //var formData = $(this).serialize();
-                                                                                /*  $.post("controller/contactsController.php",formData,function(data){
-                                                                                 console.log(data); 
-                                                                                 
-                                                                                 });*/
-                                                                                $.ajax({
-                                                                                    type: 'POST',
-                                                                                    url: 'controller/pressController.php',
-                                                                                    data: formData,
-                                                                                    beforeSend: function ()
-                                                                                    {
-                                                                                        $('#se-pre-con').fadeIn(100);
-                                                                                    },
-                                                                                    success: function (data) {
-
-
-                                                                                        var res = data.split(",");
-                                                                                        //debugger;
-                                                                                        if (res[0] == "0000") {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            //alert(errCode);
-                                                                                            $('#success-code').text(errCode);
-                                                                                            $('#success-dialog').modal('show');
-                                                                                            $('#form_add').trigger("reset");
-                                                                                            $('#imagePreview').removeAttr('style');
-                                                                                        } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
-                                                                                                || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                                                                                || (res[0] == "2206") || (res[0] == "2207")) {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
-                                                                                        } else {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
-                                                                                        }
-                                                                                        $('#se-pre-con').delay(100).fadeOut();
-                                                                                    },
-                                                                                    error: function (data) {
-
-                                                                                        //debug mode ========================================================================================================================
-                                                                                        var res = data.responseText.split(",");
-                                                                                        //debugger;
-                                                                                        if (res[0] == "0000") {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            //alert(errCode);
-                                                                                            $('#success-code').text(errCode);
-                                                                                            $('#success-dialog').modal('show');
-                                                                                            $('#form_add').trigger("reset");
-                                                                                            $('#imagePreview').removeAttr('style');
-                                                                                        } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
-                                                                                                || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                                                                                || (res[0] == "2206") || (res[0] == "2207")) {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
-                                                                                        } else {
-                                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                            $('#err-code').text(errCode);
-                                                                                            $('#err-dialog').modal('show');
-                                                                                        }
-                                                                                        $('#se-pre-con').delay(100).fadeOut();
-                                                                                        //debug mode ========================================================================================================================
-
-
-                                                                                    }
-
-                                                                                });
-
-                                                                            });
-
-
+                                                                    $(document).ready(function () {
+                                                                        $.ajaxSetup({
+                                                                            cache: false,
+                                                                            contentType: false,
+                                                                            processData: false
                                                                         });
-                                                                        $(function () {
-
-                                                                            $("#uploadPic").on("change", function ()
-                                                                            {
-                                                                                var files = !!this.files ? this.files : [];
-                                                                                if (!files.length || !window.FileReader)
-                                                                                    return; // no file selected, or no FileReader support
-
-                                                                                if (/^image/.test(files[0].type)) { // only image file
-                                                                                    var reader = new FileReader(); // instance of the FileReader
-                                                                                    reader.readAsDataURL(files[0]); // read the local file
-
-                                                                                    reader.onloadend = function () { // set image data as background of div
-                                                                                        $("#imagePreview").css("background-image", "url(" + this.result + ")");
-                                                                                    }
-                                                                                }
-                                                                            });
-                                                                        });
-                                                                        $(document).ready(function () {
-                                                                            var cb = function (start, end, label) {
-                                                                                console.log(start.toISOString(), end.toISOString(), label);
-                                                                                $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                                                                            };
-
-                                                                            var optionSet1 = {
-                                                                                startDate: moment().subtract(29, 'days'),
-                                                                                endDate: moment(),
-                                                                                minDate: '01/01/2012',
-                                                                                maxDate: '12/31/2015',
-                                                                                dateLimit: {
-                                                                                    days: 60
+                                                                        $("#form_edit").submit(function (e) {
+                                                                            e.preventDefault();
+                                                                            var formData = new FormData($(this)[0]);
+                                                                            formData.append("func", "update_press");//seq
+                                                                            console.log($(this).serialize());
+                                                                            $.ajax({
+                                                                                type: 'POST',
+                                                                                url: 'controller/pressController.php',
+                                                                                data: formData,
+                                                                                beforeSend: function ()
+                                                                                {
+                                                                                    $('#se-pre-con').fadeIn(100);
                                                                                 },
-                                                                                showDropdowns: true,
-                                                                                showWeekNumbers: true,
-                                                                                timePicker: false,
-                                                                                timePickerIncrement: 1,
-                                                                                timePicker12Hour: true,
-                                                                                ranges: {
-                                                                                    'Today': [moment(), moment()],
-                                                                                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                                                                                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                                                                                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                                                                                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                                                                                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                                                                                success: function (data) {
+
+
+                                                                                    var res = data.split(",");
+                                                                                    //debugger;
+
+                                                                                    if (res[0] == "0000") {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        //alert(errCode);
+                                                                                        $('#success-code').text(errCode);
+                                                                                        $('#success-dialog').modal('show');
+                                                                                        // location.reload();
+
+                                                                                        //           location.reload();
+
+                                                                                    } else {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+
+                                                                                    }
+                                                                                    $('#se-pre-con').delay(100).fadeOut();
                                                                                 },
-                                                                                opens: 'right',
-                                                                                buttonClasses: ['btn btn-default'],
-                                                                                applyClass: 'btn-small btn-primary',
-                                                                                cancelClass: 'btn-small',
-                                                                                format: 'MM/DD/YYYY',
-                                                                                separator: ' to ',
-                                                                                locale: {
-                                                                                    applyLabel: 'Submit',
-                                                                                    cancelLabel: 'Clear',
-                                                                                    fromLabel: 'From',
-                                                                                    toLabel: 'To',
-                                                                                    customRangeLabel: 'Custom',
-                                                                                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                                                                                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                                                                                    firstDay: 1
+                                                                                error: function (data) {
+
                                                                                 }
-                                                                            };
 
-                                                                            $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-
-                                                                            $('#reportrange_right').daterangepicker(optionSet1, cb);
-
-                                                                            $('#reportrange_right').on('show.daterangepicker', function () {
-                                                                                console.log("show event fired");
-                                                                            });
-                                                                            $('#reportrange_right').on('hide.daterangepicker', function () {
-                                                                                console.log("hide event fired");
-                                                                            });
-                                                                            $('#reportrange_right').on('apply.daterangepicker', function (ev, picker) {
-                                                                                console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-                                                                            });
-                                                                            $('#reportrange_right').on('cancel.daterangepicker', function (ev, picker) {
-                                                                                console.log("cancel event fired");
-                                                                            });
-
-                                                                            $('#options1').click(function () {
-                                                                                $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
-                                                                            });
-
-                                                                            $('#options2').click(function () {
-                                                                                $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
-                                                                            });
-
-                                                                            $('#destroy').click(function () {
-                                                                                $('#reportrange_right').data('daterangepicker').remove();
                                                                             });
 
                                                                         });
+                                                                        $("#form_add").submit(function (e) {
+
+                                                                            //pressAdd();
+                                                                            e.preventDefault();
+                                                                            var formData = new FormData($(this)[0]);
+                                                                            formData.append("func", "add_press");//seq
+                                                                            //formData.append("seq", "99999");
+                                                                            console.log($(this).serialize());
+                                                                            //var formData = $(this).serialize();
+                                                                            /*  $.post("controller/contactsController.php",formData,function(data){
+                                                                             console.log(data); 
+                                                                             
+                                                                             });*/
+                                                                            $.ajax({
+                                                                                type: 'POST',
+                                                                                url: 'controller/pressController.php',
+                                                                                data: formData,
+                                                                                beforeSend: function ()
+                                                                                {
+                                                                                    $('#se-pre-con').fadeIn(100);
+                                                                                },
+                                                                                success: function (data) {
+
+
+                                                                                    var res = data.split(",");
+                                                                                    //debugger;
+                                                                                    if (res[0] == "0000") {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        //alert(errCode);
+                                                                                        $('#success-code').text(errCode);
+                                                                                        $('#success-dialog').modal('show');
+                                                                                        $('#form_add').trigger("reset");
+                                                                                        $('#imagePreview').removeAttr('style');
+                                                                                    } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
+                                                                                            || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
+                                                                                            || (res[0] == "2206") || (res[0] == "2207")) {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    } else {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    }
+                                                                                    $('#se-pre-con').delay(100).fadeOut();
+                                                                                },
+                                                                                error: function (data) {
+
+                                                                                    //debug mode ========================================================================================================================
+                                                                                    var res = data.responseText.split(",");
+                                                                                    //debugger;
+                                                                                    if (res[0] == "0000") {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        //alert(errCode);
+                                                                                        $('#success-code').text(errCode);
+                                                                                        $('#success-dialog').modal('show');
+                                                                                        $('#form_add').trigger("reset");
+                                                                                        $('#imagePreview').removeAttr('style');
+                                                                                    } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
+                                                                                            || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
+                                                                                            || (res[0] == "2206") || (res[0] == "2207")) {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    } else {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    }
+                                                                                    $('#se-pre-con').delay(100).fadeOut();
+                                                                                    //debug mode ========================================================================================================================
+
+
+                                                                                }
+
+                                                                            });
+
+                                                                        });
+
+
+                                                                    });
+                                                                    $(function () {
+
+                                                                        $("#uploadPic").on("change", function ()
+                                                                        {
+                                                                            var files = !!this.files ? this.files : [];
+                                                                            if (!files.length || !window.FileReader)
+                                                                                return; // no file selected, or no FileReader support
+
+                                                                            if (/^image/.test(files[0].type)) { // only image file
+                                                                                var reader = new FileReader(); // instance of the FileReader
+                                                                                reader.readAsDataURL(files[0]); // read the local file
+
+                                                                                reader.onloadend = function () { // set image data as background of div
+                                                                                    $("#imagePreview").css("background-image", "url(" + this.result + ")");
+                                                                                }
+                                                                            }
+                                                                        });
+                                                                    });
+                                                                    $(document).ready(function () {
+                                                                        var cb = function (start, end, label) {
+                                                                            console.log(start.toISOString(), end.toISOString(), label);
+                                                                            $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                                                                        };
+
+                                                                        var optionSet1 = {
+                                                                            startDate: moment().subtract(29, 'days'),
+                                                                            endDate: moment(),
+                                                                            minDate: '01/01/2012',
+                                                                            maxDate: '12/31/2015',
+                                                                            dateLimit: {
+                                                                                days: 60
+                                                                            },
+                                                                            showDropdowns: true,
+                                                                            showWeekNumbers: true,
+                                                                            timePicker: false,
+                                                                            timePickerIncrement: 1,
+                                                                            timePicker12Hour: true,
+                                                                            ranges: {
+                                                                                'Today': [moment(), moment()],
+                                                                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                                                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                                                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                                                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                                                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                                                                            },
+                                                                            opens: 'right',
+                                                                            buttonClasses: ['btn btn-default'],
+                                                                            applyClass: 'btn-small btn-primary',
+                                                                            cancelClass: 'btn-small',
+                                                                            format: 'MM/DD/YYYY',
+                                                                            separator: ' to ',
+                                                                            locale: {
+                                                                                applyLabel: 'Submit',
+                                                                                cancelLabel: 'Clear',
+                                                                                fromLabel: 'From',
+                                                                                toLabel: 'To',
+                                                                                customRangeLabel: 'Custom',
+                                                                                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                                                                                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                                                                                firstDay: 1
+                                                                            }
+                                                                        };
+
+                                                                        $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+                                                                        $('#reportrange_right').daterangepicker(optionSet1, cb);
+
+                                                                        $('#reportrange_right').on('show.daterangepicker', function () {
+                                                                            console.log("show event fired");
+                                                                        });
+                                                                        $('#reportrange_right').on('hide.daterangepicker', function () {
+                                                                            console.log("hide event fired");
+                                                                        });
+                                                                        $('#reportrange_right').on('apply.daterangepicker', function (ev, picker) {
+                                                                            console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+                                                                        });
+                                                                        $('#reportrange_right').on('cancel.daterangepicker', function (ev, picker) {
+                                                                            console.log("cancel event fired");
+                                                                        });
+
+                                                                        $('#options1').click(function () {
+                                                                            $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
+                                                                        });
+
+                                                                        $('#options2').click(function () {
+                                                                            $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
+                                                                        });
+
+                                                                        $('#destroy').click(function () {
+                                                                            $('#reportrange_right').data('daterangepicker').remove();
+                                                                        });
+
+                                                                    });
     </script>
 
 
@@ -625,9 +625,9 @@ ACTIVEPAGES(5);
             $('#err-dialog').modal('hide');
             $('#success-dialog').modal('hide');
             $('#image-dialog').modal('hide');
-    
+
         }
-        
+
         function closeAlertReload() {
             $('#err-dialog').modal('hide');
             $('#success-dialog').modal('hide');
