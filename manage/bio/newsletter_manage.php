@@ -239,7 +239,12 @@ ACTIVEPAGES_SUB(2, 0);
                             //alert(errCode);
                             $('#success-code').text(errCode);
                             $('#success-dialog').modal('show');
-                            $('#form_email').trigger("reset");
+                            $('#category').val("0");
+                            $('#subject').val("");
+                            $('#txt_email').val("");
+
+
+
                         } else {
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#err-code').text(errCode);

@@ -25,7 +25,7 @@ switch ($_func) {
         echo $controller->updateCategory($_GET["email"], $_GET["category"]);
         break;
     case "sendMail":
-        echo $controller->sendMail($_POST["category"],$_POST["subject"], $_POST["txt_email"]);
+        echo $controller->sendMail($_POST["category"], $_POST["subject"], $_POST["txt_email"]);
         break;
 }
 
@@ -35,21 +35,31 @@ class newsletterController {
         
     }
 
-    public function sendMail($category, $subject , $txt) {
+    public function sendMail($category, $subject, $txt) {
         include '../common/phpmailer.php';
-        $mail = new PHPMailer();
-        $body = $mail->getFile('../templatedEmail/Email.php');
-        $body = eregi_replace("&detail;", $txt, $body);
-        $mail->Host = "cpanel01wh.bkk1.cloud.z.com";
-        $mail->Hostname = "biotecitalia-thailand.com";
-        $mail->Port = 25;
-        $mail->CharSet = 'utf-8';
-        $mail->From = "noreply@biotecitalia-thailand.com";
-        $mail->FromName = "BiotecItalia Thailand";
-        $mail->Subject = $subject;
-        $mail->MsgHTML($body);
-        $mail->AddAddress("natdanaimon@gmail.com");
-        $mailcommit = $mail->Send();
+        include '../service/newsletterService.php';
+        $service = new newsletterService();
+        $_dataTable = $service->getAccountEmail($category);
+        if ($_dataTable != NULL) {
+            foreach ($_dataTable as $key => $value) {
+                $mail = new PHPMailer();
+                $body = $mail->getFile('../templatedEmail/Email.html');
+                $body = eregi_replace("&detail;", $txt, $body);
+                $mail->Host = "cpanel01wh.bkk1.cloud.z.com";
+                $mail->Hostname = "biotecitalia-thailand.com";
+                $mail->Port = 25;
+                $mail->CharSet = 'utf-8';
+                $mail->From = "noreply@biotecitalia-thailand.com";
+                $mail->FromName = "BiotecItalia Thailand";
+                $mail->Subject = $subject;
+                $mail->MsgHTML($body);
+                $mail->AddAddress($_dataTable[$key]['s_email']);
+                $mailcommit = $mail->Send();
+            }
+            echo $_SESSION['cd_0000'];
+        } else {
+            echo $_SESSION['cd_2001'];
+        }
     }
 
     public function dataTable() {
