@@ -52,7 +52,7 @@ class newsletterController {
                 $mail->From = "noreply@biotecitalia-thailand.com";
                 $mail->FromName = "BiotecItalia Thailand";
                 $mail->Subject = $subject;
-                $mail->MsgHTML($body);
+                $mail->MsgHTML($txt);
                 $mail->AddAddress($_dataTable[$key]['s_email']);
                 $mailcommit = $mail->Send();
             }
