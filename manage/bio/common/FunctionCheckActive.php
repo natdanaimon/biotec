@@ -3,6 +3,7 @@
 function ACTIVEPAGES($page) {
     $_SESSION["style2"] = "display: none;";
     $_SESSION["style3"] = "display: none;";
+    $_SESSION["style4"] = "display: none;";
     $_SESSION["m1"] = "";
     $_SESSION["m2"] = "";
     $_SESSION["m3"] = "";
