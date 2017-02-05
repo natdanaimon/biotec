@@ -841,6 +841,22 @@
         <en>OK</en> 
     </detail>
     
+    <detail>
+        <variable>btn_create_email</variable>
+        <th>สร้างอีเมล์เพื่อแจ้งข่าวสารโปรโมชั่น</th>
+        <en>Create email updates for promotion.</en> 
+    </detail>
+    <detail>
+        <variable>lb_detail_email</variable>
+        <th>เนื้อหาอีเมล์และโปรโมชั่น</th>
+        <en>Email content and promotions.</en> 
+    </detail>
+      <detail>
+        <variable>lb_subject_email</variable>
+        <th>หัวข้ออีเมล์</th>
+        <en>Email Subject</en> 
+    </detail>
+    
     <!-- newsletter -->    
         
 

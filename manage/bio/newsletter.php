@@ -72,7 +72,10 @@ ACTIVEPAGES(4);
                                             <h2><?= $_SESSION["info"] ?><?= $_SESSION["newsletter"] ?></small></h2>
 
                                             <div class="clearfix"></div>
-<!--                                            <input type="checkbox" class="js-switch"   />-->
+                                            <a href="newsletter_manage.php">
+                                                <button type="submit" class="btn btn-primary"><?= $_SESSION["btn_create_email"] ?>
+                                                </button>
+                                            </a>
 
                                         </div>
                                         <div class="x_content">
