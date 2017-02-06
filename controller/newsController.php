@@ -18,14 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //        break;
 //}
 
-class pressController {
+class newsController {
 
     public function __construct() {
         
     }
 
     public function dataTable() {
-        $service = new pressService();
+        $service = new newsService();
         $_dataTable = $service->dataTable();
         if ($_dataTable != NULL) {
             foreach ($_dataTable as $key => $value) {
