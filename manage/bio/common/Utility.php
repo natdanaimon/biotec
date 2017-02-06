@@ -92,12 +92,12 @@ class Utility {
         echo "</script>";
     }
 
-    function AddAjaxGetResultResponseText($FunctionName, $element, $path,$modalName) {
+    function AddAjaxGetResultResponseText($FunctionName, $element, $path, $modalName) {
         $newline = "\n";
         echo $script = '' . $newline;
         echo $script = '<script type="text/javascript">  ' . $newline;
         echo $script = ' function ' . $FunctionName . '(param,seq) { ' . $newline;
-        echo $script = '                   $(\'#'.$modalName.'\').modal(\'show\'); ' . $newline; // parameter $modalName for project biotec
+        echo $script = '                   $(\'#' . $modalName . '\').modal(\'show\'); ' . $newline; // parameter $modalName for project biotec
         echo $script = '                var xmlhttp = new XMLHttpRequest();  ' . $newline;
         echo $script = '                xmlhttp.onreadystatechange = function () { ' . $newline;
         echo $script = '                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { ' . $newline;
@@ -107,17 +107,17 @@ class Utility {
             echo $script = '                        document.getElementById("' . $ele[0] . '").' . $ele[1] . ' = result[' . $cnt++ . ']; ' . $newline;
         }
         /**
-		* 
-		* @var ****** Start  Sctrip For Reload After read Contact
-		* 
-		*/
+         * 
+         * @var ****** Start  Sctrip For Reload After read Contact
+         * 
+         */
         echo $script = '                  update_icon_text(seq);  ' . $newline;
         //echo $script = '                  initialDataTable("FALSE");  ' . $newline;
         /**
-		* 
-		* @var ****** End  Sctrip For Reload After read Contact
-		* 
-		*/
+         * 
+         * @var ****** End  Sctrip For Reload After read Contact
+         * 
+         */
         echo $script = '                    } ' . $newline;
         echo $script = '                } ' . $newline;
         echo $script = '              ' . $newline;
@@ -221,6 +221,19 @@ class Utility {
         } else {
             return TRUE;
         }
+    }
+
+    function CopyTemplatedMail($filemain, $filecopy, $msg) {
+        $templatedMail = fopen($filemain, "r") or die("Unable to open file!");
+        $txt = fread($templatedMail, filesize($filemain));
+        fclose($templatedMail);
+        $txt = eregi_replace("&detail;", $msg, $txt);
+        $txt = eregi_replace("http://localhost/biotec/manage/bio/templatedEmail/", "../templatedEmail/", $txt);
+        $txt = eregi_replace("http://biotecitalia-thailand.com/manage/bio/templatedEmail/", "../templatedEmail/", $txt);
+        $txt = eregi_replace("http://www.biotecitalia-thailand.com/manage/bio/templatedEmail/", "../templatedEmail/", $txt);
+        $temp = fopen($filecopy, "w") or die("Unable to open file!");
+        fwrite($temp, $txt);
+        fclose($temp);
     }
 
 }

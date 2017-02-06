@@ -1,5 +1,4 @@
 <?php
-
 @session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -35,16 +34,23 @@ class newsletterController {
         
     }
 
-    public function sendMail($category, $subject, $txt) {
+    public function sendMail($category, $subject, $detail) {
         include '../common/phpmailer.php';
         include '../service/newsletterService.php';
+        include '../common/Utility.php';
+
         $service = new newsletterService();
         $_dataTable = $service->getAccountEmail($category);
+
         if ($_dataTable != NULL) {
+ 
+            $util = new Utility();
+            $util->CopyTemplatedMail("../templatedEmail/Email.html", "../templatedEmail/Email_Temp.html", $detail);
+ 
             foreach ($_dataTable as $key => $value) {
+   
                 $mail = new PHPMailer(TRUE);
-                $body = $mail->getFile('../templatedEmail/Email.html');
-//                $body = eregi_replace("&txt;", $txt, $body);
+                $body = $mail->getFile('../templatedEmail/Email_Temp.html');
                 $mail->Host = "cpanel01wh.bkk1.cloud.z.com";
                 $mail->Hostname = "biotecitalia-thailand.com";
                 $mail->Port = 25;
@@ -56,6 +62,10 @@ class newsletterController {
                 $mail->AddAddress($_dataTable[$key]['s_email']);
                 $mailcommit = $mail->Send();
             }
+            array_map('unlink', glob("../templatedEmail/tmp_img/*.jpg"));
+            array_map('unlink', glob("../templatedEmail/tmp_img/*.JPG"));
+            array_map('unlink', glob("../templatedEmail/tmp_img/*.png"));
+            array_map('unlink', glob("../templatedEmail/tmp_img/*.PNG"));
             echo $_SESSION['cd_0000'];
         } else {
             echo $_SESSION['cd_2001'];
