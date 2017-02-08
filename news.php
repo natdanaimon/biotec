@@ -65,8 +65,31 @@ include './service/newsService.php';
         color: #fff;
         font-size: 18px;
     }
+    .bar_news {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        display: inline;
+        padding: 14px 60px 14px 20px;
+        background: url(./templates/bg/sfondo-titoli.png) center right;
+        color: #fff;
+        font-size: 18px;
+    }
+    ul { 
+        list-style: none outside none; 
+        margin:0; 
+        padding: 0; 
+        display:block;
+        float:right;
+    }
+    li { float: left; 
+         margin: 0 10px; 
+
+    }
     .text-left {
         text-align: left !important;
+    }
+    .bottom-uk-article{
+        border-bottom: 1px solid #ccb26f;
     }
     @media (max-width: 767px)
 
@@ -90,7 +113,28 @@ include './service/newsService.php';
 
 
 
-                            <div class="contorno-titolo"><h2>News</h2>
+                            <div class="contorno-titolo">
+                                <?php if ($_GET["type"] == "1") { ?>
+                                    <h1 class="bar_news">Magazine</h1>
+                                <?php } else if ($_GET["type"] == "2") { ?>
+                                    <h1 class="bar_news">Events</h1>
+                                <?php } else if ($_GET["type"] == "3") { ?>
+                                    <h1 class="bar_news">Products</h1>
+                                <?php } else { ?>
+                                    <h1 class="bar_news">News</h1>
+                                    <ul class="list-type">
+                                        <li class="">
+                                            <a href="news.php?type=1" class=""><span>Magazine</span></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="news.php?type=2" class=""><span>Events</span></a>
+                                        </li>
+                                        <li class="">
+                                            <a href="news.php?type=3" class=""><span>Products</span></a>
+                                        </li>
+                                    </ul>
+                                <?php } ?>
+
                             </div>
 
 
@@ -142,21 +186,26 @@ include './service/newsService.php';
                                                 <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
                                             </div> 
 
+                                            <div align="left">
+                                                <ul>
 
-                                            <ul class="uk-subnav uk-subnav-line">
+                                                    <li class="element element-itemlink">
+                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">Read More >></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
 
-                                                <li class="element element-itemlink">
-                                                    <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">Read More >></a></li></ul>
                                         </article>
 
                                     </div>
                                 <?php } ?>
                                 <!--END content-->
+
                             </div>
                             <ul class="uk-pagination">
 
                                 <!--<li class="uk-active"><span>1</span><li><a href="/en/news/2">2</a></li><li><a href="/en/news/3">3</a></li><li><a href="/en/news/4">4</a></li><li><a href="/en/news/5">5</a></li><li><a href="/en/news/2">»</a></li><li><a href="/en/news/5">Last</a></li></ul>
-                                            -->
+                                -->
                         </div>
 
                     </div>	
