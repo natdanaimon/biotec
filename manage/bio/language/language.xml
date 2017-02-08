@@ -876,10 +876,50 @@
         
     <!-- UI Element --> 
     <detail>
-        <variable>lb_subject_email</variable>
-        <th>หัวข้ออีเมล์</th>
-        <en>Email Subject</en> 
+        <variable>tab_home</variable>
+        <th>สไลด์หน้าแรก</th>
+        <en>Slide HOME</en> 
     </detail>   
+    <detail>
+        <variable>tab_about</variable>
+        <th>สไลด์หน้าเกี่ยวกับเรา</th>
+        <en>Slide ABOUT</en> 
+    </detail>   
+    <detail>
+        <variable>tab_contacts</variable>
+        <th>สไลด์หน้าติดต่อเรา</th>
+        <en>Slide CONTACTS</en> 
+    </detail>  
+    <detail>
+        <variable>col_slide_status</variable>
+        <th>สถานะ</th>
+        <en>Image Name</en> 
+    </detail>  
+    <detail>
+        <variable>col_slide_edit</variable>
+        <th>แก้ไข</th>
+        <en>Edit</en> 
+    </detail> 
+    <detail>
+        <variable>col_slide_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>
+    <detail>
+        <variable>btn_create_for_home</variable>
+        <th>สร้างสไลด์สำหรักหน้าแรก</th>
+        <en>Create a slide for page home.</en> 
+    </detail> 
+    <detail>
+        <variable>btn_create_for_about</variable>
+        <th>สร้างสไลด์สำหรักหน้าเกี่ยวกับเรา</th>
+        <en>Create a slide for page about.</en> 
+    </detail> 
+    <detail>
+        <variable>btn_create_for_contacts</variable>
+        <th>สร้างสไลด์สำหรักหน้าติดต่อเรา</th>
+        <en>Create a slide for page contacts.</en> 
+    </detail> 
     <!-- UI Element -->
         
     <!-- Response Code -->
