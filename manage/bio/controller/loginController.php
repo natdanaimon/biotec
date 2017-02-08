@@ -34,7 +34,7 @@ if (!$flgUser && !$flgPass) {
         foreach ($_data as $key => $value) {
             $_SESSION["username"] = $_data[$key]['s_user'];
             $_SESSION["password"] = $_data[$key]['s_pass'];
-            $_SESSION["fullname"] = $_data[$key]['s_firstname'] . " " . $_data[$key]['s_lastname'];
+            $_SESSION["full_name"] = $_data[$key]['s_firstname'] . " " . $_data[$key]['s_lastname'];
         }
         echo $_SESSION['cd_0000'];
     } else {

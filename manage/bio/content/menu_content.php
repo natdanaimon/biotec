@@ -38,6 +38,16 @@
                             <i class="fa fa-home"></i> <?= $_SESSION["home"] ?> 
                         </a>
                     </li>
+                    <li class="<?= $_SESSION["m9"] ?>">
+                        <a>
+                            <i class="fa fa-desktop"></i> <?= $_SESSION["ui_element"] ?>  <span class="fa fa-chevron-down" ></span>
+                        </a>
+
+                        <ul class="nav child_menu" style="<?= $_SESSION["style5"] ?>">
+                            <li  class="<?= $_SESSION["sm4"] ?>"><a href="ui_slide.php"><?= $_SESSION["ui_slide"] ?></a></li>
+                            <li  class="<?= $_SESSION["s10"] ?>"><a href="ui_index.php"><?= $_SESSION["ui_index"] ?></a></li>
+                        </ul>
+                    </li>
                     <li class="<?= $_SESSION["m2"] ?>">
                         <a>
                             <i class="fa fa-suitcase"></i> <?= $_SESSION["devices"] ?>  <span class="fa fa-chevron-down" ></span>
@@ -71,7 +81,7 @@
                             <i class="fa fa-newspaper-o"></i> <?= $_SESSION["news"] ?> <span class="fa fa-chevron-down"></span>
                         </a>
                         <ul class="nav child_menu " style="<?= $_SESSION["style4"] ?>">
-                            <li class="<?= $_SESSION["sm1"] ?>"><a href="newsletter.php"><?= $_SESSION["newsletter"] ?></a></li>
+                            <li class="<?= $_SESSION["sm3"] ?>"><a href="newsletter.php"><?= $_SESSION["newsletter"] ?></a></li>
                             <li><a href="news.php"><?= $_SESSION["news"] ?></a></li>
                             <li><a href="magazine.php"><?= $_SESSION["magazine"] ?></a></li>
                             <li><a href="events.php"><?= $_SESSION["events"] ?></a></li>

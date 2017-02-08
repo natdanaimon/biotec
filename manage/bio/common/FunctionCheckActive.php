@@ -4,6 +4,7 @@ function ACTIVEPAGES($page) {
     $_SESSION["style2"] = "display: none;";
     $_SESSION["style3"] = "display: none;";
     $_SESSION["style4"] = "display: none;";
+    $_SESSION["style5"] = "display: none;";
     $_SESSION["m1"] = "";
     $_SESSION["m2"] = "";
     $_SESSION["m3"] = "";
@@ -12,10 +13,12 @@ function ACTIVEPAGES($page) {
     $_SESSION["m6"] = "";
     $_SESSION["m7"] = "";
     $_SESSION["m8"] = "";
+    $_SESSION["m9"] = "";
     //clear sub menu
     $_SESSION["sm1"] = "";
     $_SESSION["sm2"] = "";
     $_SESSION["sm3"] = "";
+    $_SESSION["sm4"] = "";
     $_SESSION["s1"] = "";
     $_SESSION["s2"] = "";
     $_SESSION["s3"] = "";
@@ -25,6 +28,7 @@ function ACTIVEPAGES($page) {
     $_SESSION["s7"] = "";
     $_SESSION["s8"] = "";
     $_SESSION["s9"] = "";
+    $_SESSION["s10"] = "";
 
     if ($page == 1) {
         $_SESSION["m1"] = "active";
@@ -45,6 +49,9 @@ function ACTIVEPAGES($page) {
         $_SESSION["m7"] = "active";
     } else if ($page == 8) {
         $_SESSION["m8"] = "active";
+    } else if ($page == 9) {
+        $_SESSION["style5"] = "display: block;";
+        $_SESSION["m9"] = "active";
     }
 }
 
@@ -75,8 +82,16 @@ function ACTIVEPAGES_SUB($main, $sub) {
         } else if ($sub == 7) {
             $_SESSION["s9"] = "current-page";
         }
-    } else if ($sub == 0) {
-        $_SESSION["sm3"] = "current-page";
+    } else if ($main == 4) {
+        if ($sub == 1) {
+            $_SESSION["sm3"] = "current-page";
+        }
+    } else if ($main == 9) {
+        if ($sub == 1) {
+            $_SESSION["sm4"] = "current-page";
+        } else if ($sub == 2) {
+            $_SESSION["s10"] = "current-page";
+        }
     }
 }
 
