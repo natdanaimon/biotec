@@ -113,7 +113,7 @@ function ACTIVEPAGE_SHOW($page) {
     } else if ($page == 4) {
         $_SESSION["ACTIVE_COSM"] = "uk-active";
     } else if ($page == 5) {
-        $_SESSION["ACTIVE_NEW"] = "uk-active";
+        $_SESSION["ACTIVE_NEWS"] = "uk-active";
     } else if ($page == 6) {
         $_SESSION["ACTIVE_PRESS"] = "uk-active";
     } else if ($page == 7) {
