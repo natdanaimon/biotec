@@ -890,10 +890,22 @@
         <th>สไลด์หน้าติดต่อเรา</th>
         <en>Slide CONTACTS</en> 
     </detail>  
+    
+    
+    <detail>
+        <variable>col_slide_img</variable>
+        <th>รูปภาพ</th>
+        <en>Image Name</en> 
+    </detail>  
+    <detail>
+        <variable>col_slide_index</variable>
+        <th>ลำดับ</th>
+        <en>Index</en> 
+    </detail>  
     <detail>
         <variable>col_slide_status</variable>
         <th>สถานะ</th>
-        <en>Image Name</en> 
+        <en>Status</en> 
     </detail>  
     <detail>
         <variable>col_slide_edit</variable>
@@ -986,6 +998,23 @@
     </detail>
     
     <detail>
+        <variable>cd_2210</variable>
+        <th>2210,ประเภทไฟล์ที่ทำการอัพโหลดไม่ถูกต้อง </th>
+        <en>2210,Type the file uploaded incorrect.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2211</variable>
+        <th>2211,ขนาดของไฟล์รูปภาพไม่อยู่ในขนาดที่กำหนด </th>
+        <en>2211,the size of the image file size is not specified.</en> 
+    </detail>
+    <detail>
+        <variable>cd_2212</variable>
+         <th>2212,ขนาดของไฟล์เอกสารไม่อยู่ในขนาดที่กำหนด </th>
+        <en>2212,the size of the document file size is not specified.</en> 
+    </detail>
+    
+    
+    <detail>
         <variable>cd_2301</variable>
         <th>2301,กรุณาระบุชื่อภาษาไทย </th>
         <en>2301,Please enter Name TH.</en> 
@@ -1005,6 +1034,7 @@
         <th>2304,กรุณา อัพโหลดไฟล์โลโก้ </th>
         <en>2304,Please Upload logo image.</en> 
     </detail>
+    
     
     
     
