@@ -876,7 +876,7 @@
         
     <!-- UI Element --> 
     <detail>
-        <variable>tab_home</variable>
+        <variable>tab_index</variable>
         <th>สไลด์หน้าแรก</th>
         <en>Slide HOME</en> 
     </detail>   
@@ -944,6 +944,11 @@
         <variable>cd_2001</variable>
         <th>2001,ทำรายการไม่สำเร็จ</th>
         <en>2001,Transaction Not Success</en> 
+    </detail>
+    <detail>
+        <variable>cd_2099</variable>
+        <th>2099,กรุณาระบุข้อมูล field ด้วยค่ะ</th>
+        <en>2099,Please write your field required.</en> 
     </detail>
     <detail>
         <variable>cd_2200</variable>
