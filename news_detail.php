@@ -7,8 +7,8 @@ include './content/header.php';
 //include './content/slide.php';
 //slidePage("press");
 //อันนี้ที่ใช้ controller ของ admin เพราะมันสามารถใช้งานร่วมกันได้
-include './controller/pressController.php';
-include './service/pressService.php';
+include './controller/newsController.php';
+include './service/newsService.php';
 ?>
 
 
@@ -57,19 +57,54 @@ include './service/pressService.php';
         outline: none;
         max-height: 50% !important; 
     }
-    .text-left {
+    .bar_news {
         margin-top: 0px;
         margin-bottom: 0px;
         display: inline;
         padding: 14px 60px 14px 20px;
+        background: url(./templates/bg/sfondo-titoli.png) center right;
         color: #fff;
         font-size: 18px;
+    }
+    .type-ul{ 
+        list-style: none outside none; 
+        margin:0; 
+        padding: 0; 
+        display:block;
+        float:right;
+    }
+    .type-li{ 
+        float: left; 
+        margin: 0 10px; 
+
     }
     .text-left {
         text-align: left !important;
     }
+    .bottom-uk-article{
+        border-bottom: 1px solid #ccb26f;
+    }
+    .ul-readmore{
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        float: left;
+    }
+    .li-linkitem{
+        margin-top: 0px;
+        background-color: #ccb26f;
+        padding: 0 34px;    
+    }    
+    .li-linkitem > a{
+        color: #fff;
+    }
+    .uk-article-title{
+        font-size: 20px;
+        line-height: 24px;
+        color: #ccb26f;
+    }
     @media (max-width: 767px)
-
 </style>
 
 
@@ -81,33 +116,72 @@ include './service/pressService.php';
 
 
             <main class="tm-content">
-
-
-
-                <div class="yoo-zoo news-uikit news-uikit-news">
+                <div class="yoo-zoo news-uikit news-uikit-perdere-una-taglia-in-due-sedute-cryoliposculpt">
                     <div class="sfondo-grigio">
                         <div class="uk-container uk-container-center">
+                            <article class="uk-article">
+
+                                <div class="sfondo-grigio">
+
+                                    <div class="uk-container uk-container-center">
+
+                                        <?php
+                                        $id = $_GET["s_id"];
+                                        $util = new Utility();
+                                        $controller = new newsController();
+                                        $_data = $controller->dataTable_sel($id);
+
+                                        foreach ($_data as $key => $value) {
+                                            ?>
+                                            <h1 class="uk-article-title">
+                                                Perdere 1 taglia in 2 sedute? 
+                                                <div><?= $_data[$key]['d_date'] ?></div> </h1>
 
 
 
-                            <div class="contorno-titolo"><h2>News</h2>
-                            </div>
+                                            <div class="uk-align-medium-left">
 
 
 
-                            <div class="uk-grid" data-uk-grid-margin>
-                              <?php  echo"test"; ?>
+
+
+                                                <a href="/cache/com_zoo/images/fat_freezing_dc446377189941ea8fd7b65e9b74cb39.jpg" data-lightbox="group:4aad8bb8-18ae-4807-9fa4-7f67e6710c87-589c9c39e739f;" title="fat_freezing" data-spotlight="on"><img src="/cache/com_zoo/images/fat_freezing_115bf6d4a3f16dd864bf1a17f90ce842.jpg" width="400" height="400" alt="fat_freezing" /></a>	
+                                            </div>
+
+
+
+
+
+
+                                            <div class="uk-margin">
+                                                <div class="yoo-zoo socialbuttons clearfix">
+                                                    <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/perdere-una-taglia-in-due-sedute-cryoliposculpt" data-count="none" data-lang="en_GB">Tweet</a></div>
+                                                    <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/perdere-una-taglia-in-due-sedute-cryoliposculpt" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
+                                                    <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/perdere-una-taglia-in-due-sedute-cryoliposculpt" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                                </div>
+                                                <?= $_data[$key]['s_detail_en'] ?>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </article>
+
                         </div>
-
-                    </div>	
-
+                    </div>
                 </div>
             </main>
 
+
+
+
         </div>
-    </div>
+
+
+    </div>	
 </div>
+
+
 <?php
-include '../content/footer.php';
+include './content/footer.php';
 ?>
 

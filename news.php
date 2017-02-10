@@ -57,14 +57,6 @@ include './service/newsService.php';
         outline: none;
         max-height: 50% !important; 
     }
-    .text-left {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        display: inline;
-        padding: 14px 60px 14px 20px;
-        color: #fff;
-        font-size: 18px;
-    }
     .bar_news {
         margin-top: 0px;
         margin-bottom: 0px;
@@ -74,15 +66,16 @@ include './service/newsService.php';
         color: #fff;
         font-size: 18px;
     }
-    ul { 
+    .type-ul{ 
         list-style: none outside none; 
         margin:0; 
         padding: 0; 
         display:block;
         float:right;
     }
-    li { float: left; 
-         margin: 0 10px; 
+    .type-li{ 
+        float: left; 
+        margin: 0 10px; 
 
     }
     .text-left {
@@ -91,8 +84,27 @@ include './service/newsService.php';
     .bottom-uk-article{
         border-bottom: 1px solid #ccb26f;
     }
+    .ul-readmore{
+        list-style: none outside none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        float: left;
+    }
+    .li-linkitem{
+        margin-top: 0px;
+        background-color: #ccb26f;
+        padding: 0 34px;    
+    }    
+    .li-linkitem > a{
+        color: #fff;
+    }
+    .uk-article-lead{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
     @media (max-width: 767px)
-
 </style>
 
 
@@ -122,14 +134,14 @@ include './service/newsService.php';
                                     <h1 class="bar_news">Products</h1>
                                 <?php } else { ?>
                                     <h1 class="bar_news">News</h1>
-                                    <ul class="list-type">
-                                        <li class="">
+                                    <ul class="type-ul">
+                                        <li class="type-li">
                                             <a href="news.php?type=1" class=""><span>Magazine</span></a>
                                         </li>
-                                        <li class="">
+                                        <li class="type-li">
                                             <a href="news.php?type=2" class=""><span>Events</span></a>
                                         </li>
-                                        <li class="">
+                                        <li class="type-li">
                                             <a href="news.php?type=3" class=""><span>Products</span></a>
                                         </li>
                                     </ul>
@@ -138,14 +150,17 @@ include './service/newsService.php';
                             </div>
 
 
-
                             <div class="uk-grid" data-uk-grid-margin>
-
-                                <!--content-->
                                 <?php
                                 $util = new Utility();
+
                                 $controller = new newsController();
-                                $_data = $controller->dataTable();
+                                if ($_GET["type"] != NULL) {
+                                    $_data = $controller->dataTable_type($_GET["type"]);
+                 
+                                } else {
+                                    $_data = $controller->dataTable();
+                                }
                                 $limitPaging = $util->getLimitPaging();
 
                                 $resultCount = $util->countObject($_data);
@@ -157,11 +172,18 @@ include './service/newsService.php';
                                 } else {
                                     $rel = floor($rel);
                                 }
+                                if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
+                                    $page = 1;
+                                } else {
+                                    $page = $_GET["page"];
+                                }
+
+
                                 foreach ($_data as $key => $value) {
 
-                                    /* if ($util->ContinueObject($page, $key + 1)) {
-                                      continue;
-                                      } */
+                                    if ($util->ContinueObject($page, $key + 1)) {
+                                        continue;
+                                    }
                                     ?>
                                     <div class="uk-width-medium-1-2">
 
@@ -173,13 +195,13 @@ include './service/newsService.php';
                                                 <a title="Biotec Italia awarded at World of Beauty in Prague" href="news_detail.php">Biotec Italia awarded at World of Beauty in Prague</a> </h1>
 
                                             <p class="uk-article-lead">
-                                                <?= $_data[$key]['d_date'] ?></p>
+    <?= $_data[$key]['d_date'] ?></p>
 
 
                                             <div class="uk-align-medium-left">
                                                 <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="Biotec Italia awarded at World of Beauty in Prague"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Biotec Italia awarded at World of Beauty in Prague" width="150" height="120" title="Biotec Italia awarded at World of Beauty in Prague" /></a> </div>
 
-                                            <?= $_data[$key]['s_subject_en'] ?>
+    <?= $_data[$key]['s_subject_en'] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
                                                 <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
                                                 <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
@@ -187,9 +209,9 @@ include './service/newsService.php';
                                             </div> 
 
                                             <div align="left">
-                                                <ul>
+                                                <ul class="ul-readmore">
 
-                                                    <li class="element element-itemlink">
+                                                    <li class="li-linkitem">
                                                         <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">Read More >></a>
                                                     </li>
                                                 </ul>
@@ -198,24 +220,83 @@ include './service/newsService.php';
                                         </article>
 
                                     </div>
-                                <?php } ?>
-                                <!--END content-->
+<?php } ?>
+
 
                             </div>
+
+
                             <ul class="uk-pagination">
 
-                                <!--<li class="uk-active"><span>1</span><li><a href="/en/news/2">2</a></li><li><a href="/en/news/3">3</a></li><li><a href="/en/news/4">4</a></li><li><a href="/en/news/5">5</a></li><li><a href="/en/news/2">»</a></li><li><a href="/en/news/5">Last</a></li></ul>
-                                -->
+                                <?php
+                                if ($_data != NULL) {
+                                    // << FIRST
+                                    $first = ($page == 1 ? TRUE : FALSE);
+                                    $last = FALSE;
+                                    if (!$first) {
+                                        $minus = $page - 1;
+                                        echo "<li>";
+                                        echo " <a href='press.php?page=1'>First</a>";
+                                        echo "</li>";
+                                        echo "<li>";
+                                        echo "<a href='press.php?page=$minus'><<</a>";
+                                        echo "</li>";
+                                    }
+
+                                    //for start
+                                    for ($i = 1; $i <= $rel; $i++) {
+                                        $active = ($page == $i ? "uk-active" : '');
+                                        if ($rel != 1) {
+                                            
+                                        }
+
+                                        if ($active == '') {
+                                            echo "<li>";
+                                            echo "<a href='press.php?page=$i'>$i</a>";
+                                            echo "</li>";
+                                        } else {
+                                            echo "<li class='$active '>";
+                                            echo " <span>$i</span>";
+                                            echo "</li>";
+                                        }
+                                        if ($rel == $page) {
+                                            $last = TRUE;
+                                        }
+                                    }
+                                    //for end
+                                    //
+                                 //
+                                //  >>  LAST
+                                    if (!$last) {
+                                        $plus = $page + 1;
+                                        echo "<li>";
+                                        echo "<a href='press.php?page=$plus'>>></a>";
+                                        echo "</li>";
+                                        echo "<li>";
+                                        echo " <a href='press.php?page=$rel'>Last</a>";
+                                        echo "</li>";
+                                    }
+                                }
+                                ?>
+
+                            </ul>
+
                         </div>
 
-                    </div>	
-
+                    </div>
                 </div>
             </main>
 
+
+
+
         </div>
-    </div>
+
+
+    </div>	
 </div>
+
+
 <?php
 include './content/footer.php';
 ?>
