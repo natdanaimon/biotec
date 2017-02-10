@@ -1,7 +1,12 @@
 <?php
 
 function slidePage($page) {
+    include './controller/slideController.php';
+    include './service/slideService.php';
+    $slide = new slideController();
     if ($page == 'home') {
+        $tmpPage = "index";
+        $_data = $slide->dataTable($tmpPage);
         ?>
         <div id="linea-banner">
             <div id="sfondo-banner">
@@ -11,9 +16,9 @@ function slidePage($page) {
 
                         <div class="uk-slidenav-position" data-uk-slideshow>
                             <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                                <li><img src="images/slideshow/homepage/xlaseplus_biotec.jpg" width="1400" height="451" alt="">ssss</li>
-                                <li><img src="images/slideshow/homepage/slide02.jpg" width="1400" height="451" alt=""></li>
-                                <li><img src="images/slideshow/homepage/slide03.jpg" width="1400" height="451" alt=""></li>
+                                <?php foreach ($_data as $key => $value) { ?>
+                                    <li><img src="images/slideshow/homepage/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
+                                <?php } ?>
                             </ul>
 
                             <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
@@ -30,6 +35,8 @@ function slidePage($page) {
         </div>
         <?php
     } else if ($page == 'about') {
+        $tmpPage = "about";
+        $_data = $slide->dataTable($tmpPage);
         ?>
         <div id="linea-banner">
             <div id="sfondo-banner">
@@ -39,9 +46,10 @@ function slidePage($page) {
 
                         <div class="uk-slidenav-position" data-uk-slideshow>
                             <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                                <li><img src="images/slideshow/chisiamo/01-chi-siamo.jpg" width="1400" height="451" alt=""></li>
-                                <li><img src="images/slideshow/chisiamo/02-chi-siamo.jpg" width="1400" height="451" alt=""></li>
-                                <li><img src="images/slideshow/chisiamo/03-chi-siamo.jpg" width="1400" height="451" alt=""></li>
+                                <?php foreach ($_data as $key => $value) { ?>
+                                    <li><img src="images/slideshow/chisiamo/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
+                                <?php } ?>
+
                             </ul>
                             <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
                                 <img src="images/slideshow/previous.png">
@@ -57,6 +65,8 @@ function slidePage($page) {
 
         <?php
     } else if ($page == 'contacts') {
+        $tmpPage = "contacts";
+        $_data = $slide->dataTable($tmpPage);
         ?>
         <div id="linea-banner">
             <div id="sfondo-banner">
@@ -66,9 +76,10 @@ function slidePage($page) {
 
                         <div class="uk-slidenav-position" data-uk-slideshow>
                             <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                                <li><img src="images/slideshow/contacts/01.jpg" width="1400" height="451" alt=""></li>
-                                <li><img src="images/slideshow/contacts/02.jpg" width="1400" height="451" alt=""></li>
-                                <li><img src="images/slideshow/contacts/03.jpg" width="1400" height="451" alt=""></li>
+                                <?php foreach ($_data as $key => $value) { ?>
+                                    <li><img src="images/slideshow/contacts/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
+                                <?php } ?>
+
                             </ul>
                             <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
                                 <img src="images/slideshow/previous.png">

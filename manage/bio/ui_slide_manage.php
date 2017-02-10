@@ -3,11 +3,27 @@
 @session_start();
 include './common/FunctionCheckActive.php';
 include './common/Permission.php';
-include './controller/customersController.php';
-include './service/customersService.php';
+include './controller/slideController.php';
+include './service/slideService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
-ACTIVEPAGES(7);
+ACTIVEPAGES(9);
+ACTIVEPAGES_SUB(9, 1);
+if ($_GET["func"] == NULL || $_GET["page"] == NULL) {
+    header('Location: ui_slide.php');
+}
+if ($_GET["page"] == 1) {
+    $pageTxt = "index";
+    $imgPath = "../../images/slideshow/homepage/";
+} else if ($_GET["page"] == 2) {
+    $pageTxt = "about";
+    $imgPath = "../../images/slideshow/chisiamo/";
+} else if ($_GET["page"] == 3) {
+    $pageTxt = "contacts";
+    $imgPath = "../../images/slideshow/contacts/";
+} else {
+    
+}
 ?>
 <html lang="en">
     <head>
@@ -61,7 +77,7 @@ ACTIVEPAGES(7);
                     <div class="">
                         <div class="page-title">
                             <div class="title_left">
-                                <h3><?= $_SESSION["our_customers"] ?> </h3>
+                                <h3><?= $_SESSION["ui_slide"] ?> </h3>
                             </div>
                         </div>
                     </div>
@@ -74,9 +90,9 @@ ACTIVEPAGES(7);
                                     <div class="x_panel">
                                         <div class="x_title">
                                             <?php if ($_GET["func"] == "edit") { ?>
-                                                <h2><?= $_SESSION["edit_info"] ?> <?= $_SESSION["our_customers"] ?></small></h2>
+                                                <h2><?= $_SESSION["edit_info"] ?> <?= $_SESSION["tab_" . $pageTxt] ?></small></h2>
                                             <?php } else { ?>
-                                                <h2><?= $_SESSION["add"] ?> <?= $_SESSION["our_customers"] ?></small></h2>
+                                                <h2><?= $_SESSION["add"] ?> <?= $_SESSION["tab_" . $pageTxt] ?></small></h2>
                                             <?php } ?>
                                             <ul class="nav navbar-right panel_toolbox">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -92,44 +108,22 @@ ACTIVEPAGES(7);
                                             //if ($_GET["func"] == "edit") {
                                             if ($_GET["func"] == "edit") {
                                                 //$_GET["seq_i"];
-                                                $comm = new commonController();
-                                                $controller = new customersController();
-                                                $_data = $controller->dataTable_sel($_GET["seq_i"]);
+
+                                                $controller = new slideController();
+                                                $_data = $controller->dataTable_seq($pageTxt, $_GET["seq_i"]);
                                                 foreach ($_data as $key => $value) {
                                                     ?>
                                                     <form id="form_edit" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
-                                                        <div style="visibility:hidden;">
-                                                            <input type="text"name="seq_i" id="seq_i" value="<?= $_GET["seq_i"] ?>">
-                                                            <input type="text"name="curent_pic" id="curent_pic" value="<?= $_data[$key]["s_img"] ?>">
-                                                        </div>
+                                                        <input type="hidden" name="s_page" id="s_page" value="<?= $pageTxt ?>">
+                                                        <input type="hidden" name="s_img_current" id="s_img_current" value="<?= $_data[$key]['s_img'] ?>">
+                                                        <input type="hidden" name="i_seq" id="s_page" value="<?= $_data[$key]['i_seq'] ?>">
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                                <?= $_SESSION["tb_customer_col_name_th"] ?>
+                                                                <?= $_SESSION["col_slide_index"] ?>
                                                                 <span class="required">*</span>
                                                             </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="name_th" name="name_th"
-                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_name_th'] ?>">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                                <?= $_SESSION["tb_customer_col_name_en"] ?>
-                                                                <span class="required">*</span>
-                                                            </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="name_en" name="name_en"
-                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_name_en'] ?>">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                                <?= $_SESSION["tb_customer_col_url"] ?>
-                                                                <span class="required">*</span>
-                                                            </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="link" name="link"  
-                                                                       class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_url'] ?>">
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <input type="number" id="index" name="index" value="<?= $_data[$key]['i_index'] ?>" class="form-control col-md-3 col-xs-3" value="0" min="0">
                                                             </div>
                                                         </div>
 
@@ -157,19 +151,19 @@ ACTIVEPAGES(7);
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["tb_customer_col_img"] ?> 
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["col_slide_img"] ?> 
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <div id="imagePreview" style="background-image: url(controller/file/customers/<?= $_data[$key]['s_img'] ?>) !important;"></div>
+                                                                <div id="imagePreview" style="background-image: url(<?= $imgPath . $_data[$key]['s_img'] ?>) !important;"></div>
                                                                 <input type="file" id="uploadPic" name="uploadPic"  class="img" />
 
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="ln_solid"></div>
                                                         <div class="form-group">
                                                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                                <a href="customers.php">
+                                                                <a href="ui_slide.php">
                                                                     <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
                                                                     </button>
                                                                 </a>
@@ -187,31 +181,14 @@ ACTIVEPAGES(7);
                                                 <!--------------------------------Add customer--------------------------------->
                                                 <form data-parsley-validate class="form-horizontal form-label-left" 
                                                       enctype="multipart/form-data" name="form_add" id="form_add" method="post" action="">
+                                                    <input type="hidden" name="s_page" id="s_page" value="<?= $pageTxt ?>">
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                            <?= $_SESSION["tb_customer_col_name_th"] ?>
+                                                            <?= $_SESSION["col_slide_index"] ?>
                                                             <span class="required">*</span>
                                                         </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="name_th" name="name_th"  class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                            <?= $_SESSION["tb_customer_col_name_en"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="name_en" name="name_en"  class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                            <?= $_SESSION["tb_customer_col_url"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="link" name="link"  class="form-control col-md-7 col-xs-12">
+                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                            <input type="number" id="index" name="index"  class="form-control col-md-3 col-xs-3" value="0" min="0">
                                                         </div>
                                                     </div>
 
@@ -229,7 +206,7 @@ ACTIVEPAGES(7);
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["tb_customer_col_img"] ?><span class="required">*</span>
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12"><?= $_SESSION["col_slide_img"] ?><span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                                             <div id="imagePreview" ></div>
@@ -240,7 +217,7 @@ ACTIVEPAGES(7);
                                                     <div class="ln_solid"></div>
 
                                                     <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                                        <a href="customers.php">
+                                                        <a href="ui_slide.php">
                                                             <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
                                                             </button>
                                                         </a>
@@ -323,11 +300,11 @@ ACTIVEPAGES(7);
                                                                             $("#form_edit").submit(function (e) {
                                                                                 e.preventDefault();
                                                                                 var formData = new FormData($(this)[0]);
-                                                                                formData.append("func", "update_customers");//seq
+                                                                                formData.append("func", "update_slide");//seq
                                                                                 console.log($(this).serialize());
                                                                                 $.ajax({
                                                                                     type: 'POST',
-                                                                                    url: 'controller/customersController.php',
+                                                                                    url: 'controller/slideController.php',
                                                                                     data: formData,
                                                                                     beforeSend: function ()
                                                                                     {
@@ -366,11 +343,11 @@ ACTIVEPAGES(7);
                                                                             $("#form_add").submit(function (e) {
                                                                                 e.preventDefault();
                                                                                 var formData = new FormData($(this)[0]);
-                                                                                formData.append("func", "add_customers");//seq 
+                                                                                formData.append("func", "add_slide");//seq 
                                                                                 console.log($(this).serialize());
                                                                                 $.ajax({
                                                                                     type: 'POST',
-                                                                                    url: 'controller/customersController.php',
+                                                                                    url: 'controller/slideController.php',
                                                                                     data: formData,
                                                                                     beforeSend: function ()
                                                                                     {
@@ -407,7 +384,7 @@ ACTIVEPAGES(7);
                                                                                             $('#success-dialog').modal('show');
                                                                                             $('#form_add').trigger("reset");
                                                                                             $('#imagePreview').removeAttr('style');
-                                                                                         } else {
+                                                                                        } else {
                                                                                             var errCode = res[1] + " (" + res[0] + ")  ";
                                                                                             $('#err-code').text(errCode);
                                                                                             $('#err-dialog').modal('show');
@@ -584,9 +561,9 @@ ACTIVEPAGES(7);
             $('#se-pre-con').delay(1000).fadeOut();
         });
 
-        
 
-       
+
+
 
 
 
