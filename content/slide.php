@@ -7,92 +7,98 @@ function slidePage($page) {
     if ($page == 'home') {
         $tmpPage = "index";
         $_data = $slide->dataTable($tmpPage);
-        ?>
-        <div id="linea-banner">
-            <div id="sfondo-banner">
-                <div class="biotec-wrapper">
-                    <div class="uk-container uk-container-center">
+        if ($_data != NULL) {
+            ?>
+            <div id="linea-banner">
+                <div id="sfondo-banner">
+                    <div class="biotec-wrapper">
+                        <div class="uk-container uk-container-center">
 
 
-                        <div class="uk-slidenav-position" data-uk-slideshow>
-                            <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                                <?php foreach ($_data as $key => $value) { ?>
-                                    <li><img src="images/slideshow/homepage/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
-                                <?php } ?>
-                            </ul>
+                            <div class="uk-slidenav-position" data-uk-slideshow>
+                                <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
+                                    <?php foreach ($_data as $key => $value) { ?>
+                                        <li><img src="images/slideshow/homepage/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
+                                    <?php } ?>
+                                </ul>
 
-                            <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
-                                <img src="images/slideshow/previous.png">
-                            </a>
-                            <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
-                                <img src="images/slideshow/next.png">
-                            </a>
+                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                                    <img src="images/slideshow/previous.png">
+                                </a>
+                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                                    <img src="images/slideshow/next.png">
+                                </a>
 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <?php
+            <?php
+        }
     } else if ($page == 'about') {
         $tmpPage = "about";
         $_data = $slide->dataTable($tmpPage);
-        ?>
-        <div id="linea-banner">
-            <div id="sfondo-banner">
-                <div class="biotec-wrapper">
-                    <div class="uk-container uk-container-center">
+        if ($_data != NULL) {
+            ?>
+            <div id="linea-banner">
+                <div id="sfondo-banner">
+                    <div class="biotec-wrapper">
+                        <div class="uk-container uk-container-center">
 
 
-                        <div class="uk-slidenav-position" data-uk-slideshow>
-                            <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                                <?php foreach ($_data as $key => $value) { ?>
-                                    <li><img src="images/slideshow/chisiamo/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
-                                <?php } ?>
+                            <div class="uk-slidenav-position" data-uk-slideshow>
+                                <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
+                                    <?php foreach ($_data as $key => $value) { ?>
+                                        <li><img src="images/slideshow/chisiamo/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
+                                    <?php } ?>
 
-                            </ul>
-                            <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
-                                <img src="images/slideshow/previous.png">
-                            </a>
-                            <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
-                                <img src="images/slideshow/next.png">
-                            </a>
+                                </ul>
+                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                                    <img src="images/slideshow/previous.png">
+                                </a>
+                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                                    <img src="images/slideshow/next.png">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <?php
+            <?php
+        }
     } else if ($page == 'contacts') {
         $tmpPage = "contacts";
         $_data = $slide->dataTable($tmpPage);
-        ?>
-        <div id="linea-banner">
-            <div id="sfondo-banner">
-                <div class="biotec-wrapper">
-                    <div class="uk-container uk-container-center">
+        if ($_data != NULL) {
+            ?>
+            <div id="linea-banner">
+                <div id="sfondo-banner">
+                    <div class="biotec-wrapper">
+                        <div class="uk-container uk-container-center">
 
 
-                        <div class="uk-slidenav-position" data-uk-slideshow>
-                            <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
-                                <?php foreach ($_data as $key => $value) { ?>
-                                    <li><img src="images/slideshow/contacts/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
-                                <?php } ?>
+                            <div class="uk-slidenav-position" data-uk-slideshow>
+                                <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
+                                    <?php foreach ($_data as $key => $value) { ?>
+                                        <li><img src="images/slideshow/contacts/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt=""></li>
+                                    <?php } ?>
 
-                            </ul>
-                            <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
-                                <img src="images/slideshow/previous.png">
-                            </a>
-                            <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
-                                <img src="images/slideshow/next.png">
-                            </a>
+                                </ul>
+                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                                    <img src="images/slideshow/previous.png">
+                                </a>
+                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                                    <img src="images/slideshow/next.png">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <?php
+            }
+            <?php
+        }
     }
-}
+    
