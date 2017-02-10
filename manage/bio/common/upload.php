@@ -183,7 +183,7 @@ class upload {
                 if ($img) {
                     $size = $value["size"];
                     if ($size < $this->_minSizeImg || $size > $this->_maxSizeImg) {
-                        $this->_errorMessage = "img size fail";
+                        $this->_errorMessage = $_SESSION['cd_2211'];
                         $this->clearDataInFilenameResult($tmpFileName);
                         return (bool) $resultStatus = FALSE;
                     }
@@ -192,23 +192,23 @@ class upload {
                 if ($doc) {
                     $size = $value["size"];
                     if ($size < $this->_minSizeDoc || $size > $this->_maxSizeDoc) {
-                        $this->_errorMessage = "doc size fail";
+                        $this->_errorMessage = $_SESSION['cd_2212'];
                         $this->clearDataInFilenameResult($tmpFileName);
                         return (bool) $resultStatus = FALSE;
                     }
                 }
 
                 if (!$img && !$doc) {
-                    $this->_errorMessage = "file type fail";
+                    $this->_errorMessage = $_SESSION['cd_2210'];
                     $this->clearDataInFilenameResult($tmpFileName);
                     return (bool) $resultStatus = FALSE;
                 }
 
                 if (move_uploaded_file($value["tmp_name"], $newfilename)) {
-                    $this->_errorMessage = "The file " . basename($value["name"]) . " has been uploaded.";
+                    $this->_errorMessage = "";
                     $resultStatus = TRUE;
                 } else {
-                    $this->_errorMessage = "Sorry, there was an error uploading your file.";
+                    $this->_errorMessage = $_SESSION['cd_2001'];
                     $this->clearDataInFilenameResult($tmpFileName);
                     return (bool) $resultStatus = FALSE;
                 }

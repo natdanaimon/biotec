@@ -94,25 +94,16 @@ class customersController {
             $doc = new upload();
             $doc->set_path("./file/customers/");
             $doc->add_FileName($_FILES["uploadPic"]);
-//----------------------------------//
-            $check_type_pic = $_FILES["uploadPic"]['name'];
-            $arraypic = explode(".", $check_type_pic); //แบ่งชื่อไฟล์กับนามสกุลออกจากกัน
-            $lastname = strtolower($arraypic);
-            $filetype_pic = $arraypic[1];
-//----------------------------------//
             $flg = $doc->AddFile();
-            $cout = 0;
-            $cout_data = array();
+         
 
             if ($flg) {
+                   $cout = 0;
+                   $cout_data = array();
                 foreach ($doc->get_FilenameResult() as $value) {
-                    $cout_data[$cout] = $value;
-                    $cout++;
+                    $cout_data[$cout++] = $value;
                 }
-                if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
-                    $doc->clearFileAddFail();
-                    echo $_SESSION['cd_2204'];
-                } else if ($service->add_customers($_POST["name_th"], $_POST["name_en"], $_POST["link"], $cout_data[0], $_POST["status"])) {
+                if ($service->add_customers($_POST["name_th"], $_POST["name_en"], $_POST["link"], $cout_data[0], $_POST["status"])) {
                     echo $_SESSION['cd_0000'];
                 } else {
                     $doc->clearFileAddFail();
@@ -120,7 +111,7 @@ class customersController {
                 }
             } else {
                 $doc->clearFileAddFail();
-                echo $_SESSION['cd_2001'];
+                echo  $doc->get_errorMessage();
             }
         }
     }
