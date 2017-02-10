@@ -87,7 +87,11 @@
         <th>แก้ไขข้อมูล</th>
         <en>Edit Info</en> 
     </detail>
-    
+    <detail>
+        <variable>lb_help_slide</variable>
+        <th>หมายเหตุ : การแสดงสไลด์หน้าเว็บไซต์จะเรียงจากลำดับและชื่อไฟล์</th>
+        <en>Note: The slide show Sort by index and file name.</en> 
+    </detail>
     
     <!--  Other -->
 	

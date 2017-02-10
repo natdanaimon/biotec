@@ -166,10 +166,16 @@ ACTIVEPAGES_SUB(9, 1);
                                             </div>
 
                                         </div>
+
+
                                     </div>
-
+                                    <div class="col-xs-12">
+                                        <span class="badge" style="background-color: red;"> <?= $_SESSION["lb_help_slide"] ?></span>
+                                    </div>
+                                  
+                                    
                                     <div class="clearfix"></div>
-
+                                  
                                 </div>
 
                             </div>
@@ -321,7 +327,7 @@ ACTIVEPAGES_SUB(9, 1);
                         tb2();
                     },
                     error: function (data) {
-                    var language = '<?= $_SESSION["lan"] ?>';
+                        var language = '<?= $_SESSION["lan"] ?>';
                         if (data.responseText == '') {
                             var datatable = $datatable1.dataTable().api();
                             $('.dataTables_empty').remove();
