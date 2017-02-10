@@ -97,8 +97,9 @@ function slidePage($page) {
                     </div>
                 </div>
             </div>
-            }
+
             <?php
         }
     }
-    
+}
+?>
