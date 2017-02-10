@@ -134,7 +134,7 @@ include './service/newsService.php';
                                         foreach ($_data as $key => $value) {
                                             ?>
                                             <h1 class="uk-article-title">
-                                                Perdere 1 taglia in 2 sedute? 
+                                                <?= $_data[$key]['s_subject_en'] ?>
                                                 <div><?= $_data[$key]['d_date'] ?></div> </h1>
 
 

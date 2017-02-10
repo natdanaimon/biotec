@@ -104,9 +104,6 @@ include './service/newsService.php';
         margin-bottom: 10px;
         font-size: 14px;
     }
-    .uk-grid{
-        left: 130px;
-    }
     @media (max-width: 767px)
 </style>
 
@@ -129,20 +126,7 @@ include './service/newsService.php';
 
 
                             <div class="contorno-titolo">
-                                <h1 class="bar_news">News</h1>
-                                <ul class="type-ul">
-                                    <li class="type-li">
-                                        <a href="news_magazine.php" class=""><span>Magazine</span></a>
-                                    </li>
-                                    <li class="type-li">
-                                        <a href="news_event.php" class=""><span>Events</span></a>
-                                    </li>
-                                    <li class="type-li">
-                                        <a href="news_product.php" class=""><span>Products</span></a>
-                                    </li>
-                                </ul>
-
-
+                                    <h1 class="bar_news">Event</h1>
                             </div>
 
 
@@ -151,11 +135,9 @@ include './service/newsService.php';
                                 $util = new Utility();
 
                                 $controller = new newsController();
-                                if ($_GET["type"] != NULL) {
-                                    $_data = $controller->dataTable_type($_GET["type"]);
-                                } else {
-                                    $_data = $controller->dataTable();
-                                }
+                                    $_data = $controller->dataTable_type(2);
+                 
+         
                                 $limitPaging = 2;
 
                                 $resultCount = $util->countObject($_data);
@@ -187,17 +169,16 @@ include './service/newsService.php';
 
 
                                             <h1 class="uk-article-title">
-                                                <a title="<?= $_data[$key]['s_subject_en'] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
-                                                    <?= $_data[$key]['s_subject_en'] ?></a> </h1>
+                                                <a title="Biotec Italia awarded at World of Beauty in Prague" href="news_detail.php">Biotec Italia awarded at World of Beauty in Prague</a> </h1>
 
                                             <p class="uk-article-lead">
-                                                <?= $_data[$key]['d_date'] ?></p>
+    <?= $_data[$key]['d_date'] ?></p>
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Biotec Italia awarded at World of Beauty in Prague" width="150" height="120" title="Biotec Italia awarded at World of Beauty in Prague" /></a> </div>
+                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="Biotec Italia awarded at World of Beauty in Prague"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Biotec Italia awarded at World of Beauty in Prague" width="150" height="120" title="Biotec Italia awarded at World of Beauty in Prague" /></a> </div>
 
-                                            <?= $_data[$key]['s_subject_en'] ?>
+    <?= $_data[$key]['s_subject_en'] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
                                                 <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
                                                 <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
@@ -216,7 +197,7 @@ include './service/newsService.php';
                                         </article>
 
                                     </div>
-                                <?php } ?>
+<?php } ?>
 
 
                             </div>
