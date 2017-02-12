@@ -92,6 +92,26 @@
         <th>หมายเหตุ : การแสดงสไลด์หน้าเว็บไซต์จะเรียงจากลำดับและชื่อรูปภาพ</th>
         <en>Note: The slide show Sort by index and picture name.</en> 
     </detail>
+    <detail>
+        <variable>lb_help_content</variable>
+        <th>หมายเหตุ : การแสดงเนื้อหาหน้าเว็บไซต์จะเรียงจากลำดับและชื่อรูปภาพ และจำโชว์เฉพาะข้อมูล 4 ลำดับแรก</th>
+        <en>Note: The Contents Sort by index and picture name. And Show 1-4 Info.</en> 
+    </detail>
+    <detail>
+        <variable>_enter</variable>
+        <th>คลิก</th>
+        <en>Enter</en> 
+    </detail>
+    <detail>
+        <variable>_top_content</variable>
+        <th>เนื้อหาเว็บไซต์ส่วนบน</th>
+        <en>Content Top</en> 
+    </detail>
+    <detail>
+        <variable>_bottom_content</variable>
+        <th>เนื้อหาเว็บไซต์ส่วนล่าง</th>
+        <en>Content Bottom</en> 
+    </detail>
     
     <!--  Other -->
 	
@@ -906,6 +926,7 @@
         <th>ลำดับ</th>
         <en>Index</en> 
     </detail>  
+ 
     <detail>
         <variable>col_slide_status</variable>
         <th>สถานะ</th>
@@ -936,6 +957,80 @@
         <th>สร้างสไลด์สำหรักหน้าติดต่อเรา</th>
         <en>Create a slide for page contacts.</en> 
     </detail> 
+    
+    
+    
+    
+    <detail>
+        <variable>col_index_img</variable>
+        <th>รูปภาพ</th>
+        <en>Image Name</en> 
+    </detail>  
+    <detail>
+        <variable>col_index_topic</variable>
+        <th>หัวข้อ</th>
+        <en>Topic</en> 
+    </detail>  
+    <detail>
+        <variable>col_index_topic_th</variable>
+        <th>หัวข้อภาษาไทย</th>
+        <en>Topic TH.</en> 
+    </detail>  
+    <detail>
+        <variable>col_index_topic_en</variable>
+        <th>หัวข้อภาษาอังกฤษ</th>
+        <en>Topic EN.</en> 
+    </detail>  
+    <detail>
+        <variable>col_index_url</variable>
+        <th>ลิงค์</th>
+        <en>URL.</en> 
+    </detail>
+    <detail>
+        <variable>col_index_detail_th</variable>
+        <th>รายละเอียดภาษาไทย</th>
+        <en>Detail TH.</en> 
+    </detail>
+    <detail>
+        <variable>col_index_detail_en</variable>
+        <th>รายละเอียดภาษาอังกฤษ</th>
+        <en>Detail EN.</en> 
+    </detail>
+    <detail>
+        <variable>col_index_index</variable>
+        <th>ลำดับ</th>
+        <en>Index</en> 
+    </detail>  
+    <detail>
+        <variable>col_index_status</variable>
+        <th>สถานะ</th>
+        <en>Status</en> 
+    </detail>  
+    <detail>
+        <variable>col_index_edit</variable>
+        <th>แก้ไข</th>
+        <en>Edit</en> 
+    </detail> 
+    <detail>
+        <variable>col_index_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>
+    
+    <detail>
+        <variable>btn_index_top</variable>
+        <th>สร้างเนื้อหาส่วนบน</th>
+        <en>Create Top Content.</en> 
+    </detail>
+    <detail>
+        <variable>btn_index_bottom</variable>
+        <th>สร้างเนื้อหาส่วนล่าง</th>
+        <en>Create Bottom Content.</en> 
+    </detail>
+    
+    
+    
+    
     <!-- UI Element -->
         
     <!-- Response Code -->
@@ -953,6 +1048,11 @@
         <variable>cd_2099</variable>
         <th>2099,กรุณาระบุข้อมูล field ด้วยค่ะ</th>
         <en>2099,Please write your field required.</en> 
+    </detail>
+      <detail>
+        <variable>cd_2098</variable>
+        <th>2098,กรุณาระบุข้อมูล field โดยมีความยาวไม่เกิน xxx ตัวอักษร</th>
+        <en>2098,Please write your field limit xxx lenght.</en> 
     </detail>
     <detail>
         <variable>cd_2200</variable>
@@ -1018,7 +1118,7 @@
     </detail>
     <detail>
         <variable>cd_2212</variable>
-         <th>2212,ขนาดของไฟล์เอกสารไม่อยู่ในขนาดที่กำหนด </th>
+        <th>2212,ขนาดของไฟล์เอกสารไม่อยู่ในขนาดที่กำหนด </th>
         <en>2212,the size of the document file size is not specified.</en> 
     </detail>
     

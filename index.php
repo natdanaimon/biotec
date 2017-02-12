@@ -1,6 +1,8 @@
 <?php
 @session_start();
 include './manage/bio/common/FunctionCheckActive.php';
+include './controller/contentController.php';
+include './service/contentService.php';
 ACTIVEPAGE_SHOW(1);
 $fixheader = "fix";
 include './content/header.php';
@@ -9,46 +11,75 @@ slidePage("home");
 ?>
 
 
+<style>
+    .home-top-a{
+        position:relative;
+    }
+    .home-top-a a{
+        text-align:right;
+        padding-right:10px;
+        display:block;
+        background:#ccb26f;
+        color:#fff;
+        position:relative;
+        top:0px ;
+    }
+    .home-top-a a:hover{color:#fff;text-decoration:none;background:#ac955a;}
+
+    .content-img{
+        height: 180px;
+        width: 180px
+    }
+
+    @media
+
+</style>
+
+<!-- top centent-->
+<?php
+$content = new contentController();
+$_data = $content->dataTable_top();
+$util = new Utility();
+$col_box = $util->countObject($_data);
+if ($_data != NULL) {
+    ?>
+    <div class="sfondo-grigio">
+        <div class="uk-container uk-container-center">
+            <div class="tm-block ">
+                <section class="tm-top-a uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin>
+                    <?php
+                    foreach ($_data as $key => $value) {
+                        ?>
+
+
+                        <div class="uk-width-1-1 uk-width-medium-1-<?= $col_box ?>">
+                            <div class="uk-panel uk-panel-box home-top-a">
+                                <div style="height: 150px">
+                                    <h3 class="uk-panel-title"><i class=""></i> <?= $_data[$key]['s_topic_' . $_SESSION["main_lan"]] ?> </h3>
+                                    <?= $_data[$key]['s_detail_' . $_SESSION["main_lan"]] ?> <br/>
+                                </div>
+
+                                <div align="center" Style="background-color: #ffffff">
+                                    <img class="content-img" src="images/top_content/<?= $_data[$key]['s_img'] ?>"  align="center"  />
+                                </div>
+                                <a href="<?= $_data[$key]['s_url'] ?>">
+                                    <?=$_SESSION["_enter"]?> &raquo;
+                                </a>
+
+                            </div>
+                        </div>
+                    <?php } ?>
 
 
 
-<div class="sfondo-grigio">
-    <div class="uk-container uk-container-center">
-        <div class="tm-block ">
-            <section class="tm-top-a uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin>
-                <div class="uk-width-1-1 uk-width-medium-1-4"><div class="uk-panel uk-panel-box home-top-a home-estetica"><h3 class="uk-panel-title"><i class=""></i> Aesthetic</h3>
-                        Cutting-edge technologies for professionals of beauty industry.
-                        <a href="#">
-                            <!--<a href="devices/aesthetic.html">-->
-                            Enter »
-                        </a></div></div>
-
-                <div class="uk-width-1-1 uk-width-medium-1-4"><div class="uk-panel uk-panel-box home-top-a home-medicale"><h3 class="uk-panel-title"><i class=""></i> Medical</h3>
-                        Devices for effective and safe medical solutions.<br /><br /> 
-                        <a href="#">
-                            <!--<a href="devices/medical.html">-->
-                            Enter &raquo;
-                        </a></div></div>
-
-                <div class="uk-width-1-1 uk-width-medium-1-4"><div class="uk-panel uk-panel-box home-top-a home-rejuve"><h3 class="uk-panel-title"><i class=""></i> Rejuve</h3>
-                        Cosmeceuticals for a long lasting natural well-being.<br><br>
-                        <a href="#" target="_blank">
-                            <!--<a href="http://www.rejuvecosmetics.com/" target="_blank">-->
-                            Enter &raquo;
-                        </a>
-                    </div></div>
-
-                <div class="uk-width-1-1 uk-width-medium-1-4"><div class="uk-panel uk-panel-box home-top-a home-renlive"><h3 class="uk-panel-title"><i class=""></i> Renlive </h3>
-                        Cosmeceutical products for face and body beauty care.<br><br> 
-                        <a href="#">
-                            <!--<a href="cosmeceuticals/renlive.html">-->
-                            Enter &raquo;
-                        </a>
-                    </div></div>
-            </section>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+<?php } ?>
+<!-- top centent-->
+
+
 
 
 
