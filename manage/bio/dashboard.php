@@ -40,7 +40,11 @@ ACTIVEPAGES(1);
 
                 <!-- page content -->
                 <div class="right_col" role="main">
-                    <div class="">
+                    <div align="center">
+                        <img src="comingsoon.png"/>
+                    </div>
+                    
+<!--                    <div class="">
                         <div class="row top_tiles">
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <div class="tile-stats">
@@ -494,7 +498,7 @@ ACTIVEPAGES(1);
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <!-- /page content -->
 
