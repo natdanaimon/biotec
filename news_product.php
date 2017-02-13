@@ -135,7 +135,7 @@ include './service/newsService.php';
                                 $util = new Utility();
 
                                 $controller = new newsController();
-                                    $_data = $controller->dataTable_type(3);
+                                    $_data = $controller->dataTable_type("P");
                  
          
                                 $limitPaging = 2;
