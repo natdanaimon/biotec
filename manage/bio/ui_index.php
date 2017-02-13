@@ -208,7 +208,7 @@ ACTIVEPAGES_SUB(9, 2);
 
             var $datatable1 = $('#datatable-checkbox1');
             var $datatable2 = $('#datatable-checkbox2');
-            var $datatable3 = $('#datatable-checkbox3');
+
             function closeAlert() {
                 $('#err-dialog').modal('hide');
                 $('#success-dialog').modal('hide');
@@ -291,7 +291,7 @@ ACTIVEPAGES_SUB(9, 2);
                         if (first == "TRUE") {
                             $datatable1.dataTable({
                                 data: JsonData,
-                                order: [[3, 'desc'],[2, 'asc'], [0, 'asc']],
+                                order: [[3, 'desc'], [2, 'asc'], [0, 'asc']],
                                 columnDefs: [
                                     {orderable: false, targets: [0]}
 
@@ -307,7 +307,7 @@ ACTIVEPAGES_SUB(9, 2);
                         tb2();
                     },
                     error: function (data) {
-                        var language = '<?= $_SESSION["lan"] ?>';
+                     var language = '<?= $_SESSION["lan"] ?>';
                         if (data == '') {
                             var datatable = $datatable1.dataTable().api();
                             $('.dataTables_empty').remove();
@@ -364,7 +364,7 @@ ACTIVEPAGES_SUB(9, 2);
                         if (first == "TRUE") {
                             $datatable1.dataTable({
                                 data: JsonData,
-                                order: [[3, 'desc'],[2, 'asc'], [0, 'asc']],
+                                order: [[3, 'desc'], [2, 'asc'], [0, 'asc']],
                                 columnDefs: [
                                     {orderable: false, targets: [0]}
 
@@ -382,6 +382,162 @@ ACTIVEPAGES_SUB(9, 2);
 
                 });
                 function tb2() {
+                    $.ajax({
+                        type: 'GET',
+                        url: 'controller/contentController.php?func=dataTable&type=bottom',
+                        //data: Jsdata,
+                        beforeSend: function ()
+                        {
+//                        $('#se-pre-con').fadeIn(100);
+                        },
+                        success: function (data) {
+                            var language = '<?= $_SESSION["lan"] ?>';
+                            if (data == '') {
+                                var datatable = $datatable2.dataTable().api();
+                                $('.dataTables_empty').remove();
+                                datatable.clear();
+                                datatable.draw();
+                            }
+                            var res = JSON.parse(data);
+                            var JsonData = [];
+                            $.each(res, function (i, item) {
+
+                                var col_img = "";
+                                var col_topic = "";
+                                var col_index = "";
+                                var col_status = "";
+                                var col_edit = "";
+                                var col_delete = "";
+                                var s_type = "bottom";
+                                col_img += '<a href="javascript:previewImage(\'../../images/bottom_content/' + item.s_img + '\');">';
+                                col_img += '<img  src="../../images/bottom_content/' + item.s_img + '"  width="60px" height="60px" />';
+                                col_img += '</a> <span>' + item.s_img + '</span>';
+
+                                col_topic = (language == 'th' ? item.s_topic_th : item.s_topic_en);
+                                col_index = item.i_index;
+                                if (item.s_status == 'A') {
+                                    col_status += ' <span class="label label-success">';
+                                    col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                    col_status += '</span>';
+                                } else {
+                                    col_status += ' <span class="label label-warning">';
+                                    col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                    col_status += '</span>';
+                                }
+
+                                col_edit = '<a href="./ui_index_manage.php?func=edit&type=bottom&seq_i=' + item.i_seq + '" >';
+                                col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
+                                col_edit += '</a>';
+                                col_delete = '<a href="javascript:contentConfirm(\'' + item.i_seq + '\',\'' + item.s_img + '\',\'' + s_type + '\');">';
+                                col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
+                                col_delete += '</a>';
+
+
+
+                                var addRow = [
+                                    col_img,
+                                    col_topic,
+                                    col_index,
+                                    col_status,
+                                    col_edit,
+                                    col_delete
+                                ]
+
+                                JsonData.push(addRow);
+                            });
+                            if (first == "TRUE") {
+                                $datatable2.dataTable({
+                                    data: JsonData,
+                                    order: [[3, 'desc'], [2, 'asc'], [0, 'asc']],
+                                    columnDefs: [
+                                        {orderable: false, targets: [0]}
+
+                                    ]
+                                });
+                            } else {
+                                var datatable = $datatable2.dataTable().api();
+                                $('.dataTables_empty').remove();
+                                datatable.clear();
+                                datatable.rows.add(JsonData);
+                                datatable.draw();
+                            }
+                            $('#se-pre-con').delay(100).fadeOut();
+                        },
+                        error: function (data) {
+                            var language = '<?= $_SESSION["lan"] ?>';
+                            if (data == '') {
+                                var datatable = $datatable2.dataTable().api();
+                                $('.dataTables_empty').remove();
+                                datatable.clear();
+                                datatable.draw();
+                            }
+                            var res = JSON.parse(data.responseText);
+                            var JsonData = [];
+                            $.each(res, function (i, item) {
+
+                                var col_img = "";
+                                var col_topic = "";
+                                var col_index = "";
+                                var col_status = "";
+                                var col_edit = "";
+                                var col_delete = "";
+                                var s_type = "bottom";
+                                col_img += '<a href="javascript:previewImage(\'../../images/bottom_content/' + item.s_img + '\');">';
+                                col_img += '<img  src="../../images/bottom_content/' + item.s_img + '"  width="60px" height="60px" />';
+                                col_img += '</a> <span>' + item.s_img + '</span>';
+
+                                col_topic = (language == 'th' ? item.s_topic_th : item.s_topic_en);
+                                col_index = item.i_index;
+                                if (item.s_status == 'A') {
+                                    col_status += ' <span class="label label-success">';
+                                    col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                    col_status += '</span>';
+                                } else {
+                                    col_status += ' <span class="label label-warning">';
+                                    col_status += (language == 'th' ? item.s_detail_th : item.s_detail_en);
+                                    col_status += '</span>';
+                                }
+
+                                col_edit = '<a href="./ui_index_manage.php?func=edit&type=bottom&seq_i=' + item.i_seq + '" >';
+                                col_edit += '<img src="images/edit.png" width="30px" height="30px" />';
+                                col_edit += '</a>';
+                                col_delete = '<a href="javascript:contentConfirm(\'' + item.i_seq + '\',\'' + item.s_img + '\',\'' + s_type + '\');">';
+                                col_delete += '<img  src="images/delete.png"  width="30px" height="30px" />';
+                                col_delete += '</a>';
+
+
+
+                                var addRow = [
+                                    col_img,
+                                    col_topic,
+                                    col_index,
+                                    col_status,
+                                    col_edit,
+                                    col_delete
+                                ]
+
+                                JsonData.push(addRow);
+                            });
+                            if (first == "TRUE") {
+                                $datatable2.dataTable({
+                                    data: JsonData,
+                                    order: [[3, 'desc'], [2, 'asc'], [0, 'asc']],
+                                    columnDefs: [
+                                        {orderable: false, targets: [0]}
+
+                                    ]
+                                });
+                            } else {
+                                var datatable = $datatable2.dataTable().api();
+                                $('.dataTables_empty').remove();
+                                datatable.clear();
+                                datatable.rows.add(JsonData);
+                                datatable.draw();
+                            }
+                            $('#se-pre-con').delay(100).fadeOut();
+                        }
+
+                    });
                 }
 
             }

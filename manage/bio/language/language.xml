@@ -103,6 +103,16 @@
         <en>Enter</en> 
     </detail>
     <detail>
+        <variable>_subscript</variable>
+        <th>สมัครับข่าวสาร</th>
+        <en>Subscribe</en> 
+    </detail>
+    <detail>
+        <variable>_readmore</variable>
+        <th>อ่านเพิ่มเติม</th>
+        <en>Read more</en> 
+    </detail>
+    <detail>
         <variable>_top_content</variable>
         <th>เนื้อหาเว็บไซต์ส่วนบน</th>
         <en>Content Top</en> 

@@ -24,6 +24,16 @@ class contentController {
             return NULL;
         }
     }
+    
+    public function dataTable_bottom() {
+        $service = new contentService();
+        $_dataTable = $service->dataTable_bottom();
+        if ($_dataTable != NULL) {
+            return $_dataTable;
+        } else {
+            return NULL;
+        }
+    }
 
 
 }

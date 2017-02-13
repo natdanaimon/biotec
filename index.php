@@ -63,7 +63,7 @@ if ($_data != NULL) {
                                     <img class="content-img" src="images/top_content/<?= $_data[$key]['s_img'] ?>"  align="center"  />
                                 </div>
                                 <a href="<?= $_data[$key]['s_url'] ?>">
-                                    <?=$_SESSION["_enter"]?> &raquo;
+                                    <?= $_SESSION["_enter"] ?> &raquo;
                                 </a>
 
                             </div>
@@ -83,86 +83,65 @@ if ($_data != NULL) {
 
 
 
+<!-- bottom centent-->
+<?php
+$__data = $content->dataTable_bottom();
+$col__box = $util->countObject($__data);
+if ($__data != NULL) {
+    ?>
+    <div class="sfondo-bianco">
+        <div class="uk-container uk-container-center">
+            <div class="tm-block ">
+                <section class="tm-top-b uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin>
+                    <?php
+                    foreach ($__data as $key => $value) {
+                        ?>
+                        <div class="uk-width-1-1 uk-width-medium-1-<?= $col__box ?>">
+                            <div class="uk-panel uk-panel-box home-top-b">
+                                <h3 class="uk-panel-title">
+                                    <i class=""></i><?= $__data[$key]['s_topic_' . $_SESSION["main_lan"]] ?>
+                                </h3>
 
-<div class="sfondo-bianco">
-    <div class="uk-container uk-container-center">
-        <div class="tm-block ">
-            <section class="tm-top-b uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin>
-                <div class="uk-width-1-1 uk-width-medium-1-3"><div class="uk-panel uk-panel-box home-top-b newsletter"><h3 class="uk-panel-title"><i class=""></i> Newsletter</h3>
-                        <img alt="newsletter" src="images/banner/newsletter.jpg" height="175" width="262" /><a href="newsletter.php">Subscribe to our newsletter!</a> <div class="description">Keep in touch with Biotec Italia and receive news and updates.<br><br> </div><span class="element-itemlink"><a href="newsletter.php">Subscribe &raquo;</a></span></div></div>
+                                <ul class="zoo-item-list zoo-list news-uikit">
+                                    <li>
 
-                <div class="uk-width-1-1 uk-width-medium-1-3"><div class="uk-panel uk-panel-box home-top-b"><h3 class="uk-panel-title"><i class=""></i> Focus On</h3>
+                                        <div style="height: 150px" >
+                                            <div align="center">
+                                                <a href="<?= $__data[$key]['s_url'] ?>" title="<?= $__data[$key]['s_topic_' . $_SESSION["main_lan"]] ?>">
+                                                    <div class="media media-left"> 
+                                                        <img src="images/bottom_content/<?= $__data[$key]['s_img'] ?>"  style="width: 300;height:175; "
+                                                             alt="<?= $__data[$key]['s_topic_' . $_SESSION["main_lan"]] ?>" width="300" height="300" 
+                                                             title="<?= $__data[$key]['s_topic_' . $_SESSION["main_lan"]] ?>" />
+                                                    </div>
+                                                </a> 
+                                            </div>
+                                        </div>
+                                        <br/>
+                                        <div style="height: 140px">
+                                            <?= $__data[$key]['s_detail_' . $_SESSION["main_lan"]] ?>
+                                        </div>
+                                        <p class="links">
+                                            <span class="element element-itemlink first last" style="width: 95%">
+                                                <a href="<?= $__data[$key]['s_url'] ?>"> <?= ($__data[$key]['s_topic_en']=="Newsletter"?$_SESSION["_subscript"]:$_SESSION["_readmore"]) ?></a>
+                                            </span>
 
-                        <ul class="zoo-item-list zoo-list focus-uikit">
-                            <li>
-                                <div class="layout-default ">
-
-                                    <div class="media media-left"> 
-                                        <a href=#" target="_blank">
-                                            <!--<a href="http://www.cryoliposculpt.com/" target="_blank">-->
-                                            <img src="images/banner/focus-on.jpg" alt="Xlase Plus" width="300" height="200" />
-                                        </a> </div>
-
-                                    <p class="title"> <a href="http://www.cryoliposculpt.com/" title="Fusiomed Cryoliposculpt"   >Fusiomed Cryoliposculpt</a> </p>
-
-
-
-                                    <div class="description"><div class="element element-textarea element-textareapro first last">
-                                            <p><strong>Cryoliposculpt</strong> is a non-invasive <strong>fat removal procedure</strong> that works on a process called “selective cryolysis”.</p></div></div>
-
-
-                                    <p class="links"><span class="element element-link element-linkpro first last">
-                                            <a href="#" title="Read more" target="_blank"  >Read more</a>
-                                            <!--                                                     <a href="http://www.cryoliposculpt.com/" title="Read more" target="_blank"  >Read more</a>-->
-                                        </span>
-
-                                    </p>
-
-                                </div></li>
-                        </ul>
-
-                    </div></div>
-
-                <div class="uk-width-1-1 uk-width-medium-1-3"><div class="uk-panel uk-panel-box home-top-b"><h3 class="uk-panel-title"><i class=""></i> News</h3>
-
-                        <ul class="zoo-item-list zoo-list news-uikit">
-                            <li>
-                                <div class="layout-default ">
-
-                                    <div class="media media-left"> 
-                                        <a href="#" title="Renlive Presents Liposnell">
-                                            <!--                                                <a href="news/item/liposnell-treatment.html" title="Renlive Presents Liposnell">-->
-                                            <img src="news/item/liposnell-covercover.jpg" 
-                                                 alt="Renlive Presents Liposnell" width="300" height="200" title="Renlive Presents Liposnell" />
-                                        </a> 
-                                    </div>
-
-                                    <p class="title"> <a title="Renlive Presents Liposnell" href="news/item/liposnell-treatment.html">Renlive Presents Liposnell</a> 
-                                    <article class="item">Monday, 02 May 2016</article> </p>
+                                        </p>
 
 
+                                    </li>
+                                </ul>
 
-                                    <div class="description"><div class="element element-text element-textpro first last">
-                                            Remove 1 size in less than a month with LipoSnell</div></div>
-
-
-                                    <p class="links">
-                                        <span class="element element-itemlink first last">
-                                            <a href="#">Read more</a>
-                                            <!--                                                     <a href="news/item/liposnell-treatment.html">Read more</a>-->
-                                        </span>
-
-                                    </p>
-
-                                </div></li>
-                        </ul>
-
-                    </div>
-                </div>
-            </section>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+<?php } ?>
+<!-- bottom centent-->
 
 <?php
 include './content/footer.php';

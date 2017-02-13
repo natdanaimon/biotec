@@ -139,19 +139,19 @@ class contentController {
             $return2099 = $_SESSION['cd_2099'];
             $return2099 = eregi_replace("field", $_SESSION["col_index_detail_th"], $return2099);
             echo $return2099;
-        } else if (!$this->overLenght($detail_th, 80)) {
+        } else if (!$this->overLenght($detail_th, 500)) {
             $return2098 = $_SESSION['cd_2098'];
             $return2098 = eregi_replace("field", $_SESSION["col_index_detail_th"], $return2098);
-            $return2098 = eregi_replace("xxx", "80", $return2098);
+            $return2098 = eregi_replace("xxx", "500", $return2098);
             echo $return2098;
         } else if ($this->isEmpty($detail_en)) {
             $return2099 = $_SESSION['cd_2099'];
             $return2099 = eregi_replace("field", $_SESSION["col_index_detail_en"], $return2099);
             echo $return2099;
-        } else if (!$this->overLenght($detail_en, 80)) {
+        } else if (!$this->overLenght($detail_en, 500)) {
             $return2098 = $_SESSION['cd_2098'];
             $return2098 = eregi_replace("field", $_SESSION["col_index_detail_en"], $return2098);
-            $return2098 = eregi_replace("xxx", "80", $return2098);
+            $return2098 = eregi_replace("xxx", "500", $return2098);
             echo $return2098;
         } else if ($_FILES["uploadPic"]["error"] == 4 && $condition == "ADD") {
             echo $_SESSION['cd_2207'];
@@ -170,7 +170,7 @@ class contentController {
     }
 
     private function overLenght($str, $limit) {
-        $len = strlen($str);
+        $len = trim(strlen(utf8_decode($str)));
         if ($len > $limit) {
             return FALSE;
         } else {
