@@ -395,14 +395,19 @@
         <en>Last Name</en>
     </detail>
     <detail>
-        <variable>lb_pf_pass</variable>
-        <th>รหัสผ่าน</th>
+        <variable>lb_pf_pass_old</variable>
+        <th>รหัสผ่าน เดิม</th>
         <en>Password</en>
     </detail>
     <detail>
+        <variable>lb_pf_pass</variable>
+        <th>รหัสผ่าน ใหม่</th>
+        <en>New Password</en>
+    </detail>
+    <detail>
         <variable>lb_pf_pass_confirm</variable>
-        <th>ยืนยันรหัสผ่าน</th>
-        <en>Confirm Password</en>
+        <th>ยืนยันรหัสผ่าน ใหม่</th>
+        <en>Confirm New Password</en>
     </detail>
     <detail>
         <variable>lb_pf_img</variable>
@@ -1280,6 +1285,8 @@
         <th>NEWS3101,คุณทำรายการไม่สำเร็จ กรุณารองทำใหม่อีกครั้งค่ะ</th>
         <en>NEWS3101,Transaction not succeed Please make a new bargain again.</en> 
     </detail>
+    
+    
     <!-- Response Code -->
     
     

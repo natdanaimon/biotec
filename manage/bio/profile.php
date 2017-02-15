@@ -102,7 +102,7 @@ ACTIVEPAGES(1);
                                                 <form id="form_edit" data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data">
                                                     <div style="visibility:hidden;">
                                                         <input type="text"name="s_username" id="s_username" value="<?= $_data[$key]["s_user"] ?>">
-                                                        <input type="text"name="curent_pic" id="curent_pic" value="<?= $_data[$key]["s_img"] ?>">
+                                                        <input type="text"name="curent_pic" id="curent_pic" value="<?= $_data[$key]["s_image"] ?>">
                                                     </div>
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >
@@ -114,16 +114,18 @@ ACTIVEPAGES(1);
                                                                    class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_firstname'] ?>">
                                                         </div>
                                                     </div>
+
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >
-                                                            <?= $_SESSION["lb_pf_lastname"] ?>
+                                                            <?= $_SESSION["lb_pf_pass_old"] ?>
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="s_lastname" name="s_lastname"
-                                                                   class="form-control col-md-7 col-xs-12" value="<?= $_data[$key]['s_lastname'] ?>">
+                                                            <input type="text" id="s_pass_old" name="s_pass_old"  
+                                                                   class="form-control col-md-7 col-xs-12" value="">
                                                         </div>
                                                     </div>
+
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" >
                                                             <?= $_SESSION["lb_pf_pass"] ?>
@@ -224,7 +226,7 @@ ACTIVEPAGES(1);
 
 
 
-      
+
         <script>
 
             //alert($('input[name=status]:checked', '#form_add').val());
@@ -241,11 +243,11 @@ ACTIVEPAGES(1);
                 $("#form_edit").submit(function (e) {
                     e.preventDefault();
                     var formData = new FormData($(this)[0]);
-                    formData.append("func", "update_customers");//seq
+                    formData.append("func", "update_profile");//seq
                     console.log($(this).serialize());
                     $.ajax({
                         type: 'POST',
-                        url: 'controller/customersController.php',
+                        url: 'controller/profileController.php',
                         data: formData,
                         beforeSend: function ()
                         {

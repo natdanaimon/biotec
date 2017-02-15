@@ -3,17 +3,17 @@
 @session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $_func = $_POST["func"];
+    $info = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', json_encode($_POST)), true);
 } else {
-    $_func = $_GET["func"];
+    $info = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', json_encode($_GET)), true);
 }
 
-//$fileToUpload_name = $_FILES['uploadPic']['name'];
+
 
 $controller = new profileController();
-switch ($_func) {
+switch ($info[func]) {
     case "update_profile":
-        echo $controller->update_profile();
+        echo $controller->update_profile($info);
         break;
 }
 
@@ -27,22 +27,25 @@ class profileController {
         $service = new profileService();
         $_dataTable = $service->dataTable_sel($user);
         if ($_dataTable != NULL) {
+            $_SESSION['current_pass'] = $_dataTable[0][s_pass];
             return $_dataTable;
         } else {
             return NULL;
         }
     }
 
-    public function isValid($condition) {
+    public function isValid($info) {
+        include '../common/Utility.php';
+        $util = new Utility();
         $intReturn = 0;
-        if ($this->isEmpty($_POST["name_th"])) {
-            echo $_SESSION['cd_2301'];
-        } else if ($this->isEmpty($_POST["name_en"])) {
-            echo $_SESSION['cd_2302'];
-        } else if ($this->isEmpty($_POST["link"])) {
-            echo $_SESSION['cd_2303'];
-        } else if ($_FILES["uploadPic"]["error"] == 4 && $condition == "ADD") {
-            echo $_SESSION['cd_2304'];
+        if ($_SESSION[current_pass] != $info[s_pass_old]) {
+            echo $_SESSION['cd_2302']; // password current invalid
+        } else if ($this->isEmpty($info[s_firstname])) {
+            echo $_SESSION['cd_2301']; // name emptry
+        } else if ($util->isEmptyReg($info[s_pass])) {
+            echo $_SESSION['cd_2302']; // password & regular emptry
+        } else if ($info[s_pass_confirm] === $info[s_pass]) {
+            echo $_SESSION['cd_2303']; // password confirm not match
         } else {
             $intReturn = 1;
         }
@@ -57,8 +60,8 @@ class profileController {
         }
     }
 
-    public function update_profile() {
-        if ($this->isValid("EDIT") == 1) {
+    public function update_profile($info) {
+        if ($this->isValid($info) == 1) {
             include '../service/customersService.php';
             include '../common/upload.php';
             $doc = new upload();
