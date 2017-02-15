@@ -2,8 +2,6 @@
 
 class profileService {
 
-   
-
     function dataTable_sel($user) {
         require_once('./common/ConnectDB.php');
         $db = new ConnectDB();
@@ -14,19 +12,16 @@ class profileService {
         return $_data;
     }
 
-    
-
-    function update_profile($seq, $name_th, $name_en, $status, $url, $pic) {
+    function update_profile($info, $pic) {
+        $pic = ($pic == NULL ? $info[curent_pic] : $pic);
         require_once('../common/ConnectDB.php');
         $db = new ConnectDB();
         $db->conn(); //	s_pathfile --	s_img
-        $sql = "UPDATE tb_customers SET "
-                . "s_name_th = '" . $name_th . "', "
-                . "s_name_en = '" . $name_en . "', "
-                . "s_url ='" . $url . "', "
-                . "s_img ='" . $pic . "', "
-                . "s_status ='" . $status . "' "
-                . "WHERE i_seq = " . $seq . " ";
+        $sql = "UPDATE tb_user SET "
+                . "s_firstname = '" . $info[s_firstname] . "', "
+                . "s_pass = '" . $info[s_pass] . "', "
+                . "s_img ='" . $pic . "' "
+                . "WHERE s_user = '" . $info[s_username] . "' ";
         $arr = array(
             array("query" => "$sql")
         );

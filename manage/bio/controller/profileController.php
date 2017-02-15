@@ -65,20 +65,20 @@ class profileController {
             include '../service/customersService.php';
             include '../common/upload.php';
             $doc = new upload();
-            $service = new customersService();
-            $doc->set_path("./file/customers/");
+            $service = new profileService();
+            $doc->set_path("../images/profile/");
 
 
             if ($_FILES["uploadPic"]["error"] != 0) {
 
-                if ($service->update_customers($_POST["seq_i"], $_POST["name_th"], $_POST["name_en"], $_POST["status"], $_POST["link"], $_POST["curent_pic"])) {
+                if ($service->update_profile($info, NULL)) {
                     echo $_SESSION['cd_0000'];
                 } else {
                     echo $_SESSION['cd_2001'];
                 }
             } else {
                 $doc->add_FileName($_FILES["uploadPic"]);
-                $doc->set_path("./file/customers/");
+                $doc->set_path("../images/profile/");
                 $flg = $doc->AddFile();
 
                 $cout = 0;
@@ -88,9 +88,10 @@ class profileController {
                         $cout_data[$cout] = $value;
                         $cout++;
                     }
-                    if ($service->update_customers($_POST["seq_i"], $_POST["name_th"], $_POST["name_en"], $_POST["status"], $_POST["link"], $cout_data[0])) {
+
+                    if ($service->update_profile($info, $cout_data[0])) {
                         $doc->Initial_and_Clear();
-                        $doc->set_path("./file/customers/");
+                        $doc->set_path("../images/profile/");
                         $doc->add_FileName($_POST["curent_pic"]);
                         if ($doc->deleteFile()) {
                             echo $_SESSION['cd_0000'];
