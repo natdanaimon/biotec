@@ -2,6 +2,9 @@
 
 class social {
 
+    private $_FBappID = "1308539565850437";
+    
+    
     function __construct() {
         $this->initial_social();
     }
@@ -13,7 +16,7 @@ class social {
         $var .= "  var js, fjs = d.getElementsByTagName(s)[0]; ";
         $var .= "  if (d.getElementById(id)) return; ";
         $var .= "  js = d.createElement(s); js.id = id; ";
-        $var .= "  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1308539565850437\"; ";
+        $var .= "  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=$this->_FBappID\"; ";
         $var .= "  fjs.parentNode.insertBefore(js, fjs); ";
         $var .= " }(document, 'script', 'facebook-jssdk'));</script>";
         $var .= "<!-- initial facebook SDK --> </br>";
