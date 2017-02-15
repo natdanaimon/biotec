@@ -10,7 +10,7 @@
         <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                <img src="images/profile/<?=$_SESSION["img_profile"]?>" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span><?= $_SESSION["welcom"] ?></span>

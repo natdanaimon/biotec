@@ -20,11 +20,11 @@ $actual_link = "$_SERVER[REQUEST_URI]";
 
                 <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                        <img src="images/img.jpg" alt=""><?=$_SESSION["full_name"]?>
+                        <img src="images/profile/<?=$_SESSION["img_profile"]?>" alt=""><?=$_SESSION["full_name"]?>
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="javascript:;"> <?= $_SESSION["profile"] ?></a></li>
+                        <li><a href="profile.php"> <?= $_SESSION["profile"] ?></a></li>
                      
                         <li><a href="javascript:;"><?= $_SESSION["help"] ?></a></li>
                         <li><a href="controller/logoutController.php"><i class="fa fa-sign-out pull-right"></i> <?= $_SESSION["logout"] ?></a></li>

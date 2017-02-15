@@ -349,6 +349,7 @@
     </detail>
     <!--  Menu Biotec -->
     
+    
     <!--  footer  -->
     <detail>
         <variable>foot_tel</variable>
@@ -375,6 +376,48 @@
     </detail>
     <!--  footer  -->
 	
+        
+    <!--  profile -->
+    <detail>
+        <variable>edit_profile</variable>
+        <th>แก้ไขข้อมูลส่วนตัว</th>
+        <en>Edit Profile</en>
+    </detail>
+    
+    <detail>
+        <variable>lb_pf_name</variable>
+        <th>ชื่อ</th>
+        <en>First Name</en>
+    </detail>
+    <detail>
+        <variable>lb_pf_lastname</variable>
+        <th>นามสกุล</th>
+        <en>Last Name</en>
+    </detail>
+    <detail>
+        <variable>lb_pf_pass</variable>
+        <th>รหัสผ่าน</th>
+        <en>Password</en>
+    </detail>
+    <detail>
+        <variable>lb_pf_pass_confirm</variable>
+        <th>ยืนยันรหัสผ่าน</th>
+        <en>Confirm Password</en>
+    </detail>
+    <detail>
+        <variable>lb_pf_img</variable>
+        <th>รูปภาพ</th>
+        <en>Image</en>
+    </detail>
+        
+    <!--  profile -->    
+        
+        
+        
+        
+        
+        
+        
 	
     <!--  Page About  -->
     <detail>
@@ -1059,7 +1102,7 @@
         <th>2099,กรุณาระบุข้อมูล field ด้วยค่ะ</th>
         <en>2099,Please write your field required.</en> 
     </detail>
-      <detail>
+    <detail>
         <variable>cd_2098</variable>
         <th>2098,กรุณาระบุข้อมูล field โดยมีความยาวไม่เกิน xxx ตัวอักษร</th>
         <en>2098,Please write your field limit xxx lenght.</en> 
