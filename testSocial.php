@@ -13,7 +13,7 @@
         if ($_GET["url"] != NULL) {
             $link = $_GET["url"];
         } else {
-            $link = "http://biotecitalia-thailand.com/newEmptyPHP.php";
+            $link = "http://biotecitalia-thailand.com/";
         }
         include './manage/bio/common/social.php';
         $social = new social();
