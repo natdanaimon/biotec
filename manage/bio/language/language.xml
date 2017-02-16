@@ -615,10 +615,15 @@
         <en>All Cosmeceuticals.</en> 
     </detail>
     
-        <detail>
+    <detail>
         <variable>lb_morris</variable>
         <th>สถิติข้อมูลการติดต่อในช่วง 10 วัน</th>
         <en>Statistical info contacts last 10 days.</en> 
+    </detail>
+    <detail>
+        <variable>lb_morris_qty</variable>
+        <th>ปริมาณการติดต่อ</th>
+        <en>Contact quantity.</en> 
     </detail>
     <!-- Page dashboard -->
 

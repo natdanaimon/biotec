@@ -112,7 +112,7 @@ class Utility {
          * 
          */
         echo $script = '                  update_icon_text(seq);  ' . $newline;
-        //echo $script = '                  initialDataTable("FALSE");  ' . $newline;
+        echo $script = '                   unloading();  ' . $newline;
         /**
          * 
          * @var ****** End  Sctrip For Reload After read Contact

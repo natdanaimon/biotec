@@ -134,7 +134,9 @@ $util->setCSSPageLoading();
         $('#se-pre-con').fadeIn();
     }
     function unloading() {
+        getContacts();
         $('#se-pre-con').delay(1000).fadeOut();
     }
 
 </script>
+

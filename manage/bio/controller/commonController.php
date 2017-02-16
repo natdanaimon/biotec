@@ -1,17 +1,20 @@
 <?php
 
 @session_start();
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $info = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', json_encode($_POST)), true);
+} else {
+    $info = json_decode(preg_replace('/("\w+"):(\d+)/', '\\1:"\\2"', json_encode($_GET)), true);
+}
 
-/**
- * Description of commonController
- *
- * @author natdanaimon
- */
+
+$controller = new commonController();
+switch ($info[func]) {
+    case "getMail":
+        echo $controller->getMail();
+        break;
+}
+
 class commonController {
 
     public function getSessionStatus($local) {
@@ -27,6 +30,17 @@ class commonController {
             $_data = $_SESSION["sessionStatus"];
         }
         return $_data;
+    }
+
+    public function getMail() {
+        include '../service/commonService.php';
+        $service = new commonService();
+        $_dataTable = $service->getMail();
+        if ($_dataTable != NULL) {
+            return json_encode($_dataTable);
+        } else {
+            return NULL;
+        }
     }
 
     function status($s, $type) {

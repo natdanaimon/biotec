@@ -35,7 +35,7 @@ if (!$flgUser && !$flgPass) {
             $_SESSION["username"] = $_data[$key]['s_user'];
             $_SESSION["password"] = $_data[$key]['s_pass'];
             $_SESSION["img_profile"] = $_data[$key]['s_image'];
-            $_SESSION["full_name"] = $_data[$key]['s_firstname'] . " " . $_data[$key]['s_lastname'];
+            $_SESSION["full_name"] = $_data[$key]['s_firstname'];
         }
         echo $_SESSION['cd_0000'];
     } else {

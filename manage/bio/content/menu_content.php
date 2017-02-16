@@ -103,6 +103,7 @@
                     <li class="<?= $_SESSION["m6"] ?>">
                         <a href="javascript:void(0)" onclick="page('contacts');" >
                             <i class="fa fa-comments"></i> <?= $_SESSION["contacts"] ?> 
+                            <span class="badge bg-red" id="lb_mail_qty" style="display: none;">6</span>
                         </a>
                     </li>
                     <li class="<?= $_SESSION["m8"] ?>">
@@ -291,23 +292,43 @@
             </div>
 
         </div>
-        <!-- /sidebar menu -->
 
-        <!-- /menu footer buttons -->
-        <!--        <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Settings">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Lock">
-                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Logout">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                    </a>
-                </div>-->
-        <!-- /menu footer buttons -->
     </div>
 </div>
+
+<script>
+
+
+
+    function getContacts() {
+
+        $.ajax({
+            type: 'GET',
+            url: 'controller/commonController.php?func=getMail',
+            beforeSend: function ()
+            {
+//                        $('#se-pre-con').fadeIn(100);
+            },
+            success: function (data) {
+                if (data == "" || data == null) {
+                    $("#lb_mail_qty").text("0");
+                    $("#lb_mail_qty").hide();
+
+                }
+                var res = JSON.parse(data);
+                $.each(res, function (i, item) {
+                    $("#lb_mail_qty").text(item.mailQTY);
+                    if (item.mailQTY == "0") {
+                        $("#lb_mail_qty").hide();
+                    } else {
+                        $("#lb_mail_qty").show();
+                    }
+
+
+                });
+            },
+            error: function (data) {
+            }
+        });
+    }
+</script>
