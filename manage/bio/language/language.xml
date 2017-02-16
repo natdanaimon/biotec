@@ -1286,6 +1286,18 @@
         <en>NEWS3101,Transaction not succeed Please make a new bargain again.</en> 
     </detail>
     
+    <detail>
+        <variable>cd_4101</variable>
+        <th>4101,รหัสผ่านเดิมไม่ถูกต้อง</th>
+        <en>4101,The old password is incorrect.</en> 
+    </detail>
+     <detail>
+        <variable>cd_4102</variable>
+        <th>4102,รหัสผ่านยืนยันไม่ถูกต้อง</th>
+        <en>4102,The Confirm password is incorrect.</en> 
+    </detail>
+    
+    
     
     <!-- Response Code -->
     
