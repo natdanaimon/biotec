@@ -121,7 +121,7 @@ ACTIVEPAGES(1);
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="s_pass_old" name="s_pass_old"  
+                                                            <input type="password" id="s_pass_old" name="s_pass_old"  
                                                                    class="form-control col-md-7 col-xs-12" value="">
                                                         </div>
                                                     </div>
@@ -132,7 +132,7 @@ ACTIVEPAGES(1);
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="s_pass" name="s_pass"  
+                                                            <input type="password" id="s_pass" name="s_pass"  
                                                                    class="form-control col-md-7 col-xs-12" value="">
                                                         </div>
                                                     </div>
@@ -142,7 +142,7 @@ ACTIVEPAGES(1);
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-6 col-sm-6 col-xs-12">
-                                                            <input type="text" id="s_pass_confirm" name="s_pass_confirm"  
+                                                            <input type="password" id="s_pass_confirm" name="s_pass_confirm"  
                                                                    class="form-control col-md-7 col-xs-12" value="">
                                                         </div>
                                                     </div>
@@ -394,6 +394,9 @@ ACTIVEPAGES(1);
                 font-size: 16px;
             }
 
+           
+
+
         </style>
 
         <div class="modal fade boxSuccess" id="success-dialog"  Style="width: 370px;height: 64px">
@@ -401,7 +404,7 @@ ACTIVEPAGES(1);
             <p id="success-code" class="f-white">   
 
         </div>
-        <div class="modal fade boxError" id="err-dialog"  Style="width: 370px;height: 64px">
+        <div class="modal fade boxError" id="err-dialog"  Style="width: 370px;height: 64px;overflow: hidden;">
             <span class="close" onclick="closeAlert();">x</span>
             <p id="err-code" class="f-white"></p>   
 
