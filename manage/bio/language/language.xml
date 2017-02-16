@@ -593,6 +593,28 @@
     
     <!-- Page Our Customers -->
 
+    <!-- Page dashboard -->
+    <detail>
+        <variable>lb_box1_msg</variable>
+        <th>สมาชิกทั้งหมดที่สมัครับข่าวสาร</th>
+        <en>All members Subscribe.</en> 
+    </detail>
+    <detail>
+        <variable>lb_box2_msg</variable>
+        <th>ข้อมูลการติดต่อทั้งหมด</th>
+        <en>All contact information.</en> 
+    </detail>
+    <detail>
+        <variable>lb_box3_msg</variable>
+        <th>จำนวนอุปกรณ์ทั้งหมด</th>
+        <en>All Devices.</en> 
+    </detail>
+    <detail>
+        <variable>lb_box4_msg</variable>
+        <th>จำนวนเวชสำอางทั้งหมด</th>
+        <en>All Cosmeceuticals.</en> 
+    </detail>
+    <!-- Page dashboard -->
 
     <!-- Page contact -->
     <detail>
@@ -1291,7 +1313,7 @@
         <th>4101,รหัสผ่านเดิมไม่ถูกต้อง</th>
         <en>4101,The old password is incorrect.</en> 
     </detail>
-     <detail>
+    <detail>
         <variable>cd_4102</variable>
         <th>4102,รหัสผ่านยืนยันไม่ถูกต้อง</th>
         <en>4102,The Confirm password is incorrect.</en> 
