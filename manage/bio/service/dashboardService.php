@@ -20,7 +20,7 @@ class dashboardService {
         require_once('./common/ConnectDB.php');
         $db = new ConnectDB();
         $strSql = "";
-        $strSql .= "SELECT count(*) FROM  tb_contacts  WHERE DATE_FORMAT(d_date,'%Y-%m-%d') = '$condition' ";
+        $strSql .= "SELECT count(*) cnt FROM  tb_contacts  WHERE DATE_FORMAT(d_date,'%Y-%m-%d') = '$condition' ";
 
         $_data = $db->Search_Data_FormatJson($strSql);
         $db->close_conn();
