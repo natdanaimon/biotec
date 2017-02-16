@@ -13,15 +13,15 @@ class profileService {
     }
 
     function update_profile($info, $pic) {
-        $pic = ($pic == NULL ? $info[curent_pic] : $pic);
+        $pic = ($pic == NULL ? $info["curent_pic"] : $pic);
         require_once('../common/ConnectDB.php');
         $db = new ConnectDB();
         $db->conn(); //	s_pathfile --	s_img
         $sql = "UPDATE tb_user SET "
-                . "s_firstname = '" . $info[s_firstname] . "', "
-                . "s_pass = '" . $info[s_pass] . "', "
-                . "s_img ='" . $pic . "' "
-                . "WHERE s_user = '" . $info[s_username] . "' ";
+                . "s_firstname = '" . $info["s_firstname"] . "', "
+                . "s_pass = '" . $info["s_pass"] . "', "
+                . "s_image ='" . $pic . "' "
+                . "WHERE s_user = '" . $info["s_username"] . "' ";
         $arr = array(
             array("query" => "$sql")
         );
