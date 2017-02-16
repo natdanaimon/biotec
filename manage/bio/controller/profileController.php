@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-
 $controller = new profileController();
 switch ($info[func]) {
     case "update_profile":
@@ -38,14 +37,19 @@ class profileController {
         include '../common/Utility.php';
         $util = new Utility();
         $intReturn = 0;
-        if ($_SESSION[current_pass] != $info[s_pass_old]) {
-            echo $_SESSION['cd_2302']; // password current invalid
-        } else if ($this->isEmpty($info[s_firstname])) {
-            echo $_SESSION['cd_2301']; // name emptry
-        } else if ($util->isEmptyReg($info[s_pass])) {
-            echo $_SESSION['cd_2302']; // password & regular emptry
-        } else if ($info[s_pass_confirm] === $info[s_pass]) {
-            echo $_SESSION['cd_2303']; // password confirm not match
+
+        if ($_SESSION['current_pass'] != $info["s_pass_old"]) {
+            // password current invalid
+            echo $_SESSION['cd_4101'];
+        } else if ($this->isEmpty($info["s_firstname"])) {
+            // name emptry
+            $return2099 = $_SESSION['cd_2099'];
+            $return2099 = eregi_replace("field", $_SESSION['lb_pf_name'], $return2099);
+            echo $return2099;
+        } else if ($util->isEmptyReg($info["s_pass"])) {
+            echo $_SESSION['cd_4002']; // password & regular emptry
+        } else if ($info["s_pass_confirm"] != $info["s_pass"]) {
+            echo $_SESSION['cd_4102']; // password confirm not match
         } else {
             $intReturn = 1;
         }
@@ -62,7 +66,7 @@ class profileController {
 
     public function update_profile($info) {
         if ($this->isValid($info) == 1) {
-            include '../service/customersService.php';
+            include '../service/profileService.php';
             include '../common/upload.php';
             $doc = new upload();
             $service = new profileService();
@@ -72,6 +76,8 @@ class profileController {
             if ($_FILES["uploadPic"]["error"] != 0) {
 
                 if ($service->update_profile($info, NULL)) {
+                    $_SESSION["img_profile"] = $info["curent_pic"];
+                    $_SESSION["full_name"] = $info['s_firstname'];
                     echo $_SESSION['cd_0000'];
                 } else {
                     echo $_SESSION['cd_2001'];
@@ -92,8 +98,10 @@ class profileController {
                     if ($service->update_profile($info, $cout_data[0])) {
                         $doc->Initial_and_Clear();
                         $doc->set_path("../images/profile/");
-                        $doc->add_FileName($_POST["curent_pic"]);
+                        $doc->add_FileName($info["curent_pic"]);
                         if ($doc->deleteFile()) {
+                            $_SESSION["img_profile"] = $cout_data[0];
+                            $_SESSION["full_name"] = $info['s_firstname'];
                             echo $_SESSION['cd_0000'];
                         }
                     } else {
