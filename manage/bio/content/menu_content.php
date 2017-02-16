@@ -10,7 +10,7 @@
         <!-- menu profile quick info -->
         <div class="profile">
             <div class="profile_pic">
-                <img src="images/profile/<?=$_SESSION["img_profile"]?>" alt="..." class="img-circle profile_img">
+                <img src="images/profile/<?= $_SESSION["img_profile"] ?>" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
                 <span><?= $_SESSION["welcom"] ?></span>
@@ -83,9 +83,9 @@
                         <ul class="nav child_menu " style="<?= $_SESSION["style4"] ?>">
                             <li class="<?= $_SESSION["sm3"] ?>"><a href="newsletter.php"><?= $_SESSION["newsletter"] ?></a></li>
                             <li><a href="news.php"><?= $_SESSION["news"] ?></a></li>
-                            <li><a href="magazine.php"><?= $_SESSION["magazine"] ?></a></li>
-                            <li><a href="events.php"><?= $_SESSION["events"] ?></a></li>
-                            <li><a href="products.php"><?= $_SESSION["products"] ?></a></li>
+                            <li><a href="news_magazine.php"><?= $_SESSION["magazine"] ?></a></li>
+                            <li><a href="news_event.php"><?= $_SESSION["events"] ?></a></li>
+                            <li><a href="news_product.php"><?= $_SESSION["products"] ?></a></li>
                         </ul>
                     </li>
                     <li class="<?= $_SESSION["m5"] ?>">
