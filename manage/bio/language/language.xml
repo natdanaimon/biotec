@@ -614,6 +614,12 @@
         <th>จำนวนเวชสำอางทั้งหมด</th>
         <en>All Cosmeceuticals.</en> 
     </detail>
+    
+        <detail>
+        <variable>lb_morris</variable>
+        <th>สถิติข้อมูลการติดต่อในช่วง 10 วัน</th>
+        <en>Statistical info contacts last 10 days.</en> 
+    </detail>
     <!-- Page dashboard -->
 
     <!-- Page contact -->
