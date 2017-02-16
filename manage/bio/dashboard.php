@@ -46,7 +46,7 @@ ACTIVEPAGES(1);
                     <div class="row">
                         <div class="row top_tiles">
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="news">
+                                <a href="newsletter.php">
                                     <div class="tile-stats">
 
                                         <div class="icon" style="right: 70px;"><i class="fa fa-newspaper-o"> </i> </div>
