@@ -516,7 +516,7 @@ ACTIVEPAGES(1);
                             }
                         },
                         restore: {
-                            show: true,
+                            show: false,
                             title: "Restore"
                         },
                         saveAsImage: {
