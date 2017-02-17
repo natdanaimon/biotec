@@ -144,8 +144,13 @@ include './service/newsService.php';
 
 
 
-
-                                                <a href="/cache/com_zoo/images/fat_freezing_dc446377189941ea8fd7b65e9b74cb39.jpg" data-lightbox="group:4aad8bb8-18ae-4807-9fa4-7f67e6710c87-589c9c39e739f;" title="fat_freezing" data-spotlight="on"><img src="/cache/com_zoo/images/fat_freezing_115bf6d4a3f16dd864bf1a17f90ce842.jpg" width="400" height="400" alt="fat_freezing" /></a>	
+                                                 <?php
+                                                 $_data_pic = $controller->data_pic($_data[$key]['s_seq']);
+                                                 foreach ($_data_pic as $key => $value) {
+                                                 ?>
+                                                <a href="/cache/com_zoo/images/fat_freezing_dc446377189941ea8fd7b65e9b74cb39.jpg" data-lightbox="group:4aad8bb8-18ae-4807-9fa4-7f67e6710c87-589c9c39e739f;" title="fat_freezing" data-spotlight="on">
+                                                    <img src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" width="400" height="400" alt="" /></a>	
+                                                 <?php } ?>
                                             </div>
 
 

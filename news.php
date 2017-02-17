@@ -188,6 +188,8 @@ include './service/newsService.php';
 
                                 $social = new social();
                                 $controller = new newsController();
+                               
+                                
                                 if ($_GET["type"] != NULL) {
                                     $_data = $controller->dataTable_type($_GET["type"]);
                                 } else {
@@ -241,7 +243,11 @@ include './service/newsService.php';
                                             <div class="uk-align-medium-left">
                                                 <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>">
                                                     <div class="main">
-                                                        <img class="absolute" src="./manage/bio/controller/file/press/201701281600581.jpg" alt="" width="150" height="120" title="" />
+                                                        <?php $_data_pic = $controller->data_pic($_data[$key]['s_seq']); 
+                                                          foreach ($_data_pic as $key => $value) {
+                                                        ?>
+                                                        <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
+                                                          <?php }?>
                                                     </div>
 
                                                 </a> </div>
@@ -254,7 +260,8 @@ include './service/newsService.php';
                                                  <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
                                                 -->
                                                 <?php
-                                                echo $social->twitter_Share_button("test message share twitter biotecitalia-thailand.com");
+                                                $link =" http://www.biotecitalia-thailand.com/news_detail.php?s_id=".$_data[$key]['s_seq']."";
+                                                echo $social->twitter_Share_button($_data[$key]['s_subject_en']);
                                                 echo $social->googlePlus_Share_button($link);
                                                 echo $social->facebook_like_button($link, FALSE);
                                                 ?>
