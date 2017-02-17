@@ -104,7 +104,7 @@ ACTIVEPAGES(1);
                             <div class="col-md-6 col-sm-6 col-xs-12">
                                 <div class="x_panel">
                                     <div class="x_title">
-                                        <h2>Donut Graph</h2>
+                                        <h2><?= $_SESSION["lb_donut_header"] ?></h2>
 
                                         <div class="clearfix"></div>
                                     </div>
@@ -271,8 +271,8 @@ ACTIVEPAGES(1);
 
             var theme = {
                 color: [
-                    '#26B99A', '#34495E', '#BDC3C7', '#3498DB',
-                    '#9B59B6', '#8abb6f', '#759c6a', '#bfd3b7'
+                    '#9B59B6', '#34495E', '#759c6a', '#bfd3b7',
+                    '#26B99A', '#34495E', '#BDC3C7', '#3498DB'
                 ],
                 title: {
                     itemGap: 8,
@@ -496,7 +496,9 @@ ACTIVEPAGES(1);
                 legend: {
                     x: 'center',
                     y: 'bottom',
-                    data: ['Direct Access', 'E-mail Marketing', 'Union Ad', 'Video Ads', 'Search Engine']
+                    data: ['<?= $_SESSION["lb_newsletter_category_all"] ?>', '<?= $_SESSION["lb_newsletter_category_1"] ?>',
+                        '<?= $_SESSION["lb_newsletter_category_2"] ?>', '<?= $_SESSION["lb_newsletter_category_3"] ?>',
+                        '<?= $_SESSION["lb_newsletter_category_4"] ?>']
                 },
                 toolbox: {
                     show: true,
@@ -524,7 +526,7 @@ ACTIVEPAGES(1);
                     }
                 },
                 series: [{
-                        name: 'Access to the resource',
+                        name: '<?= $_SESSION["lb_donut_1"] ?>',
                         type: 'pie',
                         radius: ['35%', '55%'],
                         itemStyle: {
@@ -547,22 +549,28 @@ ACTIVEPAGES(1);
                                 }
                             }
                         },
-                        data: [{
-                                value: 335,
-                                name: 'Direct Access'
-                            }, {
-                                value: 310,
-                                name: 'E-mail Marketing'
-                            }, {
-                                value: 234,
-                                name: 'Union Ad'
-                            }, {
-                                value: 135,
-                                name: 'Video Ads'
-                            }, {
-                                value: 1548,
-                                name: 'Search Engine'
-                            }]
+                        data: [
+                            {
+                                value: <?= (integer) $dash->donut_by_type(0) ?>,
+                                name: '<?= $_SESSION["lb_newsletter_category_all"] ?>'
+                            },
+                            {
+                                value: <?= (integer) $dash->donut_by_type(1) ?>,
+                                name: '<?= $_SESSION["lb_newsletter_category_1"] ?>'
+                            },
+                            {
+                                value: <?= (integer) $dash->donut_by_type(2) ?>,
+                                name: '<?= $_SESSION["lb_newsletter_category_2"] ?>'
+                            },
+                            {
+                                value: <?= (integer) $dash->donut_by_type(3) ?>,
+                                name: '<?= $_SESSION["lb_newsletter_category_3"] ?>'
+                            },
+                            {
+                                value: <?= (integer) $dash->donut_by_type(4) ?>,
+                                name: '<?= $_SESSION["lb_newsletter_category_4"] ?>'
+                            }
+                        ]
                     }]
             });
 
