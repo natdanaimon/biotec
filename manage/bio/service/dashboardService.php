@@ -27,4 +27,17 @@ class dashboardService {
         return $_data;
     }
 
+    function countNewsletterDonut($type) {
+        require_once('./common/ConnectDB.php');
+        $db = new ConnectDB();
+        $strSql = "";
+        $strSql .= "SELECT count(*) cnt FROM  tb_newsletter  WHERE s_category = '$type' and s_status = 'A' ";
+
+        $_data = $db->Search_Data_FormatJson($strSql);
+        $db->close_conn();
+        return $_data;
+    }
+    
+    
+    
 }
