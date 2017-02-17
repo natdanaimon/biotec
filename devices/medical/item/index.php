@@ -93,11 +93,11 @@ if ($_GET['id'] == '') {
                             if ($_data[0]['s_devices_video'] != '') {
                                 ?>					 
                                 <div class="video">
-                                    <p><a class="uk-icon-film" href="<?=$_data[0]['s_devices_video'];?>" target="_blank" data-lightbox="width:1000;height:750;transitionIn:fade;transitionOut:fade;titlePosition:float">Watch the Video</a></p>
+                                    <p><a class="uk-icon-film" href="<?=$_data[0]['s_devices_video'];?>" target="_blank" rel="vidbox">Watch the Video</a></p>
                                 </div>
                             <?php } ?> 
 
-                            <div class="chiedi-info uk-icon-phone"><a href="contacts.php" target="_blank" >For further information, please contact us</a></div> 
+                            <div class="chiedi-info uk-icon-phone"><a href="../../../contacts.php" target="_blank" >For further information, please contact us</a></div> 
                             <div class="yoo-zoo socialbuttons clearfix">
                                 <div>
                                     <a href="http://twitter.com/share" target="_blank" class="twitter-share-button" data-url="<?= $_SERVER['REQUEST_URI']; ?>" data-count="none" data-lang="en_GB">Tweet</a>
@@ -214,7 +214,15 @@ if ($_GET['id'] == '') {
                            
 
                     </div>
+<script type="text/javascript" src="../../../bower_components/videobox/js/mootools.js"></script>
+<script type="text/javascript" src="../../../bower_components/videobox/js/swfobject.js"></script>
 
+<script type="text/javascript" src="../../../bower_components/videobox/js/videobox.js"></script>
+
+
+<link rel="stylesheet" href="../../../bower_components/videobox/css/videobox.css" type="text/css" media="screen" />
+
+ 
 
                 </div>
             </main>
@@ -226,6 +234,8 @@ if ($_GET['id'] == '') {
 
     </div>	
 </div>
+
+
 <?php
 include '../../footer_item.php';
 ?>

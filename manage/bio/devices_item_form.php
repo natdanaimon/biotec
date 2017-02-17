@@ -178,40 +178,53 @@ if($_GET[seq_i]){
                         <div class="tab-pane" id="images">
                         	<p class="lead">Images</p>
 <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo">
-    logo
-                                                            <span class="required">*</span>
-                                                        </label>
-<table align="left" id="tb_logo" style="display: none">
-	<tr>
-		<td align="left">
-		<br />
-			<span id="show_logo"></span>
-		</td>
-	</tr>
-</table>                                                        
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="logo" name="logo"   class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="icon">
     Icon
                                                             <span class="required">*</span>
                                                         </label>
-<table align="left" id="tb_icon" style="display: none">
-	<tr>
-		<td align="left">
-		<br />
-			<span id="show_icon"></span>
-		</td>
-	</tr>
-</table>                                                         
+                                                         
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="icon" name="icon"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_icon" width="200" />
+<br />                                                        
+<br /> 
+<div class="fileContainer"  >
+					<input type="file" id="icon" name="icon"   onchange="readURL(this,'show_icon');"  />
+ 
+					<label for="icon" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                       
+ 
+                                                        </div>
+                                                    </div>                        	
+<div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo">
+    Image
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                       
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+<img src="images/user.png" id="show_logo" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="logo" name="logo"  onchange="readURL(this,'show_logo');"  />
+ 
+					<label for="logo" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                        
+                                                            
                                                         </div>
                                                     </div>
+                                                    
+                                                    
                         
                         <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="01_before">
@@ -219,7 +232,20 @@ if($_GET[seq_i]){
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="01_before" name="01_before"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_01_before" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="01_before" name="01_before"  onchange="readURL(this,'show_01_before');"  />
+ 
+					<label for="logo" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+ 
                                                         </div>
                                                     </div>
                         <div class="form-group">
@@ -228,7 +254,20 @@ if($_GET[seq_i]){
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="01_after" name="01_after"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_01_after" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="01_after" name="01_after"  onchange="readURL(this,'show_01_after');"  />
+ 
+					<label for="01_after" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+ 
                                                         </div>
                                                     </div>
                         <div class="form-group">
@@ -237,7 +276,20 @@ if($_GET[seq_i]){
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="02_before" name="02_before"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_02_before" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="02_before" name="02_before"  onchange="readURL(this,'show_02_before');"  />
+ 
+					<label for="02_before" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+                                                             
                                                         </div>
                                                     </div>
                         <div class="form-group">
@@ -246,7 +298,20 @@ if($_GET[seq_i]){
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="02_after" name="02_after"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_02_after" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="02_after" name="02_after"  onchange="readURL(this,'show_02_after');"  />
+ 
+					<label for="02_after" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+                                                             
                                                         </div>
                         </div>
                         <div class="form-group">
@@ -255,7 +320,20 @@ if($_GET[seq_i]){
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="03_before" name="03_before"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_03_before" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="03_before" name="03_before"  onchange="readURL(this,'show_03_before');"  />
+ 
+					<label for="03_before" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+ 
                                                         </div>
                         </div>
                         <div class="form-group">
@@ -264,7 +342,20 @@ if($_GET[seq_i]){
                                                             <span class="required">*</span>
                                                         </label>
                                                         <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="03_after" name="03_after"   class="form-control col-md-7 col-xs-12">
+<img src="images/user.png" id="show_03_after" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="03_after" name="03_after"  onchange="readURL(this,'show_03_after');"  />
+ 
+					<label for="03_after" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+                                                            
                                                         </div>
                         </div>
                         </div>
@@ -586,14 +677,38 @@ $.ajax({
                        
                        		show_logo =  item.s_devices_logo;
 							if(show_logo){
-								$('#show_logo').html('<img src="uploads/devices_item/'+show_logo+'" width="200" />');
-								$('#tb_logo').show();
+								$('#show_logo').attr("src","uploads/devices_item/"+show_logo);
 							}
-							
 							show_icon =  item.s_devices_icon;
 							if(show_icon){
-								$('#show_icon').html('<img src="uploads/devices_item/'+show_icon+'" width="200" />');
-								$('#tb_icon').show();
+								$('#show_icon').attr("src","uploads/devices_item/"+show_icon);
+							}
+							
+							show_01_before =  item.s_01_before;
+							if(show_01_before){
+								$('#show_01_before').attr("src","uploads/devices_item/"+show_01_before);
+							}
+							show_01_after =  item.s_01_after;
+							if(show_01_after){
+								$('#show_01_after').attr("src","uploads/devices_item/"+show_01_after);
+							}
+							
+							show_02_before =  item.s_02_before;
+							if(show_02_before){
+								$('#show_02_before').attr("src","uploads/devices_item/"+show_02_before);
+							}
+							show_02_after =  item.s_02_after;
+							if(show_02_after){
+								$('#show_02_after').attr("src","uploads/devices_item/"+show_02_after);
+							}
+							
+							show_03_before =  item.s_03_before;
+							if(show_03_before){
+								$('#show_03_before').attr("src","uploads/devices_item/"+show_03_before);
+							}
+							show_03_after =  item.s_03_after;
+							if(show_03_after){
+								$('#show_03_after').attr("src","uploads/devices_item/"+show_03_after);
 							}
                        
                         });
@@ -695,6 +810,43 @@ $.ajax({
 	CKEDITOR.replace('s_pubblications_th');
 	CKEDITOR.replace('s_pubblications_en');
   });
+</script>
+<!-- Input -->
+<script src="assets/inputfile/js/custom-file-input.js"></script>
+<style>
+	.fileContainer {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+</style>
+
+ 
+
+ 
+
+ 
+
+ 
+<script>
+function readURL(input,id) {
+ 
+ document.getElementById(id).src = window.URL.createObjectURL(input.files[0]);
+    }
 </script>
 <!-- Sweet Alert  plugin -->
 <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
