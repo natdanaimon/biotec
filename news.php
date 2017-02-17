@@ -4,6 +4,7 @@ include './manage/bio/common/FunctionCheckActive.php';
 ACTIVEPAGE_SHOW(5);
 $fixheader = "press";
 include './content/header.php';
+include './manage/bio/common/social.php';
 //include './content/slide.php';
 //slidePage("press");
 //อันนี้ที่ใช้ controller ของ admin เพราะมันสามารถใช้งานร่วมกันได้
@@ -69,7 +70,7 @@ include './service/newsService.php';
     .type-ul{ 
         list-style: none outside none; 
         margin:0; 
-        padding: 0; 
+        padding: 11; 
         display:block;
         float:right;
     }
@@ -104,9 +105,44 @@ include './service/newsService.php';
         margin-bottom: 10px;
         font-size: 14px;
     }
-    .uk-grid{
-        left: 130px;
+    .uk-grid>[class*='uk-width-']>:last-child {
+        margin-bottom: 40px;
     }
+    .uk-grid{
+        margin: -60px 0 0 -25px;
+        padding: 0px;
+        padding-left: 20px;
+        list-style: none;
+    }
+    .border-top{
+        border-top: 1px solid #ccb26f;
+    }
+    .main {
+        width: 150px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        height: 120px;
+    }
+
+    img.absolute {
+
+        margin-top: -40%;
+        position: absolute;
+    }
+    .border_{
+        border-top: 1px solid #ccb26f;
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+    /* img{
+         box-sizing: border-box;
+         max-width: 100%;
+         height: 120px;
+         overflow: hidden;
+         position: relative;
+         vertical-align: middle;       
+     }*/
     @media (max-width: 767px)
 </style>
 
@@ -146,21 +182,23 @@ include './service/newsService.php';
                             </div>
 
 
-                            <div class="uk-grid" data-uk-grid-margin>
+                            <div class="uk-grid data-uk-grid-margin">
                                 <?php
                                 $util = new Utility();
 
+                                $social = new social();
                                 $controller = new newsController();
                                 if ($_GET["type"] != NULL) {
                                     $_data = $controller->dataTable_type($_GET["type"]);
                                 } else {
                                     $_data = $controller->dataTable();
                                 }
-                                $limitPaging = 2;
+                                $limitPaging = $util->getLimitPaging();
 
                                 $resultCount = $util->countObject($_data);
                                 // for test 
                                 // $resultCount = 50;
+                                $couter_border = 0;
                                 $rel = $resultCount / $limitPaging;
                                 if (($rel - floor($rel)) != 0) {
                                     $rel = floor($rel) + 1;
@@ -168,21 +206,27 @@ include './service/newsService.php';
                                     $rel = floor($rel);
                                 }
                                 if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
+
                                     $page = 1;
                                 } else {
                                     $page = $_GET["page"];
+
                                 }
 
-
+                                //$couter_border = 0;
                                 foreach ($_data as $key => $value) {
-
+                                    $couter_border++;
                                     if ($util->ContinueObject($page, $key + 1)) {
+                                        $couter_border = 0;
                                         continue;
                                     }
                                     ?>
+                               
                                     <div class="uk-width-medium-1-2">
-
-
+                                        
+                                        <?php  if($couter_border!=1 &  $couter_border!=2){        ?>
+                                            <div class="border_"></div>
+                                        <?php  } ?>
                                         <article class="uk-article">
 
 
@@ -195,13 +239,25 @@ include './service/newsService.php';
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>"><img src="./manage/bio/controller/file/press/201701281600581.jpg" alt="Biotec Italia awarded at World of Beauty in Prague" width="150" height="120" title="Biotec Italia awarded at World of Beauty in Prague" /></a> </div>
+                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>">
+                                                    <div class="main">
+                                                        <img class="absolute" src="./manage/bio/controller/file/press/201701281600581.jpg" alt="" width="150" height="120" title="" />
+                                                    </div>
+
+                                                </a> </div>
 
                                             <?= $_data[$key]['s_subject_en'] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
-                                                <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
-                                                <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
-                                                <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                                <!--
+                                                 <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
+                                                 <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
+                                                 <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                                -->
+                                                <?php
+                                                echo $social->twitter_Share_button("test message share twitter biotecitalia-thailand.com");
+                                                echo $social->googlePlus_Share_button($link);
+                                                echo $social->facebook_like_button($link, FALSE);
+                                                ?>
                                             </div> 
 
                                             <div align="left">
