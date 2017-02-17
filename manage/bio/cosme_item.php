@@ -178,6 +178,15 @@ ACTIVEPAGES_SUB(3, $_GET[id]);
                     success: function (data) {
                         debugger;
                         var language = '<?= $_SESSION["lan"] ?>';
+                        
+                        if (data == '') {
+                            var datatable = $datatable.dataTable().api();
+                            $('.dataTables_empty').remove();
+                            datatable.clear();
+                            datatable.draw();
+                        }
+                        
+                        
                         var res = JSON.parse(data);
                         var JsonData = [];
                         $.each(res, function (i, item) {
@@ -300,7 +309,8 @@ function(){
                             $('#success-code').text(errCode);
                             $('#success-dialog').modal('show');
                             //window.location.reload();
-                            initialDataTable();
+                            //initialDataTable();
+                            initialDataTable("TRUE");
                         } else {
                             var errCode = res[1] + " (" + res[0] + ")  ";
                             $('#err-code').text(errCode);

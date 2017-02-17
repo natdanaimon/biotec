@@ -40,9 +40,10 @@ class devicesService {
     function dataTable_item_row($i_seq) {
         require_once('../common/ConnectDB.php');
         $db = new ConnectDB();
-        $sql = " SELECT d.*,c.* FROM  tb_devices d , tb_devices_content c   "
+        $sql = " SELECT d.*,c.*,img.* FROM  tb_devices d , tb_devices_content c, tb_devices_img img   "
                 . " WHERE d.id = '".$i_seq."'   "
                 . " AND c.i_seq = d.id "
+                . " AND img.i_seq = d.id "
                 . "  ";
         $_data = $db->Search_Data_FormatJson($sql);
         $db->close_conn();
@@ -184,7 +185,7 @@ class devicesService {
 	        $tmpFileName = $id . '01b.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_ba['01_before'] = $tmpFileName;
+			$data_ba['s_01_before'] = $tmpFileName;
 		}
 		if($_FILES["01_after"]["name"]){
 			$value = $_FILES["01_after"];
@@ -192,7 +193,7 @@ class devicesService {
 	        $tmpFileName = $id . '01a.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_ba['01_after'] = $tmpFileName;
+			$data_ba['s_01_after'] = $tmpFileName;
 		}
 		
 		////////// 02
@@ -202,7 +203,7 @@ class devicesService {
 	        $tmpFileName = $id . '02b.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_ba['02_before'] = $tmpFileName;
+			$data_ba['s_02_before'] = $tmpFileName;
 		}
 		if($_FILES["02_after"]["name"]){
 			$value = $_FILES["02_after"];
@@ -210,7 +211,7 @@ class devicesService {
 	        $tmpFileName = $id . '02a.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_ba['02_after'] = $tmpFileName;
+			$data_ba['s_02_after'] = $tmpFileName;
 		}
 		
 		////////// 03
@@ -220,7 +221,7 @@ class devicesService {
 	        $tmpFileName = $id . '03b.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_ba['03_before'] = $tmpFileName;
+			$data_ba['s_03_before'] = $tmpFileName;
 		}
 		if($_FILES["03_after"]["name"]){
 			$value = $_FILES["03_after"];
@@ -228,7 +229,7 @@ class devicesService {
 	        $tmpFileName = $id . '03a.' . end($temp);
 	        $newfilename = $part_image . $tmpFileName;
 			move_uploaded_file($value["tmp_name"], $newfilename);
-			$data_ba['03_after'] = $tmpFileName;
+			$data_ba['s_03_after'] = $tmpFileName;
 		
 		
 		}
