@@ -625,6 +625,18 @@
         <th>ปริมาณการติดต่อ</th>
         <en>Contact quantity.</en> 
     </detail>
+    <detail>
+        <variable>lb_donut_1</variable>
+        <th>จำนวนสมาชิกที่สมัครับข่าวสาร</th>
+        <en>Members subscribe</en> 
+    </detail>
+    <detail>
+        <variable>lb_donut_header</variable>
+        <th>จำนวนสมาชิกที่สมัครับข่าวสารโดยแยกตามประเภท (สถานะใช้งาน)</th>
+        <en>Members subscribe by categories</en> 
+    </detail>
+    
+    
     <!-- Page dashboard -->
 
     <!-- Page contact -->
