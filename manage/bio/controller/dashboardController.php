@@ -46,4 +46,10 @@ class dashboardController {
         return $_data[0][cnt];
     }
 
+    public function donut_by_type($i) {
+        $service = new dashboardService();
+        $_data = $service->countNewsletterDonut($i);
+        return $_data[0][cnt];
+    }
+
 }
