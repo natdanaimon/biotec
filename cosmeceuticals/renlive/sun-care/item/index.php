@@ -107,7 +107,7 @@ foreach ($_data as $key => $value) {
         include '../../../../manage/bio/common/social.php';
         $social = new social();
          $url_social = "http://www.biotecitalia-thailand.com"."$_SERVER[REQUEST_URI]";
-        echo $social->twitter_Share_button($url_social,$_data[$key]['topic_' . $_SESSION["main_lan"]]);
+        echo $social->twitter_Share_button($url_social,$_data[$key]['title_' . $_SESSION["main_lan"]]);
         echo $social->googlePlus_Share_button($url_social);
         echo $social->facebook_like_button($url_social, FALSE);
 ?>
