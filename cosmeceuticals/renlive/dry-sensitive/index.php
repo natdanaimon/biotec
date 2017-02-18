@@ -177,9 +177,9 @@ function truncate($string,$length=100,$append="&hellip;") {
 	 <a title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?></a> </h3>
 
 	 <p>
-	 <?=truncate($_data[$key]['detail_' . $_SESSION["main_lan"]],100);?>
+	 <?=truncate($_data[$key]['detail_' . $_SESSION["main_lan"]],100);?> <a href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a> 
 	  </p>
- <a href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a> 
+ 
 
 </div>
 </div>                                    
