@@ -14,7 +14,7 @@ include './service/commonService.php';
 
 ACTIVEPAGES(3);
 ACTIVEPAGES_SUB(3, $_GET[type]);
-if ($_GET[id] == NULL) {
+if ($_GET[type] == NULL) {
     header('Location: cosme.php');
 }
 
