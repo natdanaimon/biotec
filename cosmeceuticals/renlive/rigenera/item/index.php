@@ -179,24 +179,28 @@ $resultCount = $util->countObject($_data);
                                                 <div class="next"></div><div class="prev"></div>	</div>
                                             <ul class="nav icon"><li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li></ul>
                                         </div>-->
-                    <div class="uk-margin" data-uk-slideset="{animation: 'slide-horizontal', duration: 100,small: 1, medium: 5}">
+                    <div class="uk-margin" data-uk-slideset="{animation: 'slide-horizontal', duration: 100,small: 1, medium: 5 , autoplay:true ,autoplayInterval:3000}">
                         <div class="uk-slidenav-position uk-margin">
                             <ul class="uk-slideset uk-grid uk-flex-center">
-                                <li><img src="holder.js/600x400/sky/auto/text:1/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:2/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:3/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:4/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:5/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:6/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:7/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:8/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:9/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:10/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:11/size:100" width="150" height="200" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:12/size:100" width="150" height="200" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:1/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:2/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:3/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:4/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:5/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:6/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:7/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:8/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:9/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:10/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:11/size:100" width="189" height="189" alt=""></li>
+                                <li><img src="holder.js/600x400/sky/auto/text:12/size:100" width="189" height="189" alt=""></li>
                             </ul>
-                            <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous"></a>
-                            <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next"></a>
+                            <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous">
+                                <img src="../../../../images/slideshow/previous.png">
+                            </a>
+                            <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next">
+                                <img src="../../../../images/slideshow/next.png">
+                            </a>
                         </div>
                         <ul class="uk-slideset-nav uk-dotnav uk-flex-center"></ul>
                     </div>
