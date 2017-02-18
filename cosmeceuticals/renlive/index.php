@@ -119,7 +119,7 @@ $_GET['id'] = 1;
                                     if ($util->ContinueObject($page, $key + 1)) {
                                         continue;
                                     }
-                                    $abc = "a";
+                        
                                     ?>
  <div class="uk-width-medium-1-3">
 
@@ -140,7 +140,7 @@ $_GET['id'] = 1;
 		</a>
 	</div>
 	
-	<div class="element-itemlink"><a href="<?= $_data[$key]['cosme_folder']; ?>">Show Products</a></div>
+	<div class="element-itemlink"><a href="<?= $_data[$key]['cosme_folder']; ?>"><?=$_SESSION["btn_show_prd"] ?></a></div>
 
 	</div>
 

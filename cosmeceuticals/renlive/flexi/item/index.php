@@ -103,10 +103,15 @@ foreach ($_data as $key => $value) {
 <?= $_data[$key]['detail_' . $_SESSION["main_lan"]]; ?>
 </div> 
  <div class="yoo-zoo socialbuttons clearfix">
-<div><a href="http://twitter.com/share" class="twitter-share-button" data-url="?id=<?= $_data[$key]['id']; ?>" data-count="none" data-lang="en_GB">Tweet</a></div>
-<div><div class="g-plusone" data-href="?id=<?= $_data[$key]['id']; ?>" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
-<div><div class="fb-like" data-href="?id=<?= $_data[$key]['id']; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
-</div> 
+<?php 
+        include '../../../../manage/bio/common/social.php';
+        $social = new social();
+         $url_social = "http://www.biotecitalia-thailand.com"."$_SERVER[REQUEST_URI]";
+        echo $social->twitter_Share_button($url_social,$_data[$key]['topic_' . $_SESSION["main_lan"]]);
+        echo $social->googlePlus_Share_button($url_social);
+        echo $social->facebook_like_button($url_social, FALSE);
+?>
+ </div> 
 
 
 	</div>

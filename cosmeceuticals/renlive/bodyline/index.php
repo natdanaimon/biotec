@@ -178,7 +178,7 @@ function truncate($string,$length=100,$append="&hellip;") {
 	 <p>
 	 <?=truncate($_data[$key]['detail_' . $_SESSION["main_lan"]],100);?>
 	  </p>
- <a href="item/?id=<?= $_data[$key]['id']; ?>">Show details</a> 
+ <a href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a> 
 
 </div>
 </div>                                    
@@ -199,6 +199,8 @@ function truncate($string,$length=100,$append="&hellip;") {
 
                                 <?php
                                 // << FIRST
+                                if($_data!=NULL){
+
                                 $first = ($page == 1 ? TRUE : FALSE);
                                 $last = FALSE;
                                 if (!$first) {
@@ -243,6 +245,7 @@ function truncate($string,$length=100,$append="&hellip;") {
                                     echo "<li>";
                                     echo " <a href='?page=$rel'>Last</a>";
                                     echo "</li>";
+                                }
                                 }
                                 ?>
 
