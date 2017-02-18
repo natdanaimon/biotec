@@ -18,15 +18,15 @@ class social {
         $var .= "  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=$this->_FBappID\"; ";
         $var .= "  fjs.parentNode.insertBefore(js, fjs); ";
         $var .= " }(document, 'script', 'facebook-jssdk'));</script>";
-        $var .= "<!-- initial facebook SDK --> </br>";
+        $var .= "<!-- initial facebook SDK --> ";
 
         $var .= "<!-- initial script google+ -->";
         $var .= "<script src = \"https://apis.google.com/js/platform.js\" async defer></script>";
-        $var .= "<!-- initial script google+ --></br>";
+        $var .= "<!-- initial script google+ -->";
 
         $var .= "<!-- initial script twitter -->";
         $var .= "<script src=\"http://platform.twitter.com/widgets.js\" type=\"text/javascript\"></script>";
-        $var .= "<!-- initial script twitter --></br>";
+        $var .= "<!-- initial script twitter -->";
         echo $var;
     }
 
