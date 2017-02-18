@@ -84,11 +84,12 @@ ACTIVEPAGES(2);
                                             <table id="datatable-checkbox" class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th><?= $_SESSION["press_tb_tr_subject_th"] ?></th>
-                                                        <th><?= $_SESSION["press_tb_tr_subject_en"] ?></th>
+                                                       
+                                                        <th><?= $_SESSION["devices_subject_th"] ?></th>
+                                                        <th><?= $_SESSION["devices_subject_en"] ?></th>
 
-                                                        <th style="width: 40px;">Item</th>
-                                                        <th style="width: 40px;"><?= $_SESSION["press_tb_tr_edit"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["devices_list"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["devices_edit"] ?></th>
                                                        <!--
                                                         <th style="width: 40px;" style="display: none"><?= $_SESSION["press_tb_tr_delete"] ?></th>
                                                         -->

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <?php
-
 @session_start();
 
 include './common/FunctionCheckActive.php';
@@ -12,20 +11,21 @@ include './controller/commonController.php';
 include './service/commonService.php';
 
 
-if($_GET[type] == NULL){
-	header('Location: cosme.php');
-}
+
 ACTIVEPAGES(3);
 ACTIVEPAGES_SUB(3, $_GET[type]);
-
-if($_GET[seq_i]){
-	$txt_title_form = "Edit";
-}else{
-	$txt_title_form = "Add New";
+if ($_GET[type] == NULL) {
+    header('Location: cosme.php');
 }
-
-
-
+if ($_GET[id] == NULL) {
+    $redirect = "cosme_item.php?id=".$_GET[type];
+    header('Location:'. $redirect.'');
+}
+if ($_GET[id]) {
+    $txt_title_form = $_SESSION["txt_title_cosme_edit"];
+} else {
+    $txt_title_form = $_SESSION["txt_title_cosme_add"];
+}
 ?>
 
 <html lang="en">
@@ -70,134 +70,142 @@ if($_GET[seq_i]){
 
                 <!-- page content -->
                 <div class="right_col" role="main">
- 
+
                     <div class="clearfix"></div>
                     <div class="row">
                         <!-- /form content -->
- 
-                                    <div class="x_panel">
-                                        <div class="x_title">
-                                            <h2 >
-                                            <a href="cosme.php">
-                                            <?= $_SESSION["cosmeceuticals"] ?></a> <i class="fa fa-backward"></i> <a href="cosme_item.php?id=<?=$_GET['type'];?>"><i id="title_cosme"></i></a> <i class="fa fa-backward"></i> <small><?=$txt_title_form;?></small> </h2>
-                                            <ul class="nav navbar-right panel_toolbox" style="display: none">
-                                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                                                </li>
-                                                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                                                </li>
-                                            </ul>
-                                            <div class="clearfix"></div>
+
+                        <div class="x_panel">
+                            <div class="x_title">
+                                <h2 >
+                                    <a href="cosme.php">
+                                        <?= $_SESSION["cosmeceuticals"] ?></a> <i class=""> /</i> 
+                                    <a href="cosme_item.php?id=<?= $_GET['type']; ?>"><i id="title_cosme"></i></a> 
+                                    <i class=""> /</i> <small><?= $txt_title_form; ?></small> </h2>
+                                <ul class="nav navbar-right panel_toolbox" style="display: none">
+                                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                    </li>
+                                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+                                <form enctype="multipart/form-data" name="form_add" id="form_add" method="post" action="">                                           
+
+
+
+
+
+
+
+                                    <div class="col-xs-12">
+                                        <div class="tab-pane active" id="main">
+                                            <p class="lead"></p>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img">
+                                                    <?= $_SESSION["cosme_image"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <table align="left" id="tb_img" style="display: none">
+                                                    <tr>
+                                                        <td align="left">
+                                                            <br />
+                                                            <span id="show_image"></span>
+                                                        </td>
+                                                    </tr>
+                                                </table>                                                        
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="file" id="img" name="img" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_th">
+                                                    <?= $_SESSION["cosme_subject_th"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="text" id="title_th" name="title_th" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_en">
+                                                    <?= $_SESSION["cosme_subject_en"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="text" id="title_en" name="title_en" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="topic_th">
+                                                    <?= $_SESSION["cosme_subject_light_th"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="text" id="topic_th" name="topic_th" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="topic_en">
+                                                    <?= $_SESSION["cosme_subject_light_en"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <input type="text" id="topic_en" name="topic_en" required="required" class="form-control col-md-7 col-xs-12">
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="detail_th">
+                                                    <?= $_SESSION["cosme_detail_th"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <textarea class="form-control" name="detail_th" id="detail_th" ></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="detail_en">
+                                                    <?= $_SESSION["cosme_detail_en"] ?>
+                                                    <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                    <textarea class="form-control" name="detail_en" id="detail_en" ></textarea>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div class="x_content">
-                                            
-<form enctype="multipart/form-data" name="form_add" id="form_add" method="post" action="">                                           
-                                            
 
- 
- 
+                                    </div> 
 
- 
 
-                    <div class="col-xs-12">
-                        <div class="tab-pane active" id="main">
-                          <p class="lead">Main</p>
-<div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img">
-    Image
-                                                            <span class="required">*</span>
-                                                        </label>
-<table align="left" id="tb_img" style="display: none">
-	<tr>
-		<td align="left">
-		<br />
-			<span id="show_image"></span>
-		</td>
-	</tr>
-</table>                                                        
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="file" id="img" name="img" required="required" class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_th">
-    <?= $_SESSION["press_tb_tr_subject_th"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="text" id="title_th" name="title_th" required="required" class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_en">
-    <?= $_SESSION["press_tb_tr_subject_en"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="text" id="title_en" name="title_en" required="required" class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="topic_th">
-    <?= $_SESSION["press_tb_tr_subject_th"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="text" id="topic_th" name="topic_th" required="required" class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="topic_en">
-    <?= $_SESSION["press_tb_tr_subject_en"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                                            <input type="text" id="topic_en" name="topic_en" required="required" class="form-control col-md-7 col-xs-12">
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    
-                                                    
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="detail_th">
-    <?= $_SESSION["press_tb_tr_subject_th"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
- <textarea class="form-control" name="detail_th" id="detail_th" ></textarea>
-                                                        </div>
-                                                    </div>
-                                                    
-                                                    <div class="form-group">
-                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="detail_en">
-    <?= $_SESSION["press_tb_tr_subject_en"] ?>
-                                                            <span class="required">*</span>
-                                                        </label>
-                                                        <div class="col-md-12 col-sm-12 col-xs-12">
- <textarea class="form-control" name="detail_en" id="detail_en" ></textarea>
-                                                        </div>
-                                                    </div>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <a href="cosme_item.php?id=<?=$_GET[type]?>">
+                                            <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
+                                            </button>
+                                        </a>
+                                        <button type="submit" class="btn btn-success" data-dismiss="modal" id="btn_save_data"><i class="fa fa-save"></i> <?= $_SESSION["btn_ok"] ?></button>
+                                    </div>
+
+
+
+                                    <input type="hidden" name="id" id="id" value="<?= $_GET[id]; ?>"/>
+                                    <input type="hidden" name="type" id="type" value="<?= $_GET[type]; ?>"/>
+                                    <input type="hidden" name="func" id="func" value="add_cosme_item"/>
+
+                                </form>
+
+
+                            </div>
                         </div>
 
-                    </div> 
- 
- 
-<div class="col-lg-12 col-md-12 col-sm-12">
-<button type="submit" class="btn btn-primary" data-dismiss="modal" id="btn_save_data"><i class="fa fa-save"></i> Save Data</button>
-</div>
-
-
-
-<input type="hidden" name="id" id="id" value="<?=$_GET[id];?>"/>
-<input type="hidden" name="type" id="type" value="<?=$_GET[type];?>"/>
-<input type="hidden" name="func" id="func" value="add_cosme_item"/>
-</form>
-                                        
-                                        
-                                        </div>
-                                    </div>
- 
                         <!-- /form content -->
                     </div>
 
@@ -209,113 +217,113 @@ if($_GET[seq_i]){
                 <!-- /footer content -->
             </div>
         </div>
-<!-- Jquery Script -->
-<i>
-        <!-- jQuery -->
-        <script src="../vendors/jquery/dist/jquery.min.js"></script>
-        <!-- Bootstrap -->
-        <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!-- FastClick -->
-        <script src="../vendors/fastclick/lib/fastclick.js"></script>
-        <!-- NProgress -->
-        <script src="../vendors/nprogress/nprogress.js"></script>
-        <!-- iCheck -->
-        <script src="../vendors/iCheck/icheck.min.js"></script>
-        <!-- Datatables -->
-        <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-        <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-        <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-        <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-        <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-        <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-        <script src="../vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
-        <script src="../vendors/jszip/dist/jszip.min.js"></script>
-        <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
-        <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+        <!-- Jquery Script -->
+        <i>
+            <!-- jQuery -->
+            <script src="../vendors/jquery/dist/jquery.min.js"></script>
+            <!-- Bootstrap -->
+            <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- FastClick -->
+            <script src="../vendors/fastclick/lib/fastclick.js"></script>
+            <!-- NProgress -->
+            <script src="../vendors/nprogress/nprogress.js"></script>
+            <!-- iCheck -->
+            <script src="../vendors/iCheck/icheck.min.js"></script>
+            <!-- Datatables -->
+            <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+            <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+            <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+            <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+            <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+            <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+            <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+            <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+            <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+            <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+            <script src="../vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+            <script src="../vendors/jszip/dist/jszip.min.js"></script>
+            <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+            <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
 
-        <!-- Custom Theme Scripts -->
-        <script src="../build/js/custom.min.js"></script>
+            <!-- Custom Theme Scripts -->
+            <script src="../build/js/custom.min.js"></script>
 
-        <script>
-            $(document).ready(function () {
-                unloading();
-            });
-
-				
-                  
-				$("#form_add").submit(function(e){
-var detail_th = CKEDITOR.instances['detail_th'].getData();
-$('#detail_th').val(detail_th);
-var detail_en = CKEDITOR.instances['detail_en'].getData();
-$('#detail_en').val(detail_en);
-
- 
+            <script>
+                $(document).ready(function () {
+                    unloading();
+                });
 
 
-                  
-                     //pressAdd();
+
+                $("#form_add").submit(function (e) {
+                    var detail_th = CKEDITOR.instances['detail_th'].getData();
+                    $('#detail_th').val(detail_th);
+                    var detail_en = CKEDITOR.instances['detail_en'].getData();
+                    $('#detail_en').val(detail_en);
+
+
+
+
+
+                    //pressAdd();
                     e.preventDefault();
-                    var formData = new FormData($(this)[0]); 
-                    
+                    var formData = new FormData($(this)[0]);
 
-                    
-                    
-                    
+
+
+
+
                     var data_form = $(this).serialize();
 
                     $.ajax({
-                    type: 'POST',
-                    url: 'controller/cosmeController.php',
-                    data: formData,
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    beforeSend: function ()
-                    {
-                        $('#se-pre-con').fadeIn(100);
-                        
-                    },
-                    success: function (data) {
+                        type: 'POST',
+                        url: 'controller/cosmeController.php',
+                        data: formData,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function ()
+                        {
+                            $('#se-pre-con').fadeIn(100);
 
-						var res = data.split(",");
-                        //debugger;
+                        },
+                        success: function (data) {
 
-                        if (res[0] == "0000") {
-                            var errCode = res[1] + " (" + res[0] + ")  ";
-                            //alert(errCode);
-                            $('#success-code').text(errCode);
-                            $('#success-dialog').modal('show');
-                        } else {
-                            var errCode = res[1] + " (" + res[0] + ")  ";
-                            $('#err-code').text(errCode);
-                            $('#err-dialog').modal('show');
+                            var res = data.split(",");
+                            //debugger;
+
+                            if (res[0] == "0000") {
+                                var errCode = res[1] + " (" + res[0] + ")  ";
+                                //alert(errCode);
+                                $('#success-code').text(errCode);
+                                $('#success-dialog').modal('show');
+                            } else {
+                                var errCode = res[1] + " (" + res[0] + ")  ";
+                                $('#err-code').text(errCode);
+                                $('#err-dialog').modal('show');
+                            }
+                            $('#se-pre-con').delay(100).fadeOut();
+
+
+                        },
+                        error: {
                         }
-                        $('#se-pre-con').delay(100).fadeOut();
 
-
-                    },
-                    error: {
-                    }
+                    });
 
                 });
-                       
-                });
-            
-            /**
-* Start load title
-*/
-$.ajax({
+
+                /**
+                 * Start load title
+                 */
+                $.ajax({
                     type: 'GET',
-                    url: 'controller/cosmeController.php?func=dataTable_title&id=<?=$_GET[type];?>',
+                    url: 'controller/cosmeController.php?func=dataTable_title&id=<?= $_GET[type]; ?>',
                     //data: Jsdata,
                     beforeSend: function ()
                     {
-//                        $('#se-pre-con').fadeIn(100);
+                        //                        $('#se-pre-con').fadeIn(100);
                     },
                     success: function (data) {
                         debugger;
@@ -324,89 +332,89 @@ $.ajax({
                         var JsonData = [];
                         $.each(res, function (i, item) {
                             var col_subject_th = "";
-                            if(language == 'th'){
-								$('#title_cosme').html(item.cosme_th);
-							}else{
-								$('#title_cosme').html(item.cosme_en);
-							}
+                            if (language == 'th') {
+                                $('#title_cosme').html(item.cosme_th);
+                            } else {
+                                $('#title_cosme').html(item.cosme_en);
+                            }
                             //alert(language);
 
                         });
 
-                        
+
                     },
                     error: {
                     }
 
-                });    
-/**
-* End load title
-*/
-          
-        </script>
+                });
+                /**
+                 * End load title
+                 */
+
+            </script>
 
 
-<?php
-if($_GET['id']){
-?>
-<script>
-/**
-* Start load title
-*/
-$.ajax({
-                    type: 'GET',
-                    url: 'controller/cosmeController.php?func=dataTable_item_row&id=<?=$_GET[id];?>',
-                    //data: Jsdata,
-                    beforeSend: function ()
-                    {
-//                        $('#se-pre-con').fadeIn(100);
-                    },
-                    success: function (data) {
-                        debugger;
-                        var res = JSON.parse(data);
-                        var JsonData = [];
-                        $.each(res, function (i, item) {
-							$('#title_th').val(item.title_th);
-							$('#title_en').val(item.title_en);
-							$('#topic_th').val(item.topic_th);
-							$('#topic_en').val(item.topic_en);
-							$('#detail_th').val(item.detail_th);
-							$('#detail_en').val(item.detail_en);
-                        
-                        
-                        var show_image =  item.img;
-							if(show_image){
-								$('#show_image').html('<img src="uploads/cosme_item/'+show_image+'" width="200" />');
-								$('#tb_img').show();
-							}
-                        
-                        });
+            <?php
+            if ($_GET['id']) {
+                ?>
+                <script>
+                    /**
+                     * Start load title
+                     */
+                    $.ajax({
+                        type: 'GET',
+                        url: 'controller/cosmeController.php?func=dataTable_item_row&id=<?= $_GET[id]; ?>',
+                        //data: Jsdata,
+                        beforeSend: function ()
+                        {
+                            //                        $('#se-pre-con').fadeIn(100);
+                        },
+                        success: function (data) {
+                            debugger;
+                            var res = JSON.parse(data);
+                            var JsonData = [];
+                            $.each(res, function (i, item) {
+                                $('#title_th').val(item.title_th);
+                                $('#title_en').val(item.title_en);
+                                $('#topic_th').val(item.topic_th);
+                                $('#topic_en').val(item.topic_en);
+                                $('#detail_th').val(item.detail_th);
+                                $('#detail_en').val(item.detail_en);
 
-                        
-                    },
-                    error: {
-                    }
 
-                });    
-/**
-* End load title
-*/
-</script>
-<?php
-}
-?> 
+                                var show_image = item.img;
+                                if (show_image) {
+                                    $('#show_image').html('<img src="uploads/cosme_item/' + show_image + '" width="200" />');
+                                    $('#tb_img').show();
+                                }
 
-</i>
- 
-<!--  Fix Custom Alert POPUP-->
-<script>
+                            });
 
-	function closeAlert() {
+
+                        },
+                        error: {
+                        }
+
+                    });
+                    /**
+                     * End load title
+                     */
+                </script>
+                <?php
+            }
+            ?> 
+
+        </i>
+
+        <!--  Fix Custom Alert POPUP-->
+        <script>
+
+            function closeAlert() {
                 $('#err-dialog').modal('hide');
                 $('#success-dialog').modal('hide');
                 $('#image-dialog').modal('hide');
-            }  
-</script>
+            }
+        </script>
         <style>
             #imagePreview {
                 width: 180px;
@@ -473,24 +481,24 @@ $.ajax({
             </div>
         </div>
         <!--  Fix Custom Alert Image-->
- 
- <!-- CK Editor -->
-<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-<script>
-  $(function () {
-  	
-  	
-  	
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('detail_th');
-    CKEDITOR.replace('detail_en');
- 
-  });
-</script>
-<!-- Sweet Alert  plugin -->
-<link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
-<script src="assets/sweetalert/dist/sweetalert.js"></script>
+
+        <!-- CK Editor -->
+        <script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+        <script>
+            $(function () {
+
+
+
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace('detail_th');
+                CKEDITOR.replace('detail_en');
+
+            });
+        </script>
+        <!-- Sweet Alert  plugin -->
+        <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
+        <script src="assets/sweetalert/dist/sweetalert.js"></script>
 
     </body>
 </html>

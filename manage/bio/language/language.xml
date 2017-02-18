@@ -233,6 +233,11 @@
         <en>Cosmeceuticals</en>
     </detail>
     <detail>
+        <variable>main_cosmeceuticals</variable>
+        <th>หน้าหลัก เวชสำอาง</th>
+        <en>Main Cosmeceuticals</en>
+    </detail>
+    <detail>
         <variable>newsletter</variable>
         <th>จดหมายข่าว</th>
         <en>Newsletter</en>
@@ -1147,6 +1152,75 @@
         <th>แสดงรายละเอียด</th>
         <en>Show Details</en> 
     </detail> 
+    
+    
+    <detail>
+        <variable>cosme_image</variable>
+        <th>รูปภาพ</th>
+        <en>Image</en> 
+    </detail>    
+        
+    <detail>
+        <variable>cosme_subject_th</variable>
+        <th>หัวข้อภาษาไทย</th>
+        <en>Subject TH</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_subject_en</variable>
+        <th>หัวข้อภาษาอังกฤษ</th>
+        <en>Subject EN</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_subject_light_th</variable>
+        <th>หัวข้อไฮไลท์ภาษาไทย</th>
+        <en>Subject HighLight TH</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_subject_light_en</variable>
+        <th>หัวข้อไฮไลท์ภาษาอังกฤษ</th>
+        <en>Subject HighLight EN</en> 
+    </detail> 
+    <detail>
+        <variable>cosme_detail_th</variable>
+        <th>เนื้อหาภาษาไทย</th>
+        <en>Detail TH</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_detail_en</variable>
+        <th>เนื้อหาภาษาอังกฤษ</th>
+        <en>Detail EN</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_list</variable>
+        <th>รายการ</th>
+        <en>List</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_edit</variable>
+        <th>แก้ไข</th>
+        <en>Edit</en> 
+    </detail>  
+    <detail>
+        <variable>cosme_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>  
+    <detail>
+        <variable>txt_title_cosme_add</variable>
+        <th>เพิ่มข้อมูล</th>
+        <en>Add Data</en> 
+    </detail> 
+    <detail>
+        <variable>txt_title_cosme_edit</variable>
+        <th>แก้ไขข้อมูล</th>
+        <en>Edit Data</en> 
+    </detail> 
+    
+    <detail>
+        <variable>txt_title_cosme_edit</variable>
+        <th>แก้ไขข้อมูล</th>
+        <en>Edit Data</en> 
+    </detail>    
         
         
         
@@ -1154,7 +1228,64 @@
     <!--    cosmeceuticals    -->   
         
         
+     <!-- devices -->
+     <detail>
+        <variable>main_devices</variable>
+        <th>หน้าหลัก อุปกรณ์</th>
+        <en>Main Devices</en> 
+    </detail>    
+     <detail>
+        <variable>devices_image</variable>
+        <th>รูปภาพ</th>
+        <en>Image</en> 
+    </detail>    
         
+    <detail>
+        <variable>devices_subject_th</variable>
+        <th>หัวข้อภาษาไทย</th>
+        <en>Subject TH</en> 
+    </detail>  
+    <detail>
+        <variable>devices_subject_en</variable>
+        <th>หัวข้อภาษาอังกฤษ</th>
+        <en>Subject EN</en> 
+    </detail>  
+    <detail>
+        <variable>devices_subject_light_th</variable>
+        <th>หัวข้อไฮไลท์ภาษาไทย</th>
+        <en>Subject HighLight TH</en> 
+    </detail>  
+    <detail>
+        <variable>devices_subject_light_en</variable>
+        <th>หัวข้อไฮไลท์ภาษาอังกฤษ</th>
+        <en>Subject HighLight EN</en> 
+    </detail> 
+    <detail>
+        <variable>devices_detail_th</variable>
+        <th>เนื้อหาภาษาไทย</th>
+        <en>Detail TH</en> 
+    </detail>  
+    <detail>
+        <variable>devices_detail_en</variable>
+        <th>เนื้อหาภาษาอังกฤษ</th>
+        <en>Detail EN</en> 
+    </detail>  
+    <detail>
+        <variable>devices_list</variable>
+        <th>รายการ</th>
+        <en>List</en> 
+    </detail>  
+    <detail>
+        <variable>devices_edit</variable>
+        <th>แก้ไข</th>
+        <en>Edit</en> 
+    </detail>  
+    <detail>
+        <variable>devices_delete</variable>
+        <th>ลบ</th>
+        <en>Delete</en> 
+    </detail>      
+     <!--  devices -->     
         
         
         

@@ -70,7 +70,7 @@ ACTIVEPAGES_SUB(3, $_GET[id]);
                                         <div class="x_title">
                                             <h2 >
                                             <a href="cosme.php">
-                                            <?= $_SESSION["cosmeceuticals"] ?></a> <i class="fa fa-backward"></i> <small id="title_cosme"></small></h2>
+                                            <?= $_SESSION["cosmeceuticals"] ?></a> <i class=""> /</i><small id="title_cosme"></small></h2>
                                             <ul class="nav navbar-right panel_toolbox" style="display: none">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>
@@ -84,13 +84,13 @@ ACTIVEPAGES_SUB(3, $_GET[id]);
                                             <table id="datatable-checkbox" class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th style="width: 40px;">Logo</th>
-                                                        <th><?= $_SESSION["press_tb_tr_subject_th"] ?></th>
-                                                        <th><?= $_SESSION["press_tb_tr_subject_en"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["cosme_image"] ?></th>
+                                                        <th><?= $_SESSION["cosme_subject_th"] ?></th>
+                                                        <th><?= $_SESSION["cosme_subject_en"] ?></th>
 
                                                         
-                                                        <th style="width: 40px;"><?= $_SESSION["press_tb_tr_edit"] ?></th>
-                                                        <th style="width: 40px;"><?= $_SESSION["press_tb_tr_delete"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["cosme_edit"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["cosme_delete"] ?></th>
                                                     </tr>
 
                                                 </thead>

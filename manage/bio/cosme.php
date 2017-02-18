@@ -64,7 +64,7 @@ ACTIVEPAGES(3);
  
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2><?= $_SESSION["cosmeceuticals"] ?> </h2>
+                                            <h2><?= $_SESSION["main_cosmeceuticals"] ?> </h2>
                                             <ul class="nav navbar-right panel_toolbox" style="display: none">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>
@@ -74,22 +74,16 @@ ACTIVEPAGES(3);
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
-<!--                                        
-                                            <button type="button"  class="btn btn-primary open_form" data_id="0" data_title="Add new cosme" data-toggle="modal" data-target="#modal_form"><i class="fa fa-push"></i> <?= $_SESSION["press_add"] ?></button>
-                                         -->   
-<!--
-<a href="cosme_form.php" class="btn btn-primary"><?= $_SESSION["press_add"] ?></a>  
--->                                          
-                                            
+
                                             <table id="datatable-checkbox" class="table table-striped table-bordered">
                                                 <thead>
                                                     <tr>
-                                                        <th>Image</th>
-                                                        <th><?= $_SESSION["press_tb_tr_subject_th"] ?></th>
-                                                        <th><?= $_SESSION["press_tb_tr_subject_en"] ?></th>
+                                                        <th><?= $_SESSION["cosme_image"] ?></th>
+                                                        <th><?= $_SESSION["cosme_subject_th"] ?></th>
+                                                        <th><?= $_SESSION["cosme_subject_en"] ?></th>
 
-                                                        <th style="width: 40px;">Item</th>
-                                                        <th style="width: 40px;"><?= $_SESSION["press_tb_tr_edit"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["cosme_list"] ?></th>
+                                                        <th style="width: 40px;"><?= $_SESSION["cosme_edit"] ?></th>
                                                         
                                                         <!--<th style="width: 40px;"><?= $_SESSION["press_tb_tr_delete"] ?></th>-->
                                                     </tr>
