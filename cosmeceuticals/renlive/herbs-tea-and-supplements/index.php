@@ -22,6 +22,7 @@ $util = new Utility();
 $controller = new cosmeController();
 $_data_type = $controller->dataTable_type_d($_GET['id']);
 $_data = $controller->dataTable_item($_GET['id']);
+$util->setLimitPaging(8);
 $limitPaging = $util->getLimitPaging();
 $resultCount_type = $util->countObject($_data_type);
 $resultCount = $util->countObject($_data);
@@ -166,7 +167,7 @@ function truncate($string,$length=100,$append="&hellip;") {
 			
 		
 	<p class="logo">
-	<a href="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" data-lightbox="group:a2330663-5d5e-4b36-a8cd-ad55f2ac27bb-580af831f0edd;" title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" >
+	<a href="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" data-lightbox="group:a2330663-5d5e-4b36-a8cd-ad55f2ac27bb-580af831f0edd<?= $_data[$key]['id']; ?>;" title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" >
 	<img src="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" width="170" height="170" alt="<?= $_data[$key]['img']; ?>" />
 	</a>
 	</p>	

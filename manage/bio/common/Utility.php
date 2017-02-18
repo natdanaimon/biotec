@@ -27,7 +27,10 @@ class Utility {
     function getLimitPaging() {
         return $this->_limitPaging;
     }
-
+    function setLimitPaging($limitPaging) {
+        $this->_limitPaging = $limitPaging;
+    }
+    
     function setPathXML($pathXML) {
         $this->_pathXML = $pathXML;
     }
