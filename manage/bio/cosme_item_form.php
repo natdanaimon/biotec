@@ -14,13 +14,10 @@ include './service/commonService.php';
 
 ACTIVEPAGES(3);
 ACTIVEPAGES_SUB(3, $_GET[type]);
-if ($_GET[type] == NULL) {
+if ($_GET[id] == NULL) {
     header('Location: cosme.php');
 }
-if ($_GET[id] == NULL) {
-    $redirect = "cosme_item.php?id=".$_GET[type];
-    header('Location:'. $redirect.'');
-}
+
 if ($_GET[id]) {
     $txt_title_form = $_SESSION["txt_title_cosme_edit"];
 } else {
