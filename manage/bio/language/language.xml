@@ -1136,6 +1136,51 @@
     
     <!-- UI Element -->
         
+    <!--    cosmeceuticals    -->
+    <detail>
+        <variable>btn_show_prd</variable>
+        <th>แสดงผลิตภัณฑ์</th>
+        <en>Show Products</en> 
+    </detail>
+    <detail>
+        <variable>btn_show_detail</variable>
+        <th>แสดงรายละเอียด</th>
+        <en>Show Details</en> 
+    </detail> 
+        
+        
+        
+        
+    <!--    cosmeceuticals    -->   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     <!-- Response Code -->
     <detail>
         <variable>cd_0000</variable>

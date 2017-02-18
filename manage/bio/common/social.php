@@ -3,8 +3,7 @@
 class social {
 
     private $_FBappID = "1308539565850437";
-    
-    
+
     function __construct() {
         $this->initial_social();
     }
@@ -54,13 +53,16 @@ class social {
         echo $var;
     }
 
-    public function twitter_Share_button($msg) {
+    public function twitter_Share_button($url, $msg) {
         $var = "<!-- script twitter -->";
         $var .="    <a class=\"twitter-share-button\" ";
         $var .="   data-size = \"small\" ";
         $var .="   data-text = \"" . $msg . "\" ";
+        if ($url != NULL) {
+            $var .="   data-url = \"" . $url . "\" ";
+        }
 //        $var .="   data-hashtags = \"biotecitalia-thailand\" ";
-//        $var .="   data-via = \"biotecitalia-thailand.com\" ";
+//        $var .="   data-via = \"$url\" ";
         $var .="   data-related = \"twitterapi,twitter\"> ";
         $var .="   Tweet ";
         $var .="   </a > ";
