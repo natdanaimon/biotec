@@ -127,7 +127,7 @@ include './service/newsService.php';
 
     img.absolute {
 
-        margin-top: -40%;
+        margin-top: -10%;
         position: absolute;
     }
     .border_{
