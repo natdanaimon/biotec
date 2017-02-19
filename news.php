@@ -169,7 +169,7 @@ include './service/newsService.php';
 
 
                             <div class="contorno-titolo">
-                                <h1 class="bar_news">News</h1>
+                                <h1 class="bar_news"><?=$_SESSION["news"]?></h1>
                                 <ul class="type-ul">
                                     <li class="type-li">
                                         <a href="news_magazine.php" class=""><span><?=$_SESSION["magazine"]?></span></a>
