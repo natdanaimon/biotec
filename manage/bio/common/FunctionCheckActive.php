@@ -100,7 +100,7 @@ function ACTIVEPAGE_SHOW($page) {
     $_SESSION["ACTIVE_ABOUT"] = "";
     $_SESSION["ACTIVE_DEVICES"] = "";
     $_SESSION["ACTIVE_COSM"] = "";
-    $_SESSION["ACTIVE_NEW"] = "";
+    $_SESSION["ACTIVE_NEWS"] = "";
     $_SESSION["ACTIVE_PRESS"] = "";
     $_SESSION["ACTIVE_CONTACTS"] = "";
     $_SESSION["ACTIVE_CUSTOMER"] = "";
