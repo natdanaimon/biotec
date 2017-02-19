@@ -50,8 +50,19 @@ class newsController {
             return NULL;
         }
     }
-    
-        public function dataTable_type($type_i) {
+
+    public function data_pic($seq) {
+        $service = new newsService();
+        $_datapic = $service->dataTable_pic($seq);
+        if ($_datapic != NULL) {
+
+            return $_datapic;
+        } else {
+            return NULL;
+        }
+    }
+
+    public function dataTable_type($type_i) {
         $service = new newsService();
         $_dataTable = $service->dataTable_type($type_i);
         if ($_dataTable != NULL) {
