@@ -200,6 +200,7 @@ include './service/newsService.php';
                                  } else {
                                      $_data = $controller->dataTable();
                                  }
+                                 $util->setLimitPaging(14);
                                  $limitPaging = $util->getLimitPaging();
 
                                  $resultCount = $util->countObject($_data);
