@@ -247,12 +247,9 @@ include './service/newsService.php';
                                             <div class="uk-align-medium-left">
                                                 <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>">
                                                     <div class="main">
-                                                        <?php
-                                                        $_data_pic = $controller->data_pic($_data[$key]['s_seq']);
-                                                        foreach ($_data_pic as $key => $value) {
-                                                            ?>
-                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
-                                                        <?php } ?>
+
+                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
+
                                                     </div>
 
                                                 </a> </div>
