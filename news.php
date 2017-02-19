@@ -172,13 +172,13 @@ include './service/newsService.php';
                                 <h1 class="bar_news">News</h1>
                                 <ul class="type-ul">
                                     <li class="type-li">
-                                        <a href="news_magazine.php" class=""><span>Magazine</span></a>
+                                        <a href="news_magazine.php" class=""><span><?=$_SESSION["magazine"]?></span></a>
                                     </li>
                                     <li class="type-li">
-                                        <a href="news_event.php" class=""><span>Events</span></a>
+                                        <a href="news_event.php" class=""><span><?=$_SESSION["events"]?></span></a>
                                     </li>
                                     <li class="type-li">
-                                        <a href="news_product.php" class=""><span>Products</span></a>
+                                        <a href="news_product.php" class=""><span><?=$_SESSION["products"]?></span></a>
                                     </li>
                                 </ul>
 
@@ -249,7 +249,7 @@ include './service/newsService.php';
                                                 <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>">
                                                     <div class="main">
 
-                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
+                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>" />
 
                                                     </div>
 
@@ -257,11 +257,7 @@ include './service/newsService.php';
 
                                             <?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
-                                                <!--
-                                                 <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
-                                                 <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
-                                                 <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
-                                                -->
+
                                                 <?php
                                                 $link = "http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
                                                 echo $social->twitter_Share_button($link,$_data[$key]['s_subject_'.$_SESSION["main_lan"]]);
@@ -274,7 +270,7 @@ include './service/newsService.php';
                                                 <ul class="ul-readmore">
 
                                                     <li class="li-linkitem">
-                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">Read More >></a>
+                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?=$_SESSION["_readmore"]?> >></a>
                                                     </li>
                                                 </ul>
                                             </div>
