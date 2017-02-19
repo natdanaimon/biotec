@@ -246,7 +246,7 @@ include './service/newsService.php';
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>">
+                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>">
                                                     <div class="main">
 
                                                             <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
@@ -255,7 +255,7 @@ include './service/newsService.php';
 
                                                 </a> </div>
 
-                                            <?= $_data[$key]['s_subject_en'] ?>
+                                            <?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
                                                 <!--
                                                  <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
@@ -264,7 +264,7 @@ include './service/newsService.php';
                                                 -->
                                                 <?php
                                                 $link = " http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
-                                                echo $social->twitter_Share_button($link,$_data[$key]['s_subject_en']);
+                                                echo $social->twitter_Share_button($link,$_data[$key]['s_subject_'.$_SESSION["main_lan"]]);
                                                 echo $social->googlePlus_Share_button($link);
                                                 echo $social->facebook_like_button($link, FALSE);
                                                 ?>
