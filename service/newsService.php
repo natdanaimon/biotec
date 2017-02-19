@@ -5,8 +5,9 @@ class newsService {
     function dataTable() {
         require_once('./manage/bio/common/ConnectDB.php');
         $db = new ConnectDB();
-        $sql = " SELECT * FROM  tb_news n "
-                . " WHERE n.s_status = 'A' ";
+        $sql = " SELECT tb_news.*,tb_news_img.*  FROM  tb_news "
+                . " LEFT JOIN tb_news_img ON "
+                . " tb_news.s_seq = tb_news_img.s_seq WHERE tb_news.s_status = 'A' ";
         $_data = $db->Search_Data_FormatJson($sql);
         $db->close_conn();
         return $_data;
