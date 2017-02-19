@@ -264,7 +264,7 @@ include './service/newsService.php';
                                                 -->
                                                 <?php
                                                 $link = " http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
-                                                echo $social->twitter_Share_button($_data[$key]['s_subject_en']);
+                                                echo $social->twitter_Share_button($link,$_data[$key]['s_subject_en']);
                                                 echo $social->googlePlus_Share_button($link);
                                                 echo $social->facebook_like_button($link, FALSE);
                                                 ?>
