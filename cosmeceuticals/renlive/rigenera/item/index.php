@@ -145,55 +145,29 @@ $resultCount = $util->countObject($_data);
         <section class="tm-bottom-b uk-grid" data-uk-grid-match="{target:'> div > .uk-panel'}" data-uk-grid-margin>
             <div class="uk-width-1-1">
                 <div class="uk-panel uk-panel-box slideset-cosmeceutici">
-                    <!--                    <div id="slideset-17-580af5abb30a9" class="wk-slideset wk-slideset-default" data-widgetkit="slideset" data-options='{"items_per_set":5,"navigation":1,"index":0,"title":0,"buttons":1,"style":"default","width":"auto","height":"auto","effect":"slide","autoplay":1,"interval":5000,"duration":300}'>
-                                            <div>
-                                                <div class="sets">
-                                                    <ul class="set">
-                    <?php
-                    $_data_type = $controller->dataTable_item_type($id_type);
-                    foreach ($_data_type as $key => $value) {
-                        ?>							
-                                                                    <li>
-                                                                        <article class="wk-content">
-                                                                            <div class="wk-zoo-item layout-article clearfix">
-                            
-                                                                                <div class="media media-left">
-                                                                                    <a href="?id=<?= $_data_type[$key]['id']; ?>" title="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>"><img src="../../../../manage/bio/uploads/cosme_item/<?= $_data_type[$key]['img']; ?>" alt="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>" width="800" height="800" title="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>" /></a> 	</div>
-                            
-                            
-                            
-                            
-                                                                                <div class="description">
-                                                                                    <div class="element element-itemname first last">
-                                                                                        <a title="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>" href="?id=<?= $_data_type[$key]['id']; ?>"><?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?></a></div>	</div>
-                            
-                            
-                            
-                                                                            </div></article>
-                                                                    </li>
-                    <?php } ?>									
-                                                    </ul>
-                    
-                    
-                                                </div>
-                                                <div class="next"></div><div class="prev"></div>	</div>
-                                            <ul class="nav icon"><li><span></span></li><li><span></span></li><li><span></span></li><li><span></span></li></ul>
-                                        </div>-->
+
                     <div class="uk-margin" data-uk-slideset="{animation: 'slide-horizontal', duration: 100,small: 1, medium: 5 , autoplay:true ,autoplayInterval:3000}">
                         <div class="uk-slidenav-position uk-margin">
                             <ul class="uk-slideset uk-grid uk-flex-center">
-                                <li><img src="holder.js/600x400/sky/auto/text:1/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:2/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:3/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:4/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:5/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:6/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:7/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:8/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:9/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:10/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:11/size:100" width="189" height="189" alt=""></li>
-                                <li><img src="holder.js/600x400/sky/auto/text:12/size:100" width="189" height="189" alt=""></li>
+                                <?php
+                                $_data_type = $controller->dataTable_item_type($id_type);
+                                foreach ($_data_type as $key => $value) {
+                                    ?>	
+                                    <li Style="width: 190px;height: 200px;">
+                                        <div >
+                                            <a  href="?id=<?= $_data_type[$key]['id']; ?>" title="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>">
+                                                <img Style="width: 190px;height: 190px;" src="../../../../manage/bio/uploads/cosme_item/<?= $_data_type[$key]['img']; ?>" 
+                                                     alt="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>" 
+                                                     title="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>" />
+                                            </a>
+                                        </div>
+                                        <div align="center">
+                                            <a title="<?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>" 
+                                               href="?id=<?= $_data_type[$key]['id']; ?>"><?= $_data_type[$key]['title_' . $_SESSION["main_lan"]]; ?>
+                                            </a>
+                                        </div>
+                                    </li>
+                                <?php } ?>	
                             </ul>
                             <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous">
                                 <img src="../../../../images/slideshow/previous.png">
