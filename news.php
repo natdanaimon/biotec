@@ -109,10 +109,6 @@ include './service/newsService.php';
         margin-bottom: 40px;
     }
     .uk-grid{
-        margin: -60px 0 0 -25px;
-        padding: 0px;
-        padding-left: 20px;
-        list-style: none;
     }
     .border-top{
         border-top: 1px solid #ccb26f;
@@ -124,16 +120,24 @@ include './service/newsService.php';
         position: relative;
         height: 120px;
     }
-
+    .uk-article{
+        padding-top: 50px;
+    }
     img.absolute {
 
-        margin-top: -40%;
+        margin-top: -10%;
         position: absolute;
     }
     .border_{
         border-top: 1px solid #ccb26f;
         margin-top: 20px;
         padding-top: 20px;
+    }
+    .uk-nav uk-nav-navbar{
+        top:50px;
+    }
+    .uk-article {
+            padding-top: 80px;
     }
     /* img{
          box-sizing: border-box;
@@ -182,59 +186,59 @@ include './service/newsService.php';
                             </div>
 
 
-                            <div class="uk-grid data-uk-grid-margin">
-                                <?php
-                                $util = new Utility();
+                            <div class="uk-grid data-uk-grid-margin" style=" margin: -60px 0 0 -25px;padding: 0px;padding-left: 20px;
+                                 list-style: none;">
+                                 <?php
+                                 $util = new Utility();
 
-                                $social = new social();
-                                $controller = new newsController();
-                               
-                                
-                                if ($_GET["type"] != NULL) {
-                                    $_data = $controller->dataTable_type($_GET["type"]);
-                                } else {
-                                    $_data = $controller->dataTable();
-                                }
-                                $limitPaging = $util->getLimitPaging();
+                                 $social = new social();
+                                 $controller = new newsController();
 
-                                $resultCount = $util->countObject($_data);
-                                // for test 
-                                // $resultCount = 50;
-                                $couter_border = 0;
-                                $rel = $resultCount / $limitPaging;
-                                if (($rel - floor($rel)) != 0) {
-                                    $rel = floor($rel) + 1;
-                                } else {
-                                    $rel = floor($rel);
-                                }
-                                if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
 
-                                    $page = 1;
-                                } else {
-                                    $page = $_GET["page"];
+                                 if ($_GET["type"] != NULL) {
+                                     $_data = $controller->dataTable_type($_GET["type"]);
+                                 } else {
+                                     $_data = $controller->dataTable();
+                                 }
+                                 $limitPaging = $util->getLimitPaging();
 
-                                }
+                                 $resultCount = $util->countObject($_data);
+                                 // for test 
+                                 // $resultCount = 50;
+                                 $couter_border = 0;
+                                 $rel = $resultCount / $limitPaging;
+                                 if (($rel - floor($rel)) != 0) {
+                                     $rel = floor($rel) + 1;
+                                 } else {
+                                     $rel = floor($rel);
+                                 }
+                                 if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
 
-                                //$couter_border = 0;
-                                foreach ($_data as $key => $value) {
-                                    $couter_border++;
-                                    if ($util->ContinueObject($page, $key + 1)) {
-                                        $couter_border = 0;
-                                        continue;
-                                    }
-                                    ?>
-                               
+                                     $page = 1;
+                                 } else {
+                                     $page = $_GET["page"];
+                                 }
+
+                                 //$couter_border = 0;
+                                 foreach ($_data as $key => $value) {
+                                     $couter_border++;
+                                     if ($util->ContinueObject($page, $key + 1)) {
+                                         $couter_border = 0;
+                                         continue;
+                                     }
+                                     ?>
+
                                     <div class="uk-width-medium-1-2">
-                                        
-                                        <?php  if($couter_border!=1 &  $couter_border!=2){        ?>
+
+                                        <?php if ($couter_border != 1 & $couter_border != 2) { ?>
                                             <div class="border_"></div>
-                                        <?php  } ?>
+                                        <?php } ?>
                                         <article class="uk-article">
 
 
                                             <h1 class="uk-article-title">
-                                                <a title="<?= $_data[$key]['s_subject_en'] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
-                                                    <?= $_data[$key]['s_subject_en'] ?></a> </h1>
+                                                <a title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
+                                                    <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?></a> </h1>
 
                                             <p class="uk-article-lead">
                                                 <?= $_data[$key]['d_date'] ?></p>
@@ -243,11 +247,12 @@ include './service/newsService.php';
                                             <div class="uk-align-medium-left">
                                                 <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>">
                                                     <div class="main">
-                                                        <?php $_data_pic = $controller->data_pic($_data[$key]['s_seq']); 
-                                                          foreach ($_data_pic as $key => $value) {
-                                                        ?>
-                                                        <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
-                                                          <?php }?>
+                                                        <?php
+                                                        $_data_pic = $controller->data_pic($_data[$key]['s_seq']);
+                                                        foreach ($_data_pic as $key => $value) {
+                                                            ?>
+                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
+                                                        <?php } ?>
                                                     </div>
 
                                                 </a> </div>
@@ -260,7 +265,7 @@ include './service/newsService.php';
                                                  <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
                                                 -->
                                                 <?php
-                                                $link =" http://www.biotecitalia-thailand.com/news_detail.php?s_id=".$_data[$key]['s_seq']."";
+                                                $link = " http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
                                                 echo $social->twitter_Share_button($_data[$key]['s_subject_en']);
                                                 echo $social->googlePlus_Share_button($link);
                                                 echo $social->facebook_like_button($link, FALSE);
