@@ -105,9 +105,6 @@ include './service/newsService.php';
         margin-bottom: 10px;
         font-size: 14px;
     }
-    .uk-grid>[class*='uk-width-']>:last-child {
-        margin-bottom: 40px;
-    }
     .uk-grid{
     }
     .border-top{
@@ -195,6 +192,7 @@ include './service/newsService.php';
                                  $controller = new newsController();
 
 
+                                
                                  if ($_GET["type"] != NULL) {
                                      $_data = $controller->dataTable_type($_GET["type"]);
                                  } else {

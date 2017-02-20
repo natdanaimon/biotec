@@ -105,14 +105,7 @@ include './service/newsService.php';
         margin-bottom: 10px;
         font-size: 14px;
     }
-    .uk-grid>[class*='uk-width-']>:last-child {
-        margin-bottom: 40px;
-    }
     .uk-grid{
-        margin: -60px 0 0 -25px;
-        padding: 0px;
-        padding-left: 20px;
-        list-style: none;
     }
     .border-top{
         border-top: 1px solid #ccb26f;
@@ -124,7 +117,9 @@ include './service/newsService.php';
         position: relative;
         height: 120px;
     }
-
+    .uk-article{
+        padding-top: 50px;
+    }
     img.absolute {
 
         margin-top: -10%;
@@ -134,6 +129,12 @@ include './service/newsService.php';
         border-top: 1px solid #ccb26f;
         margin-top: 20px;
         padding-top: 20px;
+    }
+    .uk-nav uk-nav-navbar{
+        top:50px;
+    }
+    .uk-article {
+            padding-top: 80px;
     }
     /* img{
          box-sizing: border-box;
@@ -165,45 +166,54 @@ include './service/newsService.php';
 
 
                             <div class="contorno-titolo">
-                                <h1 class="bar_news">Products</h1>
+                                <h1 class="bar_news"><?=$_SESSION["products"]?></h1>
+
+
+
                             </div>
 
 
-                            <div class="uk-grid data-uk-grid-margin">
-                                <?php
-                                $util = new Utility();
+                            <div class="uk-grid data-uk-grid-margin" style=" margin: -60px 0 0 -25px;padding: 0px;padding-left: 20px;
+                                 list-style: none;">
+                                 <?php
+                                 $util = new Utility();
 
-                                $social = new social();
-                                $controller = new newsController();
-                                $_data = $controller->dataTable_type("P");
+                                 $social = new social();
+                                 $controller = new newsController();
 
-                                $limitPaging = $util->getLimitPaging();
 
-                                $resultCount = $util->countObject($_data);
-                                // for test 
-                                // $resultCount = 50;
-                                $couter_border = 0;
-                                $rel = $resultCount / $limitPaging;
-                                if (($rel - floor($rel)) != 0) {
-                                    $rel = floor($rel) + 1;
-                                } else {
-                                    $rel = floor($rel);
-                                }
-                                if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
+                                
+                                
+                                     $_data = $controller->dataTable_type("P");
+    
+                                 $util->setLimitPaging(14);
+                                 $limitPaging = $util->getLimitPaging();
 
-                                    $page = 1;
-                                } else {
-                                    $page = $_GET["page"];
-                                }
+                                 $resultCount = $util->countObject($_data);
+                                 // for test 
+                                 // $resultCount = 50;
+                                 $couter_border = 0;
+                                 $rel = $resultCount / $limitPaging;
+                                 if (($rel - floor($rel)) != 0) {
+                                     $rel = floor($rel) + 1;
+                                 } else {
+                                     $rel = floor($rel);
+                                 }
+                                 if ($_GET["page"] == NULL || $_GET["page"] == 'null' || $_GET["page"] == '') {
 
-                                //$couter_border = 0;
-                                foreach ($_data as $key => $value) {
-                                    $couter_border++;
-                                    if ($util->ContinueObject($page, $key + 1)) {
-                                        $couter_border = 0;
-                                        continue;
-                                    }
-                                    ?>
+                                     $page = 1;
+                                 } else {
+                                     $page = $_GET["page"];
+                                 }
+
+                                 //$couter_border = 0;
+                                 foreach ($_data as $key => $value) {
+                                     $couter_border++;
+                                     if ($util->ContinueObject($page, $key + 1)) {
+                                         $couter_border = 0;
+                                         continue;
+                                     }
+                                     ?>
 
                                     <div class="uk-width-medium-1-2">
 
@@ -214,36 +224,29 @@ include './service/newsService.php';
 
 
                                             <h1 class="uk-article-title">
-                                                <a title="<?= $_data[$key]['s_subject_en'] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
-                                                    <?= $_data[$key]['s_subject_en'] ?></a> </h1>
+                                                <a title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
+                                                    <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?></a> </h1>
 
                                             <p class="uk-article-lead">
                                                 <?= $_data[$key]['d_date'] ?></p>
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_en'] ?>">
+                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>">
                                                     <div class="main">
-                                                        <?php
-                                                        $_data_pic = $controller->data_pic($_data[$key]['s_seq']);
-                                                        foreach ($_data_pic as $key => $value) {
-                                                            ?>
-                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="" />
-                                                        <?php } ?>
+
+                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>" />
+
                                                     </div>
 
                                                 </a> </div>
 
-                                            <?= $_data[$key]['s_subject_en'] ?>
+                                            <?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
-                                                <!--
-                                                 <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-count="none" data-lang="en_GB">Tweet</a></div>
-                                                 <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
-                                                 <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/biotec-italia-awarded-at-world-of-beauty-in-prague" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
-                                                -->
+
                                                 <?php
-                                                $link = " http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
-                                                echo $social->twitter_Share_button($_data[$key]['s_subject_en']);
+                                                $link = "http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
+                                                echo $social->twitter_Share_button($link,$_data[$key]['s_subject_'.$_SESSION["main_lan"]]);
                                                 echo $social->googlePlus_Share_button($link);
                                                 echo $social->facebook_like_button($link, FALSE);
                                                 ?>
@@ -253,7 +256,7 @@ include './service/newsService.php';
                                                 <ul class="ul-readmore">
 
                                                     <li class="li-linkitem">
-                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">Read More >></a>
+                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?=$_SESSION["_readmore"]?> >></a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -277,10 +280,10 @@ include './service/newsService.php';
                                     if (!$first) {
                                         $minus = $page - 1;
                                         echo "<li>";
-                                        echo " <a href='news_product.php?page=1'>First</a>";
+                                        echo " <a href='news.php?page=1'>First</a>";
                                         echo "</li>";
                                         echo "<li>";
-                                        echo "<a href='news_product.php?page=$minus'><<</a>";
+                                        echo "<a href='news.php?page=$minus'><<</a>";
                                         echo "</li>";
                                     }
 
@@ -293,7 +296,7 @@ include './service/newsService.php';
 
                                         if ($active == '') {
                                             echo "<li>";
-                                            echo "<a href='news_product.php?page=$i'>$i</a>";
+                                            echo "<a href='news.php?page=$i'>$i</a>";
                                             echo "</li>";
                                         } else {
                                             echo "<li class='$active '>";
@@ -311,10 +314,10 @@ include './service/newsService.php';
                                     if (!$last) {
                                         $plus = $page + 1;
                                         echo "<li>";
-                                        echo "<a href='news_product.php?page=$plus'>>></a>";
+                                        echo "<a href='news.php?page=$plus'>>></a>";
                                         echo "</li>";
                                         echo "<li>";
-                                        echo " <a href='news_product.php?page=$rel'>Last</a>";
+                                        echo " <a href='news.php?page=$rel'>Last</a>";
                                         echo "</li>";
                                     }
                                 }

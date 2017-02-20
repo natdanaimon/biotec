@@ -8,6 +8,7 @@ include './content/header.php';
 //slidePage("press");
 //อันนี้ที่ใช้ controller ของ admin เพราะมันสามารถใช้งานร่วมกันได้
 include './controller/newsController.php';
+include './manage/bio/common/social.php';
 include './service/newsService.php';
 ?>
 
@@ -91,6 +92,9 @@ include './service/newsService.php';
         display: block;
         float: left;
     }
+    .sfondo-grigio{
+        padding: 0px 0;
+    }
     .li-linkitem{
         margin-top: 0px;
         background-color: #ccb26f;
@@ -103,6 +107,7 @@ include './service/newsService.php';
         font-size: 20px;
         line-height: 24px;
         color: #ccb26f;
+        padding-top: 25px;
     }
     @media (max-width: 767px)
 </style>
@@ -128,6 +133,7 @@ include './service/newsService.php';
                                         <?php
                                         $id = $_GET["s_id"];
                                         $util = new Utility();
+                                        $social = new social();
                                         $controller = new newsController();
                                         $_data = $controller->dataTable_sel($id);
 
@@ -150,7 +156,7 @@ include './service/newsService.php';
                                                    title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" data-spotlight="on">
                                                     <img src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" 
                                                          width="400" height="400" alt="" /></a>	
-                                       
+
                                             </div>
 
 
@@ -160,9 +166,12 @@ include './service/newsService.php';
 
                                             <div class="uk-margin">
                                                 <div class="yoo-zoo socialbuttons clearfix">
-                                                    <div><a href="//twitter.com/share" class="twitter-share-button" data-url="http://www.biotecitalia.com/en/news/item/perdere-una-taglia-in-due-sedute-cryoliposculpt" data-count="none" data-lang="en_GB">Tweet</a></div>
-                                                    <div><div class="g-plusone" data-href="http://www.biotecitalia.com/en/news/item/perdere-una-taglia-in-due-sedute-cryoliposculpt" data-size="medium" data-annotation="none" data-lang="en_GB"></div></div>
-                                                    <div><div class="fb-like" data-href="http://www.biotecitalia.com/en/news/item/perdere-una-taglia-in-due-sedute-cryoliposculpt" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light"></div></div>
+                                                    <?php
+                                                    $link = "http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
+                                                    echo $social->twitter_Share_button($link, $_data[$key]['s_subject_' . $_SESSION["main_lan"]]);
+                                                    echo $social->googlePlus_Share_button($link);
+                                                    echo $social->facebook_like_button($link, FALSE);
+                                                    ?>
                                                 </div>
                                                 <?= $_data[$key]['s_detail_en'] ?>
                                             </div>
@@ -184,16 +193,17 @@ include './service/newsService.php';
 
     </div>	
 </div>
-  <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css">
-  <script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
-  <script src="media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
-  <script>
-  	jQuery(function($) {
-        $('[data-spotlight]').spotlight({
-            "duration": 300
-        });
-    });
-  </script>
+<link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css">
+<script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+<script src="media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
+<script>
+      jQuery(function ($) {
+          $('[data-spotlight]').spotlight({
+              "duration": 300
+          });
+      }
+      );
+</script>
 
 <?php
 include './content/footer.php';
