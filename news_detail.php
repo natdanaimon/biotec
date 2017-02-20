@@ -144,13 +144,13 @@ include './service/newsService.php';
 
 
 
-                                                 <?php
-                                                 $_data_pic = $controller->data_pic($_data[$key]['s_seq']);
-                                                 foreach ($_data_pic as $key => $value) {
-                                                 ?>
-                                                <a href="/cache/com_zoo/images/fat_freezing_dc446377189941ea8fd7b65e9b74cb39.jpg" data-lightbox="group:4aad8bb8-18ae-4807-9fa4-7f67e6710c87-589c9c39e739f;" title="fat_freezing" data-spotlight="on">
-                                                    <img src="./manage/bio/controller/file/news/<?= $_data_pic[$key]['s_path_img'] ?>" width="400" height="400" alt="" /></a>	
-                                                 <?php } ?>
+
+                                                <a href="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>"   
+                                                   data-lightbox="group:4aad8bb8-18ae-4807-9fa4-7f67e6710c87-589c9c39e739f;" 
+                                                   title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" data-spotlight="on">
+                                                    <img src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" 
+                                                         width="400" height="400" alt="" /></a>	
+                                       
                                             </div>
 
 
@@ -184,7 +184,16 @@ include './service/newsService.php';
 
     </div>	
 </div>
-
+  <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css">
+  <script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+  <script src="media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
+  <script>
+  	jQuery(function($) {
+        $('[data-spotlight]').spotlight({
+            "duration": 300
+        });
+    });
+  </script>
 
 <?php
 include './content/footer.php';
