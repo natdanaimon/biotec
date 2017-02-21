@@ -271,7 +271,7 @@ include './service/newsService.php';
                                                 <ul class="ul-readmore">
 
                                                     <li class="li-linkitem">
-                                                        <a href="news_detail.php?&s_id=<?= $_data[$key]['s_seq'] ?>"><?= $_SESSION["_readmore"] ?> >></a>
+                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?= $_SESSION["_readmore"] ?> >></a>
                                                     </li>
                                                 </ul>
                                             </div>
