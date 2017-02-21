@@ -82,7 +82,6 @@
                         </a>
                         <ul class="nav child_menu " style="<?= $_SESSION["style4"] ?>">
                             <li class="<?= $_SESSION["sm3"] ?>"><a href="newsletter.php"><?= $_SESSION["newsletter"] ?></a></li>
-                            <li><a href="news.php"><?= $_SESSION["news"] ?></a></li>
                             <li><a href="news_magazine.php"><?= $_SESSION["magazine"] ?></a></li>
                             <li><a href="news_event.php"><?= $_SESSION["events"] ?></a></li>
                             <li><a href="news_product.php"><?= $_SESSION["products"] ?></a></li>
@@ -139,7 +138,7 @@
 
 
 
-            <div class="menu_section">
+<!--            <div class="menu_section">
                 <h3>&nbsp;
                     Source Example
                 </h3>
@@ -289,7 +288,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div>-->
 
         </div>
 
