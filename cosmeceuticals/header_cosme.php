@@ -42,7 +42,7 @@ window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpReque
 <style data-file="bootstrap.css"></style>
 <!--<style data-file="theme.css"></style>-->
 <link id="data-uikit-theme" rel="stylesheet" href="../../../templates/template.css?v=1">
-<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">
+<!--<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">-->
 
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>

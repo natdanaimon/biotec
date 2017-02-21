@@ -11,8 +11,8 @@ include '../../header_cosme.php';
 include '../../../service/cosmeService.php';
 include '../../../controller/cosmeController.php';
 
-if($_GET['id'] == ''){
-	$_GET['id'] = 1;
+if ($_GET['id'] == '') {
+    $_GET['id'] = 1;
 }
 $_GET['id'] = 7;
 
@@ -34,108 +34,68 @@ $resultCount = $util->countObject($_data);
 
 
 </div>
-<script>
-    function ck() {
-        //alert(1);
 
-        var warp = document.getElementById("lightbox-wrap");
-        var att = document.createAttribute("id");
-        att.value = 'lightbox-wrap2';
-        warp.setAttributeNode(att);
-    }
-
-//    function setAttr() {
-//        var warp = document.getElementById("lightbox-wrap");
-//        var att = document.createAttribute("onclick");
-//        att.value = "abc();";
-//        warp.setAttributeNode(att);
-//    }
-//    document.getElementsByTagName("lightbox-wrap")[0].removeAttribute("style"); 
-
-//    document.getElementById("lightbox-right").style.display.none;
-//            .{
-//        display: none;
-//    }
-//    .lightbox-right{
-//        display: none;
-//    }
-</script>
-<style>
-    #lightbox-wrap2 {
-       display: none;
-        position: fixed;
-        top: 5% !important; 
-        left: 0;
-        padding: 20px;
-        z-index: 1101;
-        outline: none;
-    }
-</style>
 
 <div class="tm-block ">
-			<div class="tm-middle uk-grid" data-uk-grid-match data-uk-grid-margin>
+    <div class="tm-middle uk-grid" data-uk-grid-match data-uk-grid-margin>
 
-								<div class="tm-main uk-width-medium-1-1">
-
-					
-										<main class="tm-content">
-
-						
-
-<div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-herbs">
+        <div class="tm-main uk-width-medium-1-1">
 
 
-		<div class="uk-container uk-container-center">
-
-		
-								<div class="uk-clearfix">
-<?php
-foreach ($_data_type as $key => $value) {
-
-?>                                    								
-								
-				<div class="immagine-categoria">
-				<img class="uk-align-medium-left" src="../../../manage/bio/uploads/cosme_type/<?= $_data_type[$key]['main_img']; ?>" title="<?= $_SESSION["herbs"] ?>" alt="<?= $_SESSION["herbs"] ?>" width="600" height="400"/>
-				</div>
-				<div class="immagine-logo-categoria"><img class="uk-align-medium-left" src="../../../manage/bio/uploads/cosme_type/<?= $_data_type[$key]['main_logo']; ?>" title="<?= $_SESSION["herbs"] ?>" alt="<?= $_SESSION["herbs"] ?>" width="600" height="400"/></div>
-<?php } ?>				
-											</div>
-			
-					
-<div class="contorno-titolo"><h1 class="uk-text-left"><?= $_SESSION["herbs"] ?></h1></div>
-			
-
-
-		
-
-
-				</div>
-		</div>
-
-		<div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-herbs seconda-categoria">
-		<div class="sfondo-grigio titolo-basso">
-		<div class="uk-container uk-container-center spazio-alto">
-
-		
-
-<div class="uk-grid" data-uk-grid-margin data-uk-grid-match="{target:'.uk-panel'}">
-<?php
-function truncate($string,$length=100,$append="&hellip;") {
-  $string = trim($string);
-
-  if(strlen($string) > $length) {
-    $string = wordwrap($string, $length);
-    $string = explode("\n", $string, 2);
-    $string = $string[0] . $append;
-  }
-
-  return $string;
-}
+            <main class="tm-content">
 
 
 
-                                
-                                
+                <div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-herbs">
+
+
+                    <div class="uk-container uk-container-center">
+
+
+                        <div class="uk-clearfix">
+                            <?php
+                            foreach ($_data_type as $key => $value) {
+                                ?>                                    								
+
+                                <div class="immagine-categoria">
+                                    <img class="uk-align-medium-left" src="../../../manage/bio/uploads/cosme_type/<?= $_data_type[$key]['main_img']; ?>" title="<?= $_SESSION["herbs"] ?>" alt="<?= $_SESSION["herbs"] ?>" width="600" height="400"/>
+                                </div>
+                                <div class="immagine-logo-categoria"><img class="uk-align-medium-left" src="../../../manage/bio/uploads/cosme_type/<?= $_data_type[$key]['main_logo']; ?>" title="<?= $_SESSION["herbs"] ?>" alt="<?= $_SESSION["herbs"] ?>" width="600" height="400"/></div>
+                            <?php } ?>				
+                        </div>
+
+
+                        <div class="contorno-titolo"><h1 class="uk-text-left"><?= $_SESSION["herbs"] ?></h1></div>
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-herbs seconda-categoria">
+                    <div class="sfondo-grigio titolo-basso">
+                        <div class="uk-container uk-container-center spazio-alto">
+
+
+
+                            <div class="uk-grid" data-uk-grid-margin data-uk-grid-match="{target:'.uk-panel'}">
+                                <?php
+
+                                function truncate($string, $length = 100, $append = "&hellip;") {
+                                    $string = trim($string);
+
+                                    if (strlen($string) > $length) {
+                                        $string = wordwrap($string, $length);
+                                        $string = explode("\n", $string, 2);
+                                        $string = $string[0] . $append;
+                                    }
+
+                                    return $string;
+                                }
+
                                 // for test 
                                 // $resultCount = 50;
                                 $rel = $resultCount / $limitPaging;
@@ -157,117 +117,124 @@ function truncate($string,$length=100,$append="&hellip;") {
                                     }
                                     $abc = "a";
                                     ?>
-<div class="uk-width-medium-1-2">
-<div class="uk-panel uk-panel-box">
-	
-<div class="uk-thumbnail uk-align-medium-left">
-	 
+                                    <div class="uk-width-medium-1-2">
+                                        <div class="uk-panel uk-panel-box">
 
-		
-			
-		
-	<p class="logo">
-	<a href="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" data-lightbox="group:a2330663-5d5e-4b36-a8cd-ad55f2ac27bb-580af831f0edd<?= $_data[$key]['id']; ?>;" title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" >
-	<img src="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" width="170" height="170" alt="<?= $_data[$key]['img']; ?>" />
-	</a>
-	</p>	
- </div>
+                                            <div class="uk-thumbnail uk-align-medium-left">
 
-<h3 class="uk-margin-remove">
-	 <a title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?></a> </h3>
 
-	 <p>
-	 <?=truncate($_data[$key]['detail_' . $_SESSION["main_lan"]],100);?> <a href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a> 
-	  </p>
- 
 
-</div>
-</div>                                    
 
- 
+
+                                                <p class="logo">
+                                                    <a href="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" data-lightbox="group:a2330663-5d5e-4b36-a8cd-ad55f2ac27bb-580af831f0edd<?= $_data[$key]['id']; ?>;" title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" >
+                                                        <img src="../../../manage/bio/uploads/cosme_item/<?= $_data[$key]['img']; ?>" width="170" height="170" alt="<?= $_data[$key]['img']; ?>" />
+                                                    </a>
+                                                </p>	
+                                            </div>
+
+                                            <h3 class="uk-margin-remove">
+                                                <a title="<?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?>" href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_data[$key]['title_' . $_SESSION["main_lan"]]; ?></a> </h3>
+
+                                            <p>
+                                                <?= truncate($_data[$key]['detail_' . $_SESSION["main_lan"]], 100); ?> <a href="item/?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a> 
+                                            </p>
+
+
+                                        </div>
+                                    </div>                                    
+
+
                                     <?php
                                 }
                                 ?>
 
 
-</div>
-<div class="uk-grid" data-uk-grid-margin data-uk-grid-match="{target:'.uk-panel'}">
-
-</div>
+                            </div>
+                           
 
 
-<ul class="uk-pagination">
+                            <ul class="uk-pagination">
 
                                 <?php
-                                // << FIRST
-                                if($_data!=NULL){
-                                $first = ($page == 1 ? TRUE : FALSE);
-                                $last = FALSE;
-                                if (!$first) {
-                                    $minus = $page - 1;
-                                    echo "<li>";
-                                    echo " <a href='?page=1'>First</a>";
-                                    echo "</li>";
-                                    echo "<li>";
-                                    echo "<a href='?page=$minus'><<</a>";
-                                    echo "</li>";
-                                }
-
-                                //for start
-                                for ($i = 1; $i <= $rel; $i++) {
-                                    $active = ($page == $i ? "uk-active" : '');
-                                    if ($rel != 1) {
-                                        
-                                    }
-
-                                    if ($active == '') {
+// << FIRST
+                                if ($_data != NULL) {
+                                    $first = ($page == 1 ? TRUE : FALSE);
+                                    $last = FALSE;
+                                    if (!$first) {
+                                        $minus = $page - 1;
                                         echo "<li>";
-                                        echo "<a href='?page=$i'>$i</a>";
+                                        echo " <a href='?page=1'>First</a>";
                                         echo "</li>";
-                                    } else {
-                                        echo "<li class='$active '>";
-                                        echo " <span>$i</span>";
+                                        echo "<li>";
+                                        echo "<a href='?page=$minus'><<</a>";
                                         echo "</li>";
                                     }
-                                    if ($rel == $page) {
-                                        $last = TRUE;
+
+                                    //for start
+                                    for ($i = 1; $i <= $rel; $i++) {
+                                        $active = ($page == $i ? "uk-active" : '');
+                                        if ($rel != 1) {
+                                            
+                                        }
+
+                                        if ($active == '') {
+                                            echo "<li>";
+                                            echo "<a href='?page=$i'>$i</a>";
+                                            echo "</li>";
+                                        } else {
+                                            echo "<li class='$active '>";
+                                            echo " <span>$i</span>";
+                                            echo "</li>";
+                                        }
+                                        if ($rel == $page) {
+                                            $last = TRUE;
+                                        }
                                     }
-                                }
-                                //for end
-                                //
+                                    //for end
+                                    //
                                  //
                                 //  >>  LAST
-                                if (!$last) {
-                                    $plus = $page + 1;
-                                    echo "<li>";
-                                    echo "<a href='?page=$plus'>>></a>";
-                                    echo "</li>";
-                                    echo "<li>";
-                                    echo " <a href='?page=$rel'>Last</a>";
-                                    echo "</li>";
-                                }
+                                    if (!$last) {
+                                        $plus = $page + 1;
+                                        echo "<li>";
+                                        echo "<a href='?page=$plus'>>></a>";
+                                        echo "</li>";
+                                        echo "<li>";
+                                        echo " <a href='?page=$rel'>Last</a>";
+                                        echo "</li>";
+                                    }
                                 }
                                 ?>
 
                             </ul>
 
-	</div>
-	</div>
+                        </div>
+                    </div>
 
+                </div>
+            </main>
+
+
+
+        </div>
+
+
+    </div>	
 </div>
-					</main>
-					
-
-					
-				</div>
-				
-	            	            	            
-			</div>	
-		</div>
-
- 
 
 
+
+<link rel="stylesheet" href="../../../bower_components/lightbox2/dist/css/lightbox.min.css">
+<script src="../../../bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+<script src="../../../media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
+<script>
+    jQuery(function ($) {
+        $('[data-spotlight]').spotlight({
+            "duration": 300
+        });
+    });
+</script>
 <?php
 include '../../footer_cosme.php';
 ?>
