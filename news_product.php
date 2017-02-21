@@ -134,7 +134,7 @@ include './service/newsService.php';
         top:50px;
     }
     .uk-article {
-            padding-top: 80px;
+        padding-top: 5px;
     }
     /* img{
          box-sizing: border-box;
@@ -166,14 +166,17 @@ include './service/newsService.php';
 
 
                             <div class="contorno-titolo">
-                                <h1 class="bar_news"><?=$_SESSION["products"]?></h1>
+                                <h1 class="bar_news"><?= $_SESSION["products"] ?></h1>
 
 
 
                             </div>
 
 
-                            <div class="uk-grid data-uk-grid-margin" style=" margin: -60px 0 0 -25px;padding: 0px;padding-left: 20px;
+                            <div class="uk-grid data-uk-grid-margin" 
+                                 style="margin: -60px 0px 50px 2px;
+                                 padding: 100px 0px 10px 0;
+                                 padding-left: 5px;
                                  list-style: none;">
                                  <?php
                                  $util = new Utility();
@@ -182,10 +185,10 @@ include './service/newsService.php';
                                  $controller = new newsController();
 
 
-                                
-                                
-                                     $_data = $controller->dataTable_type("P");
-    
+
+
+                                 $_data = $controller->dataTable_type("P");
+
                                  $util->setLimitPaging(14);
                                  $limitPaging = $util->getLimitPaging();
 
@@ -224,7 +227,7 @@ include './service/newsService.php';
 
 
                                             <h1 class="uk-article-title">
-                                                <a title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
+                                                <a title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" href="news_detail.php?flg=1&s_id=<?= $_data[$key]['s_seq'] ?>">
                                                     <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?></a> </h1>
 
                                             <p class="uk-article-lead">
@@ -232,21 +235,21 @@ include './service/newsService.php';
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>">
+                                                <a href="news_detail.php?flg=1&s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>">
                                                     <div class="main">
 
-                                                            <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>" />
+                                                        <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" />
 
                                                     </div>
 
                                                 </a> </div>
 
-                                            <?= $_data[$key]['s_subject_'.$_SESSION["main_lan"]] ?>
+                                            <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>
                                             <div class="yoo-zoo socialbuttons clearfix">
 
                                                 <?php
                                                 $link = "http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
-                                                echo $social->twitter_Share_button($link,$_data[$key]['s_subject_'.$_SESSION["main_lan"]]);
+                                                echo $social->twitter_Share_button($link, $_data[$key]['s_subject_' . $_SESSION["main_lan"]]);
                                                 echo $social->googlePlus_Share_button($link);
                                                 echo $social->facebook_like_button($link, FALSE);
                                                 ?>
@@ -256,7 +259,7 @@ include './service/newsService.php';
                                                 <ul class="ul-readmore">
 
                                                     <li class="li-linkitem">
-                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?=$_SESSION["_readmore"]?> >></a>
+                                                        <a href="news_detail.php?flg=1&s_id=<?= $_data[$key]['s_seq'] ?>"><?= $_SESSION["_readmore"] ?> >></a>
                                                     </li>
                                                 </ul>
                                             </div>
