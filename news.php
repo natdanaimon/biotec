@@ -247,7 +247,7 @@ include './service/newsService.php';
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?fs_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>">
+                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>">
                                                     <div class="main">
 
                                                         <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" />
