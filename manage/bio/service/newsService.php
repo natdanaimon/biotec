@@ -44,7 +44,6 @@ class newsService {
 
     function add_img_news($seq, $path) {
         require_once('../common/ConnectDB.php');
-        require_once('./common/ConnectDB.php');
         $db = new ConnectDB();
 
         $db->conn();
