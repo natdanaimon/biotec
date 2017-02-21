@@ -3,11 +3,15 @@
 function slidePage($page) {
     include './controller/slideController.php';
     include './service/slideService.php';
+
+    $utilSlide = new Utility();
     $slide = new slideController();
     if ($page == 'home') {
         $tmpPage = "index";
         $_data = $slide->dataTable($tmpPage);
+
         if ($_data != NULL) {
+            $_SlideItem = $utilSlide->countObject($_data);
             ?>
             <div id="linea-banner">
                 <div id="sfondo-banner">
@@ -22,12 +26,14 @@ function slidePage($page) {
                                     <?php } ?>
                                 </ul>
 
-                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
-                                    <img src="images/slideshow/previous.png">
-                                </a>
-                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
-                                    <img src="images/slideshow/next.png">
-                                </a>
+                                <?php if ($_SlideItem > 1) { ?>
+                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                                        <img src="images/slideshow/previous.png">
+                                    </a>
+                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                                        <img src="images/slideshow/next.png">
+                                    </a>
+                                <?php } ?>
 
                             </div>
                         </div>
@@ -40,6 +46,7 @@ function slidePage($page) {
         $tmpPage = "about";
         $_data = $slide->dataTable($tmpPage);
         if ($_data != NULL) {
+            $_SlideItem = $utilSlide->countObject($_data);
             ?>
             <div id="linea-banner">
                 <div id="sfondo-banner">
@@ -54,12 +61,14 @@ function slidePage($page) {
                                     <?php } ?>
 
                                 </ul>
-                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
-                                    <img src="images/slideshow/previous.png">
-                                </a>
-                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
-                                    <img src="images/slideshow/next.png">
-                                </a>
+                                <?php if ($_SlideItem > 1) { ?>
+                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                                        <img src="images/slideshow/previous.png">
+                                    </a>
+                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                                        <img src="images/slideshow/next.png">
+                                    </a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -72,6 +81,7 @@ function slidePage($page) {
         $tmpPage = "contacts";
         $_data = $slide->dataTable($tmpPage);
         if ($_data != NULL) {
+            $_SlideItem = $utilSlide->countObject($_data);
             ?>
             <div id="linea-banner">
                 <div id="sfondo-banner">
@@ -86,12 +96,14 @@ function slidePage($page) {
                                     <?php } ?>
 
                                 </ul>
-                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
-                                    <img src="images/slideshow/previous.png">
-                                </a>
-                                <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
-                                    <img src="images/slideshow/next.png">
-                                </a>
+                                <?php if ($_SlideItem > 1) { ?>
+                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                                        <img src="images/slideshow/previous.png">
+                                    </a>
+                                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                                        <img src="images/slideshow/next.png">
+                                    </a>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

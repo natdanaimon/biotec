@@ -5,62 +5,73 @@ include '../../manage/bio/common/FunctionCheckActive.php';
 ACTIVEPAGE_SHOW(4);
 $fixheader = "renlive";
 include '../header_renlive.php';
-//include './content/slide.php';
-//slidePage("press");
-//อันนี้ที่ใช้ controller ของ admin เพราะมันสามารถใช้งานร่วมกันได้
 include '../../service/cosmeService.php';
 include '../../controller/cosmeController.php';
 
-if($_GET['id'] == ''){
-	$_GET['id'] = 1;
+if ($_GET['id'] == '') {
+    $_GET['id'] = 1;
 }
 $_GET['id'] = 1;
 ?>
 
 
 
-<div class="uk-container uk-container-center posizione-fissa">
 
+
+<script src="../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
+<link id="data-uikit-theme" rel="stylesheet" href="../../templates/warp/vendor/uikit/css/uikit.docs.min.css">
+<script src="../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
+<script src="../../templates/warp/vendor/uikit/js/components/slideshow.js"></script>
+<script src="../../templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
+
+<?php
+include '../../controller/slideController.php';
+include '../../service/slideService.php';
+
+$utilSlide = new Utility();
+$slide = new slideController();
+$_data = $slide->dataTable("renlive");
+$fxhight_div = ($_data != NULL ? 40 : 150);
+?>
+
+
+
+<div style="height:<?= $fxhight_div ?>px">
 
 </div>
-<script>
-    function ck() {
-        //alert(1);
+<?php
+if ($_data != NULL) {
+    $_SlideItem = $utilSlide->countObject($_data);
+    ?>
+    ?>
+    <div id="linea-banner">
 
-        var warp = document.getElementById("lightbox-wrap");
-        var att = document.createAttribute("id");
-        att.value = 'lightbox-wrap2';
-        warp.setAttributeNode(att);
-    }
+        <div class="biotec-wrapper" style="height:540px">
+            <div class="uk-container uk-container-center">
 
-//    function setAttr() {
-//        var warp = document.getElementById("lightbox-wrap");
-//        var att = document.createAttribute("onclick");
-//        att.value = "abc();";
-//        warp.setAttributeNode(att);
-//    }
-//    document.getElementsByTagName("lightbox-wrap")[0].removeAttribute("style"); 
 
-//    document.getElementById("lightbox-right").style.display.none;
-//            .{
-//        display: none;
-//    }
-//    .lightbox-right{
-//        display: none;
-//    }
-</script>
-<style>
-    #lightbox-wrap2 {
-       display: none;
-        position: fixed;
-        top: 5% !important; 
-        left: 0;
-        padding: 20px;
-        z-index: 1101;
-        outline: none;
-    }
-</style>
+                <div class="uk-slidenav-position" data-uk-slideshow>
+                    <ul class="uk-slideshow" data-uk-slideshow="{autoplay:true}">
+                        <?php foreach ($_data as $key => $value) { ?>
+                            <li><img src="../../images/slideshow/cosme/<?= $_data[$key]['s_img'] ?>" width="1400" height="451" alt="renlive slide"></li>
+                        <?php } ?>
+                       
+                    </ul>
 
+                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous" style="color: rgba(255,255,255,0.4)">
+                        <img src="../../images/slideshow/previous.png">
+                    </a>
+                    <a href="#" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next" style="color: rgba(255,255,255,0.4)">
+                        <img src="../../images/slideshow/next.png">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<?php } ?>
 
 
 <div class="tm-block ">
@@ -69,31 +80,34 @@ $_GET['id'] = 1;
         <div class="tm-main uk-width-medium-1-1">
 
 
- 
 
 
-<main class="tm-content">
 
-						
-
-<div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-renlive">
+            <main class="tm-content">
 
 
-		<div class="uk-container uk-container-center">
 
-		
-<div class="contorno-titolo"><h1 class="uk-text-left">
-<?= $_SESSION["renlive"] ?></h1></div>
-			
+                <div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-renlive">
 
 
-		
+                    <div class="uk-container uk-container-center">
 
 
-		
 
-<div class="uk-grid uk-grid-divider" data-uk-grid-margin data-uk-grid-match>
-<?php
+
+                    </div>
+                </div>
+
+                <div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-renlive seconda-categoria">
+                    <div class="sfondo-grigio titolo-basso">
+                        <div class="uk-container uk-container-center">
+                            <div class="contorno-titolo">
+                                <h1 class="uk-text-left">
+                                    <?= $_SESSION["renlive"] ?>
+                                </h1>
+                            </div>
+                            <div class="uk-grid uk-grid-divider" data-uk-grid-margin data-uk-grid-match>
+                                <?php
                                 $util = new Utility();
                                 $controller = new cosmeController();
                                 $_data = $controller->dataTable_type($_GET['id']);
@@ -119,56 +133,44 @@ $_GET['id'] = 1;
                                     if ($util->ContinueObject($page, $key + 1)) {
                                         continue;
                                     }
-                        
                                     ?>
- <div class="uk-width-medium-1-3">
+                                    <div class="uk-width-medium-1-3">
 
 
-<div class="uk-panel-box">
-	
-	
-	
-		<div class="uk-margin">
-		<a href="<?= $_data[$key]['cosme_folder']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>">
-			<img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_logo']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" alt="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" width="480" height="113"/>
-		</a>
-	</div>
-	
-		<div class="uk-margin">
-		<a href="<?= $_data[$key]['cosme_folder']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>">
-			<img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_img']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" alt="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" width="1152" height="768"/>
-		</a>
-	</div>
-	
-	<div class="element-itemlink"><a href="<?= $_data[$key]['cosme_folder']; ?>"><?=$_SESSION["btn_show_prd"] ?></a></div>
+                                        <div class="uk-panel-box">
 
-	</div>
 
-</div>
- 
+
+                                            <div class="uk-margin">
+                                                <a href="<?= $_data[$key]['cosme_folder']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>">
+                                                    <img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_logo']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" alt="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" width="480" height="113"/>
+                                                </a>
+                                            </div>
+
+                                            <div class="uk-margin">
+                                                <a href="<?= $_data[$key]['cosme_folder']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>">
+                                                    <img src="../../manage/bio/uploads/cosme_type/<?= $_data[$key]['main_img']; ?>" title="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" alt="<?= $_data[$key]['cosme_' . $_SESSION["main_lan"]]; ?>" width="1152" height="768"/>
+                                                </a>
+                                            </div>
+
+                                            <div class="element-itemlink"><a href="<?= $_data[$key]['cosme_folder']; ?>"><?= $_SESSION["btn_show_prd"] ?></a></div>
+
+                                        </div>
+
+                                    </div>
+
                                     <?php
                                 }
                                 ?>
 
 
-</div>
-<hr class="uk-grid-divider">
-<div class="uk-grid uk-grid-divider" data-uk-grid-margin data-uk-grid-match>
-	
-</div>
-</div>
-		</div>
+                            </div>
 
-		<div class="yoo-zoo cosmeceutici-uikit cosmeceutici-uikit-renlive seconda-categoria">
-		<div class="sfondo-grigio titolo-basso">
-		<div class="uk-container uk-container-center spazio-alto">
+                        </div>
+                    </div>
 
-		
-	</div>
-	</div>
-
-</div>
-					</main>
+                </div>
+            </main>
 
         </div>
 
