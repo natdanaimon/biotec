@@ -250,7 +250,7 @@ include './service/newsService.php';
                                                 <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>">
                                                     <div class="main">
 
-                                                        <img class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" />
+                                                        <img Style="margin-top: 0% !important; height: inherit !important;" class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" />
 
                                                     </div>
 
