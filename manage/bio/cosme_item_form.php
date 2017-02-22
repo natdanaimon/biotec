@@ -103,41 +103,41 @@ if ($_GET[id]) {
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img">
                                                     <?= $_SESSION["cosme_image"] ?>
-                                                     
+
                                                 </label>
-                                                
-<!--                                                
-                                                <table align="left" id="tb_img" style="display: none">
-                                                    <tr>
-                                                        <td align="left">
-                                                            <br />
-                                                            <span id="show_image"></span>
-                                                        </td>
-                                                    </tr>
-                                                </table>                                                        
+
+                                                <!--                                                
+                                                                                                <table align="left" id="tb_img" style="display: none">
+                                                                                                    <tr>
+                                                                                                        <td align="left">
+                                                                                                            <br />
+                                                                                                            <span id="show_image"></span>
+                                                                                                        </td>
+                                                                                                    </tr>
+                                                                                                </table>                                                        
+                                                                                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                                                                                    <input type="file" id="img" name="img"   class="form-control col-md-7 col-xs-12">
+                                                                                                </div>
+                                                -->                                               
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="file" id="img" name="img"   class="form-control col-md-7 col-xs-12">
-                                                </div>
- -->                                               
- <div class="col-md-12 col-sm-12 col-xs-12">
- 
-<img src="images/user.png" id="show_img" width="200" />
-<br />                                                        
-<br />                                                        
-<div class="fileContainer"  >
-					<input type="file" id="img" name="img"  onchange="readURL(this,'show_img');"  />
- 
-					<label for="show_img" class="btn btn-info">
-					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
-					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
-					</svg> 
-					<span>Choose a file&hellip;</span>
-					</label>
-				</div>                                                         
-                                                            
-                                                        </div>                                                
+
+                                                    <img src="images/user.png" id="show_img" width="200" />
+                                                    <br />                                                        
+                                                    <br />                                                        
+                                                    <div class="fileContainer"  >
+                                                        <input type="file" id="img" name="img"  onchange="readURL(this, 'show_img');"  />
+
+                                                        <label for="show_img" class="btn btn-info">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+                                                            <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+                                                            </svg> 
+                                                            <span>Choose a file&hellip;</span>
+                                                        </label>
+                                                    </div>                                                         
+
+                                                </div>                                                
                                             </div>
-                                             
+
 
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_th">
@@ -205,7 +205,7 @@ if ($_GET[id]) {
 
 
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <a href="cosme_item.php?id=<?=$_GET[type]?>">
+                                        <a href="cosme_item.php?id=<?= $_GET[type] ?>">
                                             <button type="button" class="btn btn-primary"><?= $_SESSION["btn_cancel"] ?>
                                             </button>
                                         </a>
@@ -268,106 +268,106 @@ if ($_GET[id]) {
             <script src="../build/js/custom.min.js"></script>
 
             <script>
-                $(document).ready(function () {
-                    unloading();
-                });
+                                                            $(document).ready(function () {
+                                                                unloading();
+                                                            });
 
 
 
-                $("#form_add").submit(function (e) {
-                    var detail_th = CKEDITOR.instances['detail_th'].getData();
-                    $('#detail_th').val(detail_th);
-                    var detail_en = CKEDITOR.instances['detail_en'].getData();
-                    $('#detail_en').val(detail_en);
-
-
-
-
-
-                    //pressAdd();
-                    e.preventDefault();
-                    var formData = new FormData($(this)[0]);
+                                                            $("#form_add").submit(function (e) {
+                                                                var detail_th = CKEDITOR.instances['detail_th'].getData();
+                                                                $('#detail_th').val(detail_th);
+                                                                var detail_en = CKEDITOR.instances['detail_en'].getData();
+                                                                $('#detail_en').val(detail_en);
 
 
 
 
 
-                    var data_form = $(this).serialize();
-
-                    $.ajax({
-                        type: 'POST',
-                        url: 'controller/cosmeController.php',
-                        data: formData,
-                        cache: false,
-                        contentType: false,
-                        processData: false,
-                        beforeSend: function ()
-                        {
-                            $('#se-pre-con').fadeIn(100);
-
-                        },
-                        success: function (data) {
-
-                            var res = data.split(",");
-                            //debugger;
-
-                            if (res[0] == "0000") {
-                                var errCode = res[1] + " (" + res[0] + ")  ";
-                                //alert(errCode);
-                                $('#success-code').text(errCode);
-                                $('#success-dialog').modal('show');
-                            } else {
-                                var errCode = res[1] + " (" + res[0] + ")  ";
-                                $('#err-code').text(errCode);
-                                $('#err-dialog').modal('show');
-                            }
-                            $('#se-pre-con').delay(100).fadeOut();
+                                                                //pressAdd();
+                                                                e.preventDefault();
+                                                                var formData = new FormData($(this)[0]);
 
 
-                        },
-                        error: {
-                        }
-
-                    });
-
-                });
-
-                /**
-                 * Start load title
-                 */
-                $.ajax({
-                    type: 'GET',
-                    url: 'controller/cosmeController.php?func=dataTable_title&id=<?= $_GET[type]; ?>',
-                    //data: Jsdata,
-                    beforeSend: function ()
-                    {
-                        //                        $('#se-pre-con').fadeIn(100);
-                    },
-                    success: function (data) {
-                        debugger;
-                        var language = '<?= $_SESSION["lan"] ?>';
-                        var res = JSON.parse(data);
-                        var JsonData = [];
-                        $.each(res, function (i, item) {
-                            var col_subject_th = "";
-                            if (language == 'th') {
-                                $('#title_cosme').html(item.cosme_th);
-                            } else {
-                                $('#title_cosme').html(item.cosme_en);
-                            }
-                            //alert(language);
-
-                        });
 
 
-                    },
-                    error: {
-                    }
 
-                });
-                /**
-                 * End load title
-                 */
+                                                                var data_form = $(this).serialize();
+
+                                                                $.ajax({
+                                                                    type: 'POST',
+                                                                    url: 'controller/cosmeController.php',
+                                                                    data: formData,
+                                                                    cache: false,
+                                                                    contentType: false,
+                                                                    processData: false,
+                                                                    beforeSend: function ()
+                                                                    {
+                                                                        $('#se-pre-con').fadeIn(100);
+
+                                                                    },
+                                                                    success: function (data) {
+
+                                                                        var res = data.split(",");
+                                                                        //debugger;
+
+                                                                        if (res[0] == "0000") {
+                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                            //alert(errCode);
+                                                                            $('#success-code').text(errCode);
+                                                                            $('#success-dialog').modal('show');
+                                                                        } else {
+                                                                            var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                            $('#err-code').text(errCode);
+                                                                            $('#err-dialog').modal('show');
+                                                                        }
+                                                                        $('#se-pre-con').delay(100).fadeOut();
+
+
+                                                                    },
+                                                                    error: {
+                                                                    }
+
+                                                                });
+
+                                                            });
+
+                                                            /**
+                                                             * Start load title
+                                                             */
+                                                            $.ajax({
+                                                                type: 'GET',
+                                                                url: 'controller/cosmeController.php?func=dataTable_title&id=<?= $_GET[type]; ?>',
+                                                                //data: Jsdata,
+                                                                beforeSend: function ()
+                                                                {
+                                                                    //                        $('#se-pre-con').fadeIn(100);
+                                                                },
+                                                                success: function (data) {
+                                                                    debugger;
+                                                                    var language = '<?= $_SESSION["lan"] ?>';
+                                                                    var res = JSON.parse(data);
+                                                                    var JsonData = [];
+                                                                    $.each(res, function (i, item) {
+                                                                        var col_subject_th = "";
+                                                                        if (language == 'th') {
+                                                                            $('#title_cosme').html(item.cosme_th);
+                                                                        } else {
+                                                                            $('#title_cosme').html(item.cosme_en);
+                                                                        }
+                                                                        //alert(language);
+
+                                                                    });
+
+
+                                                                },
+                                                                error: {
+                                                                }
+
+                                                            });
+                                                            /**
+                                                             * End load title
+                                                             */
 
             </script>
 
@@ -402,10 +402,10 @@ if ($_GET[id]) {
 
                                 var show_image = item.img;
                                 if (show_image) {
-                                     
-                                    $('#show_img').attr("src","uploads/cosme_item/"+show_image+"?v=<?=time();?>");
+
+                                    $('#show_img').attr("src", "uploads/cosme_item/" + show_image + "?v=<?= time(); ?>");
                                 }
-                                 
+
 
                             });
 
@@ -433,6 +433,22 @@ if ($_GET[id]) {
                 $('#success-dialog').modal('hide');
                 $('#image-dialog').modal('hide');
             }
+
+            function closeAlertReload() {
+
+                $('#err-dialog').modal('hide');
+
+                $('#success-dialog').modal('hide');
+
+                $('#image-dialog').modal('hide');
+                $('#detail_th').val("");
+                $('#detail_en').val("");
+                location.reload();
+
+            }
+
+
+
         </script>
         <style>
             #imagePreview {
@@ -482,7 +498,7 @@ if ($_GET[id]) {
         </style>
 
         <div class="modal fade boxSuccess" id="success-dialog"  Style="width: 370px;height: 64px">
-            <span class="close" onclick="closeAlert();">x</span>
+            <span class="close" onclick="closeAlertReload();">x</span>
             <p id="success-code" class="f-white" > </p>  
 
         </div>
@@ -519,34 +535,34 @@ if ($_GET[id]) {
         <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
         <script src="assets/sweetalert/dist/sweetalert.js"></script>
 
-<!-- Input -->
-<script src="assets/inputfile/js/custom-file-input.js"></script>
-<style>
-	.fileContainer {
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-}
+        <!-- Input -->
+        <script src="assets/inputfile/js/custom-file-input.js"></script>
+        <style>
+            .fileContainer {
+                overflow: hidden;
+                position: relative;
+                cursor: pointer;
+            }
 
-.fileContainer [type=file] {
-    cursor: inherit;
-    display: block;
-    font-size: 999px;
-    filter: alpha(opacity=0);
-    min-height: 100%;
-    min-width: 100%;
-    opacity: 0;
-    position: absolute;
-    right: 0;
-    text-align: right;
-    top: 0;
-}
-</style>
-<script>
-function readURL(input,id) {
- 
- document.getElementById(id).src = window.URL.createObjectURL(input.files[0]);
-    }
-</script>
+            .fileContainer [type=file] {
+                cursor: inherit;
+                display: block;
+                font-size: 999px;
+                filter: alpha(opacity=0);
+                min-height: 100%;
+                min-width: 100%;
+                opacity: 0;
+                position: absolute;
+                right: 0;
+                text-align: right;
+                top: 0;
+            }
+        </style>
+        <script>
+            function readURL(input, id) {
+
+                document.getElementById(id).src = window.URL.createObjectURL(input.files[0]);
+            }
+        </script>
     </body>
 </html>
