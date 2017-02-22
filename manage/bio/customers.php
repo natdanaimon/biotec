@@ -202,7 +202,7 @@ ACTIVEPAGES(7);
 
 
                             col_img_preview += '<a href="javascript:previewImage(\'./controller/file/customers/' + item.s_img + '\');">';
-                            col_img_preview += '<img  src="images/icon_img.png"  width="30px" height="30px" />';
+                            col_img_preview += '<img  src="./controller/file/customers/' + item.s_img + '\"  width="50px" height="30px" />';
                             col_img_preview += '</a>';
 
 

@@ -204,7 +204,7 @@ ACTIVEPAGES(5);
 
 
                             col_img_preview += '<a href="javascript:previewImage(\'./controller/file/press/' + item.s_img + '\');">';
-                            col_img_preview += '<img  src="images/icon_img.png"  width="30px" height="30px" />';
+                            col_img_preview += '<img  src="./controller/file/press/' + item.s_img + '\"  width="50px" height="30px" />';
                             col_img_preview += '</a>';
 
                             col_file += '<a href="controller/pressController.php?func=preview&filename=' + item.s_pathfile + '" target="_bank">';
