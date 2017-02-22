@@ -29,6 +29,9 @@ function ACTIVEPAGES($page) {
     $_SESSION["s8"] = "";
     $_SESSION["s9"] = "";
     $_SESSION["s10"] = "";
+    $_SESSION["s11"] = "";
+    $_SESSION["s12"] = "";
+    $_SESSION["s13"] = "";
 
     if ($page == 1) {
         $_SESSION["m1"] = "active";
@@ -85,6 +88,12 @@ function ACTIVEPAGES_SUB($main, $sub) {
     } else if ($main == 4) {
         if ($sub == 1) {
             $_SESSION["sm3"] = "current-page";
+        } else if ($sub == 2) {
+            $_SESSION["s11"] = "current-page";
+        } else if ($sub == 3) {
+            $_SESSION["s12"] = "current-page";
+        } else if ($sub == 4) {
+            $_SESSION["s13"] = "current-page";
         }
     } else if ($main == 9) {
         if ($sub == 1) {

@@ -8,6 +8,7 @@ include './service/newsService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 ACTIVEPAGES(4);
+ACTIVEPAGES_SUB(4, 3);
 ?>
 <html lang="en">
     <head>

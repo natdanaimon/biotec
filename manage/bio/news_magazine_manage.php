@@ -16,6 +16,7 @@ include './controller/commonController.php';
 include './service/commonService.php';
 
 ACTIVEPAGES(4);
+ACTIVEPAGES_SUB(4, 2);
 ?>
 
 <html lang="en">

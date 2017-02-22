@@ -82,9 +82,9 @@
                         </a>
                         <ul class="nav child_menu " style="<?= $_SESSION["style4"] ?>">
                             <li class="<?= $_SESSION["sm3"] ?>"><a href="newsletter.php"><?= $_SESSION["newsletter"] ?></a></li>
-                            <li><a href="news_magazine.php"><?= $_SESSION["magazine"] ?></a></li>
-                            <li><a href="news_event.php"><?= $_SESSION["events"] ?></a></li>
-                            <li><a href="news_product.php"><?= $_SESSION["products"] ?></a></li>
+                            <li class="<?= $_SESSION["s11"] ?>"><a href="news_magazine.php"><?= $_SESSION["magazine"] ?></a></li>
+                            <li class="<?= $_SESSION["s12"] ?>"><a href="news_event.php"><?= $_SESSION["events"] ?></a></li>
+                            <li class="<?= $_SESSION["s13"] ?>"><a href="news_product.php"><?= $_SESSION["products"] ?></a></li>
                         </ul>
                     </li>
                     <li class="<?= $_SESSION["m5"] ?>">

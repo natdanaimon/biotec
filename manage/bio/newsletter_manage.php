@@ -7,7 +7,7 @@ include './service/pressService.php';
 include './controller/commonController.php';
 include './service/commonService.php';
 ACTIVEPAGES(4);
-ACTIVEPAGES_SUB(2, 1);
+ACTIVEPAGES_SUB(4, 1);
 ?>
 <html lang="en">
     <head>
