@@ -161,7 +161,17 @@ if ($_GET['id'] == '') {
                         <div class="uk-container uk-container-center">
 
                             <div class="prima-dopo">
+<?php
+if($_data[0]['01_before'] != '' 
+or $_data[0]['01_after'] != ''
+or $_data[0]['02_before'] != ''
+or $_data[0]['02_after'] != ''
+or $_data[0]['03_before'] != ''
+or $_data[0]['03_after'] != ''
+){
+?>                            
                                 <h2 class="uk-icon-camera">Before / After</h2>
+<?php } ?>
 
 
 

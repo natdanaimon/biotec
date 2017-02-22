@@ -103,8 +103,10 @@ if ($_GET[id]) {
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="img">
                                                     <?= $_SESSION["cosme_image"] ?>
-                                                    <span class="required">*</span>
+                                                     
                                                 </label>
+                                                
+<!--                                                
                                                 <table align="left" id="tb_img" style="display: none">
                                                     <tr>
                                                         <td align="left">
@@ -114,9 +116,28 @@ if ($_GET[id]) {
                                                     </tr>
                                                 </table>                                                        
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="file" id="img" name="img" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="file" id="img" name="img"   class="form-control col-md-7 col-xs-12">
                                                 </div>
+ -->                                               
+ <div class="col-md-12 col-sm-12 col-xs-12">
+ 
+<img src="images/user.png" id="show_img" width="200" />
+<br />                                                        
+<br />                                                        
+<div class="fileContainer"  >
+					<input type="file" id="img" name="img"  onchange="readURL(this,'show_img');"  />
+ 
+					<label for="show_img" class="btn btn-info">
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
+					<path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/>
+					</svg> 
+					<span>Choose a file&hellip;</span>
+					</label>
+				</div>                                                         
+                                                            
+                                                        </div>                                                
                                             </div>
+                                             
 
                                             <div class="form-group">
                                                 <label class="control-label col-md-3 col-sm-3 col-xs-12" for="title_th">
@@ -381,9 +402,10 @@ if ($_GET[id]) {
 
                                 var show_image = item.img;
                                 if (show_image) {
-                                    $('#show_image').html('<img src="uploads/cosme_item/' + show_image + '" width="200" />');
-                                    $('#tb_img').show();
+                                     
+                                    $('#show_img').attr("src","uploads/cosme_item/"+show_image+"?v=<?=time();?>");
                                 }
+                                 
 
                             });
 
@@ -497,5 +519,34 @@ if ($_GET[id]) {
         <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
         <script src="assets/sweetalert/dist/sweetalert.js"></script>
 
+<!-- Input -->
+<script src="assets/inputfile/js/custom-file-input.js"></script>
+<style>
+	.fileContainer {
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.fileContainer [type=file] {
+    cursor: inherit;
+    display: block;
+    font-size: 999px;
+    filter: alpha(opacity=0);
+    min-height: 100%;
+    min-width: 100%;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+    top: 0;
+}
+</style>
+<script>
+function readURL(input,id) {
+ 
+ document.getElementById(id).src = window.URL.createObjectURL(input.files[0]);
+    }
+</script>
     </body>
 </html>

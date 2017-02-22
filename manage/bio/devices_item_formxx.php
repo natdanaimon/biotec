@@ -95,67 +95,32 @@ if($_GET[seq_i]){
  
  
 
-
-
-
- 
-<!-- Smart Wizard -->
-
-                    <div id="wizard" class="form_wizard wizard_horizontal">
-                      <ul class="wizard_steps">
-                        <li>
-                          <a href="#step-1">
-                            <span class="step_no">1</span>
-                            <span class="step_descr">
-                            Main
-                                          </span>
-                          </a>
+<div class="col-xs-3">
+                      <!-- required for floating -->
+                      <!-- Nav tabs -->
+                      <ul class="nav nav-tabs tabs-left">
+                        <li class="active"><a href="#main" data-toggle="tab">Main</a>
                         </li>
-                        <li>
-                          <a href="#step-2">
-                            <span class="step_no">2</span>
-                            <span class="step_descr">
-                              Imange
-                                          </span>
-                          </a>
+                        <li><a href="#images" data-toggle="tab">Images</a>
                         </li>
-                        <li>
-                          <a href="#step-3">
-                            <span class="step_no">3</span>
-                            <span class="step_descr">
-                               Technology
-                                          </span>
-                          </a>
+                        <li><a href="#technology" data-toggle="tab">Technology</a>
                         </li>
-                        <li>
-                          <a href="#step-4">
-                            <span class="step_no">4</span>
-                            <span class="step_descr">
-                                 Procedures
-                                          </span>
-                          </a>
+                        
+                        <li><a href="#procedures" data-toggle="tab">Procedures</a>
                         </li>
-                        <li>
-                          <a href="#step-5">
-                            <span class="step_no">5</span>
-                            <span class="step_descr">
-                                 Techmocal
-                                          </span>
-                          </a>
+                        <li><a href="#techmocal" data-toggle="tab">Techmocal</a>
                         </li>
-                        <li>
-                          <a href="#step-6">
-                            <span class="step_no">6</span>
-                            <span class="step_descr">
-                                 Pubblications
-                                          </span>
-                          </a>
+                        <li><a href="#pubblications" data-toggle="tab">Pubblications</a>
                         </li>
+                         
                       </ul>
-                      <div id="step-1">
-<h2 class="StepTitle">Step 1 Main</h2>
-<div class="row">
- 
+                    </div>
+
+                    <div class="col-xs-9">
+                      <!-- Tab panes -->
+                      <div class="tab-content">
+                        <div class="tab-pane active" id="main">
+                          <p class="lead">Main</p>
 <div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="subject_th">
     <?= $_SESSION["press_tb_tr_subject_th"] ?>
@@ -209,16 +174,16 @@ if($_GET[seq_i]){
                                                         </div>
                                                     </div>
                         </div>
-                      </div>
-                      <div id="step-2">
-                        <h2 class="StepTitle">Step 2 Images</h2>
-                        <!-- ==================== Images ================== -->                        
-                        <div class="row"  >
- <div class="col-md-12">
-
+<!-- ==================== Images ================== -->                        
+                        <div class="tab-pane" id="images">
+                        	<p class="lead">Images</p>
+<div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="icon">
+    Icon
+                                                            <span class="required">*</span>
+                                                        </label>
                                                          
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-Icon <br />                                                        
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_icon" width="200" />
 <br />                                                        
 <br /> 
@@ -234,11 +199,14 @@ Icon <br />
 				</div>                                                       
  
                                                         </div>
-                       	
- 
+                                                    </div>                        	
+<div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="logo">
+    Image
+                                                            <span class="required">*</span>
+                                                        </label>
                                                        
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-Images <br />                                                        
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_logo" width="200" />
 <br />                                                        
 <br />                                                        
@@ -254,15 +222,16 @@ Images <br />
 				</div>                                                        
                                                             
                                                         </div>
-                                                     
+                                                    </div>
                                                     
- </div>
-                                                
+                                                    
                         
-                        <div class="col-md-12">
-
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
- 01  Before   <br />                                                    
+                        <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="01_before">
+    01  Before
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_01_before" width="200" />
 <br />                                                        
 <br />                                                        
@@ -278,10 +247,13 @@ Images <br />
 				</div>                                                         
  
                                                         </div>
-
- 
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-01  After <br />
+                                                    </div>
+                        <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="01_after">
+    01  After
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_01_after" width="200" />
 <br />                                                        
 <br />                                                        
@@ -298,11 +270,12 @@ Images <br />
  
                                                         </div>
                                                     </div>
-                       
-                        <div class="col-md-12">
-
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-02  Before <br />
+                        <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="02_before">
+    02  Before
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_02_before" width="200" />
 <br />                                                        
 <br />                                                        
@@ -318,11 +291,13 @@ Images <br />
 				</div>                                                         
                                                              
                                                         </div>
-
-    
-                                                           
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-02  After <br />
+                                                    </div>
+                        <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="02_after">
+    02  After
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_02_after" width="200" />
 <br />                                                        
 <br />                                                        
@@ -339,11 +314,12 @@ Images <br />
                                                              
                                                         </div>
                         </div>
-                        
-                        <div class="col-md-12">
- 
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-03  Before <br />
+                        <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="03_before">
+    03  Before
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_03_before" width="200" />
 <br />                                                        
 <br />                                                        
@@ -359,10 +335,13 @@ Images <br />
 				</div>                                                         
  
                                                         </div>
-                         
- 
-                                                        <div class="col-md-4 col-sm-4 col-xs-4">
-03  After <br />
+                        </div>
+                        <div class="form-group">
+                                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="03_after">
+    03  After
+                                                            <span class="required">*</span>
+                                                        </label>
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
 <img src="images/user.png" id="show_03_after" width="200" />
 <br />                                                        
 <br />                                                        
@@ -380,12 +359,9 @@ Images <br />
                                                         </div>
                         </div>
                         </div>
-                      </div>
-                      <div id="step-3">
-                        <h2 class="StepTitle">Step 3 Technology</h2>
 <!-- ==================== Technology ================== -->                        
-                        <div class="row"  >
- 
+                        <div class="tab-pane" id="technology">
+                        	<p class="lead">Technology</p>
                         	<div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="s_technology_th">
     <?= $_SESSION["press_tb_tr_subject_th"] ?>
@@ -406,12 +382,9 @@ Images <br />
                                                         </div>
                                                     </div>
                         </div>
-                      </div>
-                      <div id="step-4">
-                        <h2 class="StepTitle">Step 4 Procedures</h2>
 <!-- ==================== Procedures ================== -->                         
-                        <div class="row" >
- 
+                        <div class="tab-pane" id="procedures">
+                        	<p class="lead">Procedures</p>
                         	<div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="s_procedures_th">
     <?= $_SESSION["press_tb_tr_subject_th"] ?>
@@ -432,12 +405,9 @@ Images <br />
                                                         </div>
                                                     </div>
                         </div>
-                      </div>
-                      <div id="step-5">
-                        <h2 class="StepTitle">Step 4 Techmocal</h2>
 <!-- ==================== Techmocal ================== -->                          
-                        <div class="row"  >
- 
+                        <div class="tab-pane" id="techmocal">
+                        	<p class="lead">Techmocal</p>
                         	<div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="s_techmocal_th">
     <?= $_SESSION["press_tb_tr_subject_th"] ?>
@@ -458,12 +428,9 @@ Images <br />
                                                         </div>
                                                     </div>
                         </div>
-                      </div>
-                      <div id="step-6">
-                        <h2 class="StepTitle">Step 4 Pubblications</h2>
 <!-- ==================== Pubblications ================== -->                    
-                        <div class="row" >
- 
+                        <div class="tab-pane" id="pubblications">
+                        	<p class="lead">Pubblications</p>
                         	<div class="form-group">
                                                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="s_pubblications_th">
     <?= $_SESSION["press_tb_tr_subject_th"] ?>
@@ -485,10 +452,10 @@ Images <br />
                                                     </div>
                         </div>
                       </div>
-
-                    </div>
-                    <!-- End SmartWizard Content --> 
-<div class="col-lg-12 col-md-12 col-sm-12" style="display: none">
+                    </div> 
+ 
+ 
+<div class="col-lg-12 col-md-12 col-sm-12">
 <button type="submit" class="btn btn-primary" data-dismiss="modal" id="btn_save_data"><i class="fa fa-save"></i> Save Data</button>
 </div>
 
@@ -498,10 +465,6 @@ Images <br />
 <input type="hidden" name="type" id="type" value="<?=$_GET[type];?>"/>
 <input type="hidden" name="func" id="func" value="add_devices_item"/>
 </form>
-
-
-
-
                                         
                                         
                                         </div>
@@ -519,7 +482,6 @@ Images <br />
             </div>
         </div>
 <!-- Jquery Script -->
-
 <i>
         <!-- jQuery -->
         <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -889,26 +851,6 @@ function readURL(input,id) {
 <!-- Sweet Alert  plugin -->
 <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
 <script src="assets/sweetalert/dist/sweetalert.js"></script>
-
-
-<!-- jQuery Smart Wizard -->
-    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
-    <!-- jQuery Smart Wizard -->
-    <script>
-      $(document).ready(function() {
-        $('#wizard').smartWizard();
-
-        $('#wizard_verticle').smartWizard({
-          transitionEffect: 'slide'
-        });
-
-        $('.buttonNext').addClass('btn btn-success');
-        $('.buttonPrevious').addClass('btn btn-primary');
-        $('.buttonFinish').addClass('btn btn-primary');
-        $('.buttonFinish').html('<i class="fa fa-save"></i> Save Data');
-      });
-    </script>
-    <!-- /jQuery Smart Wizard -->
 
     </body>
 </html>
