@@ -271,7 +271,7 @@ ACTIVEPAGES(5);
                             col_date = item.s_date;
 
                             col_img_preview += '<a href="javascript:previewImage(\'./controller/file/press/' + item.s_img + '\');">';
-                            col_img_preview += '<img  src="images/icon_img.png"  width="30px" height="30px" />';
+                            col_img_preview += '<img  src="./controller/file/news/' + item.s_path_img + '\"  width="50px" height="30px" />';
                             col_img_preview += '</a>';
                             if (item.s_status == 'A') {
                                 col_status += '<span class="label label-success">';

@@ -368,6 +368,10 @@ ACTIVEPAGES(4);
                                                                         processData: false
                                                                     });
                                                                     $("#form_edit").submit(function (e) {
+                                                                        var detail_th = CKEDITOR.instances['detail_th'].getData();
+                                                                        $('#detail_th').val(detail_th);
+                                                                        var detail_en = CKEDITOR.instances['detail_en'].getData();
+                                                                        $('#detail_en').val(detail_en);
                                                                         e.preventDefault();
                                                                         var formData = new FormData($(this)[0]);
                                                                         formData.append("func", "update_news");//seq
