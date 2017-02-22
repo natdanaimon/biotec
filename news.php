@@ -239,7 +239,7 @@ include './service/newsService.php';
 
 
                                             <h1 class="uk-article-title">
-                                                <a title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>">
+                                                <a title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>F">
                                                     <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?></a> </h1>
 
                                             <p class="uk-article-lead">
@@ -247,7 +247,7 @@ include './service/newsService.php';
 
 
                                             <div class="uk-align-medium-left">
-                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>">
+                                                <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>F" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>">
                                                     <div class="main">
 
                                                         <img Style="margin-top: 0% !important; height: inherit !important;" class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" />
@@ -271,7 +271,7 @@ include './service/newsService.php';
                                                 <ul class="ul-readmore">
 
                                                     <li class="li-linkitem">
-                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?= $_SESSION["_readmore"] ?> >></a>
+                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>F"><?= $_SESSION["_readmore"] ?> >></a>
                                                     </li>
                                                 </ul>
                                             </div>
