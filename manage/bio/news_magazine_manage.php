@@ -1245,7 +1245,8 @@ ACTIVEPAGES(4);
         $('#success-dialog').modal('hide');
 
         $('#image-dialog').modal('hide');
-
+        $('#detail_th').val("");
+        $('#detail_en').val("");
         location.reload();
 
     }

@@ -654,6 +654,8 @@ ACTIVEPAGES(4);
         $('#err-dialog').modal('hide');
         $('#success-dialog').modal('hide');
         $('#image-dialog').modal('hide');
+        $('#detail_th').val("");
+        $('#detail_en').val("");
         location.reload();
     }
 
