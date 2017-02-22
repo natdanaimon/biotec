@@ -85,13 +85,13 @@ class newsController {
         $yyyy = substr($date, 0, 4); //yyyy
         $mm = substr($date, 5, 2);
         $dd = substr($date, 8, 2);
-        date('N', strtotime($yyyy . '-' . $mm . '-' . $dd));
+        $day = date('D', strtotime($yyyy . '-' . $mm . '-' . $dd));
 
         if (strtoupper($_SESSION["main_lan"]) == "EN") {
-            return $dd . " " . $month_en[(int) $mm] . " " . $yyyy;
+            return $day." ".$dd . " " . $month_en[(int) $mm] . " " . $yyyy;
         } else {
             return $dd . " " . $month_th[(int) $mm] . " " . $yyyy;
-        }
+        } 
     }
 
 }
