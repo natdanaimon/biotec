@@ -7,7 +7,8 @@ class newsService {
         $db = new ConnectDB();
         $sql = " SELECT tb_news.*,tb_news_img.*  FROM  tb_news  "
                 . " INNER JOIN tb_news_img ON "
-                . " tb_news.s_seq = tb_news_img.s_seq WHERE tb_news.s_status = 'A' ";
+                . " tb_news.s_seq = tb_news_img.s_seq WHERE tb_news.s_status = 'A' "
+            . " order by tb_news.d_date desc ";
         $_data = $db->Search_Data_FormatJson($sql);
         $db->close_conn();
         return $_data;

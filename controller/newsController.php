@@ -76,17 +76,22 @@ class newsController {
     }
 
     private function ConvertDate($date) {
-        //2017-02-06
-        //01234
-        //2017-02-06
-        //0123456789
-        //7- 2-06
+
+
+
+
         $month_th = array(1 => 'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม');
         $month_en = array(1 => 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
         $yyyy = substr($date, 0, 4); //yyyy
         $mm = substr($date, 5, 2);
         $dd = substr($date, 8, 2);
-        return $dd . " " . $month_en[(int) $mm] . " " . $yyyy;
+        date('N', strtotime($yyyy . '-' . $mm . '-' . $dd));
+
+        if (strtoupper($_SESSION["main_lan"]) == "EN") {
+            return $dd . " " . $month_en[(int) $mm] . " " . $yyyy;
+        } else {
+            return $dd . " " . $month_th[(int) $mm] . " " . $yyyy;
+        }
     }
 
 }
