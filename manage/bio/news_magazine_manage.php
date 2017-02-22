@@ -103,7 +103,7 @@ ACTIVEPAGES(4);
                                                 $_data = $controller->dataTable_sel($_GET["seq_i"]);
                                                 foreach ($_data as $key => $value) {
                                                     ?>
-                                                   <form data-parsley-validate class="form-horizontal form-label-left" 
+                                                    <form data-parsley-validate class="form-horizontal form-label-left" 
                                                           enctype="multipart/form-data" name="form_add" id="form_edit" method="post" action="">
                                                         <div style="visibility:hidden;">
                                                             <input type="text"name="seq_i" id="seq_i" value="<?= $_GET["seq_i"] ?>">
@@ -137,7 +137,7 @@ ACTIVEPAGES(4);
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                                 <input type="text" class="form-control has-feedback-left" id="single_cal1" 
                                                                        readonly name="date"placeholder="date" aria-describedby="inputSuccess2Status"
-                                                                       value="<?= $_data[$key]['d_date'] ?>">
+                                                                       value="<?= $controller->ConvertDate_MMDDYYYY($_data[$key]['d_date']) ?>">
                                                                 <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                                                                 <span id="inputSuccess2Status" class="sr-only">(success)</span>
                                                             </div>
@@ -347,254 +347,254 @@ ACTIVEPAGES(4);
 <!-- bootstrap-daterangepicker -->
 <script>
 
-                                                                //alert($('input[name=status]:checked', '#form_add').val());
+                                                                    //alert($('input[name=status]:checked', '#form_add').val());
 
-                                                                function radioActive(val) {
-                                                                    $(this).attr("class", "btn btn-primary");
-                                                                    if (val == 'A') {
-                                                                        $("#active_status").attr("class", "btn btn-primary");
-                                                                        $("#cancel_status").attr("class", "btn btn-default");
-                                                                    } else {
-                                                                        $("#cancel_status").attr("class", "btn btn-primary");
-                                                                        $("#active_status").attr("class", "btn btn-default");
+                                                                    function radioActive(val) {
+                                                                        $(this).attr("class", "btn btn-primary");
+                                                                        if (val == 'A') {
+                                                                            $("#active_status").attr("class", "btn btn-primary");
+                                                                            $("#cancel_status").attr("class", "btn btn-default");
+                                                                        } else {
+                                                                            $("#cancel_status").attr("class", "btn btn-primary");
+                                                                            $("#active_status").attr("class", "btn btn-default");
+                                                                        }
                                                                     }
-                                                                }
 
 
-                                                                $(document).ready(function () {
-                                                                    $.ajaxSetup({
-                                                                        cache: false,
-                                                                        contentType: false,
-                                                                        processData: false
-                                                                    });
-                                                                    $("#form_edit").submit(function (e) {
-                                                                        var detail_th = CKEDITOR.instances['detail_th'].getData();
-                                                                        $('#detail_th').val(detail_th);
-                                                                        var detail_en = CKEDITOR.instances['detail_en'].getData();
-                                                                        $('#detail_en').val(detail_en);
-                                                                        e.preventDefault();
-                                                                        var formData = new FormData($(this)[0]);
-                                                                        formData.append("func", "update_news");//seq
-                                                                        console.log($(this).serialize());
-                                                                        $.ajax({
-                                                                            type: 'POST',
-                                                                            url: 'controller/newsController.php',
-                                                                            data: formData,
-                                                                            beforeSend: function ()
-                                                                            {
-                                                                                $('#se-pre-con').fadeIn(100);
-                                                                            },
-                                                                            success: function (data) {
+                                                                    $(document).ready(function () {
+                                                                        $.ajaxSetup({
+                                                                            cache: false,
+                                                                            contentType: false,
+                                                                            processData: false
+                                                                        });
+                                                                        $("#form_edit").submit(function (e) {
+                                                                            var detail_th = CKEDITOR.instances['detail_th'].getData();
+                                                                            $('#detail_th').val(detail_th);
+                                                                            var detail_en = CKEDITOR.instances['detail_en'].getData();
+                                                                            $('#detail_en').val(detail_en);
+                                                                            e.preventDefault();
+                                                                            var formData = new FormData($(this)[0]);
+                                                                            formData.append("func", "update_news");//seq
+                                                                            console.log($(this).serialize());
+                                                                            $.ajax({
+                                                                                type: 'POST',
+                                                                                url: 'controller/newsController.php',
+                                                                                data: formData,
+                                                                                beforeSend: function ()
+                                                                                {
+                                                                                    $('#se-pre-con').fadeIn(100);
+                                                                                },
+                                                                                success: function (data) {
 
 
-                                                                                var res = data.split(",");
-                                                                                //debugger;
+                                                                                    var res = data.split(",");
+                                                                                    //debugger;
 
-                                                                                if (res[0] == "0000") {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    //alert(errCode);
-                                                                                    $('#success-code').text(errCode);
-                                                                                    $('#success-dialog').modal('show');
-                                                                                    // location.reload();
+                                                                                    if (res[0] == "0000") {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        //alert(errCode);
+                                                                                        $('#success-code').text(errCode);
+                                                                                        $('#success-dialog').modal('show');
+                                                                                        // location.reload();
 
-                                                                                    //           location.reload();
+                                                                                        //           location.reload();
 
-                                                                                } else {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    $('#err-code').text(errCode);
-                                                                                    $('#err-dialog').modal('show');
+                                                                                    } else {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+
+                                                                                    }
+                                                                                    $('#se-pre-con').delay(100).fadeOut();
+                                                                                },
+                                                                                error: function (data) {
 
                                                                                 }
-                                                                                $('#se-pre-con').delay(100).fadeOut();
-                                                                            },
-                                                                            error: function (data) {
 
-                                                                            }
+                                                                            });
+
+                                                                        });
+                                                                        $("#form_add").submit(function (e) {
+
+                                                                            var detail_th = CKEDITOR.instances['detail_th'].getData();
+                                                                            $('#detail_th').val(detail_th);
+                                                                            var detail_en = CKEDITOR.instances['detail_en'].getData();
+                                                                            $('#detail_en').val(detail_en);
+                                                                            //pressAdd();
+                                                                            e.preventDefault();
+                                                                            var formData = new FormData($(this)[0]);
+                                                                            formData.append("func", "add_news");//seq
+                                                                            formData.append("type", "M");
+                                                                            //formData.append("seq", "99999");
+                                                                            console.log($(this).serialize());
+                                                                            //var formData = $(this).serialize();
+                                                                            /*  $.post("controller/contactsController.php",formData,function(data){
+                                                                             console.log(data); 
+                                                                             
+                                                                             });*/
+                                                                            $.ajax({
+                                                                                type: 'POST',
+                                                                                url: 'controller/newsController.php',
+                                                                                data: formData,
+                                                                                beforeSend: function ()
+                                                                                {
+                                                                                    $('#se-pre-con').fadeIn(100);
+                                                                                },
+                                                                                success: function (data) {
+
+
+                                                                                    var res = data.split(",");
+                                                                                    //debugger;
+                                                                                    if (res[0] == "0000") {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        //alert(errCode);
+                                                                                        $('#success-code').text(errCode);
+                                                                                        $('#success-dialog').modal('show');
+                                                                                        $('#form_add').trigger("reset");
+                                                                                        $('#imagePreview').removeAttr('style');
+                                                                                    } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
+                                                                                            || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
+                                                                                            || (res[0] == "2206") || (res[0] == "2207") || (res[0] == "2213")
+                                                                                            || (res[0] == "2214")) {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    } else {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    }
+                                                                                    $('#se-pre-con').delay(100).fadeOut();
+                                                                                },
+                                                                                error: function (data) {
+
+                                                                                    //debug mode ========================================================================================================================
+                                                                                    var res = data.responseText.split(",");
+                                                                                    //debugger;
+                                                                                    if (res[0] == "0000") {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        //alert(errCode);
+                                                                                        $('#success-code').text(errCode);
+                                                                                        $('#success-dialog').modal('show');
+                                                                                        $('#form_add').trigger("reset");
+                                                                                        $('#imagePreview').removeAttr('style');
+                                                                                    } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
+                                                                                            || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
+                                                                                            || (res[0] == "2206") || (res[0] == "2207") || (res[0] == "2213")
+                                                                                            || (res[0] == "2214")) {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    } else {
+                                                                                        var errCode = res[1] + " (" + res[0] + ")  ";
+                                                                                        $('#err-code').text(errCode);
+                                                                                        $('#err-dialog').modal('show');
+                                                                                    }
+                                                                                    $('#se-pre-con').delay(100).fadeOut();
+                                                                                    //debug mode ========================================================================================================================
+
+
+                                                                                }
+
+                                                                            });
 
                                                                         });
 
+
                                                                     });
-                                                                    $("#form_add").submit(function (e) {
-    
-                                                                        var detail_th = CKEDITOR.instances['detail_th'].getData();
-                                                                        $('#detail_th').val(detail_th);
-                                                                        var detail_en = CKEDITOR.instances['detail_en'].getData();
-                                                                        $('#detail_en').val(detail_en);
-                                                                        //pressAdd();
-                                                                        e.preventDefault();
-                                                                        var formData = new FormData($(this)[0]);
-                                                                        formData.append("func", "add_news");//seq
-                                                                        formData.append("type", "M");
-                                                                        //formData.append("seq", "99999");
-                                                                        console.log($(this).serialize());
-                                                                        //var formData = $(this).serialize();
-                                                                        /*  $.post("controller/contactsController.php",formData,function(data){
-                                                                         console.log(data); 
-                                                                         
-                                                                         });*/
-                                                                        $.ajax({
-                                                                            type: 'POST',
-                                                                            url: 'controller/newsController.php',
-                                                                            data: formData,
-                                                                            beforeSend: function ()
-                                                                            {
-                                                                                $('#se-pre-con').fadeIn(100);
-                                                                            },
-                                                                            success: function (data) {
+                                                                    $(function () {
 
+                                                                        $("#uploadPic").on("change", function ()
+                                                                        {
+                                                                            var files = !!this.files ? this.files : [];
+                                                                            if (!files.length || !window.FileReader)
+                                                                                return; // no file selected, or no FileReader support
 
-                                                                                var res = data.split(",");
-                                                                                //debugger;
-                                                                                if (res[0] == "0000") {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    //alert(errCode);
-                                                                                    $('#success-code').text(errCode);
-                                                                                    $('#success-dialog').modal('show');
-                                                                                    $('#form_add').trigger("reset");
-                                                                                    $('#imagePreview').removeAttr('style');
-                                                                                } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
-                                                                                        || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                                                                        || (res[0] == "2206") || (res[0] == "2207") || (res[0] == "2213")
-                                                                                        || (res[0] == "2214")) {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    $('#err-code').text(errCode);
-                                                                                    $('#err-dialog').modal('show');
-                                                                                } else {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    $('#err-code').text(errCode);
-                                                                                    $('#err-dialog').modal('show');
+                                                                            if (/^image/.test(files[0].type)) { // only image file
+                                                                                var reader = new FileReader(); // instance of the FileReader
+                                                                                reader.readAsDataURL(files[0]); // read the local file
+
+                                                                                reader.onloadend = function () { // set image data as background of div
+                                                                                    $("#imagePreview").css("background-image", "url(" + this.result + ")");
                                                                                 }
-                                                                                $('#se-pre-con').delay(100).fadeOut();
-                                                                            },
-                                                                            error: function (data) {
-
-                                                                                //debug mode ========================================================================================================================
-                                                                                var res = data.responseText.split(",");
-                                                                                //debugger;
-                                                                                if (res[0] == "0000") {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    //alert(errCode);
-                                                                                    $('#success-code').text(errCode);
-                                                                                    $('#success-dialog').modal('show');
-                                                                                    $('#form_add').trigger("reset");
-                                                                                    $('#imagePreview').removeAttr('style');
-                                                                                } else if ((res[0] == "2200") || (res[0] == "2201") || (res[0] == "2202")
-                                                                                        || (res[0] == "2203") || (res[0] == "2204") || (res[0] == "2205")
-                                                                                        || (res[0] == "2206") || (res[0] == "2207") || (res[0] == "2213")
-                                                                                        || (res[0] == "2214")) {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    $('#err-code').text(errCode);
-                                                                                    $('#err-dialog').modal('show');
-                                                                                } else {
-                                                                                    var errCode = res[1] + " (" + res[0] + ")  ";
-                                                                                    $('#err-code').text(errCode);
-                                                                                    $('#err-dialog').modal('show');
-                                                                                }
-                                                                                $('#se-pre-con').delay(100).fadeOut();
-                                                                                //debug mode ========================================================================================================================
-
-
                                                                             }
+                                                                        });
+                                                                    });
+                                                                    $(document).ready(function () {
+                                                                        var cb = function (start, end, label) {
+                                                                            console.log(start.toISOString(), end.toISOString(), label);
+                                                                            $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+                                                                        };
 
+                                                                        var optionSet1 = {
+                                                                            startDate: moment().subtract(29, 'days'),
+                                                                            endDate: moment(),
+                                                                            minDate: '01/01/2012',
+                                                                            maxDate: '12/31/2015',
+                                                                            dateLimit: {
+                                                                                days: 60
+                                                                            },
+                                                                            showDropdowns: true,
+                                                                            showWeekNumbers: true,
+                                                                            timePicker: false,
+                                                                            timePickerIncrement: 1,
+                                                                            timePicker12Hour: true,
+                                                                            ranges: {
+                                                                                'Today': [moment(), moment()],
+                                                                                'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                                                                                'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                                                                                'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                                                                                'This Month': [moment().startOf('month'), moment().endOf('month')],
+                                                                                'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                                                                            },
+                                                                            opens: 'right',
+                                                                            buttonClasses: ['btn btn-default'],
+                                                                            applyClass: 'btn-small btn-primary',
+                                                                            cancelClass: 'btn-small',
+                                                                            format: 'MM/DD/YYYY',
+                                                                            separator: ' to ',
+                                                                            locale: {
+                                                                                applyLabel: 'Submit',
+                                                                                cancelLabel: 'Clear',
+                                                                                fromLabel: 'From',
+                                                                                toLabel: 'To',
+                                                                                customRangeLabel: 'Custom',
+                                                                                daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+                                                                                monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                                                                                firstDay: 1
+                                                                            }
+                                                                        };
+
+                                                                        $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+
+                                                                        $('#reportrange_right').daterangepicker(optionSet1, cb);
+
+                                                                        $('#reportrange_right').on('show.daterangepicker', function () {
+                                                                            console.log("show event fired");
+                                                                        });
+                                                                        $('#reportrange_right').on('hide.daterangepicker', function () {
+                                                                            console.log("hide event fired");
+                                                                        });
+                                                                        $('#reportrange_right').on('apply.daterangepicker', function (ev, picker) {
+                                                                            console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+                                                                        });
+                                                                        $('#reportrange_right').on('cancel.daterangepicker', function (ev, picker) {
+                                                                            console.log("cancel event fired");
+                                                                        });
+
+                                                                        $('#options1').click(function () {
+                                                                            $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
+                                                                        });
+
+                                                                        $('#options2').click(function () {
+                                                                            $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
+                                                                        });
+
+                                                                        $('#destroy').click(function () {
+                                                                            $('#reportrange_right').data('daterangepicker').remove();
                                                                         });
 
                                                                     });
-
-
-                                                                });
-                                                                $(function () {
-
-                                                                    $("#uploadPic").on("change", function ()
-                                                                    {
-                                                                        var files = !!this.files ? this.files : [];
-                                                                        if (!files.length || !window.FileReader)
-                                                                            return; // no file selected, or no FileReader support
-
-                                                                        if (/^image/.test(files[0].type)) { // only image file
-                                                                            var reader = new FileReader(); // instance of the FileReader
-                                                                            reader.readAsDataURL(files[0]); // read the local file
-
-                                                                            reader.onloadend = function () { // set image data as background of div
-                                                                                $("#imagePreview").css("background-image", "url(" + this.result + ")");
-                                                                            }
-                                                                        }
-                                                                    });
-                                                                });
-                                                                $(document).ready(function () {
-                                                                    var cb = function (start, end, label) {
-                                                                        console.log(start.toISOString(), end.toISOString(), label);
-                                                                        $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                                                                    };
-
-                                                                    var optionSet1 = {
-                                                                        startDate: moment().subtract(29, 'days'),
-                                                                        endDate: moment(),
-                                                                        minDate: '01/01/2012',
-                                                                        maxDate: '12/31/2015',
-                                                                        dateLimit: {
-                                                                            days: 60
-                                                                        },
-                                                                        showDropdowns: true,
-                                                                        showWeekNumbers: true,
-                                                                        timePicker: false,
-                                                                        timePickerIncrement: 1,
-                                                                        timePicker12Hour: true,
-                                                                        ranges: {
-                                                                            'Today': [moment(), moment()],
-                                                                            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                                                                            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                                                                            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                                                                            'This Month': [moment().startOf('month'), moment().endOf('month')],
-                                                                            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                                                                        },
-                                                                        opens: 'right',
-                                                                        buttonClasses: ['btn btn-default'],
-                                                                        applyClass: 'btn-small btn-primary',
-                                                                        cancelClass: 'btn-small',
-                                                                        format: 'MM/DD/YYYY',
-                                                                        separator: ' to ',
-                                                                        locale: {
-                                                                            applyLabel: 'Submit',
-                                                                            cancelLabel: 'Clear',
-                                                                            fromLabel: 'From',
-                                                                            toLabel: 'To',
-                                                                            customRangeLabel: 'Custom',
-                                                                            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                                                                            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                                                                            firstDay: 1
-                                                                        }
-                                                                    };
-
-                                                                    $('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-
-                                                                    $('#reportrange_right').daterangepicker(optionSet1, cb);
-
-                                                                    $('#reportrange_right').on('show.daterangepicker', function () {
-                                                                        console.log("show event fired");
-                                                                    });
-                                                                    $('#reportrange_right').on('hide.daterangepicker', function () {
-                                                                        console.log("hide event fired");
-                                                                    });
-                                                                    $('#reportrange_right').on('apply.daterangepicker', function (ev, picker) {
-                                                                        console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-                                                                    });
-                                                                    $('#reportrange_right').on('cancel.daterangepicker', function (ev, picker) {
-                                                                        console.log("cancel event fired");
-                                                                    });
-
-                                                                    $('#options1').click(function () {
-                                                                        $('#reportrange_right').data('daterangepicker').setOptions(optionSet1, cb);
-                                                                    });
-
-                                                                    $('#options2').click(function () {
-                                                                        $('#reportrange_right').data('daterangepicker').setOptions(optionSet2, cb);
-                                                                    });
-
-                                                                    $('#destroy').click(function () {
-                                                                        $('#reportrange_right').data('daterangepicker').remove();
-                                                                    });
-
-                                                                });
 </script>
 
 

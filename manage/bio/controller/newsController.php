@@ -56,7 +56,7 @@ class newsController {
         $_dataTable = $service->dataTable($_type);
         if ($_dataTable != NULL) {
             foreach ($_dataTable as $key => $value) {
-                $_dataTable[$key]['s_date'] = $this->ConvertDate($_dataTable[$key]['s_date']);
+                $_dataTable[$key]['d_date'] = $this->ConvertDate_YYYYMMDD($_dataTable[$key]['d_date']);
             }
             return json_encode($_dataTable);
         } else {
@@ -74,11 +74,17 @@ class newsController {
         }
     }
 
-    private function ConvertDate($date) {
-        $dd = substr($date, 3, 2);
-        $mm = substr($date, 0, 2);
-        $yyyy = substr($date, 6, 4);
+    private function ConvertDate_YYYYMMDD($date) {
+        $dd = substr($date, 8, 2);
+        $mm = substr($date, 5, 2);
+        $yyyy = substr($date, 0, 4);
         return $yyyy . "/" . $mm . "/" . $dd;
+    }
+    public function ConvertDate_MMDDYYYY($date) {
+        $dd = substr($date, 8, 2);
+        $mm = substr($date, 5, 2);
+        $yyyy = substr($date, 0, 4);
+        return $mm . "/" . $dd . "/" . $yyyy;
     }
 
     public function delete($seq,$img) {
