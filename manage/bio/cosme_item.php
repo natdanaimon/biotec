@@ -159,6 +159,7 @@ ACTIVEPAGES_SUB(3, $_GET[id]);
                 $('#err-dialog').modal('hide');
                 $('#success-dialog').modal('hide');
                 $('#image-dialog').modal('hide');
+                $('#confirm-dialog').modal('hide');
             }
 
 
@@ -276,10 +277,72 @@ ACTIVEPAGES_SUB(3, $_GET[id]);
 
 
 
+function Delete(seq, img, pdf) {
+                $('#tmp_seq').val(seq);
+                $('#tmp_img').val(img);
+                $('#tmp_pdf').val(pdf);
+                $('#confirm-dialog').modal('show');
+            }
 
 
 
-            function Delete(seq, img, pdf) {
+
+            function pressDelete() {
+                $('#confirm-dialog').modal('hide');
+                var seq = $('#tmp_seq').val();
+                var img = $('#tmp_img').val();
+                var pdf = $('#tmp_pdf').val();
+                $.ajax({
+                    type: 'GET',
+                    //url: 'controller/pressController.php?func=delete&seq=' + seq + '&file=' + img + '&pdf=' + pdf,
+                    url: 'controller/cosmeController.php?func=delete&id=' + seq + '&file=' + img + '&pdf=' + pdf,
+                    //data: Jsdata,
+                    beforeSend: function ()
+                    {
+                        $('#se-pre-con').fadeIn(100);
+                    },
+                    success: function (data) {
+
+
+                        var res = data.split(",");
+                        if (res[0] == "0000") {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#success-code').text(errCode);
+                            $('#success-dialog').modal('show');
+                        } else {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#err-code').text(errCode);
+                            $('#err-dialog').modal('show');
+                        }
+                        $('#se-pre-con').delay(100).fadeOut();
+                        initialDataTable("FALSE");
+                    },
+                    error: function (data) {
+                        //debug mode ========================================================================================================================
+                        var res = data.responseText.split(",");
+                        if (res[0] == "0000") {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#success-code').text(errCode);
+                            $('#success-dialog').modal('show');
+                        } else {
+                            var errCode = res[1] + " (" + res[0] + ")  ";
+                            $('#err-code').text(errCode);
+                            $('#err-dialog').modal('show');
+                        }
+                        $('#se-pre-con').delay(100).fadeOut();
+                        initialDataTable("FALSE");
+                        //debug mode ========================================================================================================================
+
+                    }
+
+                });
+
+
+
+            }
+
+
+            function Deletess(seq, img, pdf) {
                 //////////// popup alert for Delete
                 swal({
   title: "Are you sure?",
@@ -434,7 +497,90 @@ $.ajax({
 	});
 </script>
 
+<style>
+            #src-image{
+                width:100%;
+                height:100%;
+            }
+            .modal {
+                position: fixed;
+                top: 30px;
+                bottom: 0;
+                z-index: 1050;
+                display: none;
+                overflow: hidden;
+                -webkit-overflow-scrolling: touch;
+                outline: 0;
+            }
+            .boxSuccess {
+                /*                width: 40%;*/
+                margin: 5% auto;
+                overflow:hidden;
+                background: rgba(75, 209, 248, 0.8);
+                padding: 15px;
+                border-radius: 1px/60px;
+                text-align: left;
+                align-content: center;
+            }
+            .boxError {
+                /*                width: 40%;*/
+                margin: 5% auto;
+                overflow:hidden;
+                background: rgba(246, 26, 87, 0.8);
+                padding: 15px;
+                border-radius: 1px/60px;
+                text-align: left;
+                align-content: center;
+            }
+            .boxConfirmDelete {
+                /*                width: 40%;*/
+                margin: 5% auto;
+                overflow:hidden;
+                background: rgba(75, 209, 248, 0.8);
+                padding: 15px;
+                border-radius: 1px/60px;
+                text-align: left;
+                align-content: center;
 
+            }
+            /*            .btnClose{
+                            background-color: red;
+                            color: white;
+                        }*/
+            .btnConfirm{
+                background-color: #ff8000;
+                border-color: #ff8000;
+                color: white;
+
+            }
+            .f-white{
+                color: rgb(255, 0, 0);
+                color: white;
+                font-size: 16px;
+            }
+
+        </style>
+
+        <div class="modal fade boxSuccess" id="success-dialog"  Style="width: 370px;height: 64px">
+            <span class="close" onclick="closeAlert();">x</span>
+            <p id="success-code" class="f-white"></p> 
+
+        </div>
+        <div class="modal fade boxError" id="err-dialog"  Style="width: 370px;height: 64px">
+            <span class="close" onclick="closeAlert();">x</span>
+            <p id="err-code" class="f-white"></p>   
+
+        </div>
+        <div class="modal fade boxConfirmDelete" id="confirm-dialog"  Style="width: 330px;height: 135px">
+            <span class="close" onclick="closeAlert();">x</span>
+            <input type="hidden" name="tmp_seq" id="tmp_seq"/>
+            <input type="hidden" name="tmp_img" id="tmp_img"/>
+            <input type="hidden" name="tmp_pdf" id="tmp_pdf"/>
+            <p id="confirm-code" class="f-white"><?= $_SESSION["confirmDelete"] ?></p>  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger btnConfirm" onclick="pressDelete()"><?= $_SESSION["btn_confirm"] ?></button>
+            </div>
+        </div>
 <!-- Sweet Alert  plugin -->
 <link rel="stylesheet" href="assets/sweetalert/dist/sweetalert.css">
 <script src="assets/sweetalert/dist/sweetalert.js"></script>
