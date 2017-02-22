@@ -145,7 +145,7 @@ if ($_GET[id]) {
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="text" id="title_th" name="title_th" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="title_th" name="title_th"  class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -154,7 +154,7 @@ if ($_GET[id]) {
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="text" id="title_en" name="title_en" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="title_en" name="title_en"  class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
 
@@ -164,7 +164,7 @@ if ($_GET[id]) {
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="text" id="topic_th" name="topic_th" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="topic_th" name="topic_th"  class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -173,7 +173,7 @@ if ($_GET[id]) {
                                                     <span class="required">*</span>
                                                 </label>
                                                 <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <input type="text" id="topic_en" name="topic_en" required="required" class="form-control col-md-7 col-xs-12">
+                                                    <input type="text" id="topic_en" name="topic_en"  class="form-control col-md-7 col-xs-12">
                                                 </div>
                                             </div>
 
@@ -213,7 +213,7 @@ if ($_GET[id]) {
                                     </div>
 
 
-
+                                    <input type="hidden" name="img_current" id="img_current" value="<?= $_GET[id]; ?>"/>
                                     <input type="hidden" name="id" id="id" value="<?= $_GET[id]; ?>"/>
                                     <input type="hidden" name="type" id="type" value="<?= $_GET[type]; ?>"/>
                                     <input type="hidden" name="func" id="func" value="add_cosme_item"/>
@@ -325,7 +325,8 @@ if ($_GET[id]) {
 
 
                                                                     },
-                                                                    error: {
+                                                                    error: function (data) {
+
                                                                     }
 
                                                                 });
@@ -361,7 +362,9 @@ if ($_GET[id]) {
 
 
                                                                 },
-                                                                error: {
+                                                                error: function (data) {
+
+
                                                                 }
 
                                                             });
@@ -398,6 +401,7 @@ if ($_GET[id]) {
                                 $('#topic_en').val(item.topic_en);
                                 $('#detail_th').val(item.detail_th);
                                 $('#detail_en').val(item.detail_en);
+                                $('#img_current').val(item.img);
 
 
                                 var show_image = item.img;
@@ -411,7 +415,28 @@ if ($_GET[id]) {
 
 
                         },
-                        error: {
+                        error: function (data) {
+                            debugger;
+                            var res = JSON.parse(data.responseText);
+                            var JsonData = [];
+                            $.each(res, function (i, item) {
+                                $('#title_th').val(item.title_th);
+                                $('#title_en').val(item.title_en);
+                                $('#topic_th').val(item.topic_th);
+                                $('#topic_en').val(item.topic_en);
+                                $('#detail_th').val(item.detail_th);
+                                $('#detail_en').val(item.detail_en);
+                                $('#img_current').val(item.img);
+
+
+                                var show_image = item.img;
+                                if (show_image) {
+
+                                    $('#show_img').attr("src", "uploads/cosme_item/" + show_image + "?v=<?= time(); ?>");
+                                }
+
+
+                            });
                         }
 
                     });
@@ -497,12 +522,12 @@ if ($_GET[id]) {
 
         </style>
 
-        <div class="modal fade boxSuccess" id="success-dialog"  Style="width: 370px;height: 64px">
+        <div class="modal fade boxSuccess" id="success-dialog"   Style="width: 460px;height: 64px;    overflow: hidden;">
             <span class="close" onclick="closeAlertReload();">x</span>
             <p id="success-code" class="f-white" > </p>  
 
         </div>
-        <div class="modal fade boxError" id="err-dialog"  Style="width: 370px;height: 64px">
+        <div class="modal fade boxError" id="err-dialog"   Style="width: 460px;height: 64px;    overflow: hidden;">
             <span class="close" onclick="closeAlert();">x</span>
             <p id="err-code" class="f-white"></p>   
 
