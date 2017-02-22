@@ -105,7 +105,7 @@ include './service/newsService.php';
 
                                         <?php
                                         $flg = (strlen($_GET["s_id"]) != 12 ? TRUE : FALSE);
-                                        $id = substr($_GET["s_id"],0,12);
+                                        $id = substr($_GET["s_id"], 0, 12);
                                         $util = new Utility();
                                         $social = new social();
                                         $controller = new newsController();
@@ -141,12 +141,10 @@ include './service/newsService.php';
                                             <div class="uk-margin">
 
                                                 <div class="yoo-zoo socialbuttons clearfix">
-                                                    <?php if ($flg) { ?>
-
-                                                    <?php } else {
-                                                        echo $_data[$key]['s_detail_' . $_SESSION["main_lan"]];
-                                                    } ?>
                                                     <?php
+                                                    if ($flg) {
+                                                        echo $_data[$key]['s_detail_' . $_SESSION["main_lan"]];
+                                                    }
                                                     $link = "http://www.biotecitalia-thailand.com/news_detail.php?s_id=" . $_data[$key]['s_seq'] . "";
                                                     echo $social->twitter_Share_button($link, $_data[$key]['s_subject_' . $_SESSION["main_lan"]]);
                                                     echo $social->googlePlus_Share_button($link);
@@ -156,7 +154,7 @@ include './service/newsService.php';
                                                 </div>
 
                                             </div>
-<?php } ?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </article>
