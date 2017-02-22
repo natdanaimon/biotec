@@ -80,6 +80,7 @@ class newsController {
         $yyyy = substr($date, 0, 4);
         return $yyyy . "/" . $mm . "/" . $dd;
     }
+
     public function ConvertDate_MMDDYYYY($date) {
         $dd = substr($date, 8, 2);
         $mm = substr($date, 5, 2);
@@ -87,14 +88,21 @@ class newsController {
         return $mm . "/" . $dd . "/" . $yyyy;
     }
 
-    public function delete($seq,$img) {
+    public function ConvertDate_strSQL($date) {
+        $dd = substr($date, 3, 2);
+        $mm = substr($date, 0, 2);
+        $yyyy = substr($date, 6, 4);
+        return $yyyy . "-" . $mm . "-" . $dd;
+    }
+
+    public function delete($seq, $img) {
         include '../service/newsService.php';
         include '../common/upload.php';
         require_once('../common/ConnectDB.php');
         $db = new ConnectDB();
         $db->conn();
         $service = new newsService();
-        if ($service->delete($seq,$db) && $service->delete_img($seq,$db)) {
+        if ($service->delete($seq, $db) && $service->delete_img($seq, $db)) {
             $doc = new upload();
             $doc->Initial_and_Clear();
             $doc->set_path("./file/news/");
@@ -210,8 +218,7 @@ class newsController {
                     }
                     if (($filetype_pic != "png" ) && ( $filetype_pic != "jpeg") && ($filetype_pic != "jpg")) {
                         echo $_SESSION['cd_2204'];
-                    } else if ($service->update_news($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["detail_th"], $_POST["detail_en"], $_POST["status"], $_POST["date"])
-                            && $service->update_news_img($_POST["seq_i"],$cout_data[0])) {
+                    } else if ($service->update_news($_POST["seq_i"], $_POST["subject_th"], $_POST["subject_en"], $_POST["detail_th"], $_POST["detail_en"], $_POST["status"], $_POST["date"]) && $service->update_news_img($_POST["seq_i"], $cout_data[0])) {
                         $doc->Initial_and_Clear();
                         $doc->set_path("./file/news/");
                         $doc->add_FileName($_POST["curent_pic"]);

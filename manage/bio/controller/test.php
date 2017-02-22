@@ -11,20 +11,27 @@
 //}
 //echo (json_encode($_d));
 //
-$i = 9;
-$date = date_create(date("Y-m-d", new DateTimeZone('Asia/Bangkok')), new DateTimeZone('Asia/Bangkok'));
-$condition = date_format(date_add($date, date_interval_create_from_date_string('-' . $i . ' days')), 'Y-m-d');
-include '../common/ConnectDB.php';
-$db = new ConnectDB();
-$strSql = "";
-$strSql .= "SELECT count(*) cnt  FROM  tb_contacts  WHERE DATE_FORMAT(d_date,'%Y-%m-%d') = '$condition' ";
+//$i = 9;
+//$date = date_create(date("Y-m-d", new DateTimeZone('Asia/Bangkok')), new DateTimeZone('Asia/Bangkok'));
+//$condition = date_format(date_add($date, date_interval_create_from_date_string('-' . $i . ' days')), 'Y-m-d');
+//include '../common/ConnectDB.php';
+//$db = new ConnectDB();
+//$strSql = "";
+//$strSql .= "SELECT count(*) cnt  FROM  tb_contacts  WHERE DATE_FORMAT(d_date,'%Y-%m-%d') = '$condition' ";
+//
+//$_data = $db->Search_Data_FormatJson($strSql);
+//$db->close_conn();
+//
+//echo $_data[0][cnt];
+//
+//
+//
+//
+//return $_data[0][cnt];
+$date = "02/30/2017";
+echo $date."<br/>";
 
-$_data = $db->Search_Data_FormatJson($strSql);
-$db->close_conn();
-
-echo $_data[0][cnt];
-
-
-
-
-return $_data[0][cnt];
+$dd = substr($date, 3, 2);
+$mm = substr($date, 0, 2);
+$yyyy = substr($date, 6, 4);
+echo  $yyyy . "-" . $mm . "-" .$dd ;

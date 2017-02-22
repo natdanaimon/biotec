@@ -241,7 +241,7 @@ ACTIVEPAGES(4);
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <input type="text" class="form-control has-feedback-left" id="single_cal1" 
                                                                readonly name="date"placeholder="date" aria-describedby="inputSuccess2Status"
-                                                               value="<?= $_data[$key]['d_date'] ?>">
+                                                               value="">
                                                         <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true" ></span>
                                                         <span id="inputSuccess2Status" class="sr-only">(success)</span>
                                                     </div>
@@ -285,18 +285,7 @@ ACTIVEPAGES(4);
                                                         <textarea name="detail_en" id="detail_en" class="ckeditor" cols="45" rows="5"></textarea>
                                                     </div>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                                        <?= $_SESSION["press_tb_tr_date"] ?>  
-                                                        <span class="required">*</span>
-                                                    </label>
-                                                    <div class="col-md-6 col-sm-6 col-xs-12">
-                                                        <input type="datetime" class="form-control has-feedback-left" id="single_cal1" 
-                                                               readonly name="date"placeholder="date" aria-describedby="inputSuccess2Status">
-                                                        <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
-                                                        <span id="inputSuccess2Status" class="sr-only">(success)</span>
-                                                    </div>
-                                                </div>
+                                                
                                                 <div class="ln_solid"></div>
 
                                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">

@@ -24,7 +24,7 @@ class newsService {
         return $_data;
     }
 
-    function delete($seq,$db) {
+    function delete($seq, $db) {
         $strSQL = "DELETE FROM tb_news WHERE s_seq = '" . $seq . "' ";
         $arr = array(
             array("query" => "$strSQL")
@@ -33,7 +33,7 @@ class newsService {
         return $reslut;
     }
 
-    function delete_img($seq,$db) {
+    function delete_img($seq, $db) {
         $strSQL = "DELETE FROM tb_news_img WHERE s_seq = '" . $seq . "' ";
         $arr = array(
             array("query" => "$strSQL")
@@ -82,6 +82,8 @@ class newsService {
 
     function update_news($seq, $subject_th, $subject_en, $detail_th, $detail_en, $status, $date) {
         require_once('../common/ConnectDB.php');
+        $edate = strtotime($date);
+        $edate = date("Y-m-d H:i:s", $edate);
         $db = new ConnectDB();
         $db->conn(); //	s_pathfile --	s_img
         $sql = "UPDATE `tb_news` SET "
@@ -90,7 +92,7 @@ class newsService {
                 . "s_detail_th = '" . $detail_th . "', "
                 . "s_detail_en = '" . $detail_en . "', "
                 . "s_status ='" . $status . "',"
-                . "d_date = '" . $date . "' "
+                . "d_date = '" . $edate . "' "
                 . "WHERE s_seq = " . $seq . " ";
         $arr = array(
             array("query" => "$sql")
