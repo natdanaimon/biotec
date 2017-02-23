@@ -59,7 +59,33 @@ class cosmeService {
     }
 
     //////////////// Add new cosme
-    function add_cosme() {
+    function add_cosme($info, $img, $logo) {
+        $flgInsert = ($info[cosme_id] == NULL ? TRUE : FALSE);
+        require_once('../common/ConnectDB.php');
+        $db = new ConnectDB();
+        $db->conn();
+        if (!$flgInsert) {
+
+            $sql = "UPDATE tb_cosme_type ";
+            $sql .= " set   cosme_th = '" . $info[subject_th] . "'";
+            $sql .= " ,   cosme_en  = '" . $info[subject_en] . "' ";
+            if ($img != NULL) {
+                $sql .= " ,   main_img  = '" . $img . "' ";
+            }
+            if ($logo != NULL) {
+                $sql .= " ,   main_logo  = '" . $logo . "' ";
+            }
+            $sql .= " where id = $info[cosme_id]";
+            $arr = array(
+                array("query" => "$sql")
+            );
+            $reslut = $db->insert_for_upadte($arr);
+        }
+        $db->commit();
+        return $reslut;
+    }
+
+    function add_cosme_backup() {
         $id = $_POST["id"];
         $data_arr['cosme_th'] = $_POST["subject_th"];
         $data_arr['cosme_en'] = $_POST["subject_en"];

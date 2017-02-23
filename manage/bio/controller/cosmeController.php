@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $controller = new cosmeController();
 switch ($_func) {
     case "add_cosme":
-        echo $controller->add_cosme();
+        echo $controller->add_cosme($info);
         break;
     case "add_cosme_item":
         echo $controller->add_cosme_item($info);
@@ -47,13 +47,101 @@ class cosmeController {
         
     }
 
-    public function add_cosme() {
-        include '../service/cosmeService.php';
-        $service = new cosmeService();
-        if ($service->add_cosme()) {
-            echo $_SESSION['cd_0000'];
-        } else {
-            echo $_SESSION['cd_2001'];
+    public function add_cosme($info) {
+        $flgInsert = ($info[cosme_id] == NULL ? TRUE : FALSE);
+        if ($this->isValidType($flgInsert, $info)) {
+            include '../service/cosmeService.php';
+            include '../common/upload.php';
+            $service = new cosmeService();
+            $doc = new upload();
+            $doc->set_path("../uploads/cosme_type/");
+            if (!$flgInsert) {
+
+                $flgImg = ($_FILES["main_img"]["error"] == 0 ? TRUE : FALSE);
+                $flgLogo = ($_FILES["main_logo"]["error"] == 0 ? TRUE : FALSE);
+
+                if (!$flgImg && !$flgLogo) {
+                    if ($service->add_cosme($info, NULL, NULL)) {
+                        echo $_SESSION['cd_0000'];
+                    } else {
+                        echo $_SESSION['cd_2001'];
+                    }
+                } else if ($flgImg && !$flgLogo) {
+                    $doc->add_FileName($_FILES["main_img"]);
+                    $flg = $doc->AddFile();
+                    if ($flg) {
+                        $cout = 0;
+                        $cout_data = array();
+                        foreach ($doc->get_FilenameResult() as $value) {
+                            $cout_data[$cout++] = $value;
+                        }
+                        if ($service->add_cosme($info, $cout_data[0], NULL)) {
+                            $doc->Initial_and_Clear();
+                            $doc->set_path("../uploads/cosme_type/");
+                            $doc->add_FileName($info[current_main_img]);
+                            if ($doc->deleteFile()) {
+                                echo $_SESSION['cd_0000'];
+                            }
+                        } else {
+                            $doc->clearFileAddFail();
+                            echo $_SESSION['cd_2001'];
+                        }
+                    } else {
+                        $doc->clearFileAddFail();
+                        echo $doc->get_errorMessage();
+                    }
+                } else if (!$flgImg && $flgLogo) {
+                    $doc->add_FileName($_FILES["main_logo"]);
+                    $flg = $doc->AddFile();
+                    if ($flg) {
+                        $cout = 0;
+                        $cout_data = array();
+                        foreach ($doc->get_FilenameResult() as $value) {
+                            $cout_data[$cout++] = $value;
+                        }
+                        if ($service->add_cosme($info, NULL, $cout_data[0])) {
+                            $doc->Initial_and_Clear();
+                            $doc->set_path("../uploads/cosme_type/");
+                            $doc->add_FileName($info[current_main_logo]);
+                            if ($doc->deleteFile()) {
+                                echo $_SESSION['cd_0000'];
+                            }
+                        } else {
+                            $doc->clearFileAddFail();
+                            echo $_SESSION['cd_2001'];
+                        }
+                    } else {
+                        $doc->clearFileAddFail();
+                        echo $doc->get_errorMessage();
+                    }
+                } else if ($flgImg && $flgLogo) {
+                    $doc->add_FileName($_FILES["main_img"]);
+                    $doc->add_FileName($_FILES["main_logo"]);
+                    $flg = $doc->AddFile();
+                    if ($flg) {
+                        $cout = 0;
+                        $cout_data = array();
+                        foreach ($doc->get_FilenameResult() as $value) {
+                            $cout_data[$cout++] = $value;
+                        }
+                        if ($service->add_cosme($info, $cout_data[0], $cout_data[1])) {
+                            $doc->Initial_and_Clear();
+                            $doc->set_path("../uploads/cosme_type/");
+                            $doc->add_FileName($info[current_main_img]);
+                            $doc->add_FileName($info[current_main_logo]);
+                            if ($doc->deleteFile()) {
+                                echo $_SESSION['cd_0000'];
+                            }
+                        } else {
+                            $doc->clearFileAddFail();
+                            echo $_SESSION['cd_2001'];
+                        }
+                    } else {
+                        $doc->clearFileAddFail();
+                        echo $doc->get_errorMessage();
+                    }
+                }
+            }
         }
     }
 
@@ -108,7 +196,6 @@ class cosmeController {
 //*/
     }
 
-    
     private function isEmpty($tmp) {
         if ($tmp == NULL || trim($tmp) == '') {
             return TRUE;
@@ -116,10 +203,27 @@ class cosmeController {
             return FALSE;
         }
     }
-    
-    public function isValid($insert,$info) {
+
+    public function isValidType($insert, $info) {
         $intReturn = 0;
-        
+
+        if ($this->isEmpty($info[subject_th])) {
+            $return2099 = $_SESSION['cd_2099'];
+            $return2099 = eregi_replace("field", $_SESSION["press_tb_tr_subject_th"], $return2099);
+            echo $return2099;
+        } else if ($this->isEmpty($info[subject_en])) {
+            $return2099 = $_SESSION['cd_2099'];
+            $return2099 = eregi_replace("field", $_SESSION["press_tb_tr_subject_en"], $return2099);
+            echo $return2099;
+        } else {
+            $intReturn = 1;
+        }
+        return $intReturn;
+    }
+
+    public function isValid($insert, $info) {
+        $intReturn = 0;
+
         if ($_FILES["img"]["error"] == 4 && (boolean) $insert) {
             echo $_SESSION['cd_2207'];
         } else if ($this->isEmpty($info[title_th])) {
@@ -146,7 +250,7 @@ class cosmeController {
 
     public function add_cosme_item($info) {
         $flgInsert = ($info[id] == NULL ? TRUE : FALSE);
-        if ($this->isValid($flgInsert,$info) == 1) {
+        if ($this->isValid($flgInsert, $info) == 1) {
             include '../service/cosmeService.php';
             include '../common/upload.php';
             $service = new cosmeService();
