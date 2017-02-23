@@ -81,6 +81,7 @@ ACTIVEPAGES(3);
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" id="subject_th" name="subject_th"  class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -89,6 +90,7 @@ ACTIVEPAGES(3);
                                             <span class="required">*</span>
                                         </label>
                                         <div class="col-md-12 col-sm-12 col-xs-12">
+                                            <input type="text" id="subject_en" name="subject_en"  class="form-control col-md-7 col-xs-12">
                                         </div>
                                     </div>
                                     <div class="form-group">
