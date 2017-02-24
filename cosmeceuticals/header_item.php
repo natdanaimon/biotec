@@ -78,7 +78,12 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="../../../../templates/warp/vendor/uikit/js/components/slideset.js"></script>
         <!--        UIKit Slide Set by https://getuikit.com/v2/docs/slideset.html -->
 
-
+        <style>
+            .fb_iframe_widget {
+                display: inline-block !important;
+                position: relative;
+            }
+        </style>
 
     </head>
 
