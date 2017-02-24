@@ -100,20 +100,17 @@ if ($_GET['id'] == '') {
                             <?php } ?> 
 
                             <div class="chiedi-info uk-icon-phone"><a href="../../../contacts.php" target="_blank" >For further information, please contact us</a></div> 
+                            <br/> <br/>
                             <div class="yoo-zoo socialbuttons clearfix">
-                                <div>
-                                    <a href="http://twitter.com/share" target="_blank" class="twitter-share-button" data-url="<?= $_SERVER['REQUEST_URI']; ?>" data-count="none" data-lang="en_GB">Tweet</a>
-                                </div>
-                                <div>
-                                    <div class="g-plusone" data-href="<?= $_SERVER['REQUEST_URI']; ?>" data-size="medium" data-annotation="nones" data-lang="en_GB">
+                                <?php
+                                include '../../../manage/bio/common/social.php';
+                                $social = new social();
 
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="fb-like" data-href="<?= $_SERVER['REQUEST_URI']; ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-action="like" data-colorscheme="light">
-
-                                    </div>
-                                </div>
+                                $url_social = "http://www.biotecitalia-thailand.com" . "$_SERVER[REQUEST_URI]";
+                                echo $social->twitter_Share_button($url_social, $_data[0]['s_devices_' . $_SESSION["main_lan"]]);
+                                echo $social->googlePlus_Share_button($url_social);
+                                echo $social->facebook_like_button($url_social, FALSE);
+                                ?>
                             </div> 			
                         </div>
 

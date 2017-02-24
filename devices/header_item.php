@@ -88,6 +88,10 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             .tm-content .yoo-zoo.macchine-uikit .uk-tab li h3 {
                 padding: 8px 15px !important;
             }
+            .fb_iframe_widget {
+                display: inline-block !important;
+                position: relative;
+            }
         </style>
 
     </head>
