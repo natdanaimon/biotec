@@ -204,6 +204,10 @@ if ($_GET['id'] == '') {
                                     </a>
                                 <?php } ?> 
 
+                               
+
+
+
 
                                 <link rel="stylesheet" href="../../../bower_components/lightbox2/dist/css/lightbox.min.css">
 
@@ -242,7 +246,16 @@ if ($_GET['id'] == '') {
 
     </div>	
 </div>
-
+<link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+<link rel="stylesheet" href="../../../bower_components/lightbox2/dist/css/lightbox.min.css">
+<script src="../../../media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
+<script>
+    jQuery(function ($) {
+        $('[data-spotlight]').spotlight({
+            "duration": 300
+        });
+    });
+</script>
 
 <?php
 include '../../footer_item.php';
