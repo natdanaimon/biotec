@@ -62,7 +62,8 @@ body:after{content:url(../images/close.png) url(../images/loading.gif) url(../im
 	}
 	.lb-data .lb-caption{font-size:13px;font-weight:700;line-height:1em}
 	.lb-data .lb-caption a{color:#4ae}
-	.lb-data .lb-number{display:block;clear:left;padding-bottom:1em;font-size:12px;color:#999}
+/*	.lb-data .lb-number{display:block;clear:left;padding-bottom:1em;font-size:12px;color:#999}*/
+        .lb-data .lb-number{display:none !important;clear:left;padding-bottom:1em;font-size:12px;color:#999}
 	.lb-outerContainer .lb-close{
  
     position: absolute;
