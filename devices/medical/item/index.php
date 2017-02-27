@@ -95,11 +95,11 @@ if ($_GET['id'] == '') {
                             if ($_data[0]['s_devices_video'] != '') {
                                 ?>					 
                                 <div class="video">
-                                    <p><a class="uk-icon-film" href="<?= $_data[0]['s_devices_video']; ?>" target="_blank" rel="vidbox">Watch the Video</a></p>
+                                    <p><a class="uk-icon-film" href="<?= $_data[0]['s_devices_video']; ?>" target="_blank" rel="vidbox"><?=$_SESSION["device_msg_video"]?></a></p>
                                 </div>
                             <?php } ?> 
 
-                            <div class="chiedi-info uk-icon-phone"><a href="../../../contacts.php" target="_blank" >For further information, please contact us</a></div> 
+                            <div class="chiedi-info uk-icon-phone"><a href="../../../contacts.php" target="_blank" ><?=$_SESSION["device_msg_contact"]?></a></div> 
                             <br/> <br/>
                             <div class="yoo-zoo socialbuttons clearfix">
                                 <?php
@@ -120,16 +120,16 @@ if ($_GET['id'] == '') {
 
                         <ul class="uk-tab" data-uk-tab="{connect:'#macchine-item-tab'}">
                             <li class="uk-active">
-                                <h3 class="tecnologia uk-icon-cogs">Technology</h3>
+                                <h3 class="tecnologia uk-icon-cogs"><?= $_SESSION["device_tech"] ?></h3>
                             </li>
                             <li>
-                                <h3 class="applicazioni uk-icon-user">Procedures</h3>
+                                <h3 class="applicazioni uk-icon-user"><?= $_SESSION["device_proc"] ?></h3>
                             </li>
                             <li>
-                                <h3 class="dati-tecnici uk-icon-list-ul">Technical Data</h3>
+                                <h3 class="dati-tecnici uk-icon-list-ul"><?= $_SESSION["device_technical"] ?></h3>
                             </li>
                             <li>
-                                <h3 class="pubblicazioni uk-icon-file">Pubblications</h3>
+                                <h3 class="pubblicazioni uk-icon-file"><?= $_SESSION["device_public"] ?></h3>
                             </li>
                         </ul>
                         <ul id="macchine-item-tab" class="uk-switcher uk-margin">

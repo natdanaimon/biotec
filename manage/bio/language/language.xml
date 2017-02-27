@@ -127,7 +127,7 @@
         <th>เนื้อหาเว็บไซต์ส่วนล่าง</th>
         <en>Content Bottom</en> 
     </detail>
-        <detail>
+    <detail>
         <variable>btn_next</variable>
         <th>ถัดไป</th>
         <en>Next</en> 
@@ -1155,6 +1155,15 @@
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!-- UI Element -->
         
     <!--    cosmeceuticals    -->
@@ -1377,9 +1386,64 @@
         <en>Detail EN</en> 
     </detail> 
 
+    <detail>
+        <variable>device_d_msg1</variable>
+        <th>Biotec Italia offers a complete range of professional equipments to treat face and body imperfections. Our electro-medical equipments are conceived  for  medical doctors and represent the new generation of aesthetic treatments in terms of efficacy and safety.</th>
+        <en>Biotec Italia offers a complete range of professional equipments to treat face and body imperfections. Our electro-medical equipments are conceived  for  medical doctors and represent the new generation of aesthetic treatments in terms of efficacy and safety.</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg2</variable>
+        <th>Scientific research, innovation and Made in Italy mark guarantee the high quality of Biotec Italia products.</th>
+        <en>Scientific research, innovation and Made in Italy mark guarantee the high quality of Biotec Italia products.</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg3</variable>
+        <th>Close collaboration with industry professionals, engineers, doctors and cosmetologists;</th>
+        <en>Close collaboration with industry professionals, engineers, doctors and cosmetologists;</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg4</variable>
+        <th>Scientific research and technology;</th>
+        <en>Scientific research and technology;</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg5</variable>
+        <th>Design and Production Made in Italy;</th>
+        <en>Design and Production Made in Italy;</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg6</variable>
+        <th>Costant training and courses;</th>
+        <en>Costant training and courses;</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg7</variable>
+        <th>After sales assistance;</th>
+        <en>After sales assistance;</en> 
+    </detail>
+    <detail>
+        <variable>device_d_msg8</variable>
+        <th>Medical Device Certification.</th>
+        <en>Medical Device Certification.</en> 
+    </detail>
     
+    <detail>
+        <variable>device_d_msg8</variable>
+        <th>Medical Device Certification.</th>
+        <en>Medical Device Certification.</en> 
+    </detail>
     
+    <detail>
+        <variable>device_msg_contact</variable>
+        <th>สำหรับข้อมูลเพิ่มเติมโปรดติดต่อเรา</th>
+        <en>For further information, please contact us.</en> 
+    </detail>
     
+    <detail>
+        <variable>device_msg_video</variable>
+        <th>รับชมวิดีโอแนะนำ</th>
+        <en>Watch the Video.</en> 
+    </detail>
     
     
     
