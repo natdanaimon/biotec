@@ -17,6 +17,9 @@ include './service/commonService.php';
 
 ACTIVEPAGES(4);
 ACTIVEPAGES_SUB(4, 2);
+if ($_GET["func"] == "edit" && $_GET["seq_i"] == NULL) {
+    echo header("Location: news_magazine.php");
+}
 ?>
 
 <html lang="en">
@@ -199,7 +202,6 @@ ACTIVEPAGES_SUB(4, 2);
                                                 $comm = new commonController();
 
                                                 $controller = new newsController();
-
                                                 $_data = $controller->dataTable_sel($_GET["seq_i"]);
 
                                                 foreach ($_data as $key => $value) {

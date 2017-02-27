@@ -9,6 +9,9 @@ include './controller/commonController.php';
 include './service/commonService.php';
 ACTIVEPAGES(4);
 ACTIVEPAGES_SUB(4, 3);
+if ($_GET["func"] == "edit" && $_GET["seq_i"] == NULL) {
+    echo header("Location: news_event.php");
+}
 ?>
 <html lang="en">
     <head>
@@ -44,22 +47,6 @@ ACTIVEPAGES_SUB(4, 3);
     <style>
         .required{
             color:red;
-        }
-        .fileUpload {
-            position: relative;
-            overflow: hidden;
-            margin: 10px;
-        }
-        .fileUpload input.img{
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 0;
-            padding: 0;
-            font-size: 20px;
-            cursor: pointer;
-            opacity: 0;
-            filter: alpha(opacity=0);
         }
     </style>
     <body class="nav-md">
@@ -186,14 +173,7 @@ ACTIVEPAGES_SUB(4, 3);
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                                 <div id="imagePreview" style="background-image: url(controller/file/news/<?= $_data[$key]['s_path_img'] ?>) !important;"></div>
-                                                                <div class="fileUpload btn btn-primary">
-                                                                    <span>
-                                                                        <li class="fa fa-folder-open">
-                                                                            <?= $_SESSION["browse"] ?>
-                                                                        </li>
-                                                                    </span>
-                                                                    <input type="file" id="uploadPic" name="uploadPic" class="img" />
-                                                                </div>
+                                                                <input type="file" id="uploadPic" name="uploadPic"  class="img" />
 
                                                             </div>
                                                         </div> 
@@ -288,20 +268,12 @@ ACTIVEPAGES_SUB(4, 3);
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <div id="imagePreview" ></div>
-                                                        <br>
-                                                        <div class="fileUpload btn btn-primary">
-                                                            <span>
-                                                                <li class="fa fa-folder-open">
-                                                                    <?= $_SESSION["browse"] ?>
-                                                                </li>
-                                                            </span>
-                                                            <input type="file" id="uploadPic" name="uploadPic" class="img" />
-                                                        </div>
+                                                        <input type="file" id="uploadPic" name="uploadPic"  class="img"/>
                                                     </div>
                                                 </div> 
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                                        <?= $_data[$key]['s_detail_th'] ?>
+                                                         <?= $_SESSION["detail_th"] ?> 
                                                         <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-9 col-sm-9 col-xs-12">
@@ -310,7 +282,7 @@ ACTIVEPAGES_SUB(4, 3);
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">
-                                                        <?= $_data[$key]['s_detail_en'] ?>
+                                                         <?= $_SESSION["detail_en"] ?> 
                                                         <span class="required">*</span>
                                                     </label>
                                                     <div class="col-md-9 col-sm-9 col-xs-12">
