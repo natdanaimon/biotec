@@ -127,6 +127,17 @@
         <th>เนื้อหาเว็บไซต์ส่วนล่าง</th>
         <en>Content Bottom</en> 
     </detail>
+        <detail>
+        <variable>btn_next</variable>
+        <th>ถัดไป</th>
+        <en>Next</en> 
+    </detail> 
+    <detail>
+        <variable>btn_previous</variable>
+        <th>ย้อนกลับ</th>
+        <en>Prevoius</en> 
+    </detail> 
+    
     
     <!--  Other -->
 	
@@ -1290,6 +1301,91 @@
         <th>ลบ</th>
         <en>Delete</en> 
     </detail>      
+    <detail>
+        <variable>device_main</variable>
+        <th>ส่วนหลัก</th>
+        <en>Main</en> 
+    </detail> 
+    <detail>
+        <variable>device_image</variable>
+        <th>รูปภาพ</th>
+        <en>Image</en> 
+    </detail>    
+    <detail>
+        <variable>device_tech</variable>
+        <th>เทคโนโลยี</th>
+        <en>Technology</en> 
+    </detail>    
+    <detail>
+        <variable>device_proc</variable>
+        <th>กระบวนการ</th>
+        <en>Procedures</en> 
+    </detail> 
+    <detail>
+        <variable>device_technical</variable>
+        <th>ข้อมูลทางเทคนิค</th>
+        <en>Technical Data</en> 
+    </detail>   
+    <detail>
+        <variable>device_public</variable>
+        <th>สิ่งพิมพ์</th>
+        <en>Publications</en> 
+    </detail>  
+    <detail>
+        <variable>device_video</variable>
+        <th>วิดิโอ</th>
+        <en>Video</en> 
+    </detail>
+    <detail>
+        <variable>device_step</variable>
+        <th>ขั้นตอน</th>
+        <en>Step</en> 
+    </detail> 
+    <detail>
+        <variable>device_browse</variable>
+        <th>เลือกไฟล์ ...</th>
+        <en>Browse File ...</en> 
+    </detail> 
+    <detail>
+        <variable>device_image_header</variable>
+        <th>รูปภาพส่วนบน</th>
+        <en>Image Header</en> 
+    </detail> 
+    <detail>
+        <variable>device_image_detail</variable>
+        <th>รูปภาพส่วนล่าง</th>
+        <en>Image Detail</en> 
+    </detail> 
+    <detail>
+        <variable>device_before</variable>
+        <th>รูปภาพก่อนใช้</th>
+        <en>Before Image</en> 
+    </detail> 
+    <detail>
+        <variable>device_after</variable>
+        <th>รูปภาพหลังใช้</th>
+        <en>After Image</en> 
+    </detail> 
+    <detail>
+        <variable>device_detail_th</variable>
+        <th>เนื้อหาภาษาไทย</th>
+        <en>Detail TH</en> 
+    </detail> 
+    <detail>
+        <variable>device_detail_en</variable>
+        <th>เนื้อหาภาษาอังกฤษ</th>
+        <en>Detail EN</en> 
+    </detail> 
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <!--  devices -->   
      
     <!--news-->  

@@ -54,7 +54,7 @@
                         </a>
 
                         <ul class="nav child_menu" style="<?= $_SESSION["style2"] ?>">
-                            <li  class="<?= $_SESSION["sm1"] ?>"><a href="devices.php"><?= $_SESSION["main_devices"] ?></a></li>
+<!--                            <li  class="<?= $_SESSION["sm1"] ?>"><a href="devices.php"><?= $_SESSION["main_devices"] ?></a></li>-->
                             <li  class="<?= $_SESSION["s1"] ?>"><a href="devices_item.php?id=1"><?= $_SESSION["medical"] ?></a></li>
                             <li  class="<?= $_SESSION["s2"] ?>"><a href="devices_item.php?id=2"><?= $_SESSION["aesthetic"] ?></a></li>
                         </ul>
