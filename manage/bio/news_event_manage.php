@@ -45,6 +45,22 @@ ACTIVEPAGES_SUB(4, 3);
         .required{
             color:red;
         }
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            margin: 10px;
+        }
+        .fileUpload input.img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
     </style>
     <body class="nav-md">
         <div class="container body">
@@ -170,7 +186,14 @@ ACTIVEPAGES_SUB(4, 3);
                                                             </label>
                                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                                 <div id="imagePreview" style="background-image: url(controller/file/news/<?= $_data[$key]['s_path_img'] ?>) !important;"></div>
-                                                                <input type="file" id="uploadPic" name="uploadPic"  class="img" />
+                                                                <div class="fileUpload btn btn-primary">
+                                                                    <span>
+                                                                        <li class="fa fa-folder-open">
+                                                                            <?= $_SESSION["browse"] ?>
+                                                                        </li>
+                                                                    </span>
+                                                                    <input type="file" id="uploadPic" name="uploadPic" class="img" />
+                                                                </div>
 
                                                             </div>
                                                         </div> 
@@ -265,7 +288,15 @@ ACTIVEPAGES_SUB(4, 3);
                                                     </label>
                                                     <div class="col-md-6 col-sm-6 col-xs-12">
                                                         <div id="imagePreview" ></div>
-                                                        <input type="file" id="uploadPic" name="uploadPic"  class="img"/>
+                                                        <br>
+                                                        <div class="fileUpload btn btn-primary">
+                                                            <span>
+                                                                <li class="fa fa-folder-open">
+                                                                    <?= $_SESSION["browse"] ?>
+                                                                </li>
+                                                            </span>
+                                                            <input type="file" id="uploadPic" name="uploadPic" class="img" />
+                                                        </div>
                                                     </div>
                                                 </div> 
                                                 <div class="form-group">
