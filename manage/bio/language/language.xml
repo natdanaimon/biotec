@@ -33,6 +33,11 @@
 
     <!--  Other -->
     <detail>
+        <variable>browse</variable>
+        <th>เรียกดู...</th>
+        <en>Browse...</en>
+    </detail>
+    <detail>
         <variable>info</variable>
         <th>ข้อมูล </th>
         <en>Info </en>
@@ -1228,13 +1233,13 @@
     <!--    cosmeceuticals    -->   
         
         
-     <!-- devices -->
-     <detail>
+    <!-- devices -->
+    <detail>
         <variable>main_devices</variable>
         <th>หน้าหลัก อุปกรณ์</th>
         <en>Main Devices</en> 
     </detail>    
-     <detail>
+    <detail>
         <variable>devices_image</variable>
         <th>รูปภาพ</th>
         <en>Image</en> 
@@ -1285,7 +1290,37 @@
         <th>ลบ</th>
         <en>Delete</en> 
     </detail>      
-     <!--  devices -->     
+    <!--  devices -->   
+     
+    <!--news-->  
+    <detail>
+        <variable>news</variable>
+        <th>ข่าว</th>
+        <en>News</en> 
+    </detail>  
+    
+    <detail>
+        <variable>magazine</variable>
+        <th>นิตยสาร</th>
+        <en>Magazine</en> 
+    </detail>  
+    
+        
+    <detail>
+        <variable>event</variable>
+        <th>เหตุการณ์</th>
+        <en>Event</en> 
+    </detail>  
+    <detail>
+        <variable>detail_en</variable>
+        <th>รายละเอียดภาษาอังกฤษ</th>
+        <en>Detail English language</en> 
+    </detail>  
+    <detail>
+        <variable>detail_th</variable>
+        <th>รายละเอียดภาษาไทย</th>
+        <en>Detail Thai language</en> 
+    </detail>  
         
         
         
