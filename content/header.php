@@ -318,49 +318,49 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
                                                             <li>
                                                                 
                                                                     <a href="cosmeceuticals/renlive/rigenera">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-rigenera.png" alt="Rigenera"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-rigenera.png" alt="Rigenera"/>
                                                                         <span class="image-title"><?= $_SESSION["rigenera"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
                                                                     <a href="cosmeceuticals/renlive/dry-sensitive">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-dry-sensitive.png" alt="Dry Sensitive"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-dry-sensitive.png" alt="Dry Sensitive"/>
                                                                         <span class="image-title"><?= $_SESSION["dry_sensitive"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                             
                                                                     <a href="cosmeceuticals/renlive/combination-oily">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-combination-oily.png" alt="Combination Oily"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-combination-oily.png" alt="Combination Oily"/>
                                                                         <span class="image-title"><?= $_SESSION["combination_oily"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
                                                                     <a href="cosmeceuticals/renlive/flexi">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-flexi.png" alt="Flexi"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-flexi.png" alt="Flexi"/>
                                                                         <span class="image-title"><?= $_SESSION["flexi"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
                                                                     <a href="cosmeceuticals/renlive/bodyline">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-bodyline.png" alt="Bodyline"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-bodyline.png" alt="Bodyline"/>
                                                                         <span class="image-title"><?= $_SESSION["bodyline"] ?></span> 
                                                                     </a>
                                                             </li>
                                                             <li>
                                                               
                                                                     <a href="cosmeceuticals/renlive/sun-care">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-solari.png" alt="Sun Care"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-solari.png" alt="Sun Care"/>
                                                                         <span class="image-title"><?= $_SESSION["sun_care"] ?></span>
                                                                     </a>
                                                             </li>
                                                             <li>
                                                                
                                                                     <a href="cosmeceuticals/renlive/herbs-tea-and-supplements">
-                                                                        <img src="http://www.biotecitalia.com/images/cosmeceutici/menu/menu-tisane.png" alt="Herbs Tea and Supplements"/>
+                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-tisane.png" alt="Herbs Tea and Supplements"/>
                                                                         <span class="image-title"><?= $_SESSION["herbs"] ?></span> </a>
                                                             </li>
                                                         </ul>
