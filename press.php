@@ -109,13 +109,12 @@ include './service/pressService.php';
                                     if ($util->ContinueObject($page, $key + 1)) {
                                         continue;
                                     }
-
                                     ?>
                                     <div class="uk-width-medium-1-4">
                                         <article class="uk-article">
 
 
-                                            <h1 class="uk-article-title"> 
+                                            <h1 class="uk-article-title" style="min-height:10px;"> 
 
                                                 <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> 
                                             </h1>
@@ -138,21 +137,21 @@ include './service/pressService.php';
                                                          alt="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" />
                                                 </a>
                                                 -->
-                                                
+
                                                 <a href="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>"  
                                                    class="example-image-link"  data-lightbox="example-<?= $_data[$key]['i_seq'] ?>"
                                                    title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" data-spotlight="on"
-                                                    
+
                                                    >
                                                     <img src="./manage/bio/controller/file/press/<?= $_data[$key]['s_img'] ?>" 
                                                          Style="width: 220px;height: 280px;" 
                                                          alt="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?> <?= $_data[$key]['s_date'] ?>" />
                                                 </a>
-                                                
-                                                
-                                                
-                                                
-                                                	
+
+
+
+
+
                                             </div>
                                             <div style="height: 5px;">
 
@@ -164,6 +163,7 @@ include './service/pressService.php';
                                                        <?= $_SESSION['download'] ?>
                                                 </a>
                                             </div> 
+                                            <div style="height: 50px;"></div>
 
 
                                         </article>
@@ -181,53 +181,53 @@ include './service/pressService.php';
                             <ul class="uk-pagination">
 
                                 <?php
-                                if($_data!=NULL){
-                                // << FIRST
-                                $first = ($page == 1 ? TRUE : FALSE);
-                                $last = FALSE;
-                                if (!$first) {
-                                    $minus = $page - 1;
-                                    echo "<li>";
-                                    echo " <a href='press.php?page=1'>First</a>";
-                                    echo "</li>";
-                                    echo "<li>";
-                                    echo "<a href='press.php?page=$minus'><<</a>";
-                                    echo "</li>";
-                                }
-
-                                //for start
-                                for ($i = 1; $i <= $rel; $i++) {
-                                    $active = ($page == $i ? "uk-active" : '');
-                                    if ($rel != 1) {
-                                        
-                                    }
-
-                                    if ($active == '') {
+                                if ($_data != NULL) {
+                                    // << FIRST
+                                    $first = ($page == 1 ? TRUE : FALSE);
+                                    $last = FALSE;
+                                    if (!$first) {
+                                        $minus = $page - 1;
                                         echo "<li>";
-                                        echo "<a href='press.php?page=$i'>$i</a>";
+                                        echo " <a href='press.php?page=1'>First</a>";
                                         echo "</li>";
-                                    } else {
-                                        echo "<li class='$active '>";
-                                        echo " <span>$i</span>";
+                                        echo "<li>";
+                                        echo "<a href='press.php?page=$minus'><<</a>";
                                         echo "</li>";
                                     }
-                                    if ($rel == $page) {
-                                        $last = TRUE;
+
+                                    //for start
+                                    for ($i = 1; $i <= $rel; $i++) {
+                                        $active = ($page == $i ? "uk-active" : '');
+                                        if ($rel != 1) {
+                                            
+                                        }
+
+                                        if ($active == '') {
+                                            echo "<li>";
+                                            echo "<a href='press.php?page=$i'>$i</a>";
+                                            echo "</li>";
+                                        } else {
+                                            echo "<li class='$active '>";
+                                            echo " <span>$i</span>";
+                                            echo "</li>";
+                                        }
+                                        if ($rel == $page) {
+                                            $last = TRUE;
+                                        }
                                     }
-                                }
-                                //for end
-                                //
+                                    //for end
+                                    //
                                  //
                                 //  >>  LAST
-                                if (!$last) {
-                                    $plus = $page + 1;
-                                    echo "<li>";
-                                    echo "<a href='press.php?page=$plus'>>></a>";
-                                    echo "</li>";
-                                    echo "<li>";
-                                    echo " <a href='press.php?page=$rel'>Last</a>";
-                                    echo "</li>";
-                                }
+                                    if (!$last) {
+                                        $plus = $page + 1;
+                                        echo "<li>";
+                                        echo "<a href='press.php?page=$plus'>>></a>";
+                                        echo "</li>";
+                                        echo "<li>";
+                                        echo " <a href='press.php?page=$rel'>Last</a>";
+                                        echo "</li>";
+                                    }
                                 }
                                 ?>
 
@@ -247,18 +247,19 @@ include './service/pressService.php';
 
     </div>	
 </div>
-  <link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css">
-  <script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
-  <script src="media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
-  <script>
-  	jQuery(function($) {
-        $('[data-spotlight]').spotlight({
-            "duration": 300
-        });
-    });
-  </script>
-  
- 
+<link rel="stylesheet" href="bower_components/lightbox2/dist/css/lightbox.min.css">
+<script src="bower_components/lightbox2/dist/js/lightbox-plus-jquery.min.js"></script>
+<script src="media/widgetkit/widgets/spotlight/js/spotlight.js"></script>
+<script>
+      jQuery(function ($) {
+          $('[data-spotlight]').spotlight({
+              "duration": 300
+          });
+  }
+  );
+</script>
+
+
 <?php
 include './content/footer.php';
 ?>
