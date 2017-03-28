@@ -77,20 +77,17 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         } else if ($fixheader == "press") {
             $bodyClass = "tm-isblog";
             ?>
-            <link href="http://www.biotecitalia.com/templates/yoo_square/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
-            <!--                        <link rel="stylesheet" href="catch/widgetkit/widgetkit-7044da1b.css" type="text/css" />-->
-            <link rel="stylesheet" href="http://www.biotecitalia.com/plugins/system/zlframework/zlframework/elements/pro/tmpl/render/widgetkit/widgetkit.css?ver=20150120" type="text/css" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/media/mod_languages/css/template.css" type="text/css" />
-            <script src="media/jui/js/jquery.min.js" type="text/javascript"></script>
-            <script src="http://www.biotecitalia.com/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
-            <script src="http://www.biotecitalia.com/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
-            <script src="http://www.biotecitalia.com/media/zoo/assets/js/responsive.js?ver=20150120" type="text/javascript"></script>
-            <script src="http://www.biotecitalia.com/components/com_zoo/assets/js/default.js?ver=20150120" type="text/javascript"></script>
+          <link rel="stylesheet" href="templates/css/style.css" type="text/css" />
+            <link rel="stylesheet" href="media/template.css" type="text/css" />
+            <script src="media/jquery.min.js" type="text/javascript"></script>
+            <script src="media/jquery-noconflict.js" type="text/javascript"></script>
+            <script src="media/jquery-migrate.min.js" type="text/javascript"></script>
+            <script src="media/widgetkit-78853296.js" type="text/javascript"></script>
+           
             <!--
             <script src="http://www.biotecitalia.com/cache/widgetkit/widgetkit-78853296.js" type="text/javascript"></script>
             -->
-             
+                      <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
 
 
             <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
@@ -100,22 +97,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <style data-file="theme.css"></style>
             <script src="scripts.js"></script>
             
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>
-            
-            
-            
-
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>
-
-
-
-
+       
 
 
 
@@ -133,8 +115,8 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <link href="indexc0d0.html?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
             <link href="index7b17.html?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
             <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-<!--            <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/modules/mod_zooitem/tmpl/list/style.css?ver=20150120" type="text/css" />-->
+            <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+            <link rel="stylesheet" href="http://www.biotecitalia.com/modules/mod_zooitem/tmpl/list/style.css?ver=20150120" type="text/css" />
             <link rel="stylesheet" href="media/template.css" type="text/css" />
             <script src="media/jquery.min.js" type="text/javascript"></script>
             <script src="media/jquery-noconflict.js" type="text/javascript"></script>
