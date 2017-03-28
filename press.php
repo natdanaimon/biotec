@@ -2,7 +2,7 @@
 @session_start();
 include './manage/bio/common/FunctionCheckActive.php';
 ACTIVEPAGE_SHOW(6);
-$fixheader = "press";
+$fixheader = "fix";
 include './content/header.php';
 //include './content/slide.php';
 //slidePage("press");

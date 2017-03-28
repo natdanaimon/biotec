@@ -31,8 +31,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <link href="indexc0d0.html?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
             <link href="index7b17.html?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
             <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/modules/mod_zooitem/tmpl/list/style.css?ver=20150120" type="text/css" />
+            <!--<link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />-->
+<!--            <link rel="stylesheet" href="http://www.biotecitalia.com/modules/mod_zooitem/tmpl/list/style.css?ver=20150120" type="text/css" />-->
+<link rel="stylesheet" href="templates/css/style.css" type="text/css" />
             <link rel="stylesheet" href="media/template.css" type="text/css" />
             <script src="media/jquery.min.js" type="text/javascript"></script>
             <script src="media/jquery-noconflict.js" type="text/javascript"></script>
@@ -53,21 +54,21 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
 
 
 
-            <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
+<!--            <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">-->
             <!--<style data-file="bootstrap.css"></style>-->
-			<link  rel="stylesheet" href="templates/template.css">
+	    <link  rel="stylesheet" href="templates/template.css">
             <style data-file="theme.css"></style>
-			<script src="scripts.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
+	    <script src="scripts.js"></script>
+<!--            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
             <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>
+            <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>-->
             
             
 
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>
+        <!--            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
+                        <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
+                        <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
+                        <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>-->
 
 
 
@@ -132,8 +133,8 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <link href="indexc0d0.html?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
             <link href="index7b17.html?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
             <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
-            <link rel="stylesheet" href="http://www.biotecitalia.com/modules/mod_zooitem/tmpl/list/style.css?ver=20150120" type="text/css" />
+<!--            <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+            <link rel="stylesheet" href="http://www.biotecitalia.com/modules/mod_zooitem/tmpl/list/style.css?ver=20150120" type="text/css" />-->
             <link rel="stylesheet" href="media/template.css" type="text/css" />
             <script src="media/jquery.min.js" type="text/javascript"></script>
             <script src="media/jquery-noconflict.js" type="text/javascript"></script>
@@ -154,20 +155,20 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
 
 
 
-            <link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
+            <!--<link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">-->
             <!--<style data-file="bootstrap.css"></style>-->
 			<link rel="stylesheet" href="templates/template.css">
             <style data-file="theme.css"></style>
 			<script src="scripts.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
+<!--            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
             <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>
+            <script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>-->
             
 
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
+<!--            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
             <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
             <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
-            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>
+            <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>-->
 
 
         <?php } else if ($fixheader == "news") { 
