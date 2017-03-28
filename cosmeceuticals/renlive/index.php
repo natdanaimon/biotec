@@ -36,13 +36,12 @@ $fxhight_div = ($_data != NULL ? 40 : 150);
 
 
 
-<div style="height:<?= $fxhight_div ?>px">
+<div style="height:<?=$fxhight_div?>px">
 
 </div>
 <?php
 if ($_data != NULL) {
     $_SlideItem = $utilSlide->countObject($_data);
-    ?>
     ?>
     <div id="linea-banner">
 
