@@ -15,7 +15,7 @@ ACTIVEPAGES(5);
         <!-- Meta, title, CSS, favicons, etc. -->
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
         <title> <?= $_SESSION["title"] ?></title>
 
@@ -185,6 +185,8 @@ ACTIVEPAGES(5);
                             $('.dataTables_empty').remove();
                             datatable.clear();
                             datatable.draw();
+                            $('#se-pre-con').delay(100).fadeOut();
+                            return;
                         }
                         var res = JSON.parse(data);
                         var JsonData = [];
