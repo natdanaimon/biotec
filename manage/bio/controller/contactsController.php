@@ -73,15 +73,15 @@ class contactsController {
         foreach ($_data as $key => $value) {
 
             $result = $_data[$key]['i_seq'] . ",";
-            $result .= $_SESSION["contacts_fullname"] . " : " . $_data[$key]['s_name'] . " " . $_data[$key]['s_lastname'] . ",";
+            $result .= $_SESSION["contacts_fullname"] . " : <span class='badge' style='background-color: #009fe8' >" . $_data[$key]['s_name'] . " " . $_data[$key]['s_lastname'] . "</span>,";
 
-            $result .= $_SESSION["tb_col_phone"] . " : " . $_data[$key]['s_number'] . ",";
-            $result .= $_SESSION["tb_col_email"] . " : " . $_data[$key]['s_email'] . ",";
-            $result .= $_SESSION["contacts_city"] . " : " . $_data[$key]['s_city'] . ",";
-            $result .= $_SESSION["contacts_country"] . " : " . $_data[$key]['s_country'] . ",";
-            $result .= $_SESSION["tb_col_subject"] . " : " . $_data[$key]['s_subject'] . ",";
-            $result .= $_data[$key]['s_message'] . ",";
-            $result .= $_SESSION["contacts_time"] . " : " . $_data[$key]['d_date'] . "";
+            $result .= $_SESSION["tb_col_phone"] . " : <span class='badge' style='background-color: #009fe8'  >" . $_data[$key]['s_number'] . "</span>,";
+            $result .= $_SESSION["tb_col_email"] . " : <span class='badge' style='background-color: #009fe8' >" . $_data[$key]['s_email'] . "</span>,";
+            $result .= $_SESSION["contacts_city"] . " : <span class='badge' style='background-color: #009fe8' >" . $_data[$key]['s_city'] . "</span>,";
+            $result .= $_SESSION["contacts_country"] . " : <span class='badge' style='background-color: #009fe8' >" . $_data[$key]['s_country'] . "</span>,";
+            $result .= $_SESSION["tb_col_subject"] . " : <span class='badge' style='background-color: #009fe8' >" . $_data[$key]['s_subject'] . "</span>,";
+            $result .= "".$_data[$key]['s_message'] . ",";
+            $result .= $_SESSION["contacts_time"] . " : <span class='badge' style='background-color: #009fe8' >" . $_data[$key]['d_date'] . "</span>";
         }
         echo $result;
     }

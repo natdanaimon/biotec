@@ -87,9 +87,7 @@ ACTIVEPAGES(6);
             margin-left: 10%;
             margin-right: 10%;
         }
-        .modal-footer{
-            background-color: #009fe8;
-        }
+
         .img-pro{
             width: 100px;
             height: 100px;
@@ -168,7 +166,7 @@ ACTIVEPAGES(6);
 
 
 
-                                            
+
 
                                         </div>
 
@@ -321,10 +319,6 @@ ACTIVEPAGES(6);
                 unloading();
             });
         </script>
-
-
-
-
 
 
 
@@ -956,7 +950,7 @@ ACTIVEPAGES(6);
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
                         </button>
-                        <div class="img-pro"><img class="resize" src="./images/profile/no-image.png" style="height: inherit;"></div>
+                        <div class="img-pro"><img class="resize" src="./images/profile/user-512.png" style="height: inherit;"></div>
                     </div>
 
 
@@ -999,7 +993,7 @@ ACTIVEPAGES(6);
 
                         <h6 id="dateTime" name="dateTime"/>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer views">
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><?= $_SESSION["close"] ?></button>
                     </div>
 
@@ -1020,11 +1014,12 @@ ACTIVEPAGES(6);
                     width: 500px;
                 }
             }
-            .modal-footer {
+            .modal-footer.views {
                 padding: 10px;
                 text-align: right;
                 border-top: 1px solid #e5e5e5;
-                background-color: #1abb9c;
+                /*background-color: #1abb9c;*/
+                background-color: #009fe8;
             }
 
         </style>
