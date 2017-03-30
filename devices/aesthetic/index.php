@@ -93,7 +93,7 @@ $_GET['id'] = 2;
                                     $util = new Utility();
                                     $controller = new devicesController();
                                     $_data = $controller->dataTable($_GET['id']);
-                                    $limitPaging = $util->getLimitPaging();
+                                    $limitPaging = $util->getLimitPaging_dv();
 
                                     $resultCount = $util->countObject($_data);
                                     // for test 

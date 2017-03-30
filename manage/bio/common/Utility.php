@@ -19,6 +19,7 @@ class Utility {
     protected $_locationRedirectPremissionUser = "index.php";
     protected $_locationRedirectPremissionAdmin = "index.php";
     protected $_limitPaging = 16;
+    protected $_limitPaging_dv = 9;
 
     function getPathXML() {
         return $this->_pathXML;
@@ -26,6 +27,9 @@ class Utility {
 
     function getLimitPaging() {
         return $this->_limitPaging;
+    }
+    function getLimitPaging_dv() {
+        return $this->_limitPaging_dv;
     }
     function setLimitPaging($limitPaging) {
         $this->_limitPaging = $limitPaging;
