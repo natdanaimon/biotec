@@ -58,13 +58,46 @@ if ($_GET['id'] == '') {
                                             <ul class="uk-slideset uk-grid uk-flex-center">
                                                 <?php
                                                 $i = 0;
-                                                foreach ($_data as $key => $value) {
+                                                //foreach ($_data as $key => $value) {
                                                     ?>
-                                                    <li>
-                                                        <img  style="width: 530px; height: 390px;" src="../../../manage/bio/uploads/devices_item/<?= $_data[$i]['s_devices_logo']; ?>" width="450" height="336" alt="<?= $_data[$i++]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
-                                                    </li>
+<?php
+$logo = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo'];
 
-                                                <?php } ?>
+if (file_exists($logo) and $_data[$i]['s_devices_logo'] != '') {
+?>
+<li>
+                                                        <img  style="width: 530px; height: 390px;" src="<?=$logo;?>" width="450" height="336" alt="<?= $_data[$i]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                                    </li>
+<?php
+} 
+?>
+
+<?php
+$logo02 = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo02'];
+
+if (file_exists($logo02) and $_data[$i]['s_devices_logo02'] != '') {
+?>
+<li>
+                                                        <img  style="width: 530px; height: 390px;" src="<?=$logo02;?>" width="450" height="336" alt="<?= $_data[$i]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                                    </li>
+<?php
+}
+?>
+
+<?php
+$logo03 = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo03'];
+
+if (file_exists($logo03) and $_data[$i]['s_devices_logo03'] != '') {
+?>
+<li>
+                                                        <img  style="width: 530px; height: 390px;" src="<?=$logo03;?>" width="450" height="336" alt="<?= $_data[$i]['s_devices_' . $_SESSION["main_lan"]]; ?>" />
+                                                    </li>
+<?php
+} 
+?>
+                                                    
+                                                                                                     
+                                                <?php //} ?>
                                             </ul>
                                             <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous">
                                                 <img src="../../../images/slideshow/previous.png">
