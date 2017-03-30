@@ -48,21 +48,21 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
-	    <link  rel="stylesheet" href="templates/template.css">
+            <link  rel="stylesheet" href="templates/template.css">
             <style data-file="theme.css"></style>
-	    <script src="scripts.js"></script>
+            <script src="scripts.js"></script>
 
             <?php
         } else if ($fixheader == "press") {
             $bodyClass = "tm-isblog";
             ?>
-          <link rel="stylesheet" href="templates/css/style.css" type="text/css" />
+            <link rel="stylesheet" href="templates/css/style.css" type="text/css" />
             <link rel="stylesheet" href="media/template.css" type="text/css" />
             <script src="media/jquery.min.js" type="text/javascript"></script>
             <script src="media/jquery-noconflict.js" type="text/javascript"></script>
             <script src="media/jquery-migrate.min.js" type="text/javascript"></script>
             <script src="media/widgetkit-78853296.js" type="text/javascript"></script>
-           
+
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
 
 
@@ -70,7 +70,37 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <style data-file="theme.css"></style>
             <script src="scripts.js"></script>
 
-            <?php  }?>
+            <?php
+        } else if ($fixheader == "contacts") {
+            $bodyClass = "tm-noblog contatti";
+            ?>
+
+
+            <link href="indexc0d0.html?format=feed&amp;type=rss" rel="alternate" type="application/rss+xml" title="RSS 2.0" />
+            <link href="index7b17.html?format=feed&amp;type=atom" rel="alternate" type="application/atom+xml" title="Atom 1.0" />
+            <link href="images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+           
+            <link rel="stylesheet" href="media/template.css" type="text/css" />
+            <script src="media/jquery.min.js" type="text/javascript"></script>
+
+
+
+            <link rel="stylesheet" href="templates/warp/vendor/uikit/css/uikit.min.css" />
+          
+            <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
+            <link id="data-uikit-theme" rel="stylesheet" href="templates/warp/vendor/uikit.docs.min.css">
+            <script src="templates/warp/vendor/jquery.js"></script>
+            <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
+            <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>
+            <script src="templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
+
+
+            <link rel="stylesheet" href="templates/template.css">
+            <style data-file="theme.css"></style>
+            <script src="scripts.js"></script>
+
+
+        <?php } ?>
 
     </head>
 
@@ -171,52 +201,52 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
                                                         </a>
                                                         <ul class="uk-nav-sub">
                                                             <li>
-                                                                
-                                                                    <a href="cosmeceuticals/renlive/rigenera">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-rigenera.png" alt="Rigenera"/>
-                                                                        <span class="image-title"><?= $_SESSION["rigenera"] ?></span> 
-                                                                    </a>
+
+                                                                <a href="cosmeceuticals/renlive/rigenera">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-rigenera.png" alt="Rigenera"/>
+                                                                    <span class="image-title"><?= $_SESSION["rigenera"] ?></span> 
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                               
-                                                                    <a href="cosmeceuticals/renlive/dry-sensitive">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-dry-sensitive.png" alt="Dry Sensitive"/>
-                                                                        <span class="image-title"><?= $_SESSION["dry_sensitive"] ?></span> 
-                                                                    </a>
+
+                                                                <a href="cosmeceuticals/renlive/dry-sensitive">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-dry-sensitive.png" alt="Dry Sensitive"/>
+                                                                    <span class="image-title"><?= $_SESSION["dry_sensitive"] ?></span> 
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                            
-                                                                    <a href="cosmeceuticals/renlive/combination-oily">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-combination-oily.png" alt="Combination Oily"/>
-                                                                        <span class="image-title"><?= $_SESSION["combination_oily"] ?></span> 
-                                                                    </a>
+
+                                                                <a href="cosmeceuticals/renlive/combination-oily">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-combination-oily.png" alt="Combination Oily"/>
+                                                                    <span class="image-title"><?= $_SESSION["combination_oily"] ?></span> 
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                               
-                                                                    <a href="cosmeceuticals/renlive/flexi">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-flexi.png" alt="Flexi"/>
-                                                                        <span class="image-title"><?= $_SESSION["flexi"] ?></span> 
-                                                                    </a>
+
+                                                                <a href="cosmeceuticals/renlive/flexi">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-flexi.png" alt="Flexi"/>
+                                                                    <span class="image-title"><?= $_SESSION["flexi"] ?></span> 
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                               
-                                                                    <a href="cosmeceuticals/renlive/bodyline">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-bodyline.png" alt="Bodyline"/>
-                                                                        <span class="image-title"><?= $_SESSION["bodyline"] ?></span> 
-                                                                    </a>
+
+                                                                <a href="cosmeceuticals/renlive/bodyline">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-bodyline.png" alt="Bodyline"/>
+                                                                    <span class="image-title"><?= $_SESSION["bodyline"] ?></span> 
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                              
-                                                                    <a href="cosmeceuticals/renlive/sun-care">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-solari.png" alt="Sun Care"/>
-                                                                        <span class="image-title"><?= $_SESSION["sun_care"] ?></span>
-                                                                    </a>
+
+                                                                <a href="cosmeceuticals/renlive/sun-care">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-solari.png" alt="Sun Care"/>
+                                                                    <span class="image-title"><?= $_SESSION["sun_care"] ?></span>
+                                                                </a>
                                                             </li>
                                                             <li>
-                                                               
-                                                                    <a href="cosmeceuticals/renlive/herbs-tea-and-supplements">
-                                                                        <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-tisane.png" alt="Herbs Tea and Supplements"/>
-                                                                        <span class="image-title"><?= $_SESSION["herbs"] ?></span> </a>
+
+                                                                <a href="cosmeceuticals/renlive/herbs-tea-and-supplements">
+                                                                    <img src="http://biotecitalia-thailand.com/images/cosmeceutici/menu/menu-tisane.png" alt="Herbs Tea and Supplements"/>
+                                                                    <span class="image-title"><?= $_SESSION["herbs"] ?></span> </a>
                                                             </li>
                                                         </ul>
                                                 </li>
