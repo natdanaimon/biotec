@@ -178,6 +178,27 @@ class devicesService {
 			$db->update_db("tb_devices",$data_img,"id = '".$id."' ");
 		}
 		
+		///////// 02
+		if($_FILES["logo02"]["name"] != NULL){
+			$value = $_FILES["logo02"];
+			$temp = explode(".", $value["name"]);
+	        $tmpFileName = $id . 'logo02.' . end($temp);
+	        $newfilename = $part_image . $tmpFileName;
+			move_uploaded_file($value["tmp_name"], $newfilename);
+			$data_img02['s_devices_logo02'] = $tmpFileName;
+			$db->update_db("tb_devices",$data_img02,"id = '".$id."' ");
+		}
+		///////// 03
+		if($_FILES["logo03"]["name"] != NULL){
+			$value = $_FILES["logo03"];
+			$temp = explode(".", $value["name"]);
+	        $tmpFileName = $id . 'logo03.' . end($temp);
+	        $newfilename = $part_image . $tmpFileName;
+			move_uploaded_file($value["tmp_name"], $newfilename);
+			$data_img03['s_devices_logo03'] = $tmpFileName;
+			$db->update_db("tb_devices",$data_img03,"id = '".$id."' ");
+		}
+		
 		////////// 01
 		if($_FILES["01_before"]["name"]){
 			$value = $_FILES["01_before"];

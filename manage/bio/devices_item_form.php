@@ -221,10 +221,10 @@ if ($_GET[seq_i]) {
                                                         <img src="images/user.png" id="show_icon" width="200" />
                                                         <br />                                                        
                                                         <br /> 
-                                                        <div class="fileContainer"  >
+                                                        <div class="fileContainers"  >
                                                             <input type="file" id="icon" name="icon"   onchange="readURL(this, 'show_icon');"  />
 
-                                                            <label for="icon" class="btn btn-info">
+                                                            <label for="icon" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -235,14 +235,57 @@ if ($_GET[seq_i]) {
 
 
                                                     <div class="col-md-4 col-sm-4 col-xs-4">
-                                                        <?= $_SESSION["device_image_detail"] ?> <br />                                                        
+                                                        <?= $_SESSION["device_image_detail"] ?> 01<br />                                                        
                                                         <img src="images/user.png" id="show_logo" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="logo" name="logo"  onchange="readURL(this, 'show_logo');"  />
 
-                                                            <label for="logo" class="btn btn-info">
+                                                            <label for="logo" class="btn btn-info" style="display: none;">
+
+                                                                <span> <?= $_SESSION["device_browse"] ?></span>
+                                                            </label>
+                                                        </div>                                                        
+
+                                                    </div>
+
+
+                                                </div>
+                                                
+                                                <div class="col-md-12">
+                                                
+                                                
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
+                                                        <?= $_SESSION["device_image_detail"] ?> 02<br />                                                        
+                                                        <img src="images/user.png" id="show_logo02" width="200" />
+                                                        <br />                                                        
+                                                        <br />                                                        
+                                                        <div class="fileContainer"  >
+                                                            <input type="file" id="logo02" name="logo02"  onchange="readURL(this, 'show_logo02');"  />
+
+                                                            <label for="logo02" class="btn btn-info" style="display: none;">
+
+                                                                <span> <?= $_SESSION["device_browse"] ?></span>
+                                                            </label>
+                                                        </div>                                                        
+
+                                                    </div>
+
+
+                                                     
+
+
+
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
+                                                        <?= $_SESSION["device_image_detail"] ?> 03<br />                                                        
+                                                        <img src="images/user.png" id="show_logo03" width="200" />
+                                                        <br />                                                        
+                                                        <br />                                                        
+                                                        <div class="fileContainer"  >
+                                                            <input type="file" id="logo03" name="logo03"  onchange="readURL(this, 'show_logo03');"  />
+
+                                                            <label for="logo03" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -254,6 +297,9 @@ if ($_GET[seq_i]) {
                                                 </div>
 
 
+
+                                                
+                                                <hr />
                                                 <div class="col-md-12">
 
                                                     <div class="col-md-4 col-sm-4 col-xs-4">
@@ -264,7 +310,7 @@ if ($_GET[seq_i]) {
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="01_before" name="01_before"  onchange="readURL(this, 'show_01_before');"  />
 
-                                                            <label for="logo" class="btn btn-info">
+                                                            <label for="logo" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -281,7 +327,7 @@ if ($_GET[seq_i]) {
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="01_after" name="01_after"  onchange="readURL(this, 'show_01_after');"  />
 
-                                                            <label for="01_after" class="btn btn-info">
+                                                            <label for="01_after" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -290,6 +336,7 @@ if ($_GET[seq_i]) {
                                                     </div>
                                                 </div>
 
+                                                <hr />
                                                 <div class="col-md-12">
 
                                                     <div class="col-md-4 col-sm-4 col-xs-4">
@@ -300,7 +347,7 @@ if ($_GET[seq_i]) {
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="02_before" name="02_before"  onchange="readURL(this, 'show_02_before');"  />
 
-                                                            <label for="02_before" class="btn btn-info">
+                                                            <label for="02_before" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -318,7 +365,7 @@ if ($_GET[seq_i]) {
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="02_after" name="02_after"  onchange="readURL(this, 'show_02_after');"  />
 
-                                                            <label for="02_after" class="btn btn-info">
+                                                            <label for="02_after" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -327,6 +374,7 @@ if ($_GET[seq_i]) {
                                                     </div>
                                                 </div>
 
+                                                <hr />
                                                 <div class="col-md-12">
 
                                                     <div class="col-md-4 col-sm-4 col-xs-4">
@@ -337,7 +385,7 @@ if ($_GET[seq_i]) {
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="03_before" name="03_before"  onchange="readURL(this, 'show_03_before');"  />
 
-                                                            <label for="03_before" class="btn btn-info">
+                                                            <label for="03_before" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -354,7 +402,7 @@ if ($_GET[seq_i]) {
                                                         <div class="fileContainer"  >
                                                             <input type="file" id="03_after" name="03_after"  onchange="readURL(this, 'show_03_after');"  />
 
-                                                            <label for="03_after" class="btn btn-info">
+                                                            <label for="03_after" class="btn btn-info" style="display: none;">
 
                                                                 <span> <?= $_SESSION["device_browse"] ?></span>
                                                             </label>
@@ -706,6 +754,19 @@ if ($_GET[seq_i]) {
                                 if (show_logo) {
                                     $('#show_logo').attr("src", "uploads/devices_item/" + show_logo);
                                 }
+                                
+                                show_logo02 = item.s_devices_logo02;
+                                if (show_logo02) {
+                                    $('#show_logo02').attr("src", "uploads/devices_item/" + show_logo02);
+                                }
+                                
+                                show_logo03 = item.s_devices_logo03;
+                                if (show_logo03) {
+                                    $('#show_logo03').attr("src", "uploads/devices_item/" + show_logo03);
+                                }
+                                
+                                
+                                
                                 show_icon = item.s_devices_icon;
                                 if (show_icon) {
                                     $('#show_icon').attr("src", "uploads/devices_item/" + show_icon);
@@ -841,13 +902,13 @@ if ($_GET[seq_i]) {
         <!-- Input -->
         <script src="assets/inputfile/js/custom-file-input.js"></script>
         <style>
-            .fileContainer {
+            .fileContainerddd {
                 overflow: hidden;
                 position: relative;
                 cursor: pointer;
             }
 
-            .fileContainer [type=file] {
+            .fileContainersss [type=file] {
                 cursor: inherit;
                 display: block;
                 font-size: 999px;
