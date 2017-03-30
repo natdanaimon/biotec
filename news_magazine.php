@@ -66,8 +66,10 @@ include './service/newsService.php';
         float: left;
     }
     .li-linkitem{
-        margin-top: 0px;
+        margin-top: 15px;
+
         background-color: #ccb26f;
+
         padding: 0 34px;    
     }    
     .li-linkitem > a{
@@ -212,7 +214,17 @@ include './service/newsService.php';
                                                         <img Style="margin-top: 0% !important; height: inherit !important;" class="absolute" src="./manage/bio/controller/file/news/<?= $_data[$key]['s_path_img'] ?>" alt="" width="150" height="120" title="<?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>" />
 
                                                     </div>
+                                                <ul class="ul-readmore">
 
+
+
+                                                    <li class="li-linkitem">
+
+                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?= $_SESSION["_readmore"] ?> >></a>
+
+                                                    </li>
+
+                                                </ul>
                                                 </a> </div>
 
                                             <?= $_data[$key]['s_subject_' . $_SESSION["main_lan"]] ?>
@@ -225,15 +237,6 @@ include './service/newsService.php';
                                                 echo $social->facebook_like_button($link, FALSE);
                                                 ?>
                                             </div> 
-
-                                            <div align="left">
-                                                <ul class="ul-readmore">
-
-                                                    <li class="li-linkitem">
-                                                        <a href="news_detail.php?s_id=<?= $_data[$key]['s_seq'] ?>"><?= $_SESSION["_readmore"] ?> >></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
 
                                         </article>
 
