@@ -142,7 +142,7 @@ $_GET['id'] = 1;
                                                 <ul class="uk-subnav uk-subnav-line">
 
                                                     <li class="element element-itemlink">
-                                                        <a href="../../devices/medical/item?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a></li></ul>
+                                                        <a style="width: 250px;  text-align: right; " href="../../devices/medical/item?id=<?= $_data[$key]['id']; ?>"><?= $_SESSION["btn_show_detail"] ?></a></li></ul>
                                             </div>
                                         </div>
                                         <?php

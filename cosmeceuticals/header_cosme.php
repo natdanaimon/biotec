@@ -14,46 +14,70 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
 
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-  <base  />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <meta name="description" content="Biotec Italia produttore e distributore di macchinari estetico medicali e cosmeceutici per la cura di viso e corpo" />
-  <meta name="generator" content="MYOB" />
-  <title><?= $_SESSION['title'] ?></title>
- 
-  <link href="http://www.biotecitalia.com/templates/yoo_square/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-  <!--
-        <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <base  />
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Biotec Italia produttore e distributore di macchinari estetico medicali e cosmeceutici per la cura di viso e corpo" />
+        <meta name="generator" content="MYOB" />
+        <title><?= $_SESSION['title'] ?></title>
+
+        <!--<link href="http://www.biotecitalia.com/templates/yoo_square/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />-->
+        <!--
+              <link rel="stylesheet" href="http://www.biotecitalia.com/cache/widgetkit/widgetkit-7044da1b.css" type="text/css" />
         -->
-  <link rel="stylesheet" href="http://www.biotecitalia.com/media/mod_languages/css/template.css" type="text/css" />
-  <script src="http://www.biotecitalia.com/media/jui/js/jquery.min.js" type="text/javascript"></script>
-  <script src="http://www.biotecitalia.com/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
-  <script src="http://www.biotecitalia.com/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
-  <script src="http://www.biotecitalia.com/media/zoo/assets/js/responsive.js?ver=20150120" type="text/javascript"></script>
-  <script src="http://www.biotecitalia.com/components/com_zoo/assets/js/default.js?ver=20150120" type="text/javascript"></script>
-  <script src="http://www.biotecitalia.com/cache/widgetkit/widgetkit-78853296.js" type="text/javascript"></script>
-  <script type="text/javascript">
-window.setInterval(function(){var r;try{r=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject("Microsoft.XMLHTTP")}catch(e){}if(r){r.open("GET","index.html",true);r.send(null)}},3600000);
-  </script>
+        <!--<link rel="stylesheet" href="http://www.biotecitalia.com/media/mod_languages/css/template.css" type="text/css" />-->
+<!--        <script src="http://www.biotecitalia.com/media/jui/js/jquery.min.js" type="text/javascript"></script>
+        <script src="http://www.biotecitalia.com/media/jui/js/jquery-noconflict.js" type="text/javascript"></script>
+        <script src="http://www.biotecitalia.com/media/jui/js/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="http://www.biotecitalia.com/media/zoo/assets/js/responsive.js?ver=20150120" type="text/javascript"></script>
+        <script src="http://www.biotecitalia.com/components/com_zoo/assets/js/default.js?ver=20150120" type="text/javascript"></script>
+        <script src="http://www.biotecitalia.com/cache/widgetkit/widgetkit-78853296.js" type="text/javascript"></script>-->
+        <link rel="stylesheet" href="../../../templates/css/style.css" type="text/css" />
+        <link rel="stylesheet" href="../../../media/template.css" type="text/css" />
+        <script src="../../../media/jquery.min.js" type="text/javascript"></script>
+        <script src="../../../media/jquery-noconflict.js" type="text/javascript"></script>
+        <script src="../../../media/jquery-migrate.min.js" type="text/javascript"></script>
+        <script src="../../../media/widgetkit-78853296.js" type="text/javascript"></script>
 
-<link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">
-<style data-file="bootstrap.css"></style>
-<!--<style data-file="theme.css"></style>-->
-<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/template.css?v=1">
-<!--<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">-->
 
-<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
+        <script type="text/javascript">
+            window.setInterval(function () {
+                var r;
+                try {
+                    r = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP")
+                } catch (e) {
+                }
+                if (r) {
+                    r.open("GET", "index.html", true);
+                    r.send(null)
+                }
+            }, 3600000);
+        </script>
+
+        <!--<link rel="apple-touch-icon-precomposed" href="http://www.biotecitalia.com/templates/yoo_square/apple_touch_icon.png">-->
+        <style data-file="bootstrap.css"></style>
+        <!--<style data-file="theme.css"></style>-->
+        <link id="data-uikit-theme" rel="stylesheet" href="../../../templates/template.css?v=1">
+        <link id="data-uikit-theme" rel="stylesheet" href="../../../templates/widgetkit.css">
+
+<!--<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/js/theme.js"></script>
-<script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>
-<script src="scripts.js"></script>
-<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
-<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
-<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
-<script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>
-</head>
+<script src="http://www.biotecitalia.com/templates/yoo_square/js/bgColorScroll.js"></script>-->
+        <script src="scripts.js"></script>
+        <!--<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-less.js"></script>
+        <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/jquery/jquery-rtl.js"></script>
+        <script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/less/less.js"></script>
+        <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>-->
+        
+        <script src="../../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
+<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/warp/vendor/uikit/css/uikit.docs.min.css">
+<script src="../../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
+<script src="../../../templates/warp/vendor/uikit/js/components/slideshow.js"></script>
+<script src="../../../templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
+    </head>
 
 
     <body class="tm-noblog macchine-medicali">
