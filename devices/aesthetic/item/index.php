@@ -73,7 +73,7 @@ if (file_exists($logo) and $_data[$i]['s_devices_logo'] != '') {
 ?>
 
 <?php
-$logo02 = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo02'];
+$logo021 = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo02'];
 
 if (file_exists($logo02) and $_data[$i]['s_devices_logo02'] != '') {
 ?>
@@ -85,7 +85,7 @@ if (file_exists($logo02) and $_data[$i]['s_devices_logo02'] != '') {
 ?>
 
 <?php
-$logo03 = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo03'];
+$logo031 = "../../../manage/bio/uploads/devices_item/".$_data[$i]['s_devices_logo03'];
 
 if (file_exists($logo03) and $_data[$i]['s_devices_logo03'] != '') {
 ?>
@@ -99,10 +99,10 @@ if (file_exists($logo03) and $_data[$i]['s_devices_logo03'] != '') {
                                                                                                      
                                                 <?php //} ?>
                                             </ul>
-                                            <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous">
+                                            <a href="#" class="uk-slidenav uk-slidenav-previous" data-uk-slideset-item="previous"  style="display: none;">
                                                 <img src="../../../images/slideshow/previous.png">
                                             </a>
-                                            <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next">
+                                            <a href="#" class="uk-slidenav uk-slidenav-next" data-uk-slideset-item="next"  style="display: none;">
                                                 <img src="../../../images/slideshow/next.png">
                                             </a>
                                         </div>

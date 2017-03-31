@@ -183,6 +183,9 @@ ACTIVEPAGES_SUB(2, $_GET[id]);
                             $('.dataTables_empty').remove();
                             datatable.clear();
                             datatable.draw();
+                            
+                            $('#se-pre-con').delay(100).fadeOut();
+                            return;
                         }
                             
                             var res = JSON.parse(data);
