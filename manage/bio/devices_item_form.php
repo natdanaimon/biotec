@@ -252,8 +252,8 @@ if ($_GET[seq_i]) {
 
 
                                                 </div>
-                                                
-                                                <div class="col-md-12">
+                                                <!-- ********* Slide 02-03 ********* -->
+                                                <div class="col-md-12" style="display: none;">
                                                 
                                                 
                                                 <div class="col-md-4 col-sm-4 col-xs-4">
