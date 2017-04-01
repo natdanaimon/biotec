@@ -64,7 +64,7 @@
                             <i class="fa fa-flask"></i> <?= $_SESSION["cosmeceuticals"] ?> <span class="fa fa-chevron-down"></span>
                         </a>
                         <ul class="nav child_menu" style="<?= $_SESSION["style3"] ?>">
-                            <li class="<?= $_SESSION["sm2"] ?>"><a href="cosme.php"><?= $_SESSION["main_cosmeceuticals"] ?></a></li>
+<!--                            <li class="<?= $_SESSION["sm2"] ?>"><a href="cosme.php"><?= $_SESSION["main_cosmeceuticals"] ?></a></li>-->
                             <li class="<?= $_SESSION["s3"] ?>"><a href="cosme_item.php?id=1"><?= $_SESSION["rigenera"] ?></a></li>
                             <li class="<?= $_SESSION["s4"] ?>"><a href="cosme_item.php?id=2"><?= $_SESSION["dry_sensitive"] ?></a></li>
                             <li class="<?= $_SESSION["s5"] ?>"><a href="cosme_item.php?id=3"><?= $_SESSION["combination_oily"] ?></a></li>
