@@ -39,7 +39,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="../../media/jquery.min.js" type="text/javascript"></script>
         <script src="../../media/jquery-noconflict.js" type="text/javascript"></script>
         <script src="../../media/jquery-migrate.min.js" type="text/javascript"></script>
-        <script src="../../media/widgetkit-78853296.js" type="text/javascript"></script>
+       <!-- <script src="../../media/widgetkit-78853296.js" type="text/javascript"></script>-->
 
 
         <script type="text/javascript">

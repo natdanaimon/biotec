@@ -256,9 +256,9 @@ if ($_GET[seq_i]) {
                                                 <div class="col-md-12" style="display: none;">
                                                 
                                                 
-                                                <div class="col-lg-4">
+                                                <div class="col-md-4 col-sm-4 col-xs-4">
                                                         <?= $_SESSION["device_image_detail"] ?> 02<br />                                                        
-                                                        <img src="images/user.png" id="show_logo02" width="200" height="200" />
+                                                        <img src="images/user.png" id="show_logo02" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -277,9 +277,9 @@ if ($_GET[seq_i]) {
 
 
 
-                                                    <div class="col-lg-4">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         <?= $_SESSION["device_image_detail"] ?> 03<br />                                                        
-                                                        <img src="images/user.png" id="show_logo03" width="200"  height="200" />
+                                                        <img src="images/user.png" id="show_logo03" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -299,13 +299,12 @@ if ($_GET[seq_i]) {
 
 
                                                 
-                                                
-                                                <div class="col-md-12"></div>
+                                                <hr />
                                                 <div class="col-md-12">
 
-                                                    <div class="col-lg-2">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         01  <?= $_SESSION["device_before"] ?>   <br />                                                    
-                                                        <img src="images/user.png" id="show_01_before" width="150" height="112" />
+                                                        <img src="images/user.png" id="show_01_before" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -320,9 +319,9 @@ if ($_GET[seq_i]) {
                                                     </div>
 
 
-                                                    <div class="col-lg-2">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         01  <?= $_SESSION["device_after"] ?> <br />
-                                                        <img src="images/user.png" id="show_01_after" width="150" height="112" />
+                                                        <img src="images/user.png" id="show_01_after" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -335,11 +334,14 @@ if ($_GET[seq_i]) {
                                                         </div>                                                         
 
                                                     </div>
+                                                </div>
 
+                                                <hr />
+                                                <div class="col-md-12">
 
-                                                    <div class="col-lg-2">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         02  <?= $_SESSION["device_before"] ?> <br />
-                                                        <img src="images/user.png" id="show_02_before" width="150" height="112" />
+                                                        <img src="images/user.png" id="show_02_before" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -355,9 +357,9 @@ if ($_GET[seq_i]) {
 
 
 
-                                                    <div class="col-lg-2">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         02  <?= $_SESSION["device_after"] ?> <br />
-                                                        <img src="images/user.png" id="show_02_after" width="150" height="112" />
+                                                        <img src="images/user.png" id="show_02_after" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -370,10 +372,14 @@ if ($_GET[seq_i]) {
                                                         </div>                                                         
 
                                                     </div>
+                                                </div>
 
-                                                    <div class="col-lg-2">
+                                                <hr />
+                                                <div class="col-md-12">
+
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         03  <?= $_SESSION["device_before"] ?> <br />
-                                                        <img src="images/user.png" id="show_03_before" width="150" height="112" />
+                                                        <img src="images/user.png" id="show_03_before" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
@@ -388,9 +394,9 @@ if ($_GET[seq_i]) {
                                                     </div>
 
 
-                                                    <div class="col-lg-2">
+                                                    <div class="col-md-4 col-sm-4 col-xs-4">
                                                         03  <?= $_SESSION["device_after"] ?> <br />
-                                                        <img src="images/user.png" id="show_03_after" width="150" height="112" />
+                                                        <img src="images/user.png" id="show_03_after" width="200" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >

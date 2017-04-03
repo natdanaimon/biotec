@@ -41,7 +41,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="../../media/jquery.min.js" type="text/javascript"></script>
         <script src="../../media/jquery-noconflict.js" type="text/javascript"></script>
         <script src="../../media/jquery-migrate.min.js" type="text/javascript"></script>
+        <!--
         <script src="../../media/widgetkit-78853296.js" type="text/javascript"></script>
+        -->
 
 
         <script type="text/javascript">
@@ -62,7 +64,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <style data-file="bootstrap.css"></style>
         <!--<style data-file="theme.css"></style>-->
         <link id="data-uikit-theme" rel="stylesheet" href="../../templates/template.css?v=1">
+        <!--
         <link id="data-uikit-theme" rel="stylesheet" href="../../templates/widgetkit.css">
+        -->
 
 <!--<script src="http://www.biotecitalia.com/templates/yoo_square/warp/vendor/uikit/js/uikit.js"></script>
 <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/social.js"></script>
@@ -75,7 +79,9 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>-->
         
         <script src="../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
+        <!--
 <link id="data-uikit-theme" rel="stylesheet" href="../../templates/warp/vendor/uikit/css/uikit.docs.min.css">
+-->
 <script src="../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
 <script src="../../templates/warp/vendor/uikit/js/components/slideshow.js"></script>
 <script src="../../templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
