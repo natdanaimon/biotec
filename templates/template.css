@@ -988,7 +988,7 @@ body.tm-sidebars-2 .tm-main-top{margin-bottom:0;}
 .tm-block-dark{position:relative;width:100%;padding:70px 0;border-top:1px solid rgba(204, 178, 111, 0.8);background-color:rgba(54, 60, 79, 0.03);background-clip:padding-box;-moz-background-clip:padding;-webkit-background-clip:padding;}
 .tm-footer{position:relative;color:#d0d2d8;}
 .tm-footer a{color:#414d5a;}
-@media (min-width:767px){.tm-headerbar{margin-top:35px;} .tm-block,.tm-main-top{margin-bottom:70px;} .tm-block-dark .tm-block{margin-bottom:0;}}.uk-panel{position:relative;-webkit-backface-visibility:hidden;}
+@media (min-width:767px){.tm-headerbar{margin-top:35px;} .tm-block,.tm-main-top{margin-bottom:20px;} .tm-block-dark .tm-block{margin-bottom:0;}}.uk-panel{position:relative;-webkit-backface-visibility:hidden;}
 @media (max-width:767px){.tm-headerbar{padding:25px 0;} .tm-block,.tm-main-top{margin-bottom:50px;} .tm-block-dark{padding:50px 0;} .tm-footer{margin-top:-50px;} .tm-block-divider{margin-top:50px;padding-top:50px;}}.tm-logo-small{letter-spacing:-0.31em;}
 .uk-offcanvas .uk-search{margin:0;}
 @media (max-width:767px){[class*='uk-animation-']{-webkit-animation-name:none;animation-name:none;} [data-uk-scrollspy*='uk-animation-']{opacity:1;}}body{-webkit-text-stroke:1px transparent;-webkit-text-rendering:optimizeLegibility;text-rendering:optimizeLegibility;}
@@ -1067,7 +1067,7 @@ body.tm-isblog .uk-container .tm-toolbar,body.tm-noblog .uk-container .tm-toolba
 .tm-content .yoo-zoo.macchine-uikit .video a{color:#fff;padding:3px 10px 3px 10px;font-size:16px;background:#ccb26f;}.tm-content .yoo-zoo.macchine-uikit .video a:hover{text-decoration:none;background:#ac955a;color:#fff;}
 .tm-content .yoo-zoo.macchine-uikit .video a:before{margin-right:10px;}
 .tm-content .yoo-zoo.macchine-uikit .chiedi-info{color:#ccb26f;margin-top:25px;}.tm-content .yoo-zoo.macchine-uikit .chiedi-info:before{color:#ccb26f;margin-right:10px;}
-.tm-content .yoo-zoo.macchine-uikit .prima-dopo{clear:both;margin-bottom:40px;}.tm-content .yoo-zoo.macchine-uikit .prima-dopo h2{font-size:16px;display:block;}.tm-content .yoo-zoo.macchine-uikit .prima-dopo h2:before{margin-right:7px;}
+.tm-content .yoo-zoo.macchine-uikit .prima-dopo{clear:both;margin-bottom:20px;}.tm-content .yoo-zoo.macchine-uikit .prima-dopo h2{font-size:16px;display:block;}.tm-content .yoo-zoo.macchine-uikit .prima-dopo h2:before{margin-right:7px;}
 .tm-content .yoo-zoo.macchine-uikit #macchine-item-tab{margin-top:25px;}
 .tm-content .yoo-zoo.macchine-uikit .uk-tab{clear:both;height:35px;border-bottom:1px solid #ccb26f;margin-top:50px;}.tm-content .yoo-zoo.macchine-uikit .uk-tab li h3{font-size:16px;background-color:#f6f6f6;margin-right:10px;padding:9px 15px;cursor:pointer;cursor:hand;}.tm-content .yoo-zoo.macchine-uikit .uk-tab li h3:hover{background-color:#ac955a;color:#fff;}
 .tm-content .yoo-zoo.macchine-uikit .uk-tab li.uk-active h3{background-color:#ccb26f;color:#fff;cursor:default;}

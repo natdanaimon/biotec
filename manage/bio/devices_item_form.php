@@ -21,6 +21,7 @@ if ($_GET[seq_i]) {
 } else {
     $txt_title_form = $_SESSION["add"];
 }
+sleep(2);
 ?>
 
 <html lang="en">
@@ -218,7 +219,7 @@ if ($_GET[seq_i]) {
 
                                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                                         <?= $_SESSION["device_image_header"] ?> <br />                                                        
-                                                        <img src="images/user.png" id="show_icon" width="200" />
+                                                        <img src="images/user.png" id="show_icon" width="200" height="61" />
                                                         <br />                                                        
                                                         <br /> 
                                                         <div class="fileContainers"  >
@@ -231,12 +232,12 @@ if ($_GET[seq_i]) {
                                                         </div>                                                       
 
                                                     </div>
-
-
+</div>
+<div class="col-md-12">
 
                                                     <div class="col-md-4 col-sm-4 col-xs-4">
                                                         <?= $_SESSION["device_image_detail"] ?> 01<br />                                                        
-                                                        <img src="images/user.png" id="show_logo" width="200" />
+                                                        <img src="images/user.png" id="show_logo" width="200" height="112" />
                                                         <br />                                                        
                                                         <br />                                                        
                                                         <div class="fileContainer"  >
