@@ -39,7 +39,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="../../../media/jquery.min.js" type="text/javascript"></script>
         <script src="../../../media/jquery-noconflict.js" type="text/javascript"></script>
         <script src="../../../media/jquery-migrate.min.js" type="text/javascript"></script>
-        <!--<script src="../../../media/widgetkit-78853296.js" type="text/javascript"></script>-->
+        <script src="../../../media/widgetkit-78853296.js" type="text/javascript"></script>
 
 
         <script type="text/javascript">
@@ -73,8 +73,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>-->
         
         <script src="../../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
-<!--
-<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/warp/vendor/uikit/css/uikit.docs.min.css">-->
+<link id="data-uikit-theme" rel="stylesheet" href="../../../templates/warp/vendor/uikit/css/uikit.docs.min.css">
 <script src="../../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
 <script src="../../../templates/warp/vendor/uikit/js/components/slideshow.js"></script>
 <script src="../../../templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
@@ -91,7 +90,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
 
 
                     <div class="uk-float-right"><div class="uk-panel toolbar-sopra-tel">
-                            Tel: <a href="tel:+66854825565">+66 085-4825565</a></div>
+                            Tel: <a href="tel:+66968262459">+66 096-8262459</a></div>
                         <div class="uk-panel toolbar-sopra-lingue"><div class="mod-languagestoolbar-sopra-lingue">
 
                                 <ul class="lang-inline">
