@@ -14,7 +14,7 @@ slidePage("contacts");
         <section class="elemento-absolute-content" data-uk="grid-match {target:'> div > .uk-panel'}"><div class="">
                 <span class="uk-icon-envelope"><?= $_SESSION["cont_email"] ?>: <a href="mailto:info@biotecitalia-thailand.com">info@biotecitalia-thailand.com </a> 
                     <a href="mailto:info@biotecitalia.com"></a></span> <br />
-                <span class="uk-icon-phone"><?= $_SESSION["cont_tel"] ?>: <a href="tel:+66854825565">+66 085-4825565</a></span> <br />
+                <span class="uk-icon-phone"><?= $_SESSION["cont_tel"] ?>: <a href="tel:+66968262459">+66 096-8262459</a></span> <br />
 <!--                <span class="uk-icon-print"><?= $_SESSION["cont_fax"] ?>: +66 0999 99999</span> <br /><br /> -->
                 <span class="uk-icon-map-marker"><?= $_SESSION["cont_add_l1"] ?></span> 
                 <br /><span class="spazio"><?= $_SESSION["cont_add_l2"] ?> </span>
