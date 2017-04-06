@@ -17,9 +17,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <!--
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        -->
         <base  />
         <meta name="keywords" content="Biotec Italia-thailand, medical devices, aesthetic equipments, cosmetic laser, medical cosmetic lasers, medical solutions, cosmeceuticals, Renlive" />
         <meta name="description" content="Biotec Italia-thailand produces and distributes medical and aesthetic devices, cosmetic and medical lasers and cosmeceuticals." />
@@ -45,9 +43,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
-            <!--
             <link id="data-uikit-theme" rel="stylesheet" href="templates/warp/vendor/uikit.docs.min.css">
-            -->
             <script src="templates/warp/vendor/jquery.js"></script>
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>
@@ -65,9 +61,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <script src="media/jquery.min.js" type="text/javascript"></script>
             <script src="media/jquery-noconflict.js" type="text/javascript"></script>
             <script src="media/jquery-migrate.min.js" type="text/javascript"></script>
-            <!--
             <script src="media/widgetkit-78853296.js" type="text/javascript"></script>
-            -->
 
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
 
@@ -94,9 +88,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <link rel="stylesheet" href="templates/warp/vendor/uikit/css/uikit.min.css" />
           
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
-            <!--
             <link id="data-uikit-theme" rel="stylesheet" href="templates/warp/vendor/uikit.docs.min.css">
-            -->
             <script src="templates/warp/vendor/jquery.js"></script>
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>
@@ -123,7 +115,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
 
 
                     <div class="uk-float-right"><div class="uk-panel toolbar-sopra-tel">
-                            Tel: <a href="tel:+66854825565">+66 085-4825565</a></div>
+                            Tel: <a href="tel:+66968262459">+66 096-8262459</a></div>
                         <div class="uk-panel toolbar-sopra-lingue"><div class="mod-languagestoolbar-sopra-lingue">
 
                                 <ul class="lang-inline">
