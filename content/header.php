@@ -17,7 +17,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
         <base  />
         <meta name="keywords" content="Biotec Italia-thailand, medical devices, aesthetic equipments, cosmetic laser, medical cosmetic lasers, medical solutions, cosmeceuticals, Renlive" />
         <meta name="description" content="Biotec Italia-thailand produces and distributes medical and aesthetic devices, cosmetic and medical lasers and cosmeceuticals." />
