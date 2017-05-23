@@ -41,7 +41,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="../../media/jquery.min.js" type="text/javascript"></script>
         <script src="../../media/jquery-noconflict.js" type="text/javascript"></script>
         <script src="../../media/jquery-migrate.min.js" type="text/javascript"></script>
-        <script src="../../media/widgetkit-78853296.js" type="text/javascript"></script>
+        <!--<script src="../../media/widgetkit-78853296.js" type="text/javascript"></script>-->
 
 
         <script type="text/javascript">
@@ -75,7 +75,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
         <script src="http://www.biotecitalia.com/templates/yoo_square/warp/js/developer.js"></script>-->
         
         <script src="../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
-<link id="data-uikit-theme" rel="stylesheet" href="../../templates/warp/vendor/uikit/css/uikit.docs.min.css">
+<!--<link id="data-uikit-theme" rel="stylesheet" href="../../templates/warp/vendor/uikit/css/uikit.docs.min.css">-->
 <script src="../../templates/warp/vendor/uikit/js/uikit.min.js"></script>
 <script src="../../templates/warp/vendor/uikit/js/components/slideshow.js"></script>
 <script src="../../templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
@@ -249,7 +249,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
                     </div>
 
 
-                    <a class="tm-logo uk-navbar-brand uk-hidden-small" href="index.php">
+                    <a class="tm-logo uk-navbar-brand uk-hidden-small" href="../../index.php">
                         <img alt="logo-biotec" src="../../images/logo/biotec_th.png" height="104" width="96" />
                     </a>
 

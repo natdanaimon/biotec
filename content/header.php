@@ -43,7 +43,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
             <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow-fx.js"></script>
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
-            <link id="data-uikit-theme" rel="stylesheet" href="templates/warp/vendor/uikit.docs.min.css">
+            <!--<link id="data-uikit-theme" rel="stylesheet" href="templates/warp/vendor/uikit.docs.min.css">-->
             <script src="templates/warp/vendor/jquery.js"></script>
             <script src="templates/warp/vendor/uikit/js/uikit.min.js"></script>
             <script src="templates/warp/vendor/uikit/js/components/slideshow.js"></script>

@@ -249,7 +249,7 @@ if (!isset($_SESSION['checkSession']) || $_SESSION['checkSession'] == '' || $_SE
                     </div>
 
 
-                    <a class="tm-logo uk-navbar-brand uk-hidden-small" href="index.php">
+                    <a class="tm-logo uk-navbar-brand uk-hidden-small" href="../../../index.php">
                         <img alt="logo-biotec" src="../../../images/logo/biotec_th.png" height="104" width="96" />
                     </a>
 
